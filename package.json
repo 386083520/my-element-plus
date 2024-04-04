@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "vue": "3.4.21"
+  },
+  "dependencies": {
+    "@my-element-plus/components": "workspace:^"
   }
 }

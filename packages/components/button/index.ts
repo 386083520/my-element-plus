@@ -1,10 +1,5 @@
 import Button from './src/button.vue'
+import { withInstall } from '@my-element-plus/utils/install'
 const MyButton = withInstall(Button)
-import { Plugin } from 'vue'
-function withInstall(comp) {
-    (comp as Plugin).install = function(app) {
-        app.component(comp.name, comp)
-    }
-    return (comp as Plugin)
-}
+
 export default MyButton

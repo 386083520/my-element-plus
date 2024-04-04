@@ -3,6 +3,6 @@
 </template>
 <script setup lang="ts">
     defineOptions({
-        name: 'MyButton'
+        name: "MyButton"
     })
 </script>

@@ -11,12 +11,17 @@ importers:
       '@my-element-plus/components':
         specifier: workspace:^
         version: link:packages/components
+      '@my-element-plus/utils':
+        specifier: workspace:^
+        version: link:packages/utils
     devDependencies:
       vue:
         specifier: 3.4.21
         version: 3.4.21
 
   packages/components: {}
+
+  packages/utils: {}
 
   play:
     devDependencies:

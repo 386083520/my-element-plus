@@ -15,9 +15,12 @@ importers:
         specifier: workspace:^
         version: link:packages/utils
     devDependencies:
+      typescript:
+        specifier: ^5.4.3
+        version: 5.4.3
       vue:
         specifier: 3.4.21
-        version: 3.4.21
+        version: 3.4.21(typescript@5.4.3)
 
   packages/components: {}
 
@@ -404,7 +407,7 @@ packages:
       vue: ^3.2.25
     dependencies:
       vite: 5.2.8
-      vue: 3.4.21
+      vue: 3.4.21(typescript@5.4.3)
     dev: true
 
   /@vue/compiler-core@3.4.21:
@@ -473,7 +476,7 @@ packages:
     dependencies:
       '@vue/compiler-ssr': 3.4.21
       '@vue/shared': 3.4.21
-      vue: 3.4.21
+      vue: 3.4.21(typescript@5.4.3)
     dev: true
 
   /@vue/shared@3.4.21:
@@ -593,6 +596,12 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /typescript@5.4.3:
+    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
+
   /vite@5.2.8:
     resolution: {integrity: sha512-OyZR+c1CE8yeHw5V5t59aXsUPPVTHMDjEZz8MgguLL/Q7NblxhZUlTu9xSPqlsUO/y+X7dlU05jdhvyycD55DA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -628,7 +637,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vue@3.4.21:
+  /vue@3.4.21(typescript@5.4.3):
     resolution: {integrity: sha512-5hjyV/jLEIKD/jYl4cavMcnzKwjMKohureP8ejn3hhEjwhWIhWeuzL2kJAjzl/WyVsgPY56Sy4Z40C3lVshxXA==}
     peerDependencies:
       typescript: '*'
@@ -641,4 +650,5 @@ packages:
       '@vue/runtime-dom': 3.4.21
       '@vue/server-renderer': 3.4.21(vue@3.4.21)
       '@vue/shared': 3.4.21
+      typescript: 5.4.3
     dev: true

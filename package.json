@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "typescript": "^5.4.3",
     "vue": "3.4.21"
   },
   "dependencies": {

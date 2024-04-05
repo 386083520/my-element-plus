@@ -1,4 +1,3 @@
 <template>
-    appfdsaf
-    <my-button></my-button>
+  <ell-card></ell-card>
 </template>

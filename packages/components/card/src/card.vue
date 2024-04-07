@@ -1,12 +1,12 @@
 <template>
     <div class="el-card is-always-shadow">
-        <div class="el-card__header">
+        <div class="el-card__header" v-if="$slots.header">
             <slot name="header"></slot>
         </div>
         <div class="el-card__body">
             <slot/>
         </div>
-        <div class="el-card__footer">
+        <div class="el-card__footer" v-if="$slots.footer">
             <slot name="footer"></slot>
         </div>
     </div>

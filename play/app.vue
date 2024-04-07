@@ -4,7 +4,7 @@
     <template #footer>Footer content</template>
   </el-card>
 
-  <ell-card header="header" style="max-width: 480px">
+  <ell-card header="header" style="max-width: 480px" shadow="never">
     body111
     <template #header>
       header111

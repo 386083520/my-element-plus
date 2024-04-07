@@ -1,5 +1,5 @@
 <template>
-    <div class="ell-card is-always-shadow">
+    <div class="ell-card" :class="shadow? 'is-' + shadow + '-shadow': ''">
         <div class="ell-card__header" v-if="$slots.header || header">
             <slot name="header">{{header}}</slot>
         </div>
@@ -19,6 +19,10 @@
         header: {
             type: String,
             default: ''
+        },
+        shadow: {
+            type: String,
+            default: 'always'
         }
     })
 </script>
@@ -40,6 +44,9 @@
         border-top: 1px solid #e4e7ed;
     }
     .ell-card.is-always-shadow {
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+    }
+    .ell-card.is-hover-shadow:hover {
         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
     }
 </style>

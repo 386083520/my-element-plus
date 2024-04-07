@@ -1,13 +1,13 @@
 <template>
     <div class="el-card is-always-shadow">
         <div class="el-card__header">
-            header
+            <slot name="header"></slot>
         </div>
         <div class="el-card__body">
-            body
+            <slot/>
         </div>
         <div class="el-card__footer">
-            footer
+            <slot name="footer"></slot>
         </div>
     </div>
 </template>

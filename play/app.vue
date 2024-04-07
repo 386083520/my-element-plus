@@ -1,18 +1,13 @@
 <template>
-  <el-card style="max-width: 480px">
-    <template #header>
-      <div class="card-header">
-        <span>Card name</span>
-      </div>
-    </template>
+  <el-card style="max-width: 480px" header="header">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
     <template #footer>Footer content</template>
   </el-card>
 
-  <ell-card>
+  <ell-card header="header" style="max-width: 480px">
+    body111
     <template #header>
       header111
     </template>
-    body111
   </ell-card>
 </template>

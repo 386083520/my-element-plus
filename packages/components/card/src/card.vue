@@ -1,7 +1,7 @@
 <template>
     <div class="el-card is-always-shadow">
-        <div class="el-card__header" v-if="$slots.header">
-            <slot name="header"></slot>
+        <div class="el-card__header" v-if="$slots.header || header">
+            <slot name="header">{{header}}</slot>
         </div>
         <div class="el-card__body">
             <slot/>
@@ -14,6 +14,12 @@
 <script setup lang="ts">
     defineOptions({
         name: 'EllCard'
+    })
+    defineProps({
+        header: {
+            type: String,
+            default: ''
+        }
     })
 </script>
 <style>

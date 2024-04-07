@@ -3,7 +3,7 @@
         <div class="ell-card__header" v-if="$slots.header || header">
             <slot name="header">{{header}}</slot>
         </div>
-        <div class="ell-card__body">
+        <div class="ell-card__body" :style="bodyStyle">
             <slot/>
         </div>
         <div class="ell-card__footer" v-if="$slots.footer">
@@ -23,6 +23,10 @@
         shadow: {
             type: String,
             default: 'always'
+        },
+        bodyStyle:{
+            type: Object,
+            default: ''
         }
     })
 </script>

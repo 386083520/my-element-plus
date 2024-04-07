@@ -1,13 +1,17 @@
 <template>
-  <el-card style="max-width: 480px" header="header">
-    <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
-    <template #footer>Footer content</template>
+  <el-card style="max-width: 480px" :bodyStyle="{padding:'0px'}">
+    <template #header>Yummy hamburger</template>
+    <img
+      src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+      style="width: 100%"
+    />
   </el-card>
 
-  <ell-card header="header" style="max-width: 480px" shadow="never">
-    body111
-    <template #header>
-      header111
-    </template>
+  <ell-card style="max-width: 480px" :bodyStyle="{padding:'0px'}">
+    <template #header>Yummy hamburger</template>
+    <img
+      src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+      style="width: 100%"
+    />
   </ell-card>
 </template>

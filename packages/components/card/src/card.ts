@@ -1,6 +1,8 @@
-export const cardProps = {
+import { buildProps } from "@my-element-plus/utils/vue/props/runtime"
+export const cardProps = buildProps({
     header: {
         type: String,
+        required: true,
         default: ''
     },
     shadow: {
@@ -15,4 +17,4 @@ export const cardProps = {
         type: String,
         default: ''
     }
-}
+})

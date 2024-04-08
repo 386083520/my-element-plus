@@ -1,5 +1,5 @@
 <template>
-  <el-card style="max-width: 480px" :bodyStyle="{padding:'0px'}">
+  <el-card style="max-width: 480px" bodyClass="card-style">
     <template #header>Yummy hamburger</template>
     <img
       src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -7,7 +7,7 @@
     />
   </el-card>
 
-  <ell-card style="max-width: 480px" :bodyStyle="{padding:'0px'}">
+  <ell-card style="max-width: 480px"  bodyClass="card-style">
     <template #header>Yummy hamburger</template>
     <img
       src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -15,3 +15,8 @@
     />
   </ell-card>
 </template>
+<style>
+  .card-style{
+    padding: 0px;
+  }
+</style>

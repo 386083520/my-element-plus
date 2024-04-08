@@ -13,8 +13,5 @@ export const cardProps = buildProps({
         type: Object,
         default: ''
     },
-    bodyClass: {
-        type: String,
-        default: ''
-    }
+    bodyClass: String
 })

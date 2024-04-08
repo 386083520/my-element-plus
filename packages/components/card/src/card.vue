@@ -12,27 +12,11 @@
     </div>
 </template>
 <script setup lang="ts">
+    import { cardProps } from './card.ts'
     defineOptions({
         name: 'EllCard'
     })
-    defineProps({
-        header: {
-            type: String,
-            default: ''
-        },
-        shadow: {
-            type: String,
-            default: 'always'
-        },
-        bodyStyle:{
-            type: Object,
-            default: ''
-        },
-        bodyClass: {
-            type: String,
-            default: ''
-        }
-    })
+    defineProps(cardProps)
 </script>
 <style>
     .ell-card {

@@ -17,6 +17,6 @@
 </template>
 <style>
   .card-style{
-    padding: 0px;
+    background: #ff0000;
   }
 </style>

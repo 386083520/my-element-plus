@@ -13,5 +13,9 @@ export const badgeProps = buildProps({
         default: 99
     },
     hidden: Boolean,
-    isDot: Boolean
+    isDot: Boolean,
+    showZero: {
+        type: Boolean,
+        default: true
+    }
 })

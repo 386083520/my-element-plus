@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.4.3",
-    "vue": "3.4.21"
+    "typescript": "^4.7.4",
+    "vue": "^3.2.37"
   },
   "dependencies": {
     "@my-element-plus/components": "workspace:^",
+    "@my-element-plus/theme-chalk": "workspace:^",
     "@my-element-plus/utils": "workspace:^"
   }
 }

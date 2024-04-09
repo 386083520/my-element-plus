@@ -3,5 +3,9 @@ export const badgeProps = buildProps({
     value: {
         type: String,
         default: ''
+    },
+    type: {
+        type: String,
+        default: 'danger'
     }
 })

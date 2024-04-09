@@ -1,7 +1,9 @@
 <template>
     <div class="ell-badge">
         <slot/>
-        <sup class="ell-badge__content is-fixed" v-text="value">
+        <sup
+        :class="type ? 'ell-badge__content--' + type : null"
+            class="ell-badge__content is-fixed" v-text="value">
         </sup>
     </div>
 </template>
@@ -34,5 +36,17 @@ defineProps(badgeProps)
         top: 0;
         right: 10px;
         transform: translateY(-50%) translateX(100%);
+    }
+    .ell-badge__content--primary {
+        background-color: #409EFF;
+    }
+    .ell-badge__content--warning {
+        background-color: #E6A23C;
+    }
+    .ell-badge__content--info {
+        background-color: #909399;
+    }
+    .ell-badge__content--success {
+        background-color: #67C23A;
     }
 </style>

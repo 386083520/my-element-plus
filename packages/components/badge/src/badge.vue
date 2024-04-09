@@ -30,13 +30,14 @@ const content = computed(() => {
     return `${props.value}`
 })
 </script>
-<style>
+<style lang="scss">
+@import "../../../theme-chalk/src/index.scss";
     .ell-badge {
         position: relative;
         display: inline-block;
     }
     .ell-badge__content {
-        background-color: #F56C6C;
+        background-color: $color-danger;
         padding: 0 6px;
         height: 18px;
         display: inline-flex;

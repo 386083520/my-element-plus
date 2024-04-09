@@ -2,6 +2,7 @@
     <div class="ell-badge">
         <slot/>
         <sup
+        v-show="!hidden"
         :class="type ? 'ell-badge__content--' + type : null"
             class="ell-badge__content is-fixed" v-text="content">
         </sup>

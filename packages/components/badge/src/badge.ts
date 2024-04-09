@@ -11,5 +11,6 @@ export const badgeProps = buildProps({
     max: {
         type: Number,
         default: 99
-    }
+    },
+    hidden: Boolean
 })

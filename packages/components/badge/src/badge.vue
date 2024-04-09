@@ -10,16 +10,16 @@
 <script setup lang="ts">
 import { badgeProps } from './badge.ts'  
 import { computed }  from 'vue'
+import { isNumber } from '@my-element-plus/utils/vue/props/types.ts'
 defineOptions({
     name: "EllBadge"
 })
 const props = defineProps(badgeProps)
 const content = computed(() => {
-    // if(isNumber(props.value) && isNumber(props.max)) {
-        
-    // }
-    if(props.max < props.value) {
+    if(isNumber(props.value) && isNumber(props.max)) {
+        if(props.max < props.value) {
             return `${props.max}+`
+        }
     }
     return props.value
 })

@@ -12,9 +12,9 @@
     </div>
 </template>
 <script setup lang="ts">
-import { badgeProps } from './badge.ts'
+import { badgeProps } from './badge'
 import { computed }  from 'vue'
-import { isNumber } from '@my-element-plus/utils/vue/props/types.ts'
+import { isNumber } from '@my-element-plus/utils/types'
 defineOptions({
     name: "EllBadge"
 })

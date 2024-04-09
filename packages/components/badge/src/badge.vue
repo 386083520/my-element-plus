@@ -3,7 +3,9 @@
         <slot/>
         <sup
         v-show="!hidden"
-        :class="type ? 'ell-badge__content--' + type : null"
+        :class="[type ? 'ell-badge__content--' + type : null, {
+            'is-dot': isDot
+        }]"
             class="ell-badge__content is-fixed" v-text="content">
         </sup>
     </div>
@@ -17,6 +19,7 @@ defineOptions({
 })
 const props = defineProps(badgeProps)
 const content = computed(() => {
+    if(props.isDot) return '' 
     if(isNumber(props.value) && isNumber(props.max)) {
         if(props.max < props.value) {
             return `${props.max}+`
@@ -47,6 +50,12 @@ const content = computed(() => {
         top: 0;
         right: 10px;
         transform: translateY(-50%) translateX(100%);
+    }
+    .ell-badge__content.is-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        right: 5px;
     }
     .ell-badge__content--primary {
         background-color: #409EFF;

@@ -2,7 +2,7 @@
     <div class="ell-badge">
         <slot/>
         <sup
-        v-show="!hidden"
+        v-show="!hidden && (content || isDot)"
         :class="[type ? 'ell-badge__content--' + type : null, {
             'is-dot': isDot
         }]"

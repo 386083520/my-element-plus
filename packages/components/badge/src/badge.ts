@@ -17,5 +17,6 @@ export const badgeProps = buildProps({
     showZero: {
         type: Boolean,
         default: true
-    }
+    },
+    color: String
 })

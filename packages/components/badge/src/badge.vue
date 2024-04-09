@@ -3,6 +3,7 @@
         <slot/>
         <sup
         v-show="!hidden && (content || isDot)"
+        :style="{backgroundColor: color}"
         :class="[type ? 'ell-badge__content--' + type : null, {
             'is-dot': isDot
         }]"

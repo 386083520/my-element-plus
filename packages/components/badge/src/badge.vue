@@ -3,16 +3,26 @@
         <slot/>
         <sup
         :class="type ? 'ell-badge__content--' + type : null"
-            class="ell-badge__content is-fixed" v-text="value">
+            class="ell-badge__content is-fixed" v-text="content">
         </sup>
     </div>
 </template>
 <script setup lang="ts">
-import { badgeProps } from './badge.ts'    
+import { badgeProps } from './badge.ts'  
+import { computed }  from 'vue'
 defineOptions({
     name: "EllBadge"
 })
-defineProps(badgeProps)
+const props = defineProps(badgeProps)
+const content = computed(() => {
+    // if(isNumber(props.value) && isNumber(props.max)) {
+        
+    // }
+    if(props.max < props.value) {
+            return `${props.max}+`
+    }
+    return props.value
+})
 </script>
 <style>
     .ell-badge {

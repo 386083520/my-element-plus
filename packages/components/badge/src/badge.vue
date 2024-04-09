@@ -1,6 +1,6 @@
 <template>
     <div>
-        text
+        <slot/>
         <sup>
             8
         </sup>

@@ -1,5 +1,7 @@
 <template>
-  <ell-badge></ell-badge>
+  <ell-badge>
+    <el-button>comments</el-button>
+  </ell-badge>
 </template>
 <style>
   

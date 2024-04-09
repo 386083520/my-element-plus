@@ -1,15 +1,16 @@
 <template>
     <div class="ell-badge">
         <slot/>
-        <sup class="ell-badge__content is-fixed">
-            8
+        <sup class="ell-badge__content is-fixed" v-text="value">
         </sup>
     </div>
 </template>
 <script setup lang="ts">
+import { badgeProps } from './badge.ts'    
 defineOptions({
     name: "EllBadge"
 })
+defineProps(badgeProps)
 </script>
 <style>
     .ell-badge {

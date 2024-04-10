@@ -4,7 +4,7 @@
     position: relative;
     display: inline-block;
 }
-.ell-badge__content {
+@include e(content) {
     background-color: $color-danger;
     padding: 0 6px;
     height: 18px;

@@ -1,6 +1,13 @@
 @mixin b($block) {
-    $B: "ell-" + $block;
+    $B: "ell-" + $block !global;
     .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($element) {
+    $currentSelector: $B + "__" + $element;
+    .#{$currentSelector} {
         @content;
     }
 }

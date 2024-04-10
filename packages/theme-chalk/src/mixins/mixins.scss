@@ -16,3 +16,10 @@
         @content;
     }
 }
+@mixin m($modifier) {
+    @at-root {
+        #{& + "--" + $modifier} {
+            @content;
+        }
+    }
+}

@@ -27,9 +27,9 @@
         padding: 0;
         right: 5px;
     }
-}
-.ell-badge__content--primary {
-    background-color: #409EFF;
+    @include m(primary) {
+        background-color: #409EFF;
+    }
 }
 .ell-badge__content--warning {
     background-color: #E6A23C;

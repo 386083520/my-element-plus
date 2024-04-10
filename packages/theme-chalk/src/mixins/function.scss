@@ -1,3 +1,10 @@
-@function getCssVar($args) {
-    @return var(#{"--ell-color-" + $args})
+@function joinVarName($list) {
+    $name: '--ell';
+    @each $item in $list {
+        $name: $name + '-' + $item
+    }
+    @return $name;
+}
+@function getCssVar($args...) {
+    @return var(#{joinVarName($args)})
 }

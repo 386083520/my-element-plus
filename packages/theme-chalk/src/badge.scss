@@ -32,7 +32,7 @@
     }
     @each $type in (primary,warning,info,success) {
         @include m($type) {
-            background-color: getCssVar($type);
+            background-color: getCssVar('color', $type);
         }
     }
 }

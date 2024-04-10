@@ -1,6 +1,6 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@import "./mixins/functioon.scss";
+@import "./mixins/function.scss";
 @include b(badge) {
     position: relative;
     display: inline-block;

@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100px;margin-top: 50px;">
-    <ell-badge :value="10" :showZero="false">
+    <ell-badge :value="10" :showZero="false" is-dot>
       <el-button>comments</el-button>
     </ell-badge>
   </div>

@@ -11,3 +11,8 @@
         @content;
     }
 }
+@mixin when($state) {
+    &.#{"is-" + $state} {
+        @content;
+    }
+}

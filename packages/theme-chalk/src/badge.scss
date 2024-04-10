@@ -5,19 +5,23 @@
 @include b(badge) {
     position: relative;
     display: inline-block;
+    --ell-badge-bg-color: #f56c6c;
+    --ell-badge-radius: 10px;
+    --ell-badge-font-size: 12px;
+    --ell-badge-padding: 6px;
 }
 @include e(content) {
-    background-color: $color-danger;
-    padding: 0 6px;
+    background-color: getCssVar("badge", "bg-color");
+    padding: 0 getCssVar("badge", "padding");
     height: 18px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 12px;
+    border-radius: getCssVar("badge", "radius");
+    font-size: getCssVar("badge", "font-size");
     color: #fff;
     border: 1px solid #ffffff;
-    
+
     @include when(fixed) {
         position: absolute;
         top: 0;

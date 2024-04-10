@@ -1,0 +1,3 @@
+@function getCssVar($args) {
+    @return var(#{"--ell-" + $args})
+}

@@ -1,5 +1,6 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
+@import "./mixins/functioon.scss";
 @include b(badge) {
     position: relative;
     display: inline-block;
@@ -15,6 +16,10 @@
     font-size: 12px;
     color: #fff;
     border: 1px solid #ffffff;
+    --ell-primary: #409EFF;
+    --ell-warning: #E6A23C;
+    --ell-info: #909399;
+    --ell-success: #67C23A;
     @include when(fixed) {
         position: absolute;
         top: 0;
@@ -29,15 +34,7 @@
     }
     @each $type in (primary,warning,info,success) {
         @include m($type) {
-            @if $type == primary {
-                background-color: #409EFF;
-            } @else if $type == warning {
-                background-color: #E6A23C;
-            } @else if $type == info {
-                background-color: #909399;
-            } @else if $type == success {
-                background-color: #67C23A;
-            }
+            background-color: getCssVar($type);
         }
     }
 }

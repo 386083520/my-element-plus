@@ -1,0 +1,6 @@
+@mixin b($block) {
+    $B: "ell-" + $block;
+    .#{$B} {
+        @content;
+    }
+}

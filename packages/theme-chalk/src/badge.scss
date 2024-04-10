@@ -1,5 +1,6 @@
 @import "./common/var.scss";
-.ell-badge {
+@import "./mixins/mixins.scss";
+@include b(badge) {
     position: relative;
     display: inline-block;
 }

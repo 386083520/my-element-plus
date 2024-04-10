@@ -4,7 +4,7 @@
       <el-button>comments</el-button>
     </ell-badge>
   </div>
-  <ell-card>agdsa</ell-card>
+  <ell-card shadow="hover">agdsa</ell-card>
 </template>
 <style>
 

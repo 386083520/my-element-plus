@@ -1,11 +1,13 @@
-$color-white: #ffffff;
-$color-black: #000000;
-$color-primary: #409eff;
-$color-success: #67c23a;
-$color-warning: #e6a23c;
-$color-danger: #f56c6c;
-$color-error: #f56c6c;
-$color-info: #909399;
+$colors: (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #409eff,
+    'success': #67c23a,
+    'warning': #e6a23c,
+    'danger': #f56c6c,
+    'error': #f56c6c,
+    'info': #909399
+);
 
 $badge: (
     'bg-color': #f56c6c,

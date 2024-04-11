@@ -1,6 +1,7 @@
+@import "./mixins/var.scss";
+@import "./common/var.scss";
 :root {
-    --ell-color-primary: #409EFF;
-    --ell-color-warning: #E6A23C;
-    --ell-color-info: #909399;
-    --ell-color-success: #67C23A;
+    @each $type in (primary, warning, info, success, error, danger) {
+        @include set-css-color-type($type, $colors)
+    }
 }

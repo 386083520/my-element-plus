@@ -2,13 +2,11 @@
 @import "./mixins/mixins.scss";
 @import "./mixins/function.scss";
 @import "./var.scss";
+@import "./mixins/var.scss";
 @include b(badge) {
+    @include set-component-css-var("badge", $badge);
     position: relative;
     display: inline-block;
-    --ell-badge-bg-color: #f56c6c;
-    --ell-badge-radius: 10px;
-    --ell-badge-font-size: 12px;
-    --ell-badge-padding: 6px;
 }
 @include e(content) {
     background-color: getCssVar("badge", "bg-color");

@@ -6,3 +6,10 @@ $color-warning: #e6a23c;
 $color-danger: #f56c6c;
 $color-error: #f56c6c;
 $color-info: #909399;
+
+$badge: (
+    'bg-color': #f56c6c,
+    'radius': 10px,
+    'font-size': 12px,
+    'padding': 6px
+)

@@ -8,3 +8,6 @@
 @function getCssVar($args...) {
     @return var(#{joinVarName($args)})
 }
+@function getCssVarName($args...) {
+    @return joinVarName($args)
+}

@@ -1,4 +1,10 @@
 NAME=$1
+re="[[:space:]]+"
+if [ "$#" -ne 1 ] || [[ $NAME =~ $re ]] || [ "$NAME" == "" ];then
+    echo "参数错误"
+    exit 1
+fi    
+
 FILE_PATH=$(cd "$(dirname ${BASH_SOURCE[0]})/../packages" && pwd)
 DIRNAME="$FILE_PATH/components/$NAME"
 

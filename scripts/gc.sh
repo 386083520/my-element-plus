@@ -24,3 +24,10 @@ cat > $DIRNAME/src/$NAME.ts <<EOF
 import { buildProps } from "@my-element-plus/utils/vue/props/runtime"
 export const ${NAME}Props = buildProps({})
 EOF
+
+cat <<EOF >"$DIRNAME/index.ts"
+import { withInstall } from "@my-element-plus/utils/install";
+import $NAME from "./src/$NAME.vue";
+const Ell$NAME  = withInstall($NAME)
+export default Ell$NAME
+EOF

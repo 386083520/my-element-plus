@@ -1,2 +1,7 @@
 import { buildProps } from "@my-element-plus/utils/vue/props/runtime"
-export const colProps = buildProps({})
+export const colProps = buildProps({
+    span: {
+        type:  Number,
+        default: 24
+    }
+})

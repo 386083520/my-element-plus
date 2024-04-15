@@ -1,5 +1,5 @@
 <template>
-    <div class="ell-col">
+    <div :class="span? 'ell-col-' + span: ''">
         <slot/>
     </div>
 </template>
@@ -9,4 +9,5 @@ import { colProps } from './col'
 defineOptions({
     name: 'EllCol'
 })
+defineProps(colProps)
 </script>

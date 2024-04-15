@@ -3,7 +3,7 @@ re="[[:space:]]+"
 if [ "$#" -ne 1 ] || [[ $NAME =~ $re ]] || [ "$NAME" == "" ];then
     echo "参数错误"
     exit 1
-fi    
+fi
 
 FILE_PATH=$(cd "$(dirname ${BASH_SOURCE[0]})/../packages" && pwd)
 DIRNAME="$FILE_PATH/components/$NAME"
@@ -12,7 +12,7 @@ INPUT_NAME=$NAME
 if [ -d "$DIRNAME" ]; then
     echo "$NAME 组件已经存在，请检查"
     exit 1
-fi    
+fi
 
 NORMALIZED_NAME=""
 for i in $(echo $NAME | sed 's/[_|-]\([a-z]\)/\ \1/;s/^\([a-z]\)/\ \1/'); do
@@ -37,7 +37,7 @@ cat > $DIRNAME/src/$INPUT_NAME.vue <<EOF
 import { ${INPUT_NAME}Props } from './${INPUT_NAME}'
 defineOptions({
     name: 'Ell${NAME}'
-})    
+})
 </script>
 EOF
 

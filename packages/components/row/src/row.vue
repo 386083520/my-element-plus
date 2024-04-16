@@ -1,5 +1,5 @@
 <template>
-    <div class="ell-row" :style="style">
+    <div :class="rowKls" :style="style">
         <slot/>
     </div>
 </template>
@@ -26,4 +26,8 @@ const style = computed(() => {
     styles.marginLeft  = styles.marginRight= `-${props.gutter/2}px`
     return styles
 })
+const rowKls = computed(() => [
+    'ell-row',
+    props.justify? `is-justify-${props.justify}`: ''
+])
 </script>

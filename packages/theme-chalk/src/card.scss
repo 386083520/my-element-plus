@@ -1,4 +1,4 @@
-@import "./mixins//mixins.scss";
+@import "./mixins/mixins.scss";
 @include b(card) {
     border: 1px solid #e4e7ed;
     color: #303133;

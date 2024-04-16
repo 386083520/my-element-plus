@@ -1,23 +1,29 @@
 <template>
-  <ell-row :gutter="20">
-    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-    <ell-col :span="6" :offset="6"
-      ><div class="grid-content bg-purple"></div
-    ></ell-col>
-  </ell-row>
-  <ell-row :gutter="20">
-    <ell-col :span="6" :offset="6"
-      ><div class="grid-content bg-purple"></div
-    ></ell-col>
-    <ell-col :span="6" :offset="6"
-      ><div class="grid-content bg-purple"></div
-    ></ell-col>
-  </ell-row>
-  <ell-row :gutter="20">
-    <ell-col :span="12" :offset="6"
-      ><div class="grid-content bg-purple"></div
-    ></ell-col>
-  </ell-row>
+  <ell-row class="row-bg">
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+</ell-row>
+<ell-row class="row-bg" justify="center">
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+</ell-row>
+<ell-row class="row-bg" justify="end">
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+</ell-row>
+<ell-row class="row-bg" justify="space-between">
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+</ell-row>
+<ell-row class="row-bg" justify="space-around">
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
+  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+</ell-row>
 </template>
 
 <style>

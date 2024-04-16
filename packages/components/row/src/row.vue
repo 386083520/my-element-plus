@@ -1,10 +1,11 @@
 <template>
-    <div class="ell-row">
+    <div class="ell-row" :style="style">
         <slot/>
     </div>
 </template>
 
 <script lang="ts" setup>
+import type { CSSProperties } from 'vue'
 import { rowProps } from './row'
 import { provide, computed } from 'vue'
 import {rowContextKey } from './constants'
@@ -16,5 +17,13 @@ const props = defineProps(rowProps)
 const gutter = computed(() => props.gutter)
 provide(rowContextKey, {
     gutter
+})
+const style = computed(() => {
+    const styles:CSSProperties = {}
+    if(!props.gutter) {
+        return styles
+    }
+    styles.marginLeft  = styles.marginRight= `-${props.gutter/2}px`
+    return styles
 })
 </script>

@@ -1,4 +1,7 @@
 <template>
+  <el-row>
+    <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
+  </el-row>
   <ell-row :gutter="20">
     <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
     <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>

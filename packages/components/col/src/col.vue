@@ -25,14 +25,14 @@ const style = computed(() => {
 })
 const colKls = computed(() => {
     const classes:string[] = []
-    const span = props["span"]
-    const offset = props["offset"]
-    if(isNumber(span)) {
-        classes.push(`ell-col-` + span)
-    }
-    if(isNumber(offset)) {
-        classes.push(`ell-col-offset-` + offset)
-    }
+    const pos = ['span', 'offset'] as const
+    pos.forEach(prop => {
+        const size = props[prop]
+        if(isNumber(size)) {
+            if(prop === 'span') classes.push(`ell-col-${size}`)
+            else classes.push(`ell-col-${prop}-${size}`)
+        }
+    })
     return classes
 })
 </script>

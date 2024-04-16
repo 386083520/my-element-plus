@@ -42,12 +42,12 @@ defineOptions({
 EOF
 
 cat > $DIRNAME/src/$INPUT_NAME.ts <<EOF
-import { buildProps } from "@my-element-plus/utils/vue/props/runtime"
+import { buildProps } from "@my-element-plus/utils"
 export const ${INPUT_NAME}Props = buildProps({})
 EOF
 
 cat <<EOF >"$DIRNAME/index.ts"
-import { withInstall } from "@my-element-plus/utils/install";
+import { withInstall } from "@my-element-plus/utils";
 import $NAME from "./src/$INPUT_NAME.vue";
 const Ell$NAME  = withInstall($NAME)
 export default Ell$NAME

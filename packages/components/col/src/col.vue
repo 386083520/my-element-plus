@@ -9,7 +9,7 @@ import { inject,computed } from 'vue'
 import type { CSSProperties } from 'vue'
 import { rowContextKey } from '@my-element-plus/components/row'
 import { colProps } from './col'
-import { isNumber } from '@my-element-plus/utils/types'
+import { isNumber } from '@my-element-plus/utils'
 defineOptions({
     name: 'EllCol',
 })

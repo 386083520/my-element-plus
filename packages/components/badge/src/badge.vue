@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { badgeProps } from './badge'
 import { computed }  from 'vue'
-import { isNumber } from '@my-element-plus/utils/types'
+import { isNumber } from '@my-element-plus/utils'
 defineOptions({
     name: "EllBadge"
 })

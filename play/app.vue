@@ -1,23 +1,29 @@
 <template>
-  <el-row>
-    <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
-  </el-row>
-  <ell-row :gutter="20">
-    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  </ell-row>
+  <el-row :gutter="20">
+  <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
 </template>
 
 <style>
-  .ell-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .ell-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {

@@ -1,5 +1,7 @@
 @use 'sass:math';
-
+[class*=ell-col-] {
+    box-sizing: border-box;
+}
 @for $i from 0 through 24 {
     .ell-col-#{$i} {
         width: (math.div(1,24) * $i * 100)* 1%;

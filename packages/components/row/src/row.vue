@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { rowProps } from './row'
 import { provide, computed } from 'vue'
-import {rowContextKey } from './constants.ts'
+import {rowContextKey } from './constants'
 defineOptions({
     name: 'EllRow'
 })

@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-    import { inject,computed } from 'vue'
-    import type { CSSProperties } from 'vue'
-    import { rowContextKey } from '@my-element-plus/components/row'
+import { inject,computed } from 'vue'
+import type { CSSProperties } from 'vue'
+import { rowContextKey } from '@my-element-plus/components/row'
 import { colProps } from './col'
 defineOptions({
     name: 'EllCol',

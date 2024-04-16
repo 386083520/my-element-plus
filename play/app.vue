@@ -1,30 +1,10 @@
 <template>
-  <ell-row>
-  <ell-col :span="24"><div class="grid-content bg-purple-dark"></div></ell-col>
-</ell-row>
-<ell-row>
-  <ell-col :span="12"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="12"><div class="grid-content bg-purple-light"></div></ell-col>
-</ell-row>
-<ell-row>
-  <ell-col :span="8"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="8"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="8"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
-<ell-row>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-</ell-row>
-<ell-row>
-  <ell-col :span="4"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="4"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="4"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="4"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="4"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="4"><div class="grid-content bg-purple-light"></div></ell-col>
-</ell-row>
+  <ell-row :gutter="20">
+    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+    <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
+  </ell-row>
 </template>
 
 <style>

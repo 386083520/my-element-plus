@@ -1,3 +1,4 @@
+@import "../common/var.scss";
 @mixin b($block) {
     $B: "ell-" + $block !global;
     .#{$B} {
@@ -21,5 +22,14 @@
         #{& + "--" + $modifier} {
             @content;
         }
+    }
+}
+@mixin res($key, $map:$breakpoints) {
+    @if map-has-key($map, $key) {
+        @media only screen and #{map-get($map, $key)} {
+            @content;
+        }
+    } @else {
+        @warn  "undefined points:`#{$map}`"
     }
 }

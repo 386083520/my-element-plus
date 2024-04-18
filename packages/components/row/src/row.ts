@@ -7,5 +7,8 @@ export const rowProps = buildProps({
     justify: {
         type: String,
         default: 'start'
+    },
+    align: {
+        type: String
     }
 })

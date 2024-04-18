@@ -28,6 +28,7 @@ const style = computed(() => {
 })
 const rowKls = computed(() => [
     'ell-row',
-    props.justify? `is-justify-${props.justify}`: ''
+    props.justify? `is-justify-${props.justify}`: '',
+    props.align? `is-align-${props.align}`: ''
 ])
 </script>

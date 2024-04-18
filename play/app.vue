@@ -1,25 +1,5 @@
 <template>
-  <ell-row class="row-bg">
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
-<ell-row class="row-bg" justify="center">
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
-<ell-row class="row-bg" justify="end">
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
-<ell-row class="row-bg" justify="space-between">
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
-<ell-row class="row-bg" justify="space-around">
+<ell-row class="row-bg" style="height: 500px;background: #eeeeee;"  align="bottom">
   <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
   <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
   <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>

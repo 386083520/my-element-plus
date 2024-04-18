@@ -1,19 +1,28 @@
 <template>
-<ell-row class="row-bg" style="height: 500px;background: #eeeeee;"  align="bottom">
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple-light"></div></ell-col>
-  <ell-col :span="6"><div class="grid-content bg-purple"></div></ell-col>
-</ell-row>
+<ell-row :gutter="10">
+    <ell-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div class="grid-content bg-purple" />
+    </ell-col>
+    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div class="grid-content bg-purple-light" />
+    </ell-col>
+    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div class="grid-content bg-purple" />
+    </ell-col>
+    <ell-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div class="grid-content bg-purple-light" />
+    </ell-col>
+  </ell-row>
 </template>
 
 <style>
-  .ell-row {
+  .elll-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .ell-col {
+  .elll-col {
     border-radius: 4px;
   }
   .bg-purple-dark {

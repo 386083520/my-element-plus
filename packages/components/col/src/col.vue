@@ -33,6 +33,12 @@ const colKls = computed(() => {
             else classes.push(`ell-col-${prop}-${size}`)
         }
     })
+    const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const
+    sizes.forEach(size => {
+        if(isNumber(props[size])) {
+            classes.push(`ell-col-${size}-${props[size]}`)
+        }
+    })
     return classes
 })
 </script>

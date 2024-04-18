@@ -7,5 +7,20 @@ export const colProps = buildProps({
     offset: {
         type:  Number,
         default: 0
+    },
+    xs: {
+        type: Number
+    },
+    sm: {
+        type: Number
+    },
+    md: {
+        type: Number
+    },
+    lg: {
+        type: Number
+    },
+    xl: {
+        type: Number
     }
 })

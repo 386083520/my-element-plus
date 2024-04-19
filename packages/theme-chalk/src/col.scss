@@ -1,5 +1,6 @@
 @use 'sass:math';
 @import "./mixins/mixins.scss";
+@import "./mixins/col.scss";
 [class*=ell-col-] {
     box-sizing: border-box;
 }
@@ -11,38 +12,8 @@
         margin-left: (math.div(1,24) * $i * 100)* 1%;
     }
 }
-@include res(xs) {
-    @for $i from 0 through 24 {
-        .ell-col-xs-#{$i} {
-            width: (math.div(1,24) * $i * 100)* 1%;
-        }
-    }
-}
-@include res(sm){
-    @for $i from 0 through 24 {
-        .ell-col-sm-#{$i} {
-            width: (math.div(1,24) * $i * 100)* 1%;
-        }
-    }
-}
-@include res(md){
-    @for $i from 0 through 24 {
-        .ell-col-md-#{$i} {
-            width: (math.div(1,24) * $i * 100)* 1%;
-        }
-    }
-}
-@include res(lg){
-    @for $i from 0 through 24 {
-        .ell-col-lg-#{$i} {
-            width: (math.div(1,24) * $i * 100)* 1%;
-        }
-    }
-}
-@include res(xl){
-    @for $i from 0 through 24 {
-        .ell-col-xl-#{$i} {
-            width: (math.div(1,24) * $i * 100)* 1%;
-        }
-    }
-}
+@include col-size(xs);
+@include col-size(sm);
+@include col-size(md);
+@include col-size(lg);
+@include col-size(xl);

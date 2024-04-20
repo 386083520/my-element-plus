@@ -1,5 +1,5 @@
 <template>
-<ell-row :gutter="10">
+<ell-row :gutter="10" justify="start111">
     <ell-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
       <div class="grid-content bg-purple" />
     </ell-col>

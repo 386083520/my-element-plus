@@ -19,7 +19,7 @@ const props = defineProps(colProps)
 const style = computed(() => {
     const styles:CSSProperties = {}
     if(gutter.value) {
-        styles.paddingLeft = styles.paddingRight = `${gutter.value/2}px` 
+        styles.paddingLeft = styles.paddingRight = `${gutter.value/2}px`
     }
     return styles
 })

@@ -3,7 +3,7 @@
     <ell-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
       <div class="grid-content bg-purple" />
     </ell-col>
-    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11" :pull="2">
       <div class="grid-content bg-purple-light" />
     </ell-col>
     <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">

@@ -22,5 +22,13 @@ export const colProps = buildProps({
     },
     xl: {
         type: Number
+    },
+    push: {
+        type: Number,
+        default: 0
+    },
+    pull: {
+        type: Number,
+        default: 0
     }
 })

@@ -17,9 +17,7 @@ export const rowProps = buildProps({
     justify: {
         type: String,
         default: 'start',
-        validator: (val:any) => {
-            return RowJustify.includes(val)
-        }
+        values: RowJustify
     },
     align: {
         type: String

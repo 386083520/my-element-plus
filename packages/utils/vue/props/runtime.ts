@@ -1,15 +1,28 @@
 import type { EpPropInput } from "./types"
 import { fromPairs } from "lodash-unified"
-export const buildProp = (prop:EpPropInput<any, any, any,any, any>) => {
+import { warn } from 'vue'
+export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) => {
     const { values, required, default:defaultValue,type,validator } = prop
     const _validator = 
         values || validator
         ? (val:any) => {
             let valid = false
+            let allowedValues = []
             if(values) {
-                valid||= values.includes(val)
+                allowedValues = Array.from(values)
+                valid||= allowedValues.includes(val)
             }
             if(validator) valid||= validator(val)
+            if(!valid && allowedValues.length > 0) {
+                const allowValuesText = allowedValues.join(",")
+                warn(
+                    `Invalid prop: validation failed${
+                        key ? ` for prop "${key}"` : ''
+                      }. Expected one of [${allowValuesText}], got value ${JSON.stringify(
+                        val
+                      )}.`
+                )
+            }     
             return valid
         }
         :undefined
@@ -23,6 +36,6 @@ export const buildProp = (prop:EpPropInput<any, any, any,any, any>) => {
 export const buildProps = <Props extends Record<string, BooleanConstructor | StringConstructor | EpPropInput<any, any, any, any, any>>>(props:Props):Props => {
     return fromPairs(Object.entries(props).map(([key, option]) => [
         key,
-        buildProp(option as any)
+        buildProp(option as any, key)
     ])) as any
 }

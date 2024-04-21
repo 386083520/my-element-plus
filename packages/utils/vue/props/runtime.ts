@@ -1,6 +1,7 @@
 import type { EpPropInput } from "./types"
 import { fromPairs } from "lodash-unified"
 import { warn } from 'vue'
+import { hasOwn } from  '../../objects'
 export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) => {
     const { values, required, default:defaultValue,type,validator } = prop
     const _validator = 
@@ -26,11 +27,12 @@ export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) 
             return valid
         }
         :undefined
-    const epProp = {
+    const epProp:any = {
         type,
         required,
         validator: _validator
     }
+    if(hasOwn(prop, 'default')) epProp.default=defaultValue
     return epProp
 }
 export const buildProps = <Props extends Record<string, BooleanConstructor | StringConstructor | EpPropInput<any, any, any, any, any>>>(props:Props):Props => {

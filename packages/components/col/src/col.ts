@@ -1,5 +1,9 @@
 import { buildProps } from "@my-element-plus/utils"
 export const colProps = buildProps({
+    tag: {
+        type:String,
+        default: 'div'
+    },
     span: {
         type:  Number,
         default: 24

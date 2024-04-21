@@ -1,7 +1,7 @@
 <template>
-    <div :class="colKls" :style="style">
+    <component :is="tag" :class="colKls" :style="style">
         <slot/>
-    </div>
+    </component>
 </template>
 
 <script lang="ts" setup>

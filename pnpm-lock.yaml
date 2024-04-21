@@ -17,6 +17,9 @@ importers:
       '@my-element-plus/utils':
         specifier: workspace:^
         version: link:packages/utils
+      '@vue/shared':
+        specifier: 3.2.27
+        version: 3.2.27
       lodash-unified:
         specifier: 1.0.2
         version: 1.0.2(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
@@ -528,6 +531,10 @@ packages:
       '@vue/compiler-ssr': 3.4.21
       '@vue/shared': 3.4.21
       vue: 3.4.21(typescript@4.9.5)
+
+  /@vue/shared@3.2.27:
+    resolution: {integrity: sha512-rpAn9k6O08Lvo7ekBIAnkOukX/4EsEQLPrRJBKhIEasMsOI5eX0f6mq1sDUSY7cgAqWw2d7QtP74CWxdXoyKxA==}
+    dev: false
 
   /@vue/shared@3.4.21:
     resolution: {integrity: sha512-PuJe7vDIi6VYSinuEbUIQgMIRZGgM8e4R+G+/dQTk0X1NEdvgvvgv7m+rfmDH1gZzyA1OjjoWskvHlfRNfQf3g==}

@@ -9,19 +9,19 @@ export const colProps = buildProps({
         default: 0
     },
     xs: {
-        type: Number
+        type: [Number, Object]
     },
     sm: {
-        type: Number
+        type: [Number, Object]
     },
     md: {
-        type: Number
+        type: [Number, Object]
     },
     lg: {
-        type: Number
+        type: [Number, Object]
     },
     xl: {
-        type: Number
+        type: [Number, Object]
     },
     push: {
         type: Number,

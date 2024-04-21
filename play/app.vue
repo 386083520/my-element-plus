@@ -1,9 +1,9 @@
 <template>
-<ell-row :gutter="10" justify="start" align="top111">
-    <ell-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+<ell-row :gutter="10">
+    <ell-col :xs="8" :sm="6" :md="4" :lg="obj" :xl="obj">
       <div class="grid-content bg-purple" />
     </ell-col>
-    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11" :pull="2">
+    <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
       <div class="grid-content bg-purple-light" />
     </ell-col>
     <ell-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
@@ -14,6 +14,13 @@
     </ell-col>
   </ell-row>
 </template>
+
+<script setup  lang="ts">
+let obj = {
+  "span": 4,
+  "push": 4
+}
+</script>
 
 <style>
   .elll-row {

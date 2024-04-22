@@ -15,6 +15,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@my-element-plus/components": "workspace:^",
     "@my-element-plus/theme-chalk": "workspace:^",
     "@my-element-plus/utils": "workspace:^",

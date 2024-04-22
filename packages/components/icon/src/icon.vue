@@ -1,5 +1,5 @@
 <template>
-    <i>
+    <i class="ell-icon">
         <slot/>
     </i>
 </template>

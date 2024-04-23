@@ -1,5 +1,7 @@
 .ell-icon {
+    --color: inherit;
     width: 1em;
     height: 1em;
     display: inline-flex;
+    color: var(--color);
 }

@@ -4,6 +4,6 @@ export const iconProps = buildProps({
         type: String
     },
     size: {
-        type:  Number
+        type:  [Number, String]
     }
 })

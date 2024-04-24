@@ -1,5 +1,5 @@
 <template>
-    <div class="ell-badge">
+    <div :class="ns.b()">
         <slot/>
         <sup
         v-show="!hidden && (content || isDot)"
@@ -15,6 +15,8 @@
 import { badgeProps } from './badge'
 import { computed }  from 'vue'
 import { isNumber } from '@my-element-plus/utils'
+import { useNamespace } from '@my-element-plus/hooks'
+const ns = useNamespace('badge')
 defineOptions({
     name: "EllBadge"
 })

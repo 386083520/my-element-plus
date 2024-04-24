@@ -9,6 +9,8 @@ import type { CSSProperties } from 'vue'
 import { rowProps } from './row'
 import { provide, computed } from 'vue'
 import {rowContextKey } from './constants'
+import { useNamespace } from '@my-element-plus/hooks'
+const ns = useNamespace('row')
 defineOptions({
     name: 'EllRow'
 })
@@ -27,7 +29,7 @@ const style = computed(() => {
     return styles
 })
 const rowKls = computed(() => [
-    'ell-row',
+    ns.b(),
     props.justify? `is-justify-${props.justify}`: '',
     props.align? `is-align-${props.align}`: ''
 ])

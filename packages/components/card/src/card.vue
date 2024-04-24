@@ -1,5 +1,5 @@
 <template>
-    <div class="ell-card" :class="shadow? 'is-' + shadow + '-shadow': ''">
+    <div :class="ns.b()" :class="shadow? 'is-' + shadow + '-shadow': ''">
         <div class="ell-card__header" v-if="$slots.header || header">
             <slot name="header">{{header}}</slot>
         </div>
@@ -12,7 +12,9 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { cardProps } from './card.ts'
+    import { cardProps } from './card'
+    import { useNamespace } from '@my-element-plus/hooks'
+    const ns = useNamespace('card')
     defineOptions({
         name: 'EllCard'
     })

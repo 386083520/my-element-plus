@@ -1,12 +1,12 @@
 <template>
     <div :class="[ns.b(), shadow? 'is-' + shadow + '-shadow': '']">
-        <div class="ell-card__header" v-if="$slots.header || header">
+        <div :class="ns.e('header')" v-if="$slots.header || header">
             <slot name="header">{{header}}</slot>
         </div>
-        <div :class="['ell-card__body', bodyClass]" :style="bodyStyle">
+        <div :class="[ns.e('body'), bodyClass]" :style="bodyStyle">
             <slot/>
         </div>
-        <div class="ell-card__footer" v-if="$slots.footer">
+        <div :class="ns.e('footer')" v-if="$slots.footer">
             <slot name="footer"></slot>
         </div>
     </div>

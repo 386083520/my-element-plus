@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     gdasfdsafa
-    <ell-icon color="#409efc" :size="60">
+    <ell-icon color="#409efc" :size="20" :style="{width:'80px',height: '80px'}">
     <Edit/>
   </ell-icon>
   </div>

@@ -30,7 +30,7 @@ const style = computed(() => {
 })
 const rowKls = computed(() => [
     ns.b(),
-    props.justify? `is-justify-${props.justify}`: '',
-    props.align? `is-align-${props.align}`: ''
+    ns.is(`justify-${props.justify}`, !!props.justify),
+    ns.is(`align-${props.align}`, !!props.align)
 ])
 </script>

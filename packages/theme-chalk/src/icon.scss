@@ -7,6 +7,17 @@
     align-items: center;
     color: var(--color);
 }
+@keyframes rotating {
+    0% {
+        transform: rotateZ('0deg');
+    }
+    100% {
+        transform: rotateZ('360deg');
+    }
+}
+.ell-icon.is-loading {
+   animation: rotating 2s linear infinite; 
+}
 
 .ell-icon svg {
     height: 1em;

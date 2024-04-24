@@ -1,4 +1,5 @@
 export const defaultNamespace = 'ell'
+export const statePrefix = 'is-'
 export const useNamespace = (block:string) => {
     const b = () => {
         return _bem(defaultNamespace, block, '', '')
@@ -9,10 +10,15 @@ export const useNamespace = (block:string) => {
     const em =(element:string, modifier:string) => {
         return _bem(defaultNamespace, block, element, modifier)
     }
+    const is = (name:string, state?:boolean) => {
+        const isState = state?state:true
+        return isState? `${statePrefix}${name}`:''
+    }
     return {
         b,
         e,
-        em
+        em,
+        is
     }
 }
 const _bem = (namespace: string, block: string, element:string, modifier:string) =>  {

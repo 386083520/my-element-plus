@@ -14,6 +14,9 @@ importers:
       '@my-element-plus/components':
         specifier: workspace:^
         version: link:packages/components
+      '@my-element-plus/hooks':
+        specifier: workspace:^
+        version: link:packages/hooks
       '@my-element-plus/theme-chalk':
         specifier: workspace:^
         version: link:packages/theme-chalk
@@ -38,6 +41,8 @@ importers:
         version: 3.4.21(typescript@4.9.5)
 
   packages/components: {}
+
+  packages/hooks: {}
 
   packages/theme-chalk: {}
 

@@ -4,7 +4,7 @@
         <sup
         v-show="!hidden && (content || isDot)"
         :style="{backgroundColor: color}"
-        :class="[type ? 'ell-badge__content--' + type : null, {
+        :class="[ns.em('content', type), {
             'is-dot': isDot
         }]"
             class="ell-badge__content is-fixed" v-text="content">

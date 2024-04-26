@@ -2,7 +2,9 @@ import type { EpPropInput } from "./types"
 import { fromPairs } from "lodash-unified"
 import { warn } from 'vue'
 import { hasOwn } from  '../../objects'
+import { isObject } from '../../types'
 export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) => {
+    if(!isObject(prop)) return prop
     const { values, required, default:defaultValue,type,validator } = prop
     const _validator = 
         values || validator

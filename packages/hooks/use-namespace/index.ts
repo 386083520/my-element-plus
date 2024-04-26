@@ -10,8 +10,8 @@ export const useNamespace = (block:string) => {
     const em =(element:string, modifier:string) => {
         return _bem(defaultNamespace, block,'', element, modifier)
     }
-    const is = (name:string, state?:boolean) => {
-        const isState = state?state:true
+    const is = (name:string, ...args:[boolean|undefined]|[]) => {
+        const isState = args.length >=1 ? args[0]:true
         return isState? `${statePrefix}${name}`:''
     }
     return {

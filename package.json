@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vitejs/plugin-vue": "2.3.3",
+    "@vue/test-utils": "2.0.0",
+    "jsdom": "16.4.0",
     "sass": "^1.53.0",
     "typescript": "^4.7.4",
     "vue": "^3.2.37"

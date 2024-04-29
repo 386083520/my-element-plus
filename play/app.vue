@@ -4,8 +4,8 @@
     <ell-icon color="#409efc" size="30px" :style="{width:'80px',height: '80px'}" class="is-loading">
       <Loading />
   </ell-icon>
-  <ell-badge :value="20">
-    <el-button>button</el-button>
+  <ell-badge>
+    gsdafsad
   </ell-badge>
   </div>
 </template>

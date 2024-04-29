@@ -2,7 +2,6 @@ import { buildProps } from "@my-element-plus/utils"
 export const cardProps = buildProps({
     header: {
         type: String,
-        required: true,
         default: ''
     },
     shadow: {
@@ -10,7 +9,7 @@ export const cardProps = buildProps({
         default: 'always'
     },
     bodyStyle:{
-        type: Object,
+        type: [Object,String],
         default: ''
     },
     bodyClass: String

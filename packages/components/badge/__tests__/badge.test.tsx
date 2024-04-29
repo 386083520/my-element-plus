@@ -30,4 +30,17 @@ describe('Badge', () => {
         expect(wrapper.find('.ell-badge__content.is-dot').exists()).toBe(true)
         expect(wrapper.find('.ell-badge__content.ell-badge__content--danger').exists()).toBe(true)
     })
+    test('is dot with type', () => {
+        const wrapper = mount(() => (
+            <Badge
+            isDot={true}
+            type={'success'}
+            v-slots={{
+                default: () => AXIOM
+            }}
+            />
+        ))
+        expect(wrapper.find('.ell-badge__content.is-dot').exists()).toBe(true)
+        expect(wrapper.find('.ell-badge__content.ell-badge__content--success').exists()).toBe(true)
+    })
 })

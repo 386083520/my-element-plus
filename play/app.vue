@@ -4,7 +4,7 @@
     <ell-icon color="#409efc" size="30px" :style="{width:'80px',height: '80px'}" class="is-loading">
       <Loading />
   </ell-icon>
-  <ell-badge :showZero="true" :value="80">
+  <ell-badge :showZero="true" :value="0" :max="-1">
     gsdafsad
   </ell-badge>
   </div>

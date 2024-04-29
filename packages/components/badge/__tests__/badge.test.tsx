@@ -84,4 +84,22 @@ describe('Badge', () => {
         await nextTick()
         expect(wrapper.find('.ell-badge__content').text()).toBe('80')
     })
+    test('showZero with max', async () => {
+        const showZero = ref(true)
+        const badgeValue = ref(0)
+        const wrapper = mount(() => (
+            <Badge
+            max={-1}
+            showZero={showZero.value}
+            value={badgeValue.value}
+            v-slots={{
+                default: () => AXIOM
+            }}
+            />
+        ))
+        expect(wrapper.find('.ell-badge__content').text()).toBe('-1+')
+        showZero.value=false
+        await nextTick()
+        expect(wrapper.find('.ell-badge__content').text()).toBe('-1+')
+    })
 })

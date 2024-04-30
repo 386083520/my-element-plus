@@ -30,4 +30,14 @@ describe('Card', () => {
         expect(wrapper.find('.header-text').exists()).toBe(true)
         expect(wrapper.find('.test-btn').exists()).toBe(true)
     })
+    test('body style', () => {
+        const style = 'font-size: 14px;'
+        const wrapper = mount(() => <Card bodyStyle={style}>{AXIOM}</Card>)
+        expect(wrapper.find('.ell-card__body').attributes('style')).toBe(style)
+    })
+    test('body style with object', () => {
+        const style = {'font-size': '14px'}
+        const wrapper = mount(() => <Card bodyStyle={style}>{AXIOM}</Card>)
+        expect(wrapper.find('.ell-card__body').attributes('style')).toBe('font-size: 14px;')
+    })
 })

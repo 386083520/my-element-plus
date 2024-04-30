@@ -6,7 +6,7 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
   <ell-row>
-  <ell-col :span="12">
+  <ell-col :span="12" :push="3">
     <div class="grid-content ep-bg-purple" />
   </ell-col>
 </ell-row>

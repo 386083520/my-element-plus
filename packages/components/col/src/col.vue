@@ -47,6 +47,6 @@ const colKls = computed(() => {
             })
         }
     })
-    return classes
+    return [ns.b(), classes]
 })
 </script>

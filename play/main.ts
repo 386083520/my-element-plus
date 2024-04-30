@@ -7,6 +7,10 @@ import EllBadge from '@my-element-plus/components/badge'
 import '@my-element-plus/theme-chalk/src/badge.scss'
 import EllCard from '@my-element-plus/components/card'
 import '@my-element-plus/theme-chalk/src/card.scss'
+import EllCol from '@my-element-plus/components/col'
+import '@my-element-plus/theme-chalk/src/col.scss'
+import EllRow from '@my-element-plus/components/row'
+import '@my-element-plus/theme-chalk/src/row.scss'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -16,5 +20,7 @@ app.use(MyButton)
 app.use(EllIcon)
 app.use(EllBadge)
 app.use(EllCard)
+app.use(EllCol)
+app.use(EllRow)
 app.use(ElementPlus)
 app.mount("#app")

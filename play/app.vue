@@ -1,29 +1,29 @@
 <template>
-  <div class="main">
-    gdasfdsafa
-    <ell-icon color="#409efc" size="30px" :style="{width:'80px',height: '80px'}" class="is-loading">
-      <Loading />
-  </ell-icon>
-  <ell-card bodyClass="test-class" shadow="hover">
-    <template #header>
-      <div>
-        <span class="header-text">card header</span>
-        <button class="test-btn">click me</button>
-      </div>
-    </template>
-    rem is the best girl</ell-card>
-  <ell-badge :showZero="true" :value="0" :max="-1">
-    gsdafsad
-  </ell-badge>
-  </div>
+  <!-- <el-row :gutter="20">
+    <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
+    <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
+    <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
+    <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
+  </el-row> -->
+  <ell-col></ell-col>
 </template>
 
-<script setup  lang="ts">
-import {Loading} from '@element-plus/icons-vue'
-</script>
-
 <style>
-  .main {
-    font-size: 25px;
-  }
+.ep-bg-purple {
+  background-color: aquamarine;
+}
+.el-row {
+  margin-bottom: 20px;
+}
+.el-row:last-child {
+  margin-bottom: 0;
+}
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
 </style>

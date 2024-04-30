@@ -40,4 +40,9 @@ describe('Card', () => {
         const wrapper = mount(() => <Card bodyStyle={style}>{AXIOM}</Card>)
         expect(wrapper.find('.ell-card__body').attributes('style')).toBe('font-size: 14px;')
     })
+    test('should renderbody-class props', () => {
+        const bodyClass='test-body-class'
+        const wrapper = mount(() => <Card bodyClass={bodyClass}>{AXIOM}</Card>)
+        expect(wrapper.find('.ell-card__body').classes()).toContain(bodyClass)
+    })
 })

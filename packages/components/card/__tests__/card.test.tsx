@@ -7,4 +7,9 @@ describe('Card', () => {
         const wrapper = mount(() => <Card>{AXIOM}</Card>)
         expect(wrapper.text()).toEqual(AXIOM)
     })
+    test('string header', () => {
+        const header = 'i am header'
+        const wrapper = mount(() => <Card header={header}>{AXIOM}</Card>)
+        expect(wrapper.text()).toContain(header)
+    })
 })

@@ -4,7 +4,7 @@
     <ell-icon color="#409efc" size="30px" :style="{width:'80px',height: '80px'}" class="is-loading">
       <Loading />
   </ell-icon>
-  <ell-card bodyClass="test-class">
+  <ell-card bodyClass="test-class" shadow="hover">
     <template #header>
       <div>
         <span class="header-text">card header</span>

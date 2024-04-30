@@ -45,4 +45,9 @@ describe('Card', () => {
         const wrapper = mount(() => <Card bodyClass={bodyClass}>{AXIOM}</Card>)
         expect(wrapper.find('.ell-card__body').classes()).toContain(bodyClass)
     })
+    test('shadow', () => {
+        const shadow='hover'
+        const wrapper = mount(() => <Card shadow={shadow}>{AXIOM}</Card>)
+        expect(wrapper.find(`.is-${shadow}-shadow`).exists()).toBe(true)
+    })
 })

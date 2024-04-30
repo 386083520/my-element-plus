@@ -1,6 +1,7 @@
 import { describe, test,expect } from "vitest"
 import { mount } from '@vue/test-utils'
 import Col from "../src/col.vue"
+import Row from "../../row/src/row.vue"
 describe('Col', () => {
     test('create', () => {
         const wrapper = mount(() => <Col/>)
@@ -17,5 +18,19 @@ describe('Col', () => {
     test('pull',() => {
         const wrapper = mount(() => <Col span={12} pull={3}/>)
         expect(wrapper.classes()).toContain("ell-col-pull-3")
+    })
+    test('gutter', () => {
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <Row gutter={20}>
+                        <Col span={12} ref="col"></Col>
+                    </Row>
+                )
+            }
+        })
+        const colElm = wrapper.findComponent({ref: 'col'}).element as HTMLElement
+        expect(colElm.style.paddingLeft === '10px').toBe(true)
+        expect(colElm.style.paddingRight === '10px').toBe(true)
     })
 })

@@ -5,8 +5,11 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-row>
-  <ell-col :span="12" :push="3">
+  <ell-row :gutter="20">
+  <ell-col :span="12">
+    <div class="grid-content ep-bg-purple" />
+  </ell-col>
+  <ell-col :span="12">
     <div class="grid-content ep-bg-purple" />
   </ell-col>
 </ell-row>

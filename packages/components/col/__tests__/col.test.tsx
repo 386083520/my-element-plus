@@ -6,4 +6,8 @@ describe('Col', () => {
         const wrapper = mount(() => <Col/>)
         expect(wrapper.classes()).toContain("ell-col")
     })
+    test('span',() => {
+        const wrapper = mount(() => <Col span={12}/>)
+        expect(wrapper.classes()).toContain("ell-col-12")
+    })
 })

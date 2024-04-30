@@ -5,7 +5,11 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-col></ell-col>
+  <ell-row>
+  <ell-col :span="12">
+    <div class="grid-content ep-bg-purple" />
+  </ell-col>
+</ell-row>
 </template>
 
 <style>

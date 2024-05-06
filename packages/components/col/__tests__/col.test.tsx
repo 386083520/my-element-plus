@@ -1,4 +1,5 @@
 import { describe, test,expect } from "vitest"
+import { nextTick, ref } from 'vue'
 import { mount } from '@vue/test-utils'
 import Col from "../src/col.vue"
 import Row from "../../row/src/row.vue"
@@ -32,5 +33,29 @@ describe('Col', () => {
         const colElm = wrapper.findComponent({ref: 'col'}).element as HTMLElement
         expect(colElm.style.paddingLeft === '10px').toBe(true)
         expect(colElm.style.paddingRight === '10px').toBe(true)
+    })
+    test('change gutter value', async () => {
+        const outer = ref(20)
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <Row gutter={outer.value} ref="row">
+                        <Col span={12} ref="col"></Col>
+                    </Row>
+                )
+            }
+        })
+        const rowElm = wrapper.findComponent({ref: 'row'}).element as HTMLElement
+        const colElm = wrapper.findComponent({ref: 'col'}).element as HTMLElement
+        expect(colElm.style.paddingLeft === '10px').toBe(true)
+        expect(colElm.style.paddingRight === '10px').toBe(true)
+        expect(rowElm.style.marginLeft === '-10px').toBe(true)
+        expect(rowElm.style.marginRight === '-10px').toBe(true)
+        outer.value = 40
+        await nextTick()
+        expect(colElm.style.paddingLeft === '20px').toBe(true)
+        expect(colElm.style.paddingRight === '20px').toBe(true)
+        expect(rowElm.style.marginLeft === '-20px').toBe(true)
+        expect(rowElm.style.marginRight === '-20px').toBe(true)
     })
 })

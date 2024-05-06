@@ -80,3 +80,24 @@ describe('Col', () => {
         expect(colElmClass.includes('ell-col-lg-6')).toBe(true)
     })
 })
+
+describe('Row', () => {
+    test('create', () => {
+        const wrapper = mount(() => <Row/>)
+        expect(wrapper.classes()).toContain('ell-row')
+    })
+    test('gutter', () => {
+        const wrapper = mount(() => <Row gutter={20}></Row>)
+        const rowElm = wrapper.element as HTMLElement
+        expect(rowElm.style.marginLeft === '-10px').toBe(true)
+        expect(rowElm.style.marginRight === '-10px').toBe(true)
+    })
+    test('justify', () => {
+        const wrapper = mount(() => <Row justify="end"></Row>)
+        expect(wrapper.classes()).toContain('is-justify-end')
+    })
+    test('align', () => {
+        const wrapper = mount(() => <Row align='bottom'></Row>)
+        expect(wrapper.classes()).toContain('is-align-bottom')
+    })
+})

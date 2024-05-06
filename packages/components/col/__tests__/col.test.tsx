@@ -58,4 +58,25 @@ describe('Col', () => {
         expect(rowElm.style.marginLeft === '-20px').toBe(true)
         expect(rowElm.style.marginRight === '-20px').toBe(true)
     })
+    test('responsive', () => {
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <Row gutter={20}>
+                        <Col
+                        ref="col"
+                        sm={{span: 4, offset:2}}
+                        md={{span: 8}}
+                        lg={6}
+                        ></Col>
+                    </Row>
+                )
+            }
+        })
+        const colElmClass=wrapper.findComponent({ref: 'col'}).classes()
+        expect(colElmClass.includes('ell-col-sm-4')).toBe(true)
+        expect(colElmClass.includes('ell-col-sm-offset-2')).toBe(true)
+        expect(colElmClass.includes('ell-col-md-8')).toBe(true)
+        expect(colElmClass.includes('ell-col-lg-6')).toBe(true)
+    })
 })

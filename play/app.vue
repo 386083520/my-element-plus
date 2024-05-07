@@ -5,13 +5,13 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-row :gutter="20">
-  <ell-col :span="12" :sm="{span: 4, offset:2}" :md="{span: 8}" :lg="6">
-    <div class="grid-content ep-bg-purple" />
-  </ell-col>
-</ell-row>
+  <ell-icon color="#000000" :size="18">
+    <Edit/>
+  </ell-icon>
 </template>
-
+<script setup lang="ts">
+import { Edit } from '@element-plus/icons-vue';
+</script>
 <style>
 .ep-bg-purple {
   background-color: aquamarine;

@@ -5,12 +5,9 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-icon color="#000000" :size="18">
-    <Edit/>
-  </ell-icon>
+  <ell-button>abc</ell-button>
 </template>
 <script setup lang="ts">
-import { Edit } from '@element-plus/icons-vue';
 </script>
 <style>
 .ep-bg-purple {

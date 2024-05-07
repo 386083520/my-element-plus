@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './app.vue'
-import MyButton from '@my-element-plus/components/button'
+import EllButton from '@my-element-plus/components/button'
 import EllIcon from '@my-element-plus/components/icon'
 import '@my-element-plus/theme-chalk/src/icon.scss'
 import EllBadge from '@my-element-plus/components/badge'
@@ -16,7 +16,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 const app = createApp(App)
-app.use(MyButton)
+app.use(EllButton)
 app.use(EllIcon)
 app.use(EllBadge)
 app.use(EllCard)

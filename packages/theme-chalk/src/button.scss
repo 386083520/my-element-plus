@@ -1,0 +1,25 @@
+@use 'mixins/mixins.scss' as *;
+@include b(button) {
+    height: 32px;
+    color: #606266;
+    outline: none;
+    font-weight: 500;
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+        outline: none;
+    }
+    &:active {
+        color: #409eff;
+        border-color: #409eff;
+        background-color: #ecf5ff;
+        outline: none;
+    }
+}

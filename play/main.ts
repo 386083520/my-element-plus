@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './app.vue'
 import EllButton from '@my-element-plus/components/button'
+import '@my-element-plus/theme-chalk/src/button.scss'
 import EllIcon from '@my-element-plus/components/icon'
 import '@my-element-plus/theme-chalk/src/icon.scss'
 import EllBadge from '@my-element-plus/components/badge'

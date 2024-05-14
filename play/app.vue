@@ -5,7 +5,7 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-button>abc</ell-button>
+  <ell-button type="primary">abc</ell-button>
 </template>
 <script setup lang="ts">
 </script>

@@ -5,7 +5,11 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
-  <ell-button type="primary">abc</ell-button>
+  <ell-button type="primary">Primary</ell-button>
+    <ell-button type="success">Success</ell-button>
+    <ell-button type="info">Info</ell-button>
+    <ell-button type="warning">Warning</ell-button>
+    <ell-button type="danger">Danger</ell-button>
 </template>
 <script setup lang="ts">
 </script>

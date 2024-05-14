@@ -32,14 +32,14 @@
     }
     @include m(primary) {
         --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: #409eff;
-        --ell-button-border-color: #409eff;
+        --ell-button-bg-color: var(--ell-color-primary);
+        --ell-button-border-color: var(--ell-color-primary);
         --ell-button-hover-text-color: #fff;
         --ell-button-hover-bg-color: #79bbff;
         --ell-button-hover-border-color: #79bbff;
-        --ell-button-active-color: #337ecc;
-        --ell-button-active-bg-color: #337ecc;
-        --ell-button-active-border-color: #337ecc;
+        --ell-button-active-color: var(--ell-color-primary-dark-2);
+        --ell-button-active-bg-color: var(--ell-color-primary-dark-2);
+        --ell-button-active-border-color: var(--ell-color-primary-dark-2);
     }
     @include m(success) {
         --ell-button-text-color: #ffffff;

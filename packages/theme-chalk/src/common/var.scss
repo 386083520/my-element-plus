@@ -1,12 +1,30 @@
 $colors: (
     'white': #ffffff,
     'black': #000000,
-    'primary': #409eff,
-    'success': #67c23a,
-    'warning': #e6a23c,
-    'danger': #f56c6c,
-    'error': #f56c6c,
-    'info': #909399
+    'primary': (
+        'base': '#409eff',
+        'dark-2': '#337ecc'
+    ),
+    'success': (
+        'base': '#67c23a',
+        'dark-2': '#337ecc'
+    ),
+    'warning': (
+        'base': '#e6a23c',
+        'dark-2': '#337ecc'
+    ),
+    'danger': (
+        'base': '#f56c6c',
+        'dark-2': '#337ecc'
+    ),
+    'error': (
+        'base': '#f56c6c',
+        'dark-2': '#337ecc'
+    ),
+    'info': (
+        'base': '#909399',
+        'dark-2': '#337ecc'
+    )
 );
 
 $badge: (

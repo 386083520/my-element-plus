@@ -16,6 +16,19 @@ $badge: (
     'padding': 6px
 );
 
+
+$button: (
+    'text-color': '#606266',
+    'bg-color': '#ffffff',
+    'border-color': '#dcdfe6',
+    'hover-text-color': '#409eff',
+    'hover-border-color': '#c6e2ff',
+    'hover-bg-color': '#ecf5ff',
+    'active-text-color': '#409eff',
+    'active-border-color': '#409eff',
+    'active-bg-color': '#ecf5ff'
+);
+
 $sm: 768px;
 $md: 992px;
 $lg: 1200px;

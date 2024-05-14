@@ -1,25 +1,33 @@
 @use 'mixins/mixins.scss' as *;
+@use 'mixins/var.scss' as *;
+
+
+@include b(button) {
+    @include set-component-css-var('button', $button)
+}
+
 @include b(button) {
     height: 32px;
-    color: #606266;
+    color: getCssVar('button', 'text-color');
     outline: none;
     font-weight: 500;
-    background-color: #ffffff;
+    background-color: getCssVar('button', 'bg-color');
     border: 1px solid #dcdfe6;
+    border-color: getCssVar('button', 'border-color');;
     padding: 8px 15px;
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
     &:hover {
-        color: #409eff;
-        border-color: #c6e2ff;
-        background-color: #ecf5ff;
+        color: getCssVar('button', 'hover','text-color');
+        border-color: getCssVar('button', 'hover','border-color');
+        background-color: getCssVar('button', 'hover','bg-color');
         outline: none;
     }
     &:active {
-        color: #409eff;
-        border-color: #409eff;
-        background-color: #ecf5ff;
+        color: getCssVar('button', 'active','text-color');
+        border-color: getCssVar('button', 'active','border-color');
+        background-color: getCssVar('button', 'active','bg-color');
         outline: none;
     }
 }

@@ -1,6 +1,7 @@
 @use 'mixins/mixins.scss' as *;
 @use 'mixins/var.scss' as *;
 @use 'mixins/button.scss' as *;
+@use 'mixins/var.scss' as *;
 
 
 @include b(button) {
@@ -30,6 +31,20 @@
         border-color: getCssVar('button', 'active','border-color');
         background-color: getCssVar('button', 'active','bg-color');
         outline: none;
+    }
+    @include when(plain) {
+        @include  css-var-from-global(
+            ('button','hover','text-color'),
+            ('color', 'primary')
+        );
+        @include  css-var-from-global(
+            ('button','hover','bg-color'),
+            ('color', 'white')
+        );
+        @include  css-var-from-global(
+            ('button','hover','border-color'),
+            ('color', 'primary')
+        );
     }
     @each $type in (primary,success,warning,danger,info) {
         @include m($type) {

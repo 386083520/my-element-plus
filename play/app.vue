@@ -5,6 +5,8 @@
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
     <el-col :span="6"><div class="grid-content ep-bg-purple" /></el-col>
   </el-row> -->
+  <ell-button>default</ell-button>
+  <ell-button plain>default</ell-button>
   <ell-button type="primary" plain>Primary</ell-button>
     <ell-button type="success">Success</ell-button>
     <ell-button type="info">Info</ell-button>

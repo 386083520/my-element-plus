@@ -31,51 +31,9 @@
         background-color: getCssVar('button', 'active','bg-color');
         outline: none;
     }
-    @include m(primary) {
-        @include button-variant(primary);
-    }
-    @include m(success) {
-        --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: #67c23a;
-        --ell-button-border-color: #67c23a;
-        --ell-button-hover-text-color: #fff;
-        --ell-button-hover-bg-color: #95d475;
-        --ell-button-hover-border-color: #95d475;
-        --ell-button-active-color: #529b2e;
-        --ell-button-active-bg-color: #529b2e;
-        --ell-button-active-border-color: #529b2e;
-    }
-    @include m(info) {
-        --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: #909399;
-        --ell-button-border-color: #909399;
-        --ell-button-hover-text-color: #fff;
-        --ell-button-hover-bg-color: #b1b3b8;
-        --ell-button-hover-border-color: #909399;
-        --ell-button-active-color: #73767a;
-        --ell-button-active-bg-color: #73767a;
-        --ell-button-active-border-color: #73767a;
-    }
-    @include m(warning) {
-        --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: #e6a23c;
-        --ell-button-border-color: #e6a23c;
-        --ell-button-hover-text-color: #fff;
-        --ell-button-hover-bg-color: #eebe77;
-        --ell-button-hover-border-color: #eebe77;
-        --ell-button-active-color: #b88230;
-        --ell-button-active-bg-color: #b88230;
-        --ell-button-active-border-color: #b88230;
-    }
-    @include m(danger) {
-        --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: #f56c6c;
-        --ell-button-border-color: #f56c6c;
-        --ell-button-hover-text-color: #fff;
-        --ell-button-hover-bg-color: #f89898;
-        --ell-button-hover-border-color: #f89898;
-        --ell-button-active-color: #c45656;
-        --ell-button-active-bg-color: #c45656;
-        --ell-button-active-border-color: #c45656;
+    @each $type in (primary,success,warning,danger,info) {
+        @include m($type) {
+            @include button-variant($type);
+        }
     }
 }

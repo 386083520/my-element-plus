@@ -1,4 +1,54 @@
 @use '../mixins/var.scss' as *;
+@mixin button-plain($type) {
+    $button-color-types: (
+        '': (
+            'text-color': (
+                'color',
+                $type
+            ),
+            'bg-color': (
+                'color',
+                $type,
+                'light-9'
+            ),
+            'border-color': (
+                'color',
+                $type,
+                'light-5'
+            )
+        ),
+        'hover': (
+            'text-color': (
+                'color',
+                'white'
+            ),
+            'bg-color': (
+                'color',
+                $type
+            ),
+            'border-color': (
+                'color',
+                $type
+            )
+        ),
+        'active': (
+            'bg-color': (
+                'color',
+                $type,
+                'dark-2'
+            ),
+            'text-color': (
+                'color',
+                'white'
+            )
+        )
+    );
+    @each $type,$typeMap in $button-color-types {
+        @each $typeColor, $list in $typeMap { //button--text-color
+            @include css-var-from-global(('button',$type,$typeColor), $list)
+        }
+    }
+}
 @mixin button-variant($type) {
     $button-color-types: (
         '': (
@@ -52,5 +102,8 @@
         @each $typeColor, $list in $typeMap { //button--text-color
             @include css-var-from-global(('button',$type,$typeColor), $list)
         }
+    }
+    &.is-plain {
+        @include button-plain($type);
     }
 }

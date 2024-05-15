@@ -24,27 +24,24 @@ $colors: (
     )
 );
 
-@each $type in $types {
+@mixin set-color-mix-level($type,$number,$mode,$mix-color) {
     $colors: map.deep-merge(
-        $colors,
-        (
-            $type: (
-                'dark-2': mix(#000000, map.get($colors,$type,'base'), 20%)
+            $colors,
+            (
+                $type: (
+                    '#{$mode}-#{$number}': mix($mix-color, map.get($colors,$type,'base'), math.percentage(math.div($number,10)))
+                )
             )
-        )
-    )
+        ) !global;
+}
+
+@each $type in $types {
+    @include set-color-mix-level($type, 2, 'dark', #000000);
 }
 
 @each $type in $types {
     @for $i from 1  through 9 {
-        $colors: map.deep-merge(
-            $colors,
-            (
-                $type: (
-                    'light-#{$i}': mix(#ffffff, map.get($colors,$type,'base'), math.percentage(math.div($i,10)))
-                )
-            )
-        )
+        @include set-color-mix-level($type, $i, 'light', #ffffff);
     }
     
 }

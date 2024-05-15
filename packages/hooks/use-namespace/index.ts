@@ -7,6 +7,9 @@ export const useNamespace = (block:string) => {
     const e = (element:string) => {
         return _bem(defaultNamespace, block,'', element, '')
     }
+    const m =(modifier:string) => {
+        return _bem(defaultNamespace, block,'', '', modifier)
+    }
     const em =(element:string, modifier:string) => {
         return _bem(defaultNamespace, block,'', element, modifier)
     }
@@ -17,6 +20,7 @@ export const useNamespace = (block:string) => {
     return {
         b,
         e,
+        m,
         em,
         is
     }

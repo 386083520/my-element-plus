@@ -1,5 +1,6 @@
 @use 'mixins/mixins.scss' as *;
 @use 'mixins/var.scss' as *;
+@use 'mixins/button.scss' as *;
 
 
 @include b(button) {
@@ -31,15 +32,7 @@
         outline: none;
     }
     @include m(primary) {
-        --ell-button-text-color: #ffffff;
-        --ell-button-bg-color: var(--ell-color-primary);
-        --ell-button-border-color: var(--ell-color-primary);
-        --ell-button-hover-text-color: #fff;
-        --ell-button-hover-bg-color: #79bbff;
-        --ell-button-hover-border-color: #79bbff;
-        --ell-button-active-color: var(--ell-color-primary-dark-2);
-        --ell-button-active-bg-color: var(--ell-color-primary-dark-2);
-        --ell-button-active-border-color: var(--ell-color-primary-dark-2);
+        @include button-variant(primary);
     }
     @include m(success) {
         --ell-button-text-color: #ffffff;

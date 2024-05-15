@@ -1,7 +1,9 @@
 @function joinVarName($list) {
     $name: '--ell';
     @each $item in $list {
-        $name: $name + '-' + $item
+        @if $item != '' {
+            $name: $name + '-' + $item
+        }
     }
     @return $name;
 }

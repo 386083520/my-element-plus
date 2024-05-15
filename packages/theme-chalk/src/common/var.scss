@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:math';
 $types: primary,success,warning,danger,error,info;
 $colors: (
     'white': #ffffff,
@@ -32,6 +33,20 @@ $colors: (
             )
         )
     )
+}
+
+@each $type in $types {
+    @for $i from 1  through 9 {
+        $colors: map.deep-merge(
+            $colors,
+            (
+                $type: (
+                    'light-#{$i}': mix(#ffffff, map.get($colors,$type,'base'), math.percentage(math.div($i,10)))
+                )
+            )
+        )
+    }
+    
 }
 
 $badge: (

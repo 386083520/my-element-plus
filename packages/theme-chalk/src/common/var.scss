@@ -1,31 +1,38 @@
+@use 'sass:map';
+$types: primary,success,warning,danger,error,info;
 $colors: (
     'white': #ffffff,
     'black': #000000,
     'primary': (
-        'base': '#409eff',
-        'dark-2': '#337ecc'
+        'base': #409eff
     ),
     'success': (
-        'base': '#67c23a',
-        'dark-2': '#337ecc'
+        'base': #67c23a
     ),
     'warning': (
-        'base': '#e6a23c',
-        'dark-2': '#337ecc'
+        'base': #e6a23c
     ),
     'danger': (
-        'base': '#f56c6c',
-        'dark-2': '#337ecc'
+        'base': #f56c6c
     ),
     'error': (
-        'base': '#f56c6c',
-        'dark-2': '#337ecc'
+        'base': #f56c6c
     ),
     'info': (
-        'base': '#909399',
-        'dark-2': '#337ecc'
+        'base': #909399
     )
 );
+
+@each $type in $types {
+    $colors: map.deep-merge(
+        $colors,
+        (
+            $type: (
+                'dark-2': mix(#000000, map.get($colors,$type,'base'), 20%)
+            )
+        )
+    )
+}
 
 $badge: (
     'bg-color': #f56c6c,

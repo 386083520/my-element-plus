@@ -21,6 +21,7 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.m(props.type),
         ns.is('plain', props.plain),
         ns.is('round', props.round),
-        ns.is('circle', props.circle)
+        ns.is('circle', props.circle),
+        ns.is('disabled', props.disabled)
     ])
 </script>

@@ -20,6 +20,9 @@
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
+    & + & {
+        margin-left: 12px;
+    }
     &:hover {
         color: getCssVar('button', 'hover','text-color');
         border-color: getCssVar('button', 'hover','border-color');

@@ -52,6 +52,9 @@ import {
 } from '@element-plus/icons-vue'
 </script>
 <style>
+.mb-4 {
+  margin-bottom: 10px;
+}
 .ep-bg-purple {
   background-color: aquamarine;
 }

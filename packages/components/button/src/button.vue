@@ -16,6 +16,7 @@ import { useNamespace } from '@my-element-plus/hooks';
     const buttonKls = computed(() => [
         ns.b(),
         ns.m(props.type),
-        ns.is('plain', props.plain)
+        ns.is('plain', props.plain),
+        ns.is('round', props.round)
     ])
 </script>

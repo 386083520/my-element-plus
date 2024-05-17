@@ -22,6 +22,15 @@
     <ell-button type="warning" plain>Warning</ell-button>
     <ell-button type="danger" plain>Danger</ell-button>
   </div>
+
+  <div class="mb-4">
+    <ell-button round>Round</ell-button>
+    <ell-button type="primary" round>Primary</ell-button>
+    <ell-button type="success" round>Success</ell-button>
+    <ell-button type="info" round>Info</ell-button>
+    <ell-button type="warning" round>Warning</ell-button>
+    <ell-button type="danger" round>Danger</ell-button>
+  </div>
 </template>
 <script setup lang="ts">
 </script>

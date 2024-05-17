@@ -4,4 +4,6 @@
     @each $type in (primary, warning, info, success, error, danger) {
         @include set-css-color-type($type, $colors)
     }
+
+    @include set-component-css-var('border-radius', $border-radius);
 }

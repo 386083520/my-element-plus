@@ -24,6 +24,11 @@ $colors: (
     )
 );
 
+$border-radius: (
+    'base': 4px,
+    'round': 20px
+);
+
 @mixin set-color-mix-level($type,$number,$mode,$mix-color) {
     $colors: map.deep-merge(
             $colors,
@@ -43,7 +48,7 @@ $colors: (
     @for $i from 1  through 9 {
         @include set-color-mix-level($type, $i, 'light', #ffffff);
     }
-    
+
 }
 
 $badge: (

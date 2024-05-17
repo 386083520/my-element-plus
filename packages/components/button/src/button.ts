@@ -14,5 +14,6 @@ export const buttonProps = buildProps({
         values: buttonTypes,
         default: ''
     },
-    plain: Boolean
+    plain: Boolean,
+    round: Boolean
 })

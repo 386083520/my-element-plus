@@ -55,4 +55,8 @@
             @include button-variant($type);
         }
     }
+
+    @include when(round) {
+        border-radius: getCssVar('border-radius', 'round');
+    }
 }

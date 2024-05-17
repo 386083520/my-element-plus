@@ -1,5 +1,8 @@
 <template>
     <button :class="buttonKls">
+        <ell-icon v-if="icon">
+            <component :is="icon"/>
+        </ell-icon>
         <slot/>
     </button>
 </template>
@@ -17,6 +20,7 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.b(),
         ns.m(props.type),
         ns.is('plain', props.plain),
-        ns.is('round', props.round)
+        ns.is('round', props.round),
+        ns.is('circle', props.circle)
     ])
 </script>

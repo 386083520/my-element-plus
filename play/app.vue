@@ -31,8 +31,25 @@
     <ell-button type="warning" round>Warning</ell-button>
     <ell-button type="danger" round>Danger</ell-button>
   </div>
+
+  <div>
+    <ell-button :icon="Search" circle />
+    <ell-button type="primary" :icon="Edit" circle />
+    <ell-button type="success" :icon="Check" circle />
+    <ell-button type="info" :icon="Message" circle />
+    <ell-button type="warning" :icon="Star" circle />
+    <ell-button type="danger" :icon="Delete" circle />
+  </div>
 </template>
 <script setup lang="ts">
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
 </script>
 <style>
 .ep-bg-purple {

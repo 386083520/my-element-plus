@@ -5,6 +5,10 @@
   <ell-button type="info" disabled>Info</ell-button>
   <ell-button type="warning" disabled>Warning</ell-button>
   <ell-button type="danger" disabled>Danger</ell-button>
+
+  <ell-button plain disabled>Plain</ell-button>
+    <ell-button type="primary" plain disabled>Primary</ell-button>
+    <ell-button type="success" plain disabled>success</ell-button>
 </template>
 <script setup lang="ts">
 import {

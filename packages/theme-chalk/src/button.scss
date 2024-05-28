@@ -53,11 +53,6 @@
             ('color', 'primary')
         );
     }
-    @each $type in (primary,success,warning,danger,info) {
-        @include m($type) {
-            @include button-variant($type);
-        }
-    }
 
     @include when(round) {
         border-radius: getCssVar('border-radius', 'round');
@@ -85,6 +80,17 @@
         padding: 2px;
         &:hover {
             color: getCssVar('button', 'hover', 'link-text-color');
+        }
+        @include when(disabled) {
+            color: getCssVar('button', 'disabled', 'text-color');
+            background-color: transparent !important;
+            border-color: transparent !important;
+        }
+    }
+
+    @each $type in (primary,success,warning,danger,info) {
+        @include m($type) {
+            @include button-variant($type);
         }
     }
 }

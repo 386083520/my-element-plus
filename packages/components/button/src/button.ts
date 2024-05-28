@@ -20,5 +20,6 @@ export const buttonProps = buildProps({
     circle: Boolean,
     disabled: Boolean,
     link: Boolean,
-    text: Boolean
+    text: Boolean,
+    bg: Boolean
 })

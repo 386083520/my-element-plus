@@ -98,6 +98,15 @@
         &:active {
             background-color: getCssVar('fill-color')
         }
+        @include when(has-bg) {
+            background-color: getCssVar('fill-color', 'light');
+            &:hover {
+                background-color: getCssVar('fill-color');
+            }
+            &:active {
+                background-color: getCssVar('fill-color', 'dark')
+            }
+        }
     }
 
     @each $type in (primary,success,warning,danger,info) {

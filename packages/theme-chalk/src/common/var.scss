@@ -31,7 +31,8 @@ $border-radius: (
 
 $fill-color: (
     '': #f0f2f5,
-    'light': #f5f7fa
+    'light': #f5f7fa,
+    'dark': #ebedf0
 );
 
 @mixin set-color-mix-level($type,$number,$mode,$mix-color) {

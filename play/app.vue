@@ -7,6 +7,15 @@
     >
       {{ button.text }}
     </ell-button>
+    <ell-button
+      v-for="button in buttons"
+      :key="button.text"
+      :type="button.type"
+      text
+      bg
+    >
+      {{ button.text }}
+    </ell-button>
 </template>
 <script setup lang="ts">
 const buttons = [

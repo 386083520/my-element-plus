@@ -88,6 +88,18 @@
         }
     }
 
+    @include when(text) {
+        border-color: transparent;
+        background: transparent;
+        color: getCssVar('button', 'text-color');
+        &:hover {
+            background-color: getCssVar('fill-color', 'light')
+        }
+        &:active {
+            background-color: getCssVar('fill-color')
+        }
+    }
+
     @each $type in (primary,success,warning,danger,info) {
         @include m($type) {
             @include button-variant($type);

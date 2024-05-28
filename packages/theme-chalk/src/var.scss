@@ -6,4 +6,5 @@
     }
 
     @include set-component-css-var('border-radius', $border-radius);
+    @include set-component-css-var('fill-color', $fill-color);
 }

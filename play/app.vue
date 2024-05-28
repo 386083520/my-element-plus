@@ -3,16 +3,7 @@
       v-for="button in buttons"
       :key="button.text"
       :type="button.type"
-      link
-    >
-      {{ button.text }}
-    </ell-button>
-    <ell-button
-      v-for="button in buttons"
-      :key="button.text"
-      :type="button.type"
-      link
-      disabled
+      text
     >
       {{ button.text }}
     </ell-button>

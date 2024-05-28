@@ -3,7 +3,9 @@
         <ell-icon v-if="icon">
             <component :is="icon"/>
         </ell-icon>
-        <slot/>
+        <span v-if="$slots.default">
+            <slot/>
+        </span>
     </button>
 </template>
 <script setup lang="ts">

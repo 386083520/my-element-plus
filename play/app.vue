@@ -1,31 +1,14 @@
 <template>
-  <ell-button
-      v-for="button in buttons"
-      :key="button.text"
-      :type="button.type"
-      text
-    >
-      {{ button.text }}
-    </ell-button>
-    <ell-button
-      v-for="button in buttons"
-      :key="button.text"
-      :type="button.type"
-      text
-      disabled
-    >
-      {{ button.text }}
+  <ell-button type="primary" :icon="Edit" />
+    <ell-button type="primary" :icon="Share" />
+    <ell-button type="primary" :icon="Delete" />
+    <ell-button type="primary" :icon="Search">Search</ell-button>
+    <ell-button type="primary">
+      Upload<ell-icon class="el-icon--right"><Upload /></ell-icon>
     </ell-button>
 </template>
 <script setup lang="ts">
-const buttons = [
-  { type: '', text: 'plain' },
-  { type: 'primary', text: 'primary' },
-  { type: 'success', text: 'success' },
-  { type: 'info', text: 'info' },
-  { type: 'warning', text: 'warning' },
-  { type: 'danger', text: 'danger' },
-] as const
+import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 </script>
 <style>
 .mb-4 {

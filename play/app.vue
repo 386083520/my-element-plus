@@ -1,24 +1,22 @@
 <template>
-  <ell-button disabled>Default</ell-button>
-  <ell-button type="primary" disabled>Primary</ell-button>
-  <ell-button type="success" disabled>Success</ell-button>
-  <ell-button type="info" disabled>Info</ell-button>
-  <ell-button type="warning" disabled>Warning</ell-button>
-  <ell-button type="danger" disabled>Danger</ell-button>
-
-  <ell-button plain disabled>Plain</ell-button>
-    <ell-button type="primary" plain disabled>Primary</ell-button>
-    <ell-button type="success" plain disabled>success</ell-button>
+  <ell-button
+      v-for="button in buttons"
+      :key="button.text"
+      :type="button.type"
+      link
+    >
+      {{ button.text }}
+    </ell-button>
 </template>
 <script setup lang="ts">
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
+const buttons = [
+  { type: '', text: 'plain' },
+  { type: 'primary', text: 'primary' },
+  { type: 'success', text: 'success' },
+  { type: 'info', text: 'info' },
+  { type: 'warning', text: 'warning' },
+  { type: 'danger', text: 'danger' },
+] as const
 </script>
 <style>
 .mb-4 {

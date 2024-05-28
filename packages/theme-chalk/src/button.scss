@@ -78,4 +78,13 @@
             border-color: getCssVar('button', 'disabled', 'border-color');
         }
     }
+    @include when(link) {
+        border-color: transparent;
+        background: transparent;
+        color: getCssVar('button', 'text-color');
+        padding: 2px;
+        &:hover {
+            color: getCssVar('button', 'hover', 'link-text-color');
+        }
+    }
 }

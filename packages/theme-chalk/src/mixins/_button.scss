@@ -96,6 +96,22 @@
                 $type,
                 'dark-2'
             )
+        ),
+        'disabled': (
+            'text-color': (
+                'color',
+                'white'
+            ),
+            'bg-color': (
+                'color',
+                $type,
+                'light-5'
+            ),
+            'border-color': (
+                'color',
+                $type,
+                'light-5'
+            )
         )
     );
     @each $type,$typeMap in $button-color-types {

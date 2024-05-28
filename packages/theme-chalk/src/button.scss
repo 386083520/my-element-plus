@@ -72,10 +72,10 @@
     @include when(disabled) {
         &,
         &:hover {
-            color: #c0c4cc;
+            color: getCssVar('button', 'disabled', 'text-color');
             cursor: not-allowed;
-            background-color: #fff;
-            border-color: #ebeef5;
+            background-color: getCssVar('button', 'disabled', 'bg-color');
+            border-color: getCssVar('button', 'disabled', 'border-color');
         }
     }
 }

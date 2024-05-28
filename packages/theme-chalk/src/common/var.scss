@@ -68,7 +68,10 @@ $button: (
     'hover-bg-color': '#ecf5ff',
     'active-text-color': '#409eff',
     'active-border-color': '#409eff',
-    'active-bg-color': '#ecf5ff'
+    'active-bg-color': '#ecf5ff',
+    'disabled-text-color': '#a8abb2',
+    'disabled-bg-color': '#ffffff',
+    'disabled-border-color': '#e4e7ed',
 );
 
 $sm: 768px;

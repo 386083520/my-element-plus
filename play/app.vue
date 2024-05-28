@@ -12,7 +12,7 @@
       :key="button.text"
       :type="button.type"
       text
-      bg
+      disabled
     >
       {{ button.text }}
     </ell-button>

@@ -127,4 +127,20 @@
             @include button-variant($type);
         }
     }
+
+    @each $size in (large,small) {
+    }
+
+    @include m(large) {
+        height: 40px;
+        padding: 12px 19px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+    @include m(small) {
+        height: 24px;
+        padding: 5px 11px;
+        font-size: 12px;
+        border-radius: 3px;
+    }
 }

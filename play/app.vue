@@ -1,6 +1,7 @@
 <template>
-  <ell-button type="primary" loading :loading-icon="Eleme">
-  Loading</ell-button>
+  <ell-button size="large">Large</ell-button>
+    <ell-button>Default</ell-button>
+    <ell-button size="small">Small</ell-button>
 </template>
 <script setup lang="ts">
 import { Eleme } from '@element-plus/icons-vue'

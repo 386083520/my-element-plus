@@ -26,5 +26,6 @@ export const buttonProps = buildProps({
     loadingIcon: {
         type: Object,
         default: Loading
-    }
+    },
+    size: String
 })

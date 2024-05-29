@@ -1,11 +1,5 @@
 <template>
-  <ell-button type="primary" :icon="Edit" />
-    <ell-button type="primary" :icon="Share" />
-    <ell-button type="primary" :icon="Delete" />
-    <ell-button type="primary" :icon="Search">Search</ell-button>
-    <ell-button type="primary">
-      Upload<ell-icon class="el-icon--right"><Upload /></ell-icon>
-    </ell-button>
+  <ell-button type="primary" loading>Loading</ell-button>
 </template>
 <script setup lang="ts">
 import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'

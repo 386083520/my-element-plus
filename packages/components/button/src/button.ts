@@ -21,5 +21,6 @@ export const buttonProps = buildProps({
     disabled: Boolean,
     link: Boolean,
     text: Boolean,
-    bg: Boolean
+    bg: Boolean,
+    loading: Boolean
 })

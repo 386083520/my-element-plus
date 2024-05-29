@@ -18,9 +18,7 @@
     background-color: getCssVar('button', 'bg-color');
     border: 1px solid #dcdfe6;
     border-color: getCssVar('button', 'border-color');;
-    padding: 8px 15px;
-    font-size: 14px;
-    border-radius: 4px;
+    @include button-size(8px,15px,14px,4px);
     cursor: pointer;
     & + & {
         margin-left: 12px;
@@ -133,14 +131,10 @@
 
     @include m(large) {
         height: 40px;
-        padding: 12px 19px;
-        font-size: 14px;
-        border-radius: 4px;
+        @include button-size(12px,19px,14px,4px);
     }
     @include m(small) {
         height: 24px;
-        padding: 5px 11px;
-        font-size: 12px;
-        border-radius: 3px;
+        @include button-size(5px,11px,12px,3px);
     }
 }

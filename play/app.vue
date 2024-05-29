@@ -1,28 +1,23 @@
 <template>
-  <ell-button type="primary" :loading-icon="Delete" loading>Loading</ell-button>
+  <ell-button type="primary" loading :loading-icon="Eleme">
+  Loading</ell-button>
 </template>
 <script setup lang="ts">
-import { Delete } from '@element-plus/icons-vue'
+import { Eleme } from '@element-plus/icons-vue'
 </script>
 <style>
-.mb-4 {
-  margin-bottom: 10px;
+.ell-button .custom-loading .circular {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+  animation: loading-rotate 2s linear infinite;
 }
-.ep-bg-purple {
-  background-color: aquamarine;
-}
-.ell-row {
-  margin-bottom: 20px;
-}
-.ell-row:last-child {
-  margin-bottom: 0;
-}
-.ell-col {
-  border-radius: 4px;
-}
-
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
+.ell-button .custom-loading .circular .path {
+  animation: loading-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+  stroke: var(--el-button-text-color);
+  stroke-linecap: round;
 }
 </style>

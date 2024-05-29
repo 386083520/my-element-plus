@@ -1,8 +1,11 @@
 <template>
     <button :class="buttonKls">
-        <ell-icon v-if="loading" :class="ns.is('loading')">
-            <component :is="loadingIcon"/>
-        </ell-icon>
+        <template v-if="loading">
+            <slot name="loading" v-if="$slots.loading"></slot>
+            <ell-icon v-else :class="ns.is('loading')">
+                <component :is="loadingIcon"/>
+            </ell-icon>
+        </template>
         <ell-icon v-else-if="icon">
             <component :is="icon"/>
         </ell-icon>

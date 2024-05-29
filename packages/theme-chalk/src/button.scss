@@ -9,6 +9,8 @@
 }
 
 @include b(button) {
+    display: inline-flex;
+    align-items: center;
     height: 32px;
     color: getCssVar('button', 'text-color');
     outline: none;
@@ -22,6 +24,11 @@
     cursor: pointer;
     & + & {
         margin-left: 12px;
+    }
+    & [class*='#{$namespace}-icon'] {
+        & + span {
+            margin-left: 6px;
+        }
     }
     &:hover {
         color: getCssVar('button', 'hover','text-color');

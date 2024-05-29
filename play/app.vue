@@ -1,8 +1,8 @@
 <template>
-  <ell-button type="primary" loading>Loading</ell-button>
+  <ell-button type="primary" :loading-icon="Delete" loading>Loading</ell-button>
 </template>
 <script setup lang="ts">
-import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
+import { Delete } from '@element-plus/icons-vue'
 </script>
 <style>
 .mb-4 {

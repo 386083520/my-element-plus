@@ -1,5 +1,5 @@
 import { buildProps } from "@my-element-plus/utils";
-
+import { Loading } from '@element-plus/icons-vue'
 export const buttonTypes = [
     'default',
     'primary',
@@ -22,5 +22,9 @@ export const buttonProps = buildProps({
     link: Boolean,
     text: Boolean,
     bg: Boolean,
-    loading: Boolean
+    loading: Boolean,
+    loadingIcon: {
+        type: Object,
+        default: Loading
+    }
 })

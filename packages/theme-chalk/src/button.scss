@@ -15,6 +15,7 @@
     align-items: center;
     height: map.get($input-height, 'default');
     color: getCssVar('button', 'text-color');
+    box-sizing: border-box;
     outline: none;
     font-weight: 500;
     background-color: getCssVar('button', 'bg-color');

@@ -27,5 +27,9 @@ export const buttonProps = buildProps({
         type: Object,
         default: Loading
     },
-    size: String
+    size: String,
+    tag: {
+        type: String,
+        default: 'button'
+    }
 })

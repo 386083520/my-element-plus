@@ -1,7 +1,15 @@
 <template>
-  <ell-button size="large">Large</ell-button>
-    <ell-button>Default</ell-button>
-    <ell-button size="small">Small</ell-button>
+  <ell-button>button</ell-button>
+  <ell-button tag="div" role="button" tabindex="0">div</ell-button>
+  <ell-button
+    type="primary"
+    tag="a"
+    href="https://github.com/element-plus/element-plus"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    a
+  </ell-button>
 </template>
 <script setup lang="ts">
 import { Eleme } from '@element-plus/icons-vue'

@@ -1,5 +1,7 @@
 <template>
-    <button :class="buttonKls">
+    <component
+    :is="tag" 
+    :class="buttonKls">
         <template v-if="loading">
             <slot name="loading" v-if="$slots.loading"></slot>
             <ell-icon v-else :class="ns.is('loading')">
@@ -12,7 +14,7 @@
         <span v-if="$slots.default">
             <slot/>
         </span>
-    </button>
+    </component>
 </template>
 <script setup lang="ts">
 import { computed } from 'vue';

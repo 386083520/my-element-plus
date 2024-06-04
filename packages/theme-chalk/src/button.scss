@@ -13,7 +13,7 @@
 @include b(button) {
     display: inline-flex;
     align-items: center;
-    height: 32px;
+    height: map.get($input-height, 'default');
     color: getCssVar('button', 'text-color');
     outline: none;
     font-weight: 500;
@@ -135,7 +135,7 @@
 
     @each $size in (large,small) {
         @include m($size) {
-            height: 40px;
+            height: map.get($input-height, $size);
             @include button-size(
                 map.get($button-padding-vertical, $size),
                 map.get($button-padding-horizontal, $size),

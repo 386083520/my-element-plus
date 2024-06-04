@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'mixins/mixins.scss' as *;
 @use 'mixins/var.scss' as *;
 @use 'mixins/button.scss' as *;
@@ -19,7 +20,6 @@
     background-color: getCssVar('button', 'bg-color');
     border: 1px solid #dcdfe6;
     border-color: getCssVar('button', 'border-color');;
-    @include button-size(8px,15px,14px,4px);
     cursor: pointer;
     & + & {
         margin-left: 12px;
@@ -41,6 +41,12 @@
         background-color: getCssVar('button', 'active','bg-color');
         outline: none;
     }
+    @include button-size(
+                map.get($button-padding-vertical, 'default'),
+                map.get($button-padding-horizontal, 'default'),
+                map.get($button-font-size, 'default'),
+                map.get($button-border-radius, 'default')
+            );
     @include when(plain) {
         @include  css-var-from-global(
             ('button','hover','text-color'),
@@ -128,14 +134,14 @@
     }
 
     @each $size in (large,small) {
-    }
-
-    @include m(large) {
-        height: 40px;
-        @include button-size(12px,19px,14px,4px);
-    }
-    @include m(small) {
-        height: 24px;
-        @include button-size(5px,11px,12px,3px);
+        @include m($size) {
+            height: 40px;
+            @include button-size(
+                map.get($button-padding-vertical, $size),
+                map.get($button-padding-horizontal, $size),
+                map.get($button-font-size, $size),
+                map.get($button-border-radius, $size)
+            );
+        }
     }
 }

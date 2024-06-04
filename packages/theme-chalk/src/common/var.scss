@@ -81,6 +81,30 @@ $button: (
     'hover-link-text-color': '#909399'
 );
 
+$button-padding-vertical: (
+    'large': 12px,
+    'default': 8px,
+    'small': 5px
+);
+
+$button-padding-horizontal: (
+    'large': 19px,
+    'default': 15px,
+    'small': 11px
+);
+
+$button-font-size: (
+    'large': 14px,
+    'default': 14px,
+    'small': 12px
+);
+
+$button-border-radius: (
+    'large': 4px,
+    'default': 4px,
+    'small': 3px
+);
+
 $sm: 768px;
 $md: 992px;
 $lg: 1200px;

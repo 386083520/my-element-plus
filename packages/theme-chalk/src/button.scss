@@ -2,6 +2,7 @@
 @use 'mixins/var.scss' as *;
 @use 'mixins/button.scss' as *;
 @use 'mixins/var.scss' as *;
+@use 'common/var.scss' as *;
 
 
 @include b(button) {

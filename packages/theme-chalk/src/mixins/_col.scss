@@ -1,4 +1,6 @@
-@import "./mixins.scss";
+@use 'sass:math';
+@use "./mixins.scss" as *;
+
 @mixin col-size($size) {
     @include res($size) {
         @for $i from 0 through 24 {

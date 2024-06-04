@@ -1,5 +1,5 @@
-@import "./mixins/var.scss";
-@import "./common/var.scss";
+@use "./mixins/var.scss" as *;
+@use  "./common/var.scss" as *;
 :root {
     @each $type in (primary, warning, info, success, error, danger) {
         @include set-css-color-type($type, $colors)

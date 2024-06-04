@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import "./function.scss";
+@use  "./function.scss" as *;
 
 @mixin set-component-css-var($name, $varibales) {
     @each $attribute,$value in $varibales {

@@ -1,4 +1,4 @@
-@import "./mixins/mixins.scss";
+@use "./mixins/mixins.scss" as *;
 @include b(row) {
     display: flex;
     @include when(justify-center) {

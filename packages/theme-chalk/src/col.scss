@@ -1,6 +1,6 @@
 @use 'sass:math';
-@import "./mixins/mixins.scss";
-@import "./mixins/col.scss";
+@use "./mixins/mixins.scss" as *;
+@use "./mixins/col.scss" as *;
 [class*=ell-col-] {
     box-sizing: border-box;
 }

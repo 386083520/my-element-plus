@@ -13,6 +13,8 @@ import '@my-element-plus/theme-chalk/src/col.scss'
 import EllRow from '@my-element-plus/components/row'
 import '@my-element-plus/theme-chalk/src/row.scss'
 
+import '@my-element-plus/theme-chalk/src/reset.scss'
+
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 

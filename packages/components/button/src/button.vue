@@ -20,12 +20,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { buttonProps } from './button';
+import { useButtonCustomStyle } from './button-custom';
 import { useNamespace } from '@my-element-plus/hooks';
 
     defineOptions({
         name: "EllButton"
     })
     const props = defineProps(buttonProps)
+    const buttonStyle = useButtonCustomStyle(props)
     const ns = useNamespace('button')
     const buttonKls = computed(() => [
         ns.b(),
@@ -39,8 +41,4 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.is('text', props.text),
         ns.is('has-bg', props.bg)
     ])
-    const buttonStyle = {
-        '--ell-button-bg-color': props.color,
-        '--ell-button-text-color': '#fff'
-    }
 </script>

@@ -1,6 +1,7 @@
 <template>
     <component
-    :is="tag" 
+    :is="tag"
+    :style="buttonStyle" 
     :class="buttonKls">
         <template v-if="loading">
             <slot name="loading" v-if="$slots.loading"></slot>
@@ -38,4 +39,8 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.is('text', props.text),
         ns.is('has-bg', props.bg)
     ])
+    const buttonStyle = {
+        '--ell-button-bg-color': props.color,
+        '--ell-button-text-color': '#fff'
+    }
 </script>

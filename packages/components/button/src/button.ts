@@ -31,5 +31,6 @@ export const buttonProps = buildProps({
     tag: {
         type: String,
         default: 'button'
-    }
+    },
+    color: String
 })

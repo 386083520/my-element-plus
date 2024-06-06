@@ -23,6 +23,11 @@ export function useButtonCustomStyle(props) {
                     'active-text-color': '#fff',
                     'active-border-color': activeBgColor
                 })
+                if(props.disabled) {
+                    styles['--ell-button-disabled-bg-color'] = color.tint(90).toString()
+                    styles['--ell-button-disabled-text-color'] = color.tint(50).toString()
+                    styles['--ell-button-disabled-border-color'] = color.tint(80).toString()
+                }
             }else {
                 styles = ns.cssVarBlock({
                     'bg-color': buttonColor,

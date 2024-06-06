@@ -35,6 +35,12 @@ export function useButtonCustomStyle(props) {
                     'active-text-color': '#fff',
                     'active-border-color': activeBgColor
                 })
+                if(props.disabled) {
+                    const disabledButtonColor = color.tint(50).toString()
+                    styles['--ell-button-disabled-bg-color'] = disabledButtonColor
+                    styles['--ell-button-disabled-text-color'] = '#fff'
+                    styles['--ell-button-disabled-border-color'] = disabledButtonColor
+                }
             }
         }
         return styles

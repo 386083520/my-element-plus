@@ -33,5 +33,9 @@ export const buttonProps = buildProps({
         default: 'button'
     },
     color: String,
-    dark: Boolean
+    dark: Boolean,
+    autoInsertSpace: {
+        type:Boolean,
+        default: false
+    }
 })

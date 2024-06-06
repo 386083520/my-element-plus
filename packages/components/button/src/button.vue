@@ -12,7 +12,9 @@
         <ell-icon v-else-if="icon">
             <component :is="icon"/>
         </ell-icon>
-        <span v-if="$slots.default">
+        <span v-if="$slots.default"
+           :class="{[ns.em('text', 'expand')]: autoInsertSpace}"
+        >
             <slot/>
         </span>
     </component>

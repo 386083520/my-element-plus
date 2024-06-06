@@ -86,6 +86,12 @@
             border-color: getCssVar('button', 'disabled', 'border-color');
         }
     }
+    @include e(text) {
+        @include m(expand) {
+            letter-spacing: 0.3em;
+        }
+    }
+
     @include when(link) {
         border-color: transparent;
         background: transparent;

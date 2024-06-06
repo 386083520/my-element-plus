@@ -24,9 +24,9 @@ export function useButtonCustomStyle(props) {
                     'active-border-color': activeBgColor
                 })
                 if(props.disabled) {
-                    styles['--ell-button-disabled-bg-color'] = color.tint(90).toString()
-                    styles['--ell-button-disabled-text-color'] = color.tint(50).toString()
-                    styles['--ell-button-disabled-border-color'] = color.tint(80).toString()
+                    styles[ns.cssVarBlockName('disabled-bg-color')] = color.tint(90).toString()
+                    styles[ns.cssVarBlockName('disabled-text-color')] = color.tint(50).toString()
+                    styles[ns.cssVarBlockName('disabled-border-color')] = color.tint(80).toString()
                 }
             }else {
                 styles = ns.cssVarBlock({
@@ -42,9 +42,9 @@ export function useButtonCustomStyle(props) {
                 })
                 if(props.disabled) {
                     const disabledButtonColor = color.tint(50).toString()
-                    styles['--ell-button-disabled-bg-color'] = disabledButtonColor
-                    styles['--ell-button-disabled-text-color'] = '#fff'
-                    styles['--ell-button-disabled-border-color'] = disabledButtonColor
+                    styles[ns.cssVarBlockName('disabled-bg-color')] = disabledButtonColor
+                    styles[ns.cssVarBlockName('disabled-text-color')] = '#fff'
+                    styles[ns.cssVarBlockName('disabled-border-color')] = disabledButtonColor
                 }
             }
         }

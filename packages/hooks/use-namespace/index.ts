@@ -25,13 +25,15 @@ export const useNamespace = (block:string) => {
         }
         return styles
     }
+    const cssVarBlockName = (name:string) => `--${defaultNamespace}-${block}-${name}`
     return {
         b,
         e,
         m,
         em,
         is,
-        cssVarBlock
+        cssVarBlock,
+        cssVarBlockName
     }
 }
 const _bem = (namespace: string, block: string, blockSuffix:string, element:string, modifier:string) =>  {

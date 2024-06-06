@@ -16,12 +16,22 @@ export const useNamespace = (block:string) => {
         const isState = args.length >=1 ? args[0]:true
         return isState? `${statePrefix}${name}`:''
     }
+    const cssVarBlock = (object: Record<string,string>) => {
+        let styles:Record<string,string> = {}
+        for(const key in object) {
+            if(object[key]) {
+                styles[`--${defaultNamespace}-${block}-${key}`] = object[key]
+            }
+        }
+        return styles
+    }
     return {
         b,
         e,
         m,
         em,
-        is
+        is,
+        cssVarBlock
     }
 }
 const _bem = (namespace: string, block: string, blockSuffix:string, element:string, modifier:string) =>  {

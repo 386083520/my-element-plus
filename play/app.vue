@@ -1,5 +1,5 @@
 <template>
-  <ell-button color="#626aef" disabled>Default</ell-button>
+  <ell-button color="#626aef" dark disabled plain>Default</ell-button>
 </template>
 <script setup lang="ts">
 import { Eleme } from '@element-plus/icons-vue'

@@ -32,5 +32,6 @@ export const buttonProps = buildProps({
         type: String,
         default: 'button'
     },
-    color: String
+    color: String,
+    dark: Boolean
 })

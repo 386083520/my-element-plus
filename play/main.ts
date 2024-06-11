@@ -12,6 +12,8 @@ import EllCol from '@my-element-plus/components/col'
 import '@my-element-plus/theme-chalk/src/col.scss'
 import EllRow from '@my-element-plus/components/row'
 import '@my-element-plus/theme-chalk/src/row.scss'
+import EllButtonGroup from '@my-element-plus/components/button-group'
+import '@my-element-plus/theme-chalk/src/button-group.scss'
 
 import '@my-element-plus/theme-chalk/src/reset.scss'
 
@@ -25,5 +27,6 @@ app.use(EllBadge)
 app.use(EllCard)
 app.use(EllCol)
 app.use(EllRow)
+app.use(EllButtonGroup)
 app.use(ElementPlus)
 app.mount("#app")

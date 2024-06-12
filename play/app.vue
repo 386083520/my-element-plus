@@ -2,6 +2,7 @@
   <ell-button-group>
     <ell-button type="primary" :icon="ArrowLeft">Previous Page</ell-button>
     <ell-button type="primary" :icon="Edit" />
+    <ell-button type="primary" :icon="Edit" />
     <ell-button type="primary">
       Next Page<ell-icon class="el-icon--right"><ArrowRight /></ell-icon>
     </ell-button>

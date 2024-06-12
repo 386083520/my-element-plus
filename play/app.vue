@@ -1,9 +1,10 @@
 <template>
   <ell-button-group>
-    <el-button type="primary" :icon="ArrowLeft">Previous Page</el-button>
-    <el-button type="primary">
-      Next Page<el-icon class="el-icon--right"><ArrowRight /></el-icon>
-    </el-button>
+    <ell-button type="primary" :icon="ArrowLeft">Previous Page</ell-button>
+    <ell-button type="primary" :icon="Edit" />
+    <ell-button type="primary">
+      Next Page<ell-icon class="el-icon--right"><ArrowRight /></ell-icon>
+    </ell-button>
   </ell-button-group>
   <el-button-group class="ml-4">
     <el-button type="primary" :icon="Edit" />

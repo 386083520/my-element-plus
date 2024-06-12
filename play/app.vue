@@ -1,5 +1,5 @@
 <template>
-  <ell-button-group>
+  <ell-button-group style="margin-right: 20px;">
     <ell-button type="primary" :icon="ArrowLeft">Previous Page</ell-button>
     <ell-button type="primary" :icon="Edit" />
     <ell-button type="primary" :icon="Edit" />

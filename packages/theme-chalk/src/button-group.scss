@@ -1,5 +1,14 @@
 @use 'mixins/mixins.scss' as *;
 @include b(button-group) {
+    display: inline-block;
+    vertical-align: middle;
+    &:before,&:after {
+        display: table;
+        content: '';
+    }
+    &::after {
+        clear: both;
+    }
     & > .ell-button {
         float: left;
         & + .ell-button {

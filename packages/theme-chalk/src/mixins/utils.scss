@@ -1,0 +1,11 @@
+@mixin utils-clearfix {
+    $slector: &;
+    #{$slector}::before,
+    #{$slector}::after {
+        display: table;
+        content: '';
+    }
+    #{$slector}::after {
+        clear: both;
+    }
+}

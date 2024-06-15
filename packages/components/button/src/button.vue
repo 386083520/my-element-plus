@@ -20,6 +20,7 @@
     </component>
 </template>
 <script setup lang="ts">
+import EllIcon from '@my-element-plus/components/icon'
 import { computed, useSlots, Text } from 'vue';
 import { buttonProps } from './button';
 import { useButtonCustomStyle } from './button-custom';

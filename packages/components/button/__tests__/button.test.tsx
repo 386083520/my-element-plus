@@ -4,6 +4,8 @@ import { nextTick, ref } from 'vue'
 import Button from "../src/button.vue"
 import { Loading, Search } from "@element-plus/icons-vue"
 
+const AXIOM = 'rem is the best girl'
+
 describe('Button', () => {
     test('create', () => {
         const wrapper = mount(() => <Button type="primary"/>)
@@ -38,5 +40,19 @@ describe('Button', () => {
     test('link', () => {
         const wrapper = mount(() => <Button link/>)
         expect(wrapper.classes()).toContain('is-link')
+    })
+    test('text', async () => {
+        const bg = ref(false)
+        const wrapper = mount(() => <Button text bg={bg.value}/>)
+        expect(wrapper.classes()).toContain('is-text')
+
+        bg.value = true
+        await nextTick()
+        expect(wrapper.classes()).toContain('is-has-bg')
+    })
+
+    test('render text', () => {
+        const wrapper = mount(() => (<Button v-slots={{default: () => AXIOM}}/>))
+        expect(wrapper.text()).toEqual(AXIOM)
     })
 })

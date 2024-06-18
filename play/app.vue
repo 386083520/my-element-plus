@@ -1,18 +1,5 @@
 <template>
-  <ell-button-group style="margin-right: 20px;">
-    <ell-button type="primary" :icon="ArrowLeft">Previous Page</ell-button>
-    <ell-button type="primary" :icon="Edit" />
-    <ell-button type="primary" :icon="Edit" />
-    <ell-button type="primary">
-      Next Page<ell-icon class="el-icon--right"><ArrowRight /></ell-icon>
-    </ell-button>
-  </ell-button-group>
-  <el-button-group class="ml-4">
-    <el-button type="primary" :icon="Edit" />
-    <el-button type="primary" :icon="Share" />
-    <el-button type="primary" :icon="Delete" />
-  </el-button-group>
-
+  <ell-button loading type="primary"></ell-button>
 </template>
 <script setup lang="ts">
 import {

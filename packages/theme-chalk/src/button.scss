@@ -67,6 +67,20 @@
         );
     }
 
+    @include when(loading) {
+        pointer-events: none;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            bottom: -1px;
+            right: -1px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
     @include when(round) {
         border-radius: getCssVar('border-radius', 'round');
     }

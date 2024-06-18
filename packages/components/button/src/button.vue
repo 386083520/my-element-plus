@@ -43,7 +43,8 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.is('disabled', props.disabled),
         ns.is('link', props.link),
         ns.is('text', props.text),
-        ns.is('has-bg', props.bg)
+        ns.is('has-bg', props.bg),
+        ns.is('loading', props.loading)
     ])
     const shouldAddSpace = computed(() => {
         const defaultSlot = slots.default?.()

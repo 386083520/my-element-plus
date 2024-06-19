@@ -1,7 +1,7 @@
 <template>
     <component
     :is="tag"
-    :style="buttonStyle" 
+    :style="buttonStyle"
     :class="buttonKls">
         <template v-if="loading">
             <slot name="loading" v-if="$slots.loading"></slot>

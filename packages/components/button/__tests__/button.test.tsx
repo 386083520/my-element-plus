@@ -55,4 +55,24 @@ describe('Button', () => {
         const wrapper = mount(() => (<Button v-slots={{default: () => AXIOM}}/>))
         expect(wrapper.text()).toEqual(AXIOM)
     })
+
+    test('handle click', async () => {
+        const wrapper = mount(() => (<Button v-slots={{default: () => ''}}/>))
+        await wrapper.trigger('click')
+        expect(wrapper.emitted()).toBeDefined()
+    })
+
+    test('handle click inside', async () => {
+        const wrapper = mount(() => (<Button v-slots={{default: () => <span class="inner-slot"></span>}}/>))
+        await wrapper.find('.inner-slot').trigger('click')
+        expect(wrapper.emitted()).toBeDefined()
+    })
+
+    test('loading implies disabled', async () => {
+        const wrapper = mount(() => (
+            <Button v-slots={{default: () => AXIOM}} loading/>
+        ))
+        await wrapper.trigger('click')
+        expect(wrapper.emitted()).toBeUndefined()
+    })
 })

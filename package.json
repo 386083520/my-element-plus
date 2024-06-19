@@ -26,6 +26,6 @@
     "@my-element-plus/utils": "workspace:^",
     "@vue/shared": "3.2.27",
     "lodash-unified": "1.0.2",
-    "vitest": "0.12.6"
+    "vitest": "1.6.0"
   }
 }

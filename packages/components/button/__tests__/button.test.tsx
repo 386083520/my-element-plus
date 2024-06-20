@@ -94,4 +94,12 @@ describe('Button', () => {
         )
         expect(wrapper.find(".custom-loading").exists()).toBeTruthy()
     })
+
+    test('tag', () => {
+        const link = 'https://github.com'
+        const wrapper = mount(() => <Button tag="a" href={link}>{AXIOM}</Button>)
+        expect(wrapper.text()).toEqual(AXIOM)
+        expect(wrapper.element.nodeName).toBe('A')
+        expect(wrapper.attributes('href')).toBe(link)
+    })
 })

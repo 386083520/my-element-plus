@@ -1,5 +1,6 @@
 import { computed, useSlots } from "vue"
-export const useButton = (props) => {
+import type { ButtonProps } from "./button"
+export const useButton = (props:ButtonProps) => {
     const slots = useSlots()
     const shouldAddSpace = computed(() => {
         const defaultSlot = slots.default?.()

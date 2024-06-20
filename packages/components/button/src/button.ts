@@ -1,5 +1,6 @@
 import { buildProps } from "@my-element-plus/utils";
 import { Loading } from '@element-plus/icons-vue'
+import { ExtractPropTypes } from "vue";
 export const buttonTypes = [
     'default',
     'primary',
@@ -43,3 +44,5 @@ export const buttonProps = buildProps({
         default: false
     }
 })
+
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>

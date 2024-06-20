@@ -1,5 +1,8 @@
 <template>
-  <ell-button autoInsertSpace>中文</ell-button>
+  <ell-button-group type="success" size="large">
+    <ell-button>Previous Page</ell-button>
+    <ell-button>next Page</ell-button>
+  </ell-button-group>
 </template>
 <script setup lang="ts">
 import {

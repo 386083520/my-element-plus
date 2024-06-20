@@ -34,13 +34,13 @@ import { useButton } from './use-button';
         name: "EllButton"
     })
     const props = defineProps(buttonProps)
-    const { _props, shouldAddSpace } = useButton(props)
+    const { _props, shouldAddSpace,_type,_size } = useButton(props)
     const buttonStyle = useButtonCustomStyle(props)
     const ns = useNamespace('button')
     const buttonKls = computed(() => [
         ns.b(),
-        ns.m(props.type),
-        ns.m(props.size),
+        ns.m(_type.value),
+        ns.m(_size.value),
         ns.is('plain', props.plain),
         ns.is('round', props.round),
         ns.is('circle', props.circle),

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { provide } from 'vue';
+import { provide, reactive, toRef } from 'vue';
 import { buttonGroupProps } from './button-group'
 import { useNamespace } from '@my-element-plus/hooks';
 import { buttonGroupContextKey } from '../../button/src/constants';
@@ -14,8 +14,10 @@ defineOptions({
 })
 const ns = useNamespace('button')
 const props = defineProps(buttonGroupProps)
-provide(buttonGroupContextKey, {
-    size: props.size,
-    type: props.type
-})
+provide(buttonGroupContextKey, reactive(
+    {
+    size: toRef(props, 'size'),
+    type: toRef(props, 'type')
+    }
+))
 </script>

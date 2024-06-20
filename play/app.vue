@@ -1,5 +1,5 @@
 <template>
-  <ell-button-group type="success" size="large">
+  <ell-button-group type="info" size="large">
     <ell-button>Previous Page</ell-button>
     <ell-button>next Page</ell-button>
   </ell-button-group>

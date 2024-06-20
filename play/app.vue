@@ -1,5 +1,5 @@
 <template>
-  <ell-button loading type="primary"></ell-button>
+  <ell-button autoInsertSpace>中文</ell-button>
 </template>
 <script setup lang="ts">
 import {

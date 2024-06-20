@@ -1,4 +1,4 @@
-import { computed, useSlots } from "vue"
+import { computed, useSlots,Text } from "vue"
 import type { ButtonProps } from "./button"
 export const useButton = (props:ButtonProps) => {
     const slots = useSlots()

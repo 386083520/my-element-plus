@@ -102,4 +102,10 @@ describe('Button', () => {
         expect(wrapper.element.nodeName).toBe('A')
         expect(wrapper.attributes('href')).toBe(link)
     })
+
+    test('add space in two Chinese characters', () => {
+        const wrapper = mount(() => <Button v-slots={{default: () => '中文'}} autoInsertSpace/>)
+        expect(wrapper.find('.ell-button span').text()).toBe('中文')
+        expect(wrapper.find('.ell-button span').classes()).toContain('ell-button__text--expand')
+    })
 })

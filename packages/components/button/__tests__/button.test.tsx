@@ -59,13 +59,13 @@ describe('Button', () => {
     test('handle click', async () => {
         const wrapper = mount(() => (<Button v-slots={{default: () => ''}}/>))
         await wrapper.trigger('click')
-        expect(wrapper.emitted()).toBeDefined()
+        expect(wrapper.emitted().click).toBeDefined()
     })
 
     test('handle click inside', async () => {
         const wrapper = mount(() => (<Button v-slots={{default: () => <span class="inner-slot"></span>}}/>))
         await wrapper.find('.inner-slot').trigger('click')
-        expect(wrapper.emitted()).toBeDefined()
+        expect(wrapper.emitted().click).toBeDefined()
     })
 
     test('loading implies disabled', async () => {
@@ -73,6 +73,13 @@ describe('Button', () => {
             <Button v-slots={{default: () => AXIOM}} loading/>
         ))
         await wrapper.trigger('click')
-        expect(wrapper.emitted()).toBeUndefined()
+        expect(wrapper.emitted().click).toBeUndefined()
+    })
+
+    test('disabled', async () => {
+        const wrapper = mount(() => <Button disabled/>)
+        expect(wrapper.classes()).toContain('is-disabled')
+        await wrapper.trigger('click')
+        expect(wrapper.emitted().click).toBeUndefined()
     })
 })

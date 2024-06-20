@@ -2,6 +2,7 @@
     <component
     :is="tag"
     :style="buttonStyle"
+    v-bind="_props"
     :class="buttonKls">
         <template v-if="loading">
             <slot name="loading" v-if="$slots.loading"></slot>
@@ -56,5 +57,13 @@ import { useNamespace } from '@my-element-plus/hooks';
             }
         }
         return false
+    })
+    const _props = computed(() => {
+        if(props.tag === 'button') {
+            return {
+                disabled: props.disabled || props.loading
+            }
+        }
+        return {}
     })
 </script>

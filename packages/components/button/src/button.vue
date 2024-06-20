@@ -22,16 +22,19 @@
 </template>
 <script setup lang="ts">
 import EllIcon from '@my-element-plus/components/icon'
-import { computed, useSlots, Text } from 'vue';
+import { computed } from 'vue';
 import { buttonProps } from './button';
 import { useButtonCustomStyle } from './button-custom';
 import { useNamespace } from '@my-element-plus/hooks';
+import { useButton } from './use-button';
+
+
 
     defineOptions({
         name: "EllButton"
     })
     const props = defineProps(buttonProps)
-    const slots = useSlots()
+    const { _props, shouldAddSpace } = useButton(props)
     const buttonStyle = useButtonCustomStyle(props)
     const ns = useNamespace('button')
     const buttonKls = computed(() => [
@@ -47,23 +50,4 @@ import { useNamespace } from '@my-element-plus/hooks';
         ns.is('has-bg', props.bg),
         ns.is('loading', props.loading)
     ])
-    const shouldAddSpace = computed(() => {
-        const defaultSlot = slots.default?.()
-        if(defaultSlot?.length === 1 && props.autoInsertSpace) {
-            const slot = defaultSlot[0]
-            if(slot?.type === Text) {
-                const text = slot.children as string
-                return /^\p{Unified_Ideograph}{2}$/u.test(text.trim())
-            }
-        }
-        return false
-    })
-    const _props = computed(() => {
-        if(props.tag === 'button') {
-            return {
-                disabled: props.disabled || props.loading
-            }
-        }
-        return {}
-    })
 </script>

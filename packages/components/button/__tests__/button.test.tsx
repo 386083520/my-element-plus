@@ -82,4 +82,16 @@ describe('Button', () => {
         await wrapper.trigger('click')
         expect(wrapper.emitted().click).toBeUndefined()
     })
+
+    test('loading icon', () => {
+        const wrapper = mount(() => <Button loading loadingIcon={Search}/>)
+        expect(wrapper.findComponent(Search).exists()).toBeTruthy()
+    })
+
+    test('loading slot', () => {
+        const wrapper = mount(() => 
+            (<Button v-slots={{loading: () => <span class="custom-loading"></span>}} loading/>)
+        )
+        expect(wrapper.find(".custom-loading").exists()).toBeTruthy()
+    })
 })

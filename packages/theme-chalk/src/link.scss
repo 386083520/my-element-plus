@@ -1,6 +1,11 @@
 @use 'mixins/mixins.scss' as *;
+@use 'mixins/var.scss' as *;
+@use 'common/var.scss' as *;
 @include b(link) {
-    color: #606266;
-    font-size: 14px;
-    font-weight: 500;
+    @include set-component-css-var('link', $link)
+}
+@include b(link) {
+    color: getCssVar('link', 'text-color');
+    font-size: getCssVar('link', 'font-size');
+    font-weight: getCssVar('link', 'font-weight');
 }

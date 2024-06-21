@@ -1,5 +1,10 @@
 <template>
-  <ell-link>link</ell-link>
+  <ell-link href="https://element-plus.org" target="_blank">default</ell-link>
+    <ell-link type="primary">primary</ell-link>
+    <ell-link type="success">success</ell-link>
+    <ell-link type="warning">warning</ell-link>
+    <ell-link type="danger">danger</ell-link>
+    <ell-link type="info">info</ell-link>
 </template>
 <script setup lang="ts">
 import {
@@ -11,18 +16,7 @@ import {
 } from '@element-plus/icons-vue'
 </script>
 <style>
-.ell-button .custom-loading .circular {
-  margin-right: 6px;
-  width: 18px;
-  height: 18px;
-  animation: loading-rotate 2s linear infinite;
-}
-.ell-button .custom-loading .circular .path {
-  animation: loading-dash 1.5s ease-in-out infinite;
-  stroke-dasharray: 90, 150;
-  stroke-dashoffset: 0;
-  stroke-width: 2;
-  stroke: var(--el-button-text-color);
-  stroke-linecap: round;
+.ell-link {
+  margin-right: 8px;
 }
 </style>

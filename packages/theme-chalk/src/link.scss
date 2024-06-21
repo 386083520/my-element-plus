@@ -8,4 +8,9 @@
     color: getCssVar('link', 'text-color');
     font-size: getCssVar('link', 'font-size');
     font-weight: getCssVar('link', 'font-weight');
+    @each $type in $types {
+        &.#{$namespace}-link--#{$type} {
+            @include css-var-from-global(('link', 'text-color'), ('color', $type))
+        }
+    }
 }

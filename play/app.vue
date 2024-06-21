@@ -1,8 +1,5 @@
 <template>
-  <ell-button-group type="info" size="large">
-    <ell-button>Previous Page</ell-button>
-    <ell-button>next Page</ell-button>
-  </ell-button-group>
+  <ell-link>link</ell-link>
 </template>
 <script setup lang="ts">
 import {

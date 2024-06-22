@@ -8,5 +8,9 @@ export const linkProps = buildProps({
     underline: {
         type: Boolean,
         default: true
+    },
+    disabled: {
+        type: Boolean,
+        default: false
     }
 })

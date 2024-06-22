@@ -18,6 +18,7 @@ const ns = useNamespace('link')
 const linkCls = computed(() => [
   ns.b(),
   ns.m(props.type),
-  ns.is('underline', props.underline)
+  ns.is('underline', props.underline && !props.disabled),
+  ns.is('disabled', props.disabled)
 ])
 </script>

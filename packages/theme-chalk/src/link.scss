@@ -23,10 +23,15 @@
             border-bottom: 1px solid getCssVar('link', 'hover-text-color');
         }
     }
+    @include when(disabled) {
+        color: getCssVar('link', 'disabled-text-color');
+        cursor: not-allowed;
+    }
     @each $type in $types {
         &.#{$namespace}-link--#{$type} {
             @include css-var-from-global(('link', 'text-color'), ('color', $type));
-            @include css-var-from-global(('link', 'hover-text-color'), ('color', $type, 'light-3'))
+            @include css-var-from-global(('link', 'hover-text-color'), ('color', $type, 'light-3'));
+            @include css-var-from-global(('link', 'disabled-text-color'), ('color', $type, 'light-5'));
         }
     }
 }

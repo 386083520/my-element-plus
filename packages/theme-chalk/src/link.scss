@@ -9,6 +9,9 @@
     font-size: getCssVar('link', 'font-size');
     font-weight: getCssVar('link', 'font-weight');
     position: relative;
+    &:hover {
+        color: getCssVar('link', 'hover-text-color')
+    }
     @include when(underline) {
         &:hover:after {
             content: '';

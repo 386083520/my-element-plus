@@ -1,7 +1,9 @@
 <template>
     <a 
     :class="linkCls"
-    href="https://www.baidu.com">
+    :href="disabled || !href ? undefined: href"
+    :target="disabled || !href ? undefined: target"
+    >
         <slot/>
     </a>
 </template>

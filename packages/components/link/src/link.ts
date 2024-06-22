@@ -25,3 +25,8 @@ export const linkProps = buildProps({
         type: [String, Object]
     }
 })
+
+
+export const linkEmits = {
+    click: (env: MouseEvent) => true
+}

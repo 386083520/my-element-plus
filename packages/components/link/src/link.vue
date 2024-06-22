@@ -8,7 +8,7 @@
     <ell-icon v-if="icon"><component :is="icon"/></ell-icon>
     <span :class="ns.e('inner')">
         <slot/>
-    </span>    
+    </span>
     </a>
 </template>
 
@@ -17,11 +17,12 @@ import { computed } from 'vue';
 import { linkProps } from './link'
 import { useNamespace } from '@my-element-plus/hooks';
 import EllIcon from '@my-element-plus/components/icon';
+import { linkEmits } from './link';
 defineOptions({
     name: 'EllLink'
 })
 const props = defineProps(linkProps)
-const emit = defineEmits(['click'])
+const emit = defineEmits(linkEmits)
 const ns = useNamespace('link')
 const linkCls = computed(() => [
   ns.b(),

@@ -3,6 +3,7 @@
     :class="linkCls"
     :href="disabled || !href ? undefined: href"
     :target="disabled || !href ? undefined: target"
+    @click="handleClick"
     >
     <ell-icon v-if="icon"><component :is="icon"/></ell-icon>
     <span :class="ns.e('inner')">
@@ -20,6 +21,7 @@ defineOptions({
     name: 'EllLink'
 })
 const props = defineProps(linkProps)
+const emit = defineEmits(['click'])
 const ns = useNamespace('link')
 const linkCls = computed(() => [
   ns.b(),
@@ -27,4 +29,8 @@ const linkCls = computed(() => [
   ns.is('underline', props.underline && !props.disabled),
   ns.is('disabled', props.disabled)
 ])
+
+function handleClick(event:MouseEvent) {
+    if(!props.disabled) emit('click', event)
+}
 </script>

@@ -8,9 +8,22 @@
     color: getCssVar('link', 'text-color');
     font-size: getCssVar('link', 'font-size');
     font-weight: getCssVar('link', 'font-weight');
+    position: relative;
+    @include when(underline) {
+        &:hover:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 0;
+            border-bottom: 1px solid getCssVar('link', 'hover-text-color');
+        }
+    }
     @each $type in $types {
         &.#{$namespace}-link--#{$type} {
-            @include css-var-from-global(('link', 'text-color'), ('color', $type))
+            @include css-var-from-global(('link', 'text-color'), ('color', $type));
+            @include css-var-from-global(('link', 'hover-text-color'), ('color', $type, 'light-3'))
         }
     }
 }

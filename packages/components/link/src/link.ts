@@ -4,5 +4,9 @@ export const linkProps = buildProps({
         type: String,
         values: ['primary', 'success', 'warning', 'info', 'danger', 'default'],
         default: 'default'
+    },
+    underline: {
+        type: Boolean,
+        default: true
     }
 })

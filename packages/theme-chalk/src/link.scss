@@ -5,6 +5,9 @@
     @include set-component-css-var('link', $link)
 }
 @include b(link) {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
     color: getCssVar('link', 'text-color');
     font-size: getCssVar('link', 'font-size');
     font-weight: getCssVar('link', 'font-weight');
@@ -26,6 +29,15 @@
     @include when(disabled) {
         color: getCssVar('link', 'disabled-text-color');
         cursor: not-allowed;
+    }
+    @include e(inner) {
+        display: inline-flex;
+        align-items: center;
+    }
+    & [class*='#{$namespace}-icon'] {
+        & + span {
+            margin-left: 5px;
+        }
     }
     @each $type in $types {
         &.#{$namespace}-link--#{$type} {

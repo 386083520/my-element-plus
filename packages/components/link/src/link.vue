@@ -1,10 +1,13 @@
 <template>
-    <a 
+    <a
     :class="linkCls"
     :href="disabled || !href ? undefined: href"
     :target="disabled || !href ? undefined: target"
     >
+    <ell-icon v-if="icon"><component :is="icon"/></ell-icon>
+    <span :class="ns.e('inner')">
         <slot/>
+    </span>    
     </a>
 </template>
 
@@ -12,6 +15,7 @@
 import { computed } from 'vue';
 import { linkProps } from './link'
 import { useNamespace } from '@my-element-plus/hooks';
+import EllIcon from '@my-element-plus/components/icon';
 defineOptions({
     name: 'EllLink'
 })

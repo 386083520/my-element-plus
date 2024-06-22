@@ -20,5 +20,8 @@ export const linkProps = buildProps({
     target: {
         type: String,
         default: '_self'
+    },
+    icon: {
+        type: [String, Object]
     }
 })

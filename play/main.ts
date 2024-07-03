@@ -16,6 +16,8 @@ import EllButtonGroup from '@my-element-plus/components/button-group'
 import '@my-element-plus/theme-chalk/src/button-group.scss'
 import EllLink from '@my-element-plus/components/link'
 import '@my-element-plus/theme-chalk/src/link.scss'
+import EllText from '@my-element-plus/components/text'
+import '@my-element-plus/theme-chalk/src/text.scss'
 
 import '@my-element-plus/theme-chalk/src/reset.scss'
 
@@ -31,5 +33,6 @@ app.use(EllCol)
 app.use(EllRow)
 app.use(EllButtonGroup)
 app.use(EllLink)
+app.use(EllText)
 app.use(ElementPlus)
 app.mount("#app")

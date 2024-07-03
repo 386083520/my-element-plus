@@ -1,4 +1,15 @@
-.ell-text {
-    font-size: 14px;
-    color: #606266;
+@use 'mixins/mixins.scss' as *;
+@use 'common/var' as *;
+@use 'mixins/var.scss' as *;
+@include b(text) {
+    @include set-component-css-var('text', $text);
+}
+@include b(text) {
+    font-size: getCssVar('text', 'font-size');
+    color: getCssVar('text', 'color');
+    @each $type in $types {
+        &.#{$namespace}-text--#{$type} {
+            @include css-var-from-global(('text', 'color'), ('color', $type));
+        }
+    }
 }

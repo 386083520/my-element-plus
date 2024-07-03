@@ -12,8 +12,10 @@ import { useNamespace } from '@my-element-plus/hooks';
 defineOptions({
     name: 'EllText'
 })
+const props = defineProps(textProps)
 const ns =useNamespace('text')
 const textKls = computed(() => [
-    ns.b()
+    ns.b(),
+    ns.m(props.type)
 ])
 </script>

@@ -1,3 +1,5 @@
+@use 'config';
+
 @function joinVarName($list) {
     $name: '--ell';
     @each $item in $list {
@@ -12,4 +14,12 @@
 }
 @function getCssVarName($args...) {
     @return joinVarName($args)
+}
+
+@function bem($block, $modifier: '') {
+    $name: config.$namespace + config.$common-separator + $block;
+    @if $modifier != '' {
+        $name: $name + config.$modifier-separator +  $modifier;
+    }
+    @return $name;
 }

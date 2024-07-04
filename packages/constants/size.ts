@@ -1,0 +1,1 @@
+export const componentSizes = ['large', 'default', 'small', ''] as const;

@@ -14,6 +14,9 @@ importers:
       '@my-element-plus/components':
         specifier: workspace:^
         version: link:packages/components
+      '@my-element-plus/constants':
+        specifier: workspace:^
+        version: link:packages/constants
       '@my-element-plus/hooks':
         specifier: workspace:^
         version: link:packages/hooks
@@ -60,6 +63,8 @@ importers:
       '@ctrl/tinycolor':
         specifier: ^3.4.1
         version: 3.6.1
+
+  packages/constants: {}
 
   packages/hooks: {}
 

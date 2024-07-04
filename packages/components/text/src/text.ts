@@ -1,4 +1,5 @@
 import { buildProps } from "@my-element-plus/utils"
+import { componentSizes } from "@my-element-plus/constants"
 export const textProps = buildProps({
     type: {
         type: String,
@@ -7,7 +8,7 @@ export const textProps = buildProps({
     },
     size: {
         type: String,
-        values: ['large', 'default', 'small', ''],
+        values: componentSizes,
         default: ''
     },
     truncated: {

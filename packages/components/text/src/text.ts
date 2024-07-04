@@ -12,5 +12,8 @@ export const textProps = buildProps({
     },
     truncated: {
         type: Boolean
+    },
+    lineClamp: {
+        type: [String, Number]
     }
 })

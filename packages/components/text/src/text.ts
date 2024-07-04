@@ -15,5 +15,9 @@ export const textProps = buildProps({
     },
     lineClamp: {
         type: [String, Number]
+    },
+    tag: {
+        type: String,
+        default: 'span'
     }
 })

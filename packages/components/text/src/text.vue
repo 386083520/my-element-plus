@@ -1,9 +1,11 @@
 <template>
-    <span :class="textKls" 
+    <component
+    :is="tag"
+    :class="textKls" 
     :style="{'-webkit-line-clamp': lineClamp}"
     >
         <slot/>
-    </span>
+    </component>
 </template>
 
 <script lang="ts" setup>

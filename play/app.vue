@@ -1,15 +1,21 @@
 <template>
-  <ell-text class="w-150px mb-2" truncated>
-    Self element set width 100px
-  </ell-text>
-  <el-row class="w-150px mb-2">
-    <ell-text truncated>Squeezed by parent element</ell-text>
-  </el-row>
-  <ell-text line-clamp="2">
-    The -webkit-line-clamp CSS property<br />
-    allows limiting of the contents of<br />
-    a block to the specified number of lines.
-  </ell-text>
+  <el-space direction="vertical">
+    <ell-text>span</ell-text>
+    <ell-text tag="p">This is a paragraph.</ell-text>
+    <ell-text tag="b">Bold</ell-text>
+    <ell-text tag="i">Italic</ell-text>
+    <ell-text>
+      This is
+      <ell-text tag="sub" size="small">subscript</ell-text>
+    </ell-text>
+    <ell-text>
+      This is
+      <ell-text tag="sup" size="small">superscript</ell-text>
+    </ell-text>
+    <ell-text tag="ins">Inserted</ell-text>
+    <ell-text tag="dell">Delleted</ell-text>
+    <ell-text tag="mark">Marked</ell-text>
+  </el-space>
 </template>
 <script setup lang="ts">
 import { Edit, View as IconView } from '@element-plus/icons-vue'

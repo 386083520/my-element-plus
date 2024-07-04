@@ -7,7 +7,7 @@ export const textProps = buildProps({
     },
     size: {
         type: String,
-        values: ['large', 'default', 'small'],
+        values: ['large', 'default', 'small', ''],
         default: ''
     },
     truncated: {

@@ -18,6 +18,8 @@ import EllLink from '@my-element-plus/components/link'
 import '@my-element-plus/theme-chalk/src/link.scss'
 import EllText from '@my-element-plus/components/text'
 import '@my-element-plus/theme-chalk/src/text.scss'
+import EllScrollbar from '@my-element-plus/components/scrollbar'
+import '@my-element-plus/theme-chalk/src/scrollbar.scss'
 
 import '@my-element-plus/theme-chalk/src/reset.scss'
 

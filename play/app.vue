@@ -1,21 +1,7 @@
 <template>
-  <el-space direction="vertical">
-    <ell-text>span</ell-text>
-    <ell-text tag="p">This is a paragraph.</ell-text>
-    <ell-text tag="b">Bold</ell-text>
-    <ell-text tag="i">Italic</ell-text>
-    <ell-text>
-      This is
-      <ell-text tag="sub" size="small">subscript</ell-text>
-    </ell-text>
-    <ell-text>
-      This is
-      <ell-text tag="sup" size="small">superscript</ell-text>
-    </ell-text>
-    <ell-text tag="ins">Inserted</ell-text>
-    <ell-text tag="dell">Delleted</ell-text>
-    <ell-text tag="mark">Marked</ell-text>
-  </el-space>
+  <ell-scrollbar height="400px">
+    <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
+  </ell-scrollbar>
 </template>
 <script setup lang="ts">
 import { Edit, View as IconView } from '@element-plus/icons-vue'
@@ -24,13 +10,15 @@ const handleClick = (env) => {
 }
 </script>
 <style>
-.w-150px {
-  width: 150px;
-}
-.mb-2 {
-  margin-bottom: 10px;
-}
-.ell-link {
-  margin-right: 8px;
+.scrollbar-demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
 }
 </style>

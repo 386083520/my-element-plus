@@ -21,4 +21,10 @@
             @include css-var-from-global(('text', 'color'), ('color', $type));
         }
     }
+    @include when(truncated) {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

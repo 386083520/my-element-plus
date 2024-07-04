@@ -17,6 +17,7 @@ const ns =useNamespace('text')
 const textKls = computed(() => [
     ns.b(),
     ns.m(props.type),
-    ns.m(props.size)
+    ns.m(props.size),
+    ns.is('truncated', props.truncated)
 ])
 </script>

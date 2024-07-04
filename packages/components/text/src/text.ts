@@ -9,5 +9,8 @@ export const textProps = buildProps({
         type: String,
         values: ['large', 'default', 'small'],
         default: ''
+    },
+    truncated: {
+        type: Boolean
     }
 })

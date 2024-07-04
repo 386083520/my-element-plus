@@ -16,6 +16,7 @@ const props = defineProps(textProps)
 const ns =useNamespace('text')
 const textKls = computed(() => [
     ns.b(),
-    ns.m(props.type)
+    ns.m(props.type),
+    ns.m(props.size)
 ])
 </script>

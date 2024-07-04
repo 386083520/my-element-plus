@@ -1,10 +1,7 @@
 <template>
+  <ell-text class="mx-1" size="large">Large</ell-text>
   <ell-text class="mx-1">Default</ell-text>
-  <ell-text class="mx-1" type="primary">Primary</ell-text>
-  <ell-text class="mx-1" type="success">Success</ell-text>
-  <ell-text class="mx-1" type="info">Info</ell-text>
-  <ell-text class="mx-1" type="warning">Warning</ell-text>
-  <ell-text class="mx-1" type="danger">Danger</ell-text>
+  <ell-text class="mx-1" size="small">Small</ell-text>
 </template>
 <script setup lang="ts">
 import { Edit, View as IconView } from '@element-plus/icons-vue'

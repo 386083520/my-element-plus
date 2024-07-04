@@ -4,5 +4,10 @@ export const textProps = buildProps({
         type: String,
         values: ['primary', 'success', 'info', 'warning', 'danger', ''],
         default: ''
+    },
+    size: {
+        type: String,
+        values: ['large', 'default', 'small'],
+        default: ''
     }
 })

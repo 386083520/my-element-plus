@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'mixins/mixins.scss' as *;
 @use 'common/var' as *;
 @use 'mixins/var.scss' as *;
@@ -7,6 +8,14 @@
 @include b(text) {
     font-size: getCssVar('text', 'font-size');
     color: getCssVar('text', 'color');
+    @each $size in (large, default, small) {
+        @include m($size) {
+            @include set-css-var-value(
+                ('text', 'font-size'),
+                map.get($text-font-size, $size)
+            )
+        }
+    }
     @each $type in $types {
         &.#{bem('text', $type)} {
             @include css-var-from-global(('text', 'color'), ('color', $type));

@@ -4,5 +4,8 @@
     @include e(wrap) {
         height: 100%;
         overflow: auto;
+        @include m(hidden-default) {
+            scrollbar-width: none;
+        }
     }
 }

@@ -18,7 +18,8 @@ defineOptions({
 const ns = useNamespace('scrollbar')
 const wrapKls = computed(() => {
     return [
-        ns.e('wrap')
+        ns.e('wrap'),
+        ns.em('wrap', 'hidden-default')
     ]
 })
 const resizeKls = computed(() => {

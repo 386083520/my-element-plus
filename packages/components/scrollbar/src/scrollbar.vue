@@ -5,6 +5,7 @@
                 <slot/>
             </div>
         </div>
+        <bar></bar>
     </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { useNamespace } from '@my-element-plus/hooks';
 import { scrollbarProps } from './scrollbar'
 import { computed } from 'vue';
+import Bar from './bar.vue';
 defineOptions({
     name: 'EllScrollbar'
 })

@@ -1,0 +1,8 @@
+@use 'mixins/mixins.scss' as *;
+@include b(scrollbar) {
+    overflow: hidden;
+    @include e(wrap) {
+        height: 100%;
+        overflow: auto;
+    }
+}

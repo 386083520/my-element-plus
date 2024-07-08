@@ -37,7 +37,7 @@ const update =() => {
     barRef.value?.update()
 }
 const handleScroll = () => {
-    barRef.value?.handleScroll()
+    barRef.value?.handleScroll(wrapRef.value)
 }
 onMounted(() => {
     nextTick(() => {

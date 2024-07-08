@@ -12,8 +12,12 @@ const moveY = ref(0)
 
 const scrollbar = inject(scrollbarContextKey)
 
-const handleScroll = () => {
+const handleScroll = (wrap: HTMLDivElement) => {
     console.log('scroll')
+    if(wrap) {
+        const offsetHeight =  wrap.offsetHeight - GAP
+        moveY.value = (wrap.scrollTop * 100) / offsetHeight
+    }
 }
 
 const update = () => {

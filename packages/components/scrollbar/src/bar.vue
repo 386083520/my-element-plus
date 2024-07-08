@@ -1,10 +1,19 @@
 <template>
-    <thumb size="50px"></thumb>
+    <thumb :size="sizeHeight"></thumb>
 </template>
 <script lang="ts" setup>
 import Thumb from './thumb.vue'
+import { scrollbarContextKey } from './constants';
+import { inject, ref } from 'vue';
+const sizeHeight = ref('')
+
+const scrollbar = inject(scrollbarContextKey)
 const update = () => {
-    console.log('update')
+    const wrap = scrollbar?.wrapElement
+    if(!wrap) return
+    const offsetHeight = wrap.offsetHeight
+    const originalHeight = offsetHeight ** 2 / wrap.scrollHeight
+    sizeHeight.value =  `${originalHeight}px`
 }
 
 defineExpose({

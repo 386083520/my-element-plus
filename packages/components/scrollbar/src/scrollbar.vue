@@ -1,6 +1,6 @@
 <template>
     <div :class="ns.b()">
-        <div :class="wrapKls">
+        <div :class="wrapKls" ref="wrapRef">
             <div :class="resizeKls">
                 <slot/>
             </div>
@@ -12,14 +12,16 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
 import { scrollbarProps } from './scrollbar'
-import { computed, nextTick, onMounted, ref } from 'vue';
+import { computed, nextTick, onMounted, provide, reactive, ref } from 'vue';
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
+import { scrollbarContextKey } from './constants';
 defineOptions({
     name: 'EllScrollbar'
 })
 const ns = useNamespace('scrollbar')
 const barRef = ref<BarInstance>()
+const wrapRef = ref<HTMLDivElement>()
 const wrapKls = computed(() => {
     return [
         ns.e('wrap'),
@@ -39,4 +41,11 @@ onMounted(() => {
         update()
     })
 })
+
+provide(
+    scrollbarContextKey,
+    reactive({
+        wrapElement: wrapRef
+    })
+)
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div :class="ns.b()">
-        <div :class="wrapKls" ref="wrapRef">
+        <div :class="wrapKls" ref="wrapRef" @scroll="handleScroll">
             <div :class="resizeKls">
                 <slot/>
             </div>
@@ -35,6 +35,9 @@ const resizeKls = computed(() => {
 })
 const update =() => {
     barRef.value?.update()
+}
+const handleScroll = () => {
+    barRef.value?.handleScroll()
 }
 onMounted(() => {
     nextTick(() => {

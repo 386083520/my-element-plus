@@ -1,5 +1,5 @@
 <template>
-    <thumb :size="sizeHeight" :move="100"></thumb>
+    <thumb :size="sizeHeight" :move="moveY"></thumb>
 </template>
 <script lang="ts" setup>
 import Thumb from './thumb.vue'
@@ -8,8 +8,14 @@ import { inject, ref } from 'vue';
 import { GAP } from "./util";
 
 const sizeHeight = ref('')
+const moveY = ref(0)
 
 const scrollbar = inject(scrollbarContextKey)
+
+const handleScroll = () => {
+    console.log('scroll')
+}
+
 const update = () => {
     const wrap = scrollbar?.wrapElement
     if(!wrap) return
@@ -19,6 +25,7 @@ const update = () => {
 }
 
 defineExpose({
-    update
+    update,
+    handleScroll
 })
 </script>

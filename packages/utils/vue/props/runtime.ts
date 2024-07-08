@@ -37,7 +37,7 @@ export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) 
     if(hasOwn(prop, 'default')) epProp.default=defaultValue
     return epProp
 }
-export const buildProps = <Props extends Record<string, BooleanConstructor | StringConstructor | EpPropInput<any, any, any, any, any>>>(props:Props):Props => {
+export const buildProps = <Props extends Record<string, NumberConstructor | BooleanConstructor | StringConstructor | EpPropInput<any, any, any, any, any>>>(props:Props):Props => {
     return fromPairs(Object.entries(props).map(([key, option]) => [
         key,
         buildProp(option as any, key)

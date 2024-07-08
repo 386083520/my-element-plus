@@ -12,7 +12,8 @@ import { renderThumbStyle } from './util';
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
 const thumbStyle = computed(() => renderThumbStyle({
-    size: props.size
+    size: props.size,
+    move: props.move
 }))
 
 </script>

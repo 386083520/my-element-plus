@@ -1,5 +1,5 @@
 <template>
-    <thumb :size="sizeHeight"></thumb>
+    <thumb :size="sizeHeight" :move="100"></thumb>
 </template>
 <script lang="ts" setup>
 import Thumb from './thumb.vue'

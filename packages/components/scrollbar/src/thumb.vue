@@ -43,9 +43,15 @@ const startDrag = () => {
     document.addEventListener('mousemove', mouseMoveDocumentHandler)
     document.addEventListener('mouseup', mouseUpDocumentHandler)
 }
-const mouseMoveDocumentHandler = () => {
+const mouseMoveDocumentHandler = (e: MouseEvent) => {
     if(cursorDown === false) return
     console.log('move')
+    const prevPage = thumbState.value.Y
+    if(!prevPage) return
+    const thumbClickPosition = thumb.value.offsetHeight - prevPage
+    const offset = Math.abs(instance.value.getBoundingClientRect().top - e.clientY)
+    const thumbPositionPercentage = (offset - thumbClickPosition)*100 / instance.value.offsetHeight
+    scrollbar.wrapElement.scrollTop = (thumbPositionPercentage * scrollbar.wrapElement.scrollHeight)/100
 }
 const mouseUpDocumentHandler = () => {
     cursorDown = false

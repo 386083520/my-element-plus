@@ -17,6 +17,7 @@ import type { StyleValue } from 'vue'
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
 import { scrollbarContextKey } from './constants';
+import { addUnit } from '@my-element-plus/utils';
 defineOptions({
     name: 'EllScrollbar'
 })
@@ -33,6 +34,8 @@ const wrapKls = computed(() => {
 })
 const wrapStyle = computed<StyleValue>(() => {
     const style:CSSProperties = {}
+    if(props.height) style.height = addUnit(props.height)
+    if(props.maxHeight) style.maxHeight = addUnit(props.maxHeight)
     return [props.wrapStyle, style]
 })
 const resizeKls = computed(() => {

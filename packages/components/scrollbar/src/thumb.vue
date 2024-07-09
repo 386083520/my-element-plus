@@ -31,9 +31,9 @@ const clickTrackHandler = (e:MouseEvent) => {
     scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
 }
 const clickThumbHandler = () => {
-    startDtag()
+    startDrag()
 }
-const startDtag = () => {
+const startDrag = () => {
     console.log('down')
     cursorDown = true
     document.addEventListener('mousemove', mouseMoveDocumentHandler)
@@ -46,6 +46,8 @@ const mouseMoveDocumentHandler = () => {
 const mouseUpDocumentHandler = () => {
     cursorDown = false
     console.log('up')
+    document.removeEventListener('mousemove', mouseMoveDocumentHandler)
+    document.removeEventListener('mouseup', mouseUpDocumentHandler)
 }
 
 </script>

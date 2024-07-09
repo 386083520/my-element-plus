@@ -26,6 +26,7 @@
     "@my-element-plus/theme-chalk": "workspace:^",
     "@my-element-plus/utils": "workspace:^",
     "@vue/shared": "3.2.27",
+    "@vueuse/core": "9.1.0",
     "lodash-unified": "1.0.2",
     "vitest": "1.6.0"
   }

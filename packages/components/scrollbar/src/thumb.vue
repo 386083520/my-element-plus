@@ -10,9 +10,10 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks'
 import { thumbProps } from './thumb';
-import { computed, inject,ref } from 'vue';
+import { computed, inject,ref, toRef } from 'vue';
 import { renderThumbStyle } from './util';
 import { scrollbarContextKey } from './constants';
+import { useEventListener } from '@vueuse/core';
 
 const thumb = ref<HTMLDivElement>()
 const instance = ref<HTMLDivElement>()
@@ -67,5 +68,25 @@ const mouseUpDocumentHandler = () => {
     document.removeEventListener('mousemove', mouseMoveDocumentHandler)
     document.removeEventListener('mouseup', mouseUpDocumentHandler)
 }
+
+const mouseMoveScrollbarHandler = () => {
+    console.log('mousemove')
+}
+
+const mouseLeaveScrollbarHandler = () => {
+    console.log('mouseleave')
+}
+
+useEventListener(
+    toRef(scrollbar, 'scrollbarElement'),
+    'mousemove',
+    mouseMoveScrollbarHandler
+)
+
+useEventListener(
+    toRef(scrollbar, 'scrollbarElement'),
+    'mouseleave',
+    mouseLeaveScrollbarHandler
+)
 
 </script>

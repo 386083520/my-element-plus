@@ -1,5 +1,5 @@
 <template>
-    <div :class="ns.b()">
+    <div :class="ns.b()" ref="scrollbarRef">
         <div :class="wrapKls" ref="wrapRef" @scroll="handleScroll">
             <div :class="resizeKls">
                 <slot/>
@@ -22,6 +22,7 @@ defineOptions({
 const ns = useNamespace('scrollbar')
 const barRef = ref<BarInstance>()
 const wrapRef = ref<HTMLDivElement>()
+const scrollbarRef = ref<HTMLDivElement>()
 const wrapKls = computed(() => {
     return [
         ns.e('wrap'),
@@ -48,7 +49,8 @@ onMounted(() => {
 provide(
     scrollbarContextKey,
     reactive({
-        wrapElement: wrapRef
+        wrapElement: wrapRef,
+        scrollbarElement: scrollbarRef
     })
 )
 </script>

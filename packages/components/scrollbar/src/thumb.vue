@@ -16,6 +16,7 @@ import { scrollbarContextKey } from './constants';
 
 const thumb = ref<HTMLDivElement>()
 const instance = ref<HTMLDivElement>()
+const thumbState = ref<Partial<Record<'X'|'Y', number>>>({})
 let cursorDown = false
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
@@ -30,8 +31,11 @@ const clickTrackHandler = (e:MouseEvent) => {
     const thumbPositionPercentage = (offset - thumbHalf) * 100 / instance.value.offsetHeight
     scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
 }
-const clickThumbHandler = () => {
+const clickThumbHandler = (e:MouseEvent) => {
     startDrag()
+    const el = e.currentTarget as HTMLDivElement
+    thumbState.value.Y = el.offsetHeight - (e.clientY - el.getBoundingClientRect().top)
+    console.log(thumbState.value.Y)
 }
 const startDrag = () => {
     console.log('down')

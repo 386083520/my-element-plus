@@ -1,7 +1,8 @@
-import { buildProps } from "@my-element-plus/utils"
+import { buildProps, definePropType } from "@my-element-plus/utils"
+import type { StyleValue } from "vue"
 export const scrollbarProps = buildProps({
     wrapStyle: {
-        type: [String, Object, Array],
+        type: definePropType<StyleValue>([String, Object, Array]),
         default: ''
     }
 })

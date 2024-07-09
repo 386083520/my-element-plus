@@ -1,6 +1,6 @@
 import type { EpPropInput } from "./types"
 import { fromPairs } from "lodash-unified"
-import { warn } from 'vue'
+import { PropType, warn } from 'vue'
 import { hasOwn } from  '../../objects'
 import { isObject } from '../../types'
 export const buildProp = (prop:EpPropInput<any, any, any,any, any>, key:string) => {
@@ -43,3 +43,5 @@ export const buildProps = <Props extends Record<string, NumberConstructor | Bool
         buildProp(option as any, key)
     ])) as any
 }
+
+export const definePropType = <T>(val:any): PropType<T> => val

@@ -12,7 +12,8 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
 import { scrollbarProps } from './scrollbar'
-import { computed, nextTick, onMounted, provide, reactive, ref } from 'vue';
+import { computed, CSSProperties, nextTick, onMounted, provide, reactive, ref } from 'vue';
+import type { StyleValue } from 'vue'
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
 import { scrollbarContextKey } from './constants';
@@ -30,8 +31,8 @@ const wrapKls = computed(() => {
         ns.em('wrap', 'hidden-default')
     ]
 })
-const wrapStyle = computed(() => {
-    const style = {}
+const wrapStyle = computed<StyleValue>(() => {
+    const style:CSSProperties = {}
     return [props.wrapStyle, style]
 })
 const resizeKls = computed(() => {

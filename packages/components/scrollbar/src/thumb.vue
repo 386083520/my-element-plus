@@ -19,6 +19,7 @@ const thumb = ref<HTMLDivElement>()
 const instance = ref<HTMLDivElement>()
 const thumbState = ref<Partial<Record<'X'|'Y', number>>>({})
 let cursorDown = false
+let cursorLeave = false
 const visible = ref(false)
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
@@ -68,16 +69,19 @@ const mouseUpDocumentHandler = () => {
     restoreOnselectstart()
     document.removeEventListener('mousemove', mouseMoveDocumentHandler)
     document.removeEventListener('mouseup', mouseUpDocumentHandler)
+    if(cursorLeave) visible.value = false
 }
 
 const mouseMoveScrollbarHandler = () => {
     console.log('mousemove')
     visible.value = true
+    cursorLeave = false
 }
 
 const mouseLeaveScrollbarHandler = () => {
     console.log('mouseleave')
-    visible.value = false
+    visible.value = cursorDown
+    cursorLeave = true
 }
 
 useEventListener(

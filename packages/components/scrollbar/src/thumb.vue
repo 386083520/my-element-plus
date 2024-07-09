@@ -1,5 +1,5 @@
 <template>
-    <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance">
+    <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance" v-show="visible">
         <div
         @mousedown="clickThumbHandler"
         :class="ns.e('thumb')"
@@ -19,6 +19,7 @@ const thumb = ref<HTMLDivElement>()
 const instance = ref<HTMLDivElement>()
 const thumbState = ref<Partial<Record<'X'|'Y', number>>>({})
 let cursorDown = false
+const visible = ref(false)
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
 const scrollbar = inject(scrollbarContextKey)
@@ -71,10 +72,12 @@ const mouseUpDocumentHandler = () => {
 
 const mouseMoveScrollbarHandler = () => {
     console.log('mousemove')
+    visible.value = true
 }
 
 const mouseLeaveScrollbarHandler = () => {
     console.log('mouseleave')
+    visible.value = false
 }
 
 useEventListener(

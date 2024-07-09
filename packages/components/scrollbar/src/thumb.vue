@@ -21,31 +21,38 @@ let cursorDown = false
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
 const scrollbar = inject(scrollbarContextKey)
+let originalOnSelectStart = null
 const thumbStyle = computed(() => renderThumbStyle({
     size: props.size,
     move: props.move
 }))
 const clickTrackHandler = (e:MouseEvent) => {
+    console.log('abc')
     const offset = Math.abs(e.clientY - (e.target as HTMLElement).getBoundingClientRect().top)
     const thumbHalf = thumb.value.offsetHeight / 2
     const thumbPositionPercentage = (offset - thumbHalf) * 100 / instance.value.offsetHeight
     scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
 }
 const clickThumbHandler = (e:MouseEvent) => {
+    e.stopPropagation()
     startDrag()
     const el = e.currentTarget as HTMLDivElement
     thumbState.value.Y = el.offsetHeight - (e.clientY - el.getBoundingClientRect().top)
-    console.log(thumbState.value.Y)
 }
 const startDrag = () => {
-    console.log('down')
     cursorDown = true
     document.addEventListener('mousemove', mouseMoveDocumentHandler)
     document.addEventListener('mouseup', mouseUpDocumentHandler)
+    originalOnSelectStart = document.onselectstart
+    document.onselectstart = () => false
+}
+const restoreOnselectstart = () => {
+    if(document.onselectstart !== originalOnSelectStart) {
+        document.onselectstart = originalOnSelectStart
+    }
 }
 const mouseMoveDocumentHandler = (e: MouseEvent) => {
     if(cursorDown === false) return
-    console.log('move')
     const prevPage = thumbState.value.Y
     if(!prevPage) return
     const thumbClickPosition = thumb.value.offsetHeight - prevPage
@@ -55,7 +62,8 @@ const mouseMoveDocumentHandler = (e: MouseEvent) => {
 }
 const mouseUpDocumentHandler = () => {
     cursorDown = false
-    console.log('up')
+    thumbState.value.Y = 0
+    restoreOnselectstart()
     document.removeEventListener('mousemove', mouseMoveDocumentHandler)
     document.removeEventListener('mouseup', mouseUpDocumentHandler)
 }

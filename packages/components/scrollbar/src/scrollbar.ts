@@ -16,5 +16,6 @@ export const scrollbarProps = buildProps({
     maxHeight: {
         type: [String, Number],
         default: ''
-    }
+    },
+    always: Boolean
 })

@@ -3,7 +3,8 @@ import { ExtractPropTypes } from "vue";
 
 export const thumbProps = buildProps({
     size: String,
-    move: Number
+    move: Number,
+    always: Boolean
 })
 
 export type ThumbProps = ExtractPropTypes<typeof thumbProps>

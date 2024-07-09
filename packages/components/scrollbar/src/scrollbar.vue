@@ -5,7 +5,7 @@
                 <slot/>
             </div>
         </div>
-        <bar ref="barRef"></bar>
+        <bar ref="barRef" :always="always"></bar>
     </div>
 </template>
 

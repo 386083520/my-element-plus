@@ -1,5 +1,5 @@
 <template>
-  <ell-scrollbar wrap-class="scrollbar-class" :height="500">
+  <ell-scrollbar :height="500" :always="true">
     <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
   </ell-scrollbar>
 </template>

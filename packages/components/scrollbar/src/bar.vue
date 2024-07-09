@@ -1,11 +1,14 @@
 <template>
-    <thumb :size="sizeHeight" :move="moveY"></thumb>
+    <thumb :size="sizeHeight" :move="moveY" :always="always"></thumb>
 </template>
 <script lang="ts" setup>
 import Thumb from './thumb.vue'
 import { scrollbarContextKey } from './constants';
 import { inject, ref } from 'vue';
 import { GAP } from "./util";
+import { barProps } from './bar';
+
+const props = defineProps(barProps)
 
 const sizeHeight = ref('')
 const moveY = ref(0)

@@ -1,5 +1,5 @@
 <template>
-    <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance" v-show="visible">
+    <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance" v-show="always || visible">
         <div
         @mousedown="clickThumbHandler"
         :class="ns.e('thumb')"

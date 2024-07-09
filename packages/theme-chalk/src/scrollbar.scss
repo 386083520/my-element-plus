@@ -16,7 +16,6 @@
     }
     @include e(thumb) {
         width: 100%;
-        height: 50px;
         background-color: var(#{getCssVarName('scrollbar-bg-color')});
         opacity: var(#{getCssVarName('scrollbar-opacity')});
         border-radius: inherit;

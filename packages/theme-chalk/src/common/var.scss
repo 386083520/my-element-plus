@@ -130,6 +130,13 @@ $text-font-size: (
     'small': 12px
 );
 
+$scrollbar: (
+    'bg-color': #909399,
+    'hover-bg-color': #909399,
+    'opacity': 0.3,
+    'hover-opacity': 0.5
+);
+
 $sm: 768px;
 $md: 992px;
 $lg: 1200px;

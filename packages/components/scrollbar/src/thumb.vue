@@ -1,6 +1,10 @@
 <template>
     <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance">
-        <div :class="ns.e('thumb')" :style="thumbStyle" ref="thumb"></div>
+        <div
+        @mousedown="clickThumbHandler"
+        :class="ns.e('thumb')"
+        :style="thumbStyle"
+        ref="thumb"></div>
     </div>
 </template>
 <script lang="ts" setup>
@@ -12,6 +16,7 @@ import { scrollbarContextKey } from './constants';
 
 const thumb = ref<HTMLDivElement>()
 const instance = ref<HTMLDivElement>()
+let cursorDown = false
 const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
 const scrollbar = inject(scrollbarContextKey)
@@ -24,6 +29,23 @@ const clickTrackHandler = (e:MouseEvent) => {
     const thumbHalf = thumb.value.offsetHeight / 2
     const thumbPositionPercentage = (offset - thumbHalf) * 100 / instance.value.offsetHeight
     scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
+}
+const clickThumbHandler = () => {
+    startDtag()
+}
+const startDtag = () => {
+    console.log('down')
+    cursorDown = true
+    document.addEventListener('mousemove', mouseMoveDocumentHandler)
+    document.addEventListener('mouseup', mouseUpDocumentHandler)
+}
+const mouseMoveDocumentHandler = () => {
+    if(cursorDown === false) return
+    console.log('move')
+}
+const mouseUpDocumentHandler = () => {
+    cursorDown = false
+    console.log('up')
 }
 
 </script>

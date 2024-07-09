@@ -1,5 +1,5 @@
 <template>
-  <ell-scrollbar :max-height="500">
+  <ell-scrollbar wrap-class="scrollbar-class" :height="500">
     <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
   </ell-scrollbar>
 </template>
@@ -10,6 +10,9 @@ const handleClick = (env) => {
 }
 </script>
 <style>
+.scrollbar-class {
+  width: 500px;
+}
 .scrollbar-demo-item {
   display: flex;
   align-items: center;

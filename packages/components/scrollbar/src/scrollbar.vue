@@ -28,6 +28,7 @@ const wrapRef = ref<HTMLDivElement>()
 const scrollbarRef = ref<HTMLDivElement>()
 const wrapKls = computed(() => {
     return [
+        props.wrapClass,
         ns.e('wrap'),
         ns.em('wrap', 'hidden-default')
     ]

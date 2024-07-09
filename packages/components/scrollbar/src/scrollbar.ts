@@ -5,6 +5,10 @@ export const scrollbarProps = buildProps({
         type: definePropType<StyleValue>([String, Object, Array]),
         default: ''
     },
+    wrapClass: {
+        type: definePropType<StyleValue>([String, Object, Array]),
+        default: ''
+    },
     height: {
         type: [String, Number],
         default: ''

@@ -1,6 +1,6 @@
 <template>
     <div :class="ns.b()" ref="scrollbarRef">
-        <div :class="wrapKls" ref="wrapRef" @scroll="handleScroll">
+        <div :class="wrapKls" :style="wrapStyle" ref="wrapRef" @scroll="handleScroll">
             <div :class="resizeKls">
                 <slot/>
             </div>
@@ -19,6 +19,7 @@ import { scrollbarContextKey } from './constants';
 defineOptions({
     name: 'EllScrollbar'
 })
+const props = defineProps(scrollbarProps)
 const ns = useNamespace('scrollbar')
 const barRef = ref<BarInstance>()
 const wrapRef = ref<HTMLDivElement>()
@@ -28,6 +29,10 @@ const wrapKls = computed(() => {
         ns.e('wrap'),
         ns.em('wrap', 'hidden-default')
     ]
+})
+const wrapStyle = computed(() => {
+    const style = {}
+    return [props.wrapStyle, style]
 })
 const resizeKls = computed(() => {
     return [

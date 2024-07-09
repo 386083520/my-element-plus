@@ -1,7 +1,7 @@
 <template>
     <div :class="ns.b()" ref="scrollbarRef">
         <div :class="wrapKls" :style="wrapStyle" ref="wrapRef" @scroll="handleScroll">
-            <div :class="resizeKls">
+            <div :class="resizeKls" :style="viewStyle">
                 <slot/>
             </div>
         </div>
@@ -41,7 +41,8 @@ const wrapStyle = computed<StyleValue>(() => {
 })
 const resizeKls = computed(() => {
     return [
-        ns.e('view')
+        ns.e('view'),
+        props.viewClass
     ]
 })
 const update =() => {

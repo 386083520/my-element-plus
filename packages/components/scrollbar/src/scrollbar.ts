@@ -1,6 +1,10 @@
 import { buildProps, definePropType } from "@my-element-plus/utils"
 import type { StyleValue } from "vue"
 export const scrollbarProps = buildProps({
+    tag: {
+        type: String,
+        default: 'div'
+    },
     wrapStyle: {
         type: definePropType<StyleValue>([String, Object, Array]),
         default: ''

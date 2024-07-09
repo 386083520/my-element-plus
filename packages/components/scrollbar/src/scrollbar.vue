@@ -1,9 +1,9 @@
 <template>
     <div :class="ns.b()" ref="scrollbarRef">
         <div :class="wrapKls" :style="wrapStyle" ref="wrapRef" @scroll="handleScroll">
-            <div :class="resizeKls" :style="viewStyle">
+            <component :is="tag" :class="resizeKls" :style="viewStyle">
                 <slot/>
-            </div>
+            </component>
         </div>
         <bar ref="barRef" :always="always"></bar>
     </div>

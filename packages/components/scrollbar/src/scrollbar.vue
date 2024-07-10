@@ -28,6 +28,9 @@ const barRef = ref<BarInstance>()
 const wrapRef = ref<HTMLDivElement>()
 const scrollbarRef = ref<HTMLDivElement>()
 const resizeRef = ref<HTMLDivElement>()
+
+let stopResizeObserver: () => void
+let stopResizeListener: () => void
 const wrapKls = computed(() => {
     return [
         props.wrapClass,
@@ -69,10 +72,11 @@ provide(
 
 watch(() => props.noresize, (noresize) => {
     if (noresize) {
-
+        stopResizeObserver?.()
+        stopResizeListener?.()
     } else {
-        useResizeObserver(resizeRef, update)
-        useEventListener('resize', update)
+        ({stop:stopResizeObserver} = useResizeObserver(resizeRef, update))
+        stopResizeListener = useEventListener('resize', update)
     }
 }, { immediate: true })
 

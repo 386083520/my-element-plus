@@ -28,7 +28,8 @@ const update = () => {
     if(!wrap) return
     const offsetHeight = wrap.offsetHeight - GAP
     const originalHeight = offsetHeight ** 2 / wrap.scrollHeight
-    sizeHeight.value =  originalHeight + GAP < offsetHeight ? `${originalHeight}px` : ''
+    const height = Math.max(originalHeight, props.minSize)
+    sizeHeight.value =  height + GAP < offsetHeight ? `${height}px` : ''
 }
 
 defineExpose({

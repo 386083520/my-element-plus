@@ -29,5 +29,9 @@ export const scrollbarProps = buildProps({
         type: [String, Number],
         default: ''
     },
-    always: Boolean
+    always: Boolean,
+    minSize: {
+        type: Number,
+        default: 20
+    }
 })

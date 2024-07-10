@@ -5,7 +5,7 @@
                 <slot/>
             </component>
         </div>
-        <bar ref="barRef" :always="always"></bar>
+        <bar ref="barRef" :always="always" :minSize="minSize"></bar>
     </div>
 </template>
 

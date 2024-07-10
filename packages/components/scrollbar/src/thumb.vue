@@ -29,11 +29,19 @@ const thumbStyle = computed(() => renderThumbStyle({
     size: props.size,
     move: props.move
 }))
+
+const offsetRatio = computed(() => {
+    return instance.value.offsetHeight ** 2 /
+    scrollbar.wrapElement.scrollHeight/
+    props.ratio/
+    thumb.value.offsetHeight
+})
+
 const clickTrackHandler = (e:MouseEvent) => {
     console.log('abc')
     const offset = Math.abs(e.clientY - (e.target as HTMLElement).getBoundingClientRect().top)
     const thumbHalf = thumb.value.offsetHeight / 2
-    const thumbPositionPercentage = (offset - thumbHalf) * 100 / instance.value.offsetHeight
+    const thumbPositionPercentage = (offset - thumbHalf) * 100 * offsetRatio.value / instance.value.offsetHeight
     scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
 }
 const clickThumbHandler = (e:MouseEvent) => {
@@ -60,7 +68,7 @@ const mouseMoveDocumentHandler = (e: MouseEvent) => {
     if(!prevPage) return
     const thumbClickPosition = thumb.value.offsetHeight - prevPage
     const offset = Math.abs(instance.value.getBoundingClientRect().top - e.clientY)
-    const thumbPositionPercentage = (offset - thumbClickPosition)*100 / instance.value.offsetHeight
+    const thumbPositionPercentage = (offset - thumbClickPosition)*100*offsetRatio.value / instance.value.offsetHeight
     scrollbar.wrapElement.scrollTop = (thumbPositionPercentage * scrollbar.wrapElement.scrollHeight)/100
 }
 const mouseUpDocumentHandler = () => {

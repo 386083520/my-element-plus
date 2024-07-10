@@ -1,5 +1,5 @@
 <template>
-    <thumb :size="sizeHeight" :move="moveY" :always="always"></thumb>
+    <thumb :size="sizeHeight" :move="moveY" :always="always" :ratio="ratioY"></thumb>
 </template>
 <script lang="ts" setup>
 import Thumb from './thumb.vue'

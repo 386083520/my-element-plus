@@ -1,7 +1,7 @@
 <template>
     <div :class="ns.b()" ref="scrollbarRef">
         <div :class="wrapKls" :style="wrapStyle" ref="wrapRef" @scroll="handleScroll">
-            <component :is="tag" :class="resizeKls" :style="viewStyle">
+            <component :is="tag" :class="resizeKls" :style="viewStyle" ref="resizeRef">
                 <slot/>
             </component>
         </div>
@@ -18,6 +18,7 @@ import Bar from './bar.vue';
 import type { BarInstance } from './bar';
 import { scrollbarContextKey } from './constants';
 import { addUnit } from '@my-element-plus/utils';
+import { useEventListener, useResizeObserver } from '@vueuse/core';
 defineOptions({
     name: 'EllScrollbar'
 })
@@ -26,6 +27,7 @@ const ns = useNamespace('scrollbar')
 const barRef = ref<BarInstance>()
 const wrapRef = ref<HTMLDivElement>()
 const scrollbarRef = ref<HTMLDivElement>()
+const resizeRef = ref<HTMLDivElement>()
 const wrapKls = computed(() => {
     return [
         props.wrapClass,
@@ -64,6 +66,15 @@ provide(
         scrollbarElement: scrollbarRef
     })
 )
+
+watch(() => props.noresize, (noresize) => {
+    if (noresize) {
+
+    } else {
+        useResizeObserver(resizeRef, update)
+        useEventListener('resize', update)
+    }
+}, { immediate: true })
 
 watch(() => [props.height, props.maxHeight],
 () => {

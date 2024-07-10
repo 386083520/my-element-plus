@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
 import { scrollbarProps } from './scrollbar'
-import { computed, CSSProperties, nextTick, onMounted, provide, reactive, ref } from 'vue';
+import { computed, CSSProperties, nextTick, onMounted, provide, reactive, ref, watch } from 'vue';
 import type { StyleValue } from 'vue'
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
@@ -63,5 +63,13 @@ provide(
         wrapElement: wrapRef,
         scrollbarElement: scrollbarRef
     })
+)
+
+watch(() => [props.height, props.maxHeight],
+() => {
+    nextTick(() => {
+        update()
+    })
+}
 )
 </script>

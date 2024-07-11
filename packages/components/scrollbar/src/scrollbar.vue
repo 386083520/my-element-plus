@@ -19,10 +19,11 @@ import type { StyleValue } from 'vue'
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
 import { scrollbarContextKey } from './constants';
-import { addUnit } from '@my-element-plus/utils';
+import { addUnit, isNumber } from '@my-element-plus/utils';
 import { useEventListener, useResizeObserver } from '@vueuse/core';
+const COMPONENT_NAME = 'EllScrollbar'
 defineOptions({
-    name: 'EllScrollbar'
+    name: COMPONENT_NAME
 })
 const props = defineProps(scrollbarProps)
 const ns = useNamespace('scrollbar')
@@ -57,6 +58,13 @@ const update =() => {
 }
 const handleScroll = () => {
     barRef.value?.handleScroll(wrapRef.value)
+}
+const setScrollTop = (value:number) => {
+    if(!isNumber(value)) {
+        console.warn(COMPONENT_NAME + 'value must be a number')
+        return
+    }
+    wrapRef.value.scrollTop = value
 }
 onMounted(() => {
     if(!props.native) {
@@ -93,4 +101,8 @@ watch(() => [props.height, props.maxHeight],
     }
 }
 )
+
+defineExpose({
+    setScrollTop
+})
 </script>

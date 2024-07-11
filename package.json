@@ -23,6 +23,7 @@
     "@my-element-plus/components": "workspace:^",
     "@my-element-plus/constants": "workspace:^",
     "@my-element-plus/hooks": "workspace:^",
+    "@my-element-plus/test-utils": "workspace:^",
     "@my-element-plus/theme-chalk": "workspace:^",
     "@my-element-plus/utils": "workspace:^",
     "@vue/shared": "3.2.27",

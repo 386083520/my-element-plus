@@ -20,6 +20,9 @@ importers:
       '@my-element-plus/hooks':
         specifier: workspace:^
         version: link:packages/hooks
+      '@my-element-plus/test-utils':
+        specifier: workspace:^
+        version: link:packages/test-utils
       '@my-element-plus/theme-chalk':
         specifier: workspace:^
         version: link:packages/theme-chalk
@@ -70,6 +73,8 @@ importers:
   packages/constants: {}
 
   packages/hooks: {}
+
+  packages/test-utils: {}
 
   packages/theme-chalk: {}
 

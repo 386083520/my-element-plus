@@ -33,24 +33,24 @@ const thumbStyle = computed(() => renderThumbStyle({
 }))
 
 const offsetRatio = computed(() => {
-    return instance.value.offsetHeight ** 2 /
-    scrollbar.wrapElement.scrollHeight/
+    return instance.value[bar.value.offset] ** 2 /
+    scrollbar.wrapElement[bar.value.scrollSize]/
     props.ratio/
-    thumb.value.offsetHeight
+    thumb.value[bar.value.offset]
 })
 
 const clickTrackHandler = (e:MouseEvent) => {
     console.log('abc')
-    const offset = Math.abs(e.clientY - (e.target as HTMLElement).getBoundingClientRect().top)
-    const thumbHalf = thumb.value.offsetHeight / 2
-    const thumbPositionPercentage = (offset - thumbHalf) * 100 * offsetRatio.value / instance.value.offsetHeight
-    scrollbar.wrapElement.scrollTop = thumbPositionPercentage * scrollbar.wrapElement.scrollHeight/100
+    const offset = Math.abs(e[bar.value.client] - (e.target as HTMLElement).getBoundingClientRect()[bar.value.direction])
+    const thumbHalf = thumb.value[bar.value.offset] / 2
+    const thumbPositionPercentage = (offset - thumbHalf) * 100 * offsetRatio.value / instance.value[bar.value.offset]
+    scrollbar.wrapElement[bar.value.scroll] = thumbPositionPercentage * scrollbar.wrapElement[bar.value.scrollSize]/100
 }
 const clickThumbHandler = (e:MouseEvent) => {
     e.stopPropagation()
     startDrag()
     const el = e.currentTarget as HTMLDivElement
-    thumbState.value.Y = el.offsetHeight - (e.clientY - el.getBoundingClientRect().top)
+    thumbState.value[bar.value.axis] = el[bar.value.offset] - (e[bar.value.client] - el.getBoundingClientRect()[bar.value.direction])
 }
 const startDrag = () => {
     cursorDown = true
@@ -66,16 +66,16 @@ const restoreOnselectstart = () => {
 }
 const mouseMoveDocumentHandler = (e: MouseEvent) => {
     if(cursorDown === false) return
-    const prevPage = thumbState.value.Y
+    const prevPage = thumbState.value[bar.value.axis]
     if(!prevPage) return
-    const thumbClickPosition = thumb.value.offsetHeight - prevPage
-    const offset = Math.abs(instance.value.getBoundingClientRect().top - e.clientY)
-    const thumbPositionPercentage = (offset - thumbClickPosition)*100*offsetRatio.value / instance.value.offsetHeight
-    scrollbar.wrapElement.scrollTop = (thumbPositionPercentage * scrollbar.wrapElement.scrollHeight)/100
+    const thumbClickPosition = thumb.value[bar.value.offset] - prevPage
+    const offset = Math.abs(instance.value.getBoundingClientRect()[bar.value.direction] - e[bar.value.client])
+    const thumbPositionPercentage = (offset - thumbClickPosition)*100*offsetRatio.value / instance.value[bar.value.offset]
+    scrollbar.wrapElement[bar.value.scroll] = (thumbPositionPercentage * scrollbar.wrapElement[bar.value.scrollSize])/100
 }
 const mouseUpDocumentHandler = () => {
     cursorDown = false
-    thumbState.value.Y = 0
+    thumbState.value[bar.value.axis] = 0
     restoreOnselectstart()
     document.removeEventListener('mousemove', mouseMoveDocumentHandler)
     document.removeEventListener('mouseup', mouseUpDocumentHandler)

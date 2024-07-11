@@ -8,12 +8,22 @@ export const BAR_MAP = {
     vertical: {
         key: 'vertical',
         size: 'height',
-        axis: 'Y'
+        axis: 'Y',
+        client: 'clientY',
+        direction: 'top',
+        offset: 'offsetHeight',
+        scroll: 'scrollTop',
+        scrollSize: 'scrollHeight'
     },
     horizontal: {
         key: 'horizontal',
         size: 'width',
-        axis: 'X'
+        axis: 'X',
+        client: 'clientX',
+        direction: 'left',
+        offset: 'offsetWidth',
+        scroll: 'scrollLeft',
+        scrollSize: 'scrollWidth'
     }
 }
 

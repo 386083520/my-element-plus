@@ -19,7 +19,7 @@ import type { StyleValue } from 'vue'
 import Bar from './bar.vue';
 import type { BarInstance } from './bar';
 import { scrollbarContextKey } from './constants';
-import { addUnit, isNumber } from '@my-element-plus/utils';
+import { addUnit, isNumber, isObject } from '@my-element-plus/utils';
 import { useEventListener, useResizeObserver } from '@vueuse/core';
 const COMPONENT_NAME = 'EllScrollbar'
 defineOptions({
@@ -66,6 +66,17 @@ const setScrollTop = (value:number) => {
     }
     wrapRef.value.scrollTop = value
 }
+
+function scrollTo(xCord:number, yCord:number):void
+function scrollTo(options:ScrollToOptions):void
+function scrollTo(arg1:unknown,arg2?:number) {
+    if(isObject(arg1)) {
+        wrapRef.value.scrollTo(arg1)
+    }else if(isNumber(arg1) && isNumber(arg2)){
+        wrapRef.value.scrollTo(arg1, arg2)
+    }
+}
+
 onMounted(() => {
     if(!props.native) {
         nextTick(() => {
@@ -103,6 +114,7 @@ watch(() => [props.height, props.maxHeight],
 )
 
 defineExpose({
-    setScrollTop
+    setScrollTop,
+    scrollTo
 })
 </script>

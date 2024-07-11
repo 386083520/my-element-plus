@@ -34,5 +34,9 @@ export const scrollbarProps = buildProps({
         type: Number,
         default: 20
     },
-    noresize: Boolean
+    noresize: Boolean,
+    native: {
+        type: Boolean,
+        default: false
+    }
 })

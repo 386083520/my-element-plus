@@ -5,7 +5,9 @@
                 <slot/>
             </component>
         </div>
-        <bar ref="barRef" :always="always" :minSize="minSize"></bar>
+        <template v-if="!native">
+            <bar ref="barRef" :always="always" :minSize="minSize"></bar>
+        </template>
     </div>
 </template>
 
@@ -35,7 +37,7 @@ const wrapKls = computed(() => {
     return [
         props.wrapClass,
         ns.e('wrap'),
-        ns.em('wrap', 'hidden-default')
+        { [ns.em('wrap', 'hidden-default')]: !props.native }
     ]
 })
 const wrapStyle = computed<StyleValue>(() => {
@@ -57,9 +59,11 @@ const handleScroll = () => {
     barRef.value?.handleScroll(wrapRef.value)
 }
 onMounted(() => {
-    nextTick(() => {
+    if(!props.native) {
+        nextTick(() => {
         update()
     })
+    }
 })
 
 provide(
@@ -82,9 +86,11 @@ watch(() => props.noresize, (noresize) => {
 
 watch(() => [props.height, props.maxHeight],
 () => {
-    nextTick(() => {
+    if(!props.native) {
+        nextTick(() => {
         update()
     })
+    }
 }
 )
 </script>

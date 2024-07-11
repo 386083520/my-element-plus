@@ -1,5 +1,5 @@
 <template>
-  <ell-scrollbar :height="800" :always="true" :minSize="300" :viewStyle="{height: '1500px'}" :noresize="true">
+  <ell-scrollbar :height="800" :native="true">
     <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
   </ell-scrollbar>
 </template>

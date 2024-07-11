@@ -8,7 +8,8 @@ export const thumbProps = buildProps({
     ratio: {
         type: Number,
         required: true
-    }
+    },
+    vertical: Boolean
 })
 
 export type ThumbProps = ExtractPropTypes<typeof thumbProps>

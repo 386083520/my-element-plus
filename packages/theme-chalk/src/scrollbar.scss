@@ -15,7 +15,8 @@
         }
     }
     @include e(thumb) {
-        width: 100%;
+        width: 0;
+        height: 0;
         background-color: var(#{getCssVarName('scrollbar-bg-color')});
         opacity: var(#{getCssVarName('scrollbar-opacity')});
         border-radius: inherit;
@@ -26,10 +27,22 @@
     }
     @include e(bar) {
         position: absolute;
-        top: 2px;
         bottom: 2px;
         right: 2px;
-        width: 6px;
         border-radius: 4px;
+        @include when(vertical) {
+            width: 6px;
+            top: 2px;
+            > div {
+                width: 100%;
+            }
+        }
+        @include when(horizontal) {
+            height: 6px;
+            left: 2px;
+            > div {
+                height: 100%;
+            }
+        }
     }
 }

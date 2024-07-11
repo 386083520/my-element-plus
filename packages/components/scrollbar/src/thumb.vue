@@ -1,8 +1,8 @@
 <template>
-    <div :class="[ns.e('bar')]" @mousedown="clickTrackHandler" ref="instance" v-show="always || visible">
+    <div :class="[ns.e('bar'), ns.is(bar.key)]" @mousedown="clickTrackHandler" ref="instance" v-show="always || visible">
         <div
         @mousedown="clickThumbHandler"
-        :class="ns.e('thumb')"
+        :class="[ns.e('thumb')]"
         :style="thumbStyle"
         ref="thumb"></div>
     </div>
@@ -11,7 +11,7 @@
 import { useNamespace } from '@my-element-plus/hooks'
 import { thumbProps } from './thumb';
 import { computed, inject,ref, toRef } from 'vue';
-import { renderThumbStyle } from './util';
+import { BAR_MAP, renderThumbStyle } from './util';
 import { scrollbarContextKey } from './constants';
 import { useEventListener } from '@vueuse/core';
 
@@ -25,9 +25,11 @@ const props = defineProps(thumbProps)
 const ns = useNamespace('scrollbar')
 const scrollbar = inject(scrollbarContextKey)
 let originalOnSelectStart = null
+const bar = computed(() => BAR_MAP[props.vertical ? 'vertical' : 'horizontal'])
 const thumbStyle = computed(() => renderThumbStyle({
     size: props.size,
-    move: props.move
+    move: props.move,
+    bar: bar.value
 }))
 
 const offsetRatio = computed(() => {

@@ -115,6 +115,9 @@ watch(() => [props.height, props.maxHeight],
 
 defineExpose({
     setScrollTop,
-    scrollTo
+    scrollTo,
+    handleScroll,
+    update,
+    wrapRef
 })
 </script>

@@ -20,6 +20,7 @@ import EllText from '@my-element-plus/components/text'
 import '@my-element-plus/theme-chalk/src/text.scss'
 import EllScrollbar from '@my-element-plus/components/scrollbar'
 import '@my-element-plus/theme-chalk/src/scrollbar.scss'
+import EllContainer from '@my-element-plus/components/container'
 
 import '@my-element-plus/theme-chalk/src/reset.scss'
 
@@ -37,5 +38,6 @@ app.use(EllButtonGroup)
 app.use(EllLink)
 app.use(EllText)
 app.use(EllScrollbar)
+app.use(EllContainer)
 app.use(ElementPlus)
 app.mount("#app")

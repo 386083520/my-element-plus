@@ -1,11 +1,16 @@
 <template>
-  <ell-scrollbar>
-    <div class="scrollbar-flex-content">
-      <p v-for="item in 50" :key="item" class="scrollbar-demo-item">
-        {{ item }}
-      </p>
-    </div>
-  </ell-scrollbar>
+  <div class="common-layout">
+    <ell-container>
+      <ell-header>Header</ell-header>
+      <ell-container>
+        <ell-aside width="200px">Aside</ell-aside>
+        <ell-container>
+          <ell-main>Main</ell-main>
+          <ell-footer>Footer</ell-footer>
+        </ell-container>
+      </ell-container>
+    </ell-container>
+  </div>
 </template>
 
 <style scoped>

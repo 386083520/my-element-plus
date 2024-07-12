@@ -1,7 +1,9 @@
 import type { Plugin, App } from 'vue'
-export function withInstall<T>(comp:T) {
-    (comp as Plugin).install = function(app:App) {
-        app.component((comp as any).name, comp as any)
+export function withInstall<T,E extends Record<string, any>>(main:T, extra?:E) {
+    (main as Plugin).install = function(app:App) {
+        for(const comp of [main, ...Object.values(extra??{})]) {
+            app.component((comp as any).name, comp as any)
+        }
     }
-    return (comp as Plugin)
+    return (main as Plugin)
 }

@@ -15,6 +15,12 @@ describe('ScrollBar', () => {
             </Scrollbar>
         ))
         const scrollDom = wrapper.find('.ell-scrollbar__wrap').element
+        Object.defineProperty(scrollDom, 'offsetHeight', {
+            get: () => 204
+        })
+        Object.defineProperty(scrollDom, 'scrollHeight', {
+            get: () => 500
+        })
         await makeScroll(scrollDom, 'scrollTop', 100)
         expect(wrapper.find('.is-vertical div').attributes('style'))
         .toContain('transform: translateY(50%); height: 80px;')

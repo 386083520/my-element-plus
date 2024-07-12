@@ -2,7 +2,7 @@ import { describe, test,expect } from "vitest"
 import { mount } from '@vue/test-utils'
 import { nextTick, ref } from 'vue'
 import Scrollbar from "../src/scrollbar.vue"
-import { makeScroll } from "@my-element-plus/test-utils"
+import { defineGetter, makeScroll } from "@my-element-plus/test-utils"
 
 
 describe('ScrollBar', () => {
@@ -15,14 +15,15 @@ describe('ScrollBar', () => {
             </Scrollbar>
         ))
         const scrollDom = wrapper.find('.ell-scrollbar__wrap').element
-        Object.defineProperty(scrollDom, 'offsetHeight', {
-            get: () => 204
-        })
-        Object.defineProperty(scrollDom, 'scrollHeight', {
-            get: () => 500
-        })
+        const offsetHeightRestore = defineGetter(scrollDom, 'offsetHeight', outerHeight)
+        const scrollHeightRestore = defineGetter(scrollDom, 'scrollHeight', innerHeight)
         await makeScroll(scrollDom, 'scrollTop', 100)
         expect(wrapper.find('.is-vertical div').attributes('style'))
         .toContain('transform: translateY(50%); height: 80px;')
+        await makeScroll(scrollDom, 'scrollTop', 300)
+        expect(wrapper.find('.is-vertical div').attributes('style'))
+        .toContain('transform: translateY(150%); height: 80px;')
+        offsetHeightRestore()
+        scrollHeightRestore()
     })
 })

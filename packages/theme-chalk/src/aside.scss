@@ -4,4 +4,6 @@
 @include b(aside) {
     @include set-component-css-var('aside', $aside);
     width: getCssVar('aside-width');
+    flex-shrink: 0;
+    box-sizing: border-box;
 }

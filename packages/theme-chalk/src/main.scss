@@ -6,4 +6,6 @@
     padding: getCssVar('main-padding');
     display: block;
     flex: 1;
+    box-sizing: border-box;
+    overflow: auto;
 }

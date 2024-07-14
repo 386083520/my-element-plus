@@ -1,7 +1,9 @@
 @use 'mixins/mixins' as *;
 @include b(container) {
     display: flex;
+    flex: 1;
     flex-direction: row;
+    box-sizing: border-box;
     @include when(vertical) {
         flex-direction: column;
     }

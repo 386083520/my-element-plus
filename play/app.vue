@@ -2,8 +2,13 @@
   <div class="common-layout">
     <ell-container>
         <ell-aside width="500px">Aside</ell-aside>
-        <ell-container>
-          <ell-main>Main</ell-main>
+        <ell-container :style="{height: '100px'}">
+          <ell-header>header</ell-header>
+          <ell-main  :style="{height: '10px'}">
+            <div>main</div>
+            <div>main</div>
+            <div>main</div>
+          </ell-main>
           <ell-footer>Footer</ell-footer>
         </ell-container>
       </ell-container>

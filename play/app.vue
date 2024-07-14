@@ -1,25 +1,12 @@
 <template>
   <div class="common-layout">
-    <ell-container :style="{height: '800px'}">
-      <ell-header :style="{background: '#f5f6f8'}" height="120px">Header</ell-header>
-      <!-- <ell-container>
-        <ell-aside width="200px">Aside</ell-aside>
+    <ell-container>
+        <ell-aside width="500px">Aside</ell-aside>
         <ell-container>
           <ell-main>Main</ell-main>
           <ell-footer>Footer</ell-footer>
         </ell-container>
-      </ell-container> -->
-      <ell-main>
-        Main
-        <div>
-        a
-      </div>
-      <div>
-        b
-      </div>
-      </ell-main>
-      <ell-footer :style="{background: '#baf6f8'}" height="120px">Footer</ell-footer>
-    </ell-container>
+      </ell-container>
   </div>
 </template>
 

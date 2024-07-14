@@ -1,0 +1,7 @@
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/var' as  *;
+@use 'common/var.scss' as *;
+@include b(aside) {
+    @include set-component-css-var('aside', $aside);
+    width: getCssVar('aside-width');
+}

@@ -1,0 +1,9 @@
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/var' as  *;
+@use 'common/var.scss' as *;
+@include b(main) {
+    @include set-component-css-var('main', $main);
+    padding: getCssVar('main-padding');
+    display: block;
+    flex: 1;
+}

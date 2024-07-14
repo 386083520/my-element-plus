@@ -2,13 +2,19 @@
   <div class="common-layout">
     <ell-container>
       <ell-header>Header</ell-header>
-      <ell-container>
+      <!-- <ell-container>
         <ell-aside width="200px">Aside</ell-aside>
         <ell-container>
           <ell-main>Main</ell-main>
           <ell-footer>Footer</ell-footer>
         </ell-container>
-      </ell-container>
+      </ell-container> -->
+      <div>
+        a
+      </div>
+      <div>
+        b
+      </div>
     </ell-container>
   </div>
 </template>

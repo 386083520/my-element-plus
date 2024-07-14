@@ -22,6 +22,7 @@ import EllScrollbar from '@my-element-plus/components/scrollbar'
 import '@my-element-plus/theme-chalk/src/scrollbar.scss'
 import EllContainer from '@my-element-plus/components/container'
 import '@my-element-plus/theme-chalk/src/container.scss'
+import '@my-element-plus/theme-chalk/src/header.scss'
 
 import '@my-element-plus/theme-chalk/src/reset.scss'
 

@@ -15,6 +15,7 @@
       <div>
         b
       </div>
+      <ell-footer :style="{background: '#baf6f8'}" height="120px">Footer</ell-footer>
     </ell-container>
   </div>
 </template>

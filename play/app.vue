@@ -1,7 +1,7 @@
 <template>
   <div class="common-layout">
     <ell-container>
-      <ell-header>Header</ell-header>
+      <ell-header :style="{background: '#f5f6f8'}" height="120px">Header</ell-header>
       <!-- <ell-container>
         <ell-aside width="200px">Aside</ell-aside>
         <ell-container>

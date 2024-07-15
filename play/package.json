@@ -12,6 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
+    "unplugin-auto-import": "^0.18.0",
+    "unplugin-vue-components": "^0.27.2",
     "vite": "^2.9.15"
   },
   "dependencies": {

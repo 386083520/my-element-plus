@@ -1,17 +1,17 @@
 <template>
   <div class="common-layout">
-    <ell-container>
-        <ell-aside width="500px">Aside</ell-aside>
-        <ell-container :style="{height: '100px'}">
-          <ell-header>header</ell-header>
-          <ell-main  :style="{height: '10px'}">
+    <el-container>
+        <el-aside width="500px">Aside</el-aside>
+        <el-container :style="{height: '100px'}">
+          <el-header>header</el-header>
+          <el-main  :style="{height: '10px'}">
             <div>main</div>
             <div>main</div>
             <div>main</div>
-          </ell-main>
-          <ell-footer>Footer</ell-footer>
-        </ell-container>
-      </ell-container>
+          </el-main>
+          <el-footer>Footer</el-footer>
+        </el-container>
+      </el-container>
   </div>
 </template>
 

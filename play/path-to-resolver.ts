@@ -7,7 +7,8 @@ export function MyElementPlusResolver():ComponentResolver {
             if(name.startsWith('Ell')) {
                 return {
                     name,
-                    from: '@my-element-plus/components'
+                    from: '@my-element-plus/components',
+                    sideEffects: `@my-element-plus/theme-chalk/src/${name.slice(3).toLowerCase()}.scss`
                 }
             }
         }

@@ -1,18 +1,11 @@
 <template>
   <div class="common-layout">
-    <!-- <ell-container>
-        <ell-aside width="500px">Aside</ell-aside>
-        <ell-container :style="{height: '100px'}">
-          <ell-header>header</ell-header>
-          <ell-main  :style="{height: '10px'}">
-            <div>main</div>
-            <div>main</div>
-            <div>main</div>
-          </ell-main>
-          <ell-footer>Footer</ell-footer>
-        </ell-container>
-      </ell-container> -->
-      <ell-button type="success">abc</ell-button>
+    <ell-button-group>
+    <ell-button type="primary">Previous Page</ell-button>
+    <ell-button type="primary">
+      Next Page
+    </ell-button>
+  </ell-button-group>
   </div>
 </template>
 

@@ -7,11 +7,11 @@ import { MyElementPlusResolver } from './path-to-resolver'
 export default defineConfig({
     plugins: [
         vue(),
-        AutoImport({
-            resolvers: [ElementPlusResolver(), MyElementPlusResolver()],
-          }),
-          Components({
-            resolvers: [ElementPlusResolver(), MyElementPlusResolver()],
-          })
+        // AutoImport({
+        //     resolvers: [ElementPlusResolver(), MyElementPlusResolver()],
+        //   }),
+        //   Components({
+        //     resolvers: [ElementPlusResolver(), MyElementPlusResolver()],
+        //   })
     ]
 })

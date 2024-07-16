@@ -28,9 +28,13 @@ import App from './app.vue'
 // import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
 import '@my-element-plus/theme-chalk/src/base.scss'
+import EllButton from '@my-element-plus/components/button'
+import '@my-element-plus/theme-chalk/src/button.scss'
+
+import '@my-element-plus/theme-chalk/src/button-group.scss'
 
 const app = createApp(App)
-// app.use(EllButton)
+app.use(EllButton)
 // app.use(EllIcon)
 // app.use(EllBadge)
 // app.use(EllCard)

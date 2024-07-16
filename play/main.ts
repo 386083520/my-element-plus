@@ -27,10 +27,9 @@ import App from './app.vue'
 
 // import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
-import { EllAside } from '@my-element-plus/components'
+import '@my-element-plus/theme-chalk/src/base.scss'
 
 const app = createApp(App)
-app.use(EllAside)
 // app.use(EllButton)
 // app.use(EllIcon)
 // app.use(EllBadge)

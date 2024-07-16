@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout">
-    <ell-container>
+    <!-- <ell-container>
         <ell-aside width="500px">Aside</ell-aside>
         <ell-container :style="{height: '100px'}">
           <ell-header>header</ell-header>
@@ -11,8 +11,8 @@
           </ell-main>
           <ell-footer>Footer</ell-footer>
         </ell-container>
-      </ell-container>
-      <!-- <ell-button>abc</ell-button> -->
+      </ell-container> -->
+      <ell-button type="success">abc</ell-button>
   </div>
 </template>
 

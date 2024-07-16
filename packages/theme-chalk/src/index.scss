@@ -1,1 +1,16 @@
-@use './common/var.scss' as *;
+@use './base.scss';
+@use './aside.scss';
+@use './badge.scss';
+@use './button-group.scss';
+@use './button.scss';
+@use './card.scss';
+@use './col.scss';
+@use './container.scss';
+@use './footer.scss';
+@use './header.scss';
+@use './icon.scss';
+@use './text.scss';
+@use './row.scss';
+@use './link.scss';
+@use './scrollbar.scss';
+@use './main.scss';

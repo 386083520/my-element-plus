@@ -1,4 +1,3 @@
-import { makeInstaller } from "./make-installer"
+import installer from './defaults'
 
-const installer = makeInstaller()
 export default installer

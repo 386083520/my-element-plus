@@ -25,8 +25,9 @@ import App from './app.vue'
 
 // import '@my-element-plus/theme-chalk/src/reset.scss'
 
-// import ElementPlus from 'element-plus'
-// import 'element-plus/dist/index.css'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import MyElementPlus from 'my-element-plus'
 // import '@my-element-plus/theme-chalk/src/base.scss'
 // import EllButton from '@my-element-plus/components/button'
 // import '@my-element-plus/theme-chalk/src/button.scss'
@@ -45,5 +46,6 @@ const app = createApp(App)
 // app.use(EllText)
 // app.use(EllScrollbar)
 // app.use(EllContainer)
-// app.use(ElementPlus)
+app.use(ElementPlus)
+app.use(MyElementPlus)
 app.mount("#app")

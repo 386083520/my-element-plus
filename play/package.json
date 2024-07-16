@@ -17,6 +17,7 @@
     "vite": "^2.9.15"
   },
   "dependencies": {
-    "element-plus": "^2.6.3"
+    "element-plus": "^2.6.3",
+    "my-element-plus": "workspace:^"
   }
 }

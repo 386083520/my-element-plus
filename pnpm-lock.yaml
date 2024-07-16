@@ -74,6 +74,8 @@ importers:
 
   packages/hooks: {}
 
+  packages/my-element-plus: {}
+
   packages/test-utils: {}
 
   packages/theme-chalk: {}
@@ -85,6 +87,9 @@ importers:
       element-plus:
         specifier: ^2.6.3
         version: 2.6.3(vue@3.4.21)
+      my-element-plus:
+        specifier: workspace:^
+        version: link:../packages/my-element-plus
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^2.3.3

@@ -1,3 +1,4 @@
+import '@my-element-plus/theme-chalk/src/base.scss'
 import '@my-element-plus/theme-chalk/src/container.scss'
 import '@my-element-plus/theme-chalk/src/header.scss'
 import '@my-element-plus/theme-chalk/src/footer.scss'

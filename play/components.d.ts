@@ -7,12 +7,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ElAside: typeof import('element-plus/es')['ElAside']
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElFooter: typeof import('element-plus/es')['ElFooter']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
+    EllAside: typeof import('@my-element-plus/components')['EllAside']
     EllButton: typeof import('@my-element-plus/components')['EllButton']
-    ElMain: typeof import('element-plus/es')['ElMain']
+    EllContainer: typeof import('@my-element-plus/components')['EllContainer']
+    EllFooter: typeof import('@my-element-plus/components')['EllFooter']
+    EllHeader: typeof import('@my-element-plus/components')['EllHeader']
+    EllMain: typeof import('@my-element-plus/components')['EllMain']
   }
 }

@@ -1,4 +1,4 @@
-import { withInstall } from "@my-element-plus/utils";
+import { withInstall, withNoopInstall } from "@my-element-plus/utils";
 import Container from "./src/container.vue";
 import Aside from "./src/aside.vue";
 import Footer from "./src/footer.vue";
@@ -10,10 +10,8 @@ export const EllContainer  = withInstall(Container, {
     Header,
     Main
 })
-export {
-    Aside as EllAside,
-    Header as EllHeader,
-    Footer as EllFooter,
-    Main as EllMain
-}
+export const EllAside = withNoopInstall(Aside)
+export const EllFooter = withNoopInstall(Footer)
+export const EllHeader = withNoopInstall(Header)
+export const EllMain = withNoopInstall(Main)
 export default EllContainer

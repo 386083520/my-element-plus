@@ -5,7 +5,11 @@ import { useSpace } from "./use-space";
 import Item from './item'
 
 export const spaceProps = buildProps({
-
+    direction: {
+        type: String,
+        values: ['horizontal', 'vertical'],
+        default: 'horizontal'
+    }
 })
 
 export type SpaceProps = ExtractPropTypes<typeof spaceProps>

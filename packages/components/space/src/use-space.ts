@@ -4,7 +4,7 @@ import { useNamespace } from "@my-element-plus/hooks";
 
 export function useSpace(props: SpaceProps) {
     const ns = useNamespace('space')
-    const classes = computed(() => [ns.b()])
+    const classes = computed(() => [ns.b(), ns.m(props.direction)])
     const containerStyle = computed(() => {
         const gap:CSSProperties = {
             rowGap: '8px',

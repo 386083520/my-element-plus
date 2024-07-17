@@ -1,9 +1,10 @@
-import { buildProps, isArray, isFragment, isValideElementNode } from "@my-element-plus/utils";
+import { buildProps, isArray, isFragment, isNumber, isValideElementNode } from "@my-element-plus/utils";
 
 import { createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
 import Item from './item'
 import { componentSizes } from "@my-element-plus/constants";
+
 
 export const spaceProps = buildProps({
     direction: {
@@ -12,8 +13,11 @@ export const spaceProps = buildProps({
         default: 'horizontal'
     },
     size: {
-        type: String,
-        values: componentSizes
+        type: [String, Number],
+        values: componentSizes,
+        validator: (val: unknown):val is number => {
+            return isNumber(val)
+        }
     }
 })
 

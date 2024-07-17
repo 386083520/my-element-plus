@@ -2,6 +2,7 @@ import { buildProps, isArray } from "@my-element-plus/utils";
 
 import { createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
+import Item from './item'
 
 export const spaceProps = buildProps({
 
@@ -18,7 +19,7 @@ const Space = defineComponent({
             let extractedChildren:VNode[] = []
             children.forEach(child => {
                 extractedChildren.push(
-                    createVNode('div', {class: 'ell-space__item'}, {default: () => [child]})
+                    createVNode(Item, {}, {default: () => [child]})
                 )
             })
             return extractedChildren

@@ -13,10 +13,12 @@ export const spaceProps = buildProps({
         default: 'horizontal'
     },
     size: {
-        type: [String, Number],
+        type: [String, Number, Array],
         values: componentSizes,
-        validator: (val: unknown):val is number => {
-            return isNumber(val)
+        validator: (val: unknown):val is number|[number,number] => {
+            return (
+                isNumber(val) || (isArray(val) && val.length === 2 && val.every(isNumber))
+            )
         }
     }
 })

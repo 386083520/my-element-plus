@@ -1,5 +1,5 @@
 <template>
-  <ell-space direction="vertical" :size="50">
+  <ell-space direction="vertical" :size="[80, 80]">
     <el-card v-for="i in 3" :key="i" class="box-card" style="width: 250px">
       <template #header>
         <div class="card-header">

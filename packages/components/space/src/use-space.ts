@@ -1,7 +1,7 @@
 import { computed, CSSProperties, ref, watchEffect } from "vue";
 import { SpaceProps } from "./space";
 import { useNamespace } from "@my-element-plus/hooks";
-import { isNumber } from "@my-element-plus/utils";
+import { isArray, isNumber } from "@my-element-plus/utils";
 
 const SIZE_MAP = {
     small: 8,
@@ -23,20 +23,27 @@ export function useSpace(props: SpaceProps) {
     })
     watchEffect(() => {
         const { size = 'small', direction: dir } = props
-        let val:number
-        if(isNumber(size)) {
-            val = size
+        if(isArray(size)) {
+            const [h=0, v=0] = size
+            horizontalSize.value = h as number
+            verticalSize.value = v as number
         }else {
-            val = SIZE_MAP[size]
+            let val:number
+            if(isNumber(size)) {
+                val = size
+            }else {
+                val = SIZE_MAP[size]
+            }
+            
+            if(dir === 'horizontal') {
+                horizontalSize.value = val
+                verticalSize.value = 0
+            }else {
+                horizontalSize.value = 0
+                verticalSize.value = val
+            }
         }
         
-        if(dir === 'horizontal') {
-            horizontalSize.value = val
-            verticalSize.value = 0
-        }else {
-            horizontalSize.value = 0
-            verticalSize.value = val
-        }
     })
     return {
         classes,

@@ -1,4 +1,4 @@
-import { buildProps, isArray } from "@my-element-plus/utils";
+import { buildProps, isArray, isFragment, isValideElementNode } from "@my-element-plus/utils";
 
 import { createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
@@ -18,9 +18,23 @@ const Space = defineComponent({
         function extractChildren(children: VNodeArrayChildren) {
             let extractedChildren:VNode[] = []
             children.forEach(child => {
-                extractedChildren.push(
-                    createVNode(Item, {}, {default: () => [child]})
-                )
+                if(isFragment(child)) {
+                    if(isArray(child.children)) {
+                        child.children.forEach(nested => {
+                            extractedChildren.push(
+                                createVNode(
+                                    Item,
+                                    {},
+                                    {default: () => [nested]}
+                                )
+                            )
+                        })
+                    }
+                } else if(isValideElementNode(child)) {
+                    extractedChildren.push(
+                        createVNode(Item, {}, {default: () => [child]})
+                    )
+                }
             })
             return extractedChildren
         }

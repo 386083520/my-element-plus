@@ -3,12 +3,17 @@ import { buildProps, isArray, isFragment, isValideElementNode } from "@my-elemen
 import { createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
 import Item from './item'
+import { componentSizes } from "@my-element-plus/constants";
 
 export const spaceProps = buildProps({
     direction: {
         type: String,
         values: ['horizontal', 'vertical'],
         default: 'horizontal'
+    },
+    size: {
+        type: String,
+        values: componentSizes
     }
 })
 

@@ -14,7 +14,7 @@ const Space = defineComponent({
     name: 'EllSpace',
     props: spaceProps,
     setup(props, { slots }) {
-        const { classes } = useSpace(props)
+        const { classes, containerStyle } = useSpace(props)
         function extractChildren(children: VNodeArrayChildren) {
             let extractedChildren:VNode[] = []
             children.forEach(child => {
@@ -30,7 +30,10 @@ const Space = defineComponent({
             if(isArray(children.children)) {
                 return createVNode(
                     'div',
-                    {class: classes.value},
+                    {
+                        class: classes.value,
+                        style: containerStyle.value
+                    },
                     extractChildren(children.children)
                 )
             }

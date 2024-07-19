@@ -20,7 +20,10 @@ export function useSpace(props: SpaceProps) {
             rowGap: `${verticalSize.value}px`,
             columnGap: `${horizontalSize.value}px`
         }
-        return [gap,wrapKls]
+        const alignment: CSSProperties = {
+            alignItems: props.alignment
+        }
+        return [gap,wrapKls,alignment]
     })
     watchEffect(() => {
         const { size = 'small', direction: dir } = props

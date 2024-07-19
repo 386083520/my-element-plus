@@ -25,6 +25,10 @@ export const spaceProps = buildProps({
     spacer: {
         type: [String, Number, Object],
         default: null
+    },
+    alignment: {
+        type: String,
+        default: 'center'
     }
 })
 

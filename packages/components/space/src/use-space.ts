@@ -1,4 +1,4 @@
-import { computed, CSSProperties, ref, watchEffect } from "vue";
+import { computed, CSSProperties, ref, StyleValue, watchEffect } from "vue";
 import { SpaceProps } from "./space";
 import { useNamespace } from "@my-element-plus/hooks";
 import { isArray, isNumber } from "@my-element-plus/utils";
@@ -24,6 +24,9 @@ export function useSpace(props: SpaceProps) {
             alignItems: props.alignment
         }
         return [gap,wrapKls,alignment]
+    })
+    const itemStyle = computed<StyleValue>(() => {
+        return props.fill ? {minWidth: '100%'} : {}
     })
     watchEffect(() => {
         const { size = 'small', direction: dir } = props
@@ -51,6 +54,7 @@ export function useSpace(props: SpaceProps) {
     })
     return {
         classes,
-        containerStyle
+        containerStyle,
+        itemStyle
     }
 }

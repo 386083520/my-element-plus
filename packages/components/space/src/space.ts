@@ -29,7 +29,8 @@ export const spaceProps = buildProps({
     alignment: {
         type: String,
         default: 'center'
-    }
+    },
+    fill: Boolean
 })
 
 export type SpaceProps = ExtractPropTypes<typeof spaceProps>
@@ -38,7 +39,7 @@ const Space = defineComponent({
     name: 'EllSpace',
     props: spaceProps,
     setup(props, { slots }) {
-        const { classes, containerStyle } = useSpace(props)
+        const { classes, containerStyle, itemStyle } = useSpace(props)
         function extractChildren(children: VNodeArrayChildren) {
             let extractedChildren:VNode[] = []
             children.forEach(child => {
@@ -48,7 +49,9 @@ const Space = defineComponent({
                             extractedChildren.push(
                                 createVNode(
                                     Item,
-                                    {},
+                                    {
+                                        style: itemStyle.value
+                                    },
                                     {default: () => [nested]}
                                 )
                             )
@@ -56,7 +59,12 @@ const Space = defineComponent({
                     }
                 } else if(isValideElementNode(child)) {
                     extractedChildren.push(
-                        createVNode(Item, {}, {default: () => [child]})
+                        createVNode(
+                            Item, 
+                            {
+                                style: itemStyle.value
+                            }, 
+                            {default: () => [child]})
                     )
                 }
             })
@@ -77,7 +85,9 @@ const Space = defineComponent({
                                 children.push(
                                     createVNode(
                                         'span',
-                                        {},
+                                        {
+                                            style: itemStyle.value
+                                        },
                                         [
                                             isVNode(spacer) ? spacer: createTextVNode(spacer as string)
                                         ]

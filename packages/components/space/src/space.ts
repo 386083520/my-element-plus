@@ -34,6 +34,10 @@ export const spaceProps = buildProps({
     fillRatio: {
         type: Number,
         default: 100
+    },
+    class: {
+        type: [String, Object, Array],
+        default: ''
     }
 })
 

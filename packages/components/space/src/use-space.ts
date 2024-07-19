@@ -13,7 +13,7 @@ export function useSpace(props: SpaceProps) {
     const ns = useNamespace('space')
     const horizontalSize = ref(0)
     const verticalSize = ref(0)
-    const classes = computed(() => [ns.b(), ns.m(props.direction)])
+    const classes = computed(() => [ns.b(), ns.m(props.direction), props.class])
     const containerStyle = computed(() => {
         const wrapKls:CSSProperties = props.wrap ? {flexWrap: 'wrap'}: {}
         const gap:CSSProperties = {

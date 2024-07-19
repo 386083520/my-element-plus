@@ -1,6 +1,6 @@
 import { buildProps, isArray, isFragment, isNumber, isValideElementNode } from "@my-element-plus/utils";
 
-import { createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
+import { createTextVNode, createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
 import Item from './item'
 import { componentSizes } from "@my-element-plus/constants";
@@ -21,7 +21,11 @@ export const spaceProps = buildProps({
             )
         }
     },
-    wrap: Boolean
+    wrap: Boolean,
+    spacer: {
+        type: String,
+        default: null
+    }
 })
 
 export type SpaceProps = ExtractPropTypes<typeof spaceProps>
@@ -55,16 +59,37 @@ const Space = defineComponent({
             return extractedChildren
         }
         return () => {
+            const { spacer } = props
             const children = renderSlot(slots, 'default', {key: 0 }, () => [])
             console.log(children)
             if(isArray(children.children)) {
+                let extractedChildren = extractChildren(children.children)
+                if(spacer) {
+                    const len = extractedChildren.length - 1
+                    extractedChildren = extractedChildren.reduce<VNode[]>(
+                        (acc, child, idx) => {
+                            const children = [...acc, child]
+                            if(idx !== len) {
+                                children.push(
+                                    createVNode(
+                                        'span',
+                                        {},
+                                        [createTextVNode(spacer)]
+                                    )
+                                )
+                            }
+                            return children
+                        },
+                        []
+                    )
+                }
                 return createVNode(
                     'div',
                     {
                         class: classes.value,
                         style: containerStyle.value
                     },
-                    extractChildren(children.children)
+                    extractedChildren
                 )
             }
         }

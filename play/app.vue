@@ -1,10 +1,16 @@
 <template>
-  <ell-space wrap>
-    <div v-for="i in 20" :key="i">
-      <el-button text> Text button </el-button>
+  <ell-space :size="size" spacer="|">
+    <div v-for="i in 2" :key="i">
+      <el-button> button {{ i }} </el-button>
     </div>
   </ell-space>
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const size = ref(10)
+</script>
 
 <style scoped>
 </style>

@@ -23,7 +23,7 @@ export const spaceProps = buildProps({
     },
     wrap: Boolean,
     spacer: {
-        type: String,
+        type: [String, Number],
         default: null
     }
 })
@@ -74,7 +74,7 @@ const Space = defineComponent({
                                     createVNode(
                                         'span',
                                         {},
-                                        [createTextVNode(spacer)]
+                                        [createTextVNode(spacer as string)]
                                     )
                                 )
                             }

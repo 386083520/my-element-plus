@@ -1,5 +1,5 @@
 <template>
-  <ell-space :size="size" spacer="|">
+  <ell-space :size="size" :spacer="8">
     <div v-for="i in 2" :key="i">
       <el-button> button {{ i }} </el-button>
     </div>

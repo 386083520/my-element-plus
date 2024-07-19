@@ -15,11 +15,12 @@ export function useSpace(props: SpaceProps) {
     const verticalSize = ref(0)
     const classes = computed(() => [ns.b(), ns.m(props.direction)])
     const containerStyle = computed(() => {
+        const wrapKls:CSSProperties = props.wrap ? {flexWrap: 'wrap'}: {}
         const gap:CSSProperties = {
             rowGap: `${verticalSize.value}px`,
             columnGap: `${horizontalSize.value}px`
         }
-        return [gap]
+        return [gap,wrapKls]
     })
     watchEffect(() => {
         const { size = 'small', direction: dir } = props

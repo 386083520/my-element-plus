@@ -20,7 +20,8 @@ export const spaceProps = buildProps({
                 isNumber(val) || (isArray(val) && val.length === 2 && val.every(isNumber))
             )
         }
-    }
+    },
+    wrap: Boolean
 })
 
 export type SpaceProps = ExtractPropTypes<typeof spaceProps>

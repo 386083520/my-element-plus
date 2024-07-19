@@ -38,6 +38,9 @@ export const spaceProps = buildProps({
     class: {
         type: [String, Object, Array],
         default: ''
+    },
+    prefixCls: {
+        type: String
     }
 })
 
@@ -50,6 +53,7 @@ const Space = defineComponent({
         const { classes, containerStyle, itemStyle } = useSpace(props)
         function extractChildren(children: VNodeArrayChildren) {
             let extractedChildren:VNode[] = []
+            const { prefixCls } = props
             children.forEach(child => {
                 if(isFragment(child)) {
                     if(isArray(child.children)) {
@@ -58,7 +62,8 @@ const Space = defineComponent({
                                 createVNode(
                                     Item,
                                     {
-                                        style: itemStyle.value
+                                        style: itemStyle.value,
+                                        prefixCls
                                     },
                                     {default: () => [nested]}
                                 )
@@ -70,7 +75,8 @@ const Space = defineComponent({
                         createVNode(
                             Item, 
                             {
-                                style: itemStyle.value
+                                style: itemStyle.value,
+                                prefixCls
                             }, 
                             {default: () => [child]})
                     )

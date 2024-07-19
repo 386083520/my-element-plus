@@ -4,7 +4,9 @@ import { computed, defineComponent, renderSlot } from "vue";
 import { h } from 'vue'
 
 export const spaceItemProps = buildProps({
-
+    prefixCls: {
+        type: String
+    }
 })
 
 const SpaceItem = defineComponent({
@@ -12,7 +14,7 @@ const SpaceItem = defineComponent({
     props: spaceItemProps,
     setup(props, { slots }) {
         const ns = useNamespace('space')
-        const classes = computed(() => ns.e('item'))
+        const classes = computed(() => `${props.prefixCls || ns.b()}__item`)
         return () => {
             return h('div', {class: classes.value}, renderSlot(slots, 'default'))
         }

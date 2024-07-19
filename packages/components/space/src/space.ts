@@ -1,6 +1,6 @@
 import { buildProps, isArray, isFragment, isNumber, isValideElementNode } from "@my-element-plus/utils";
 
-import { createTextVNode, createVNode, defineComponent, ExtractPropTypes, renderSlot, VNode, VNodeArrayChildren } from "vue";
+import { createTextVNode, createVNode, defineComponent, ExtractPropTypes, isVNode, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
 import Item from './item'
 import { componentSizes } from "@my-element-plus/constants";
@@ -23,7 +23,7 @@ export const spaceProps = buildProps({
     },
     wrap: Boolean,
     spacer: {
-        type: [String, Number],
+        type: [String, Number, Object],
         default: null
     }
 })
@@ -74,7 +74,9 @@ const Space = defineComponent({
                                     createVNode(
                                         'span',
                                         {},
-                                        [createTextVNode(spacer as string)]
+                                        [
+                                            isVNode(spacer) ? spacer: createTextVNode(spacer as string)
+                                        ]
                                     )
                                 )
                             }

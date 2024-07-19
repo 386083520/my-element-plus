@@ -1,14 +1,21 @@
 <template>
   <div>
-    <ell-space wrap>
-    <div v-for="i in 20" :key="i">
-      <el-button type="primary"> Text button </el-button>
+    <div style="margin-bottom: 15px">
+      direction:
+      <el-radio v-model="direction" value="horizontal">horizontal</el-radio>
+      <el-radio v-model="direction" value="vertical">vertical</el-radio>
     </div>
-  </ell-space>
-
-    <div style="margin-bottom: 15px">fill: <el-switch v-model="fill" /></div>
-    <ell-space :fill="fill" wrap>
-      <el-card v-for="i in 3" :key="i" class="box-card">
+    <div style="margin-bottom: 15px">
+      fillRatio:<el-slider v-model="fillRatio" />
+    </div>
+    <ell-space
+      fill
+      wrap
+      :fill-ratio="fillRatio"
+      :direction="direction"
+      style="width: 100%"
+    >
+      <el-card v-for="i in 5" :key="i" class="box-card">
         <template #header>
           <div class="card-header">
             <span>Card name</span>
@@ -25,8 +32,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import type { SpaceInstance } from 'element-plus'
 
-const fill = ref(true)
+const direction = ref<SpaceInstance['direction']>('horizontal')
+const fillRatio = ref(30)
 </script>
 
 <style scoped>

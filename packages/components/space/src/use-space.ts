@@ -26,7 +26,7 @@ export function useSpace(props: SpaceProps) {
         return [gap,wrapKls,alignment]
     })
     const itemStyle = computed<StyleValue>(() => {
-        return props.fill ? {minWidth: '100%'} : {}
+        return props.fill ? {flexGrow: 1,minWidth: `${props.fillRatio}%`} : {}
     })
     watchEffect(() => {
         const { size = 'small', direction: dir, fill, wrap } = props

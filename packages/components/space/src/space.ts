@@ -30,7 +30,11 @@ export const spaceProps = buildProps({
         type: String,
         default: 'center'
     },
-    fill: Boolean
+    fill: Boolean,
+    fillRatio: {
+        type: Number,
+        default: 100
+    }
 })
 
 export type SpaceProps = ExtractPropTypes<typeof spaceProps>

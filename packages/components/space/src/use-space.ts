@@ -29,7 +29,7 @@ export function useSpace(props: SpaceProps) {
         return props.fill ? {minWidth: '100%'} : {}
     })
     watchEffect(() => {
-        const { size = 'small', direction: dir } = props
+        const { size = 'small', direction: dir, fill, wrap } = props
         if(isArray(size)) {
             const [h=0, v=0] = size
             horizontalSize.value = h as number
@@ -42,12 +42,16 @@ export function useSpace(props: SpaceProps) {
                 val = SIZE_MAP[size]
             }
             
-            if(dir === 'horizontal') {
-                horizontalSize.value = val
-                verticalSize.value = 0
+            if((wrap || fill) && dir === 'horizontal') {
+                horizontalSize.value = verticalSize.value = val
             }else {
-                horizontalSize.value = 0
-                verticalSize.value = val
+                if(dir === 'horizontal') {
+                    horizontalSize.value = val
+                    verticalSize.value = 0
+                }else {
+                    horizontalSize.value = 0
+                    verticalSize.value = val
+                }
             }
         }
         

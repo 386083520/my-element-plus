@@ -1,5 +1,11 @@
 <template>
   <div>
+    <ell-space wrap>
+    <div v-for="i in 20" :key="i">
+      <el-button type="primary"> Text button </el-button>
+    </div>
+  </ell-space>
+
     <div style="margin-bottom: 15px">fill: <el-switch v-model="fill" /></div>
     <ell-space :fill="fill" wrap>
       <el-card v-for="i in 3" :key="i" class="box-card">

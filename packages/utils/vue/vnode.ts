@@ -1,5 +1,12 @@
 import { Comment, Fragment, isVNode, VNode } from "vue";
 
+export enum PatchFlags {
+    TEXT = 1,
+    CLASS = 2,
+    STYLE = 4,
+    PROPS = 8
+}
+
 export function isFragment(node: VNode): boolean
 export function isFragment(node: unknown): node is VNode
 export function isFragment(node: unknown): node is VNode {

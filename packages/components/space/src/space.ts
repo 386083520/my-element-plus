@@ -1,4 +1,4 @@
-import { buildProps, isArray, isFragment, isNumber, isValideElementNode } from "@my-element-plus/utils";
+import { buildProps, isArray, isFragment, isNumber, isValideElementNode, PatchFlags } from "@my-element-plus/utils";
 
 import { createTextVNode, createVNode, defineComponent, ExtractPropTypes, isVNode, renderSlot, VNode, VNodeArrayChildren } from "vue";
 import { useSpace } from "./use-space";
@@ -65,7 +65,9 @@ const Space = defineComponent({
                                         style: itemStyle.value,
                                         prefixCls
                                     },
-                                    {default: () => [nested]}
+                                    {default: () => [nested]},
+                                    PatchFlags.PROPS | PatchFlags.STYLE,
+                                    ['style', 'prefixCls']
                                 )
                             )
                         })
@@ -78,7 +80,10 @@ const Space = defineComponent({
                                 style: itemStyle.value,
                                 prefixCls
                             }, 
-                            {default: () => [child]})
+                            {default: () => [child]},
+                            PatchFlags.PROPS | PatchFlags.STYLE,
+                            ['style', 'prefixCls']
+                        )
                     )
                 }
             })
@@ -103,8 +108,9 @@ const Space = defineComponent({
                                             style: itemStyle.value
                                         },
                                         [
-                                            isVNode(spacer) ? spacer: createTextVNode(spacer as string)
-                                        ]
+                                            isVNode(spacer) ? spacer: createTextVNode(spacer as string, PatchFlags.TEXT)
+                                        ],
+                                        PatchFlags.STYLE
                                     )
                                 )
                             }
@@ -119,7 +125,8 @@ const Space = defineComponent({
                         class: classes.value,
                         style: containerStyle.value
                     },
-                    extractedChildren
+                    extractedChildren,
+                    PatchFlags.STYLE | PatchFlags.CLASS
                 )
             }
         }

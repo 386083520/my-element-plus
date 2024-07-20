@@ -19,5 +19,55 @@ describe('Space', () => {
         expect(wrapper.find('.ell-space').attributes('style')).toContain('flex-wrap: wrap')
     })
 
-    
+    test('sizes', async () => {
+        const wrapper = mount(
+            <Space size="large">
+                {
+                    Array.from({length: 2}).map((_, idx) => {
+                        return `test${idx}`
+                    })
+                }
+            </Space>
+        )
+        await nextTick()
+        expect(wrapper.find('.ell-space').attributes('style')).toContain('gap: 16px')
+
+        await wrapper.setProps({
+            size: 30
+        })
+        await nextTick()
+        expect(wrapper.find('.ell-space').attributes('style')).toContain('gap: 30px')
+
+        await wrapper.setProps({
+            size: [10,20]
+        })
+        
+        expect(wrapper.find('.ell-space').attributes('style')).toContain('column-gap: 10px')
+        expect(wrapper.find('.ell-space').attributes('style')).toContain('row-gap: 20px')
+    })
+
+
+    test('should render with spacer', async () => {
+        const stringSpacer = '|'
+        const wrapper = mount(
+            <Space spacer={stringSpacer}>
+                {
+                    Array.from({length: 2}).map((_, idx) => {
+                        return `test${idx}`
+                    })
+                }
+            </Space>
+        )
+        await nextTick()
+        expect(wrapper.element.children).toHaveLength(3)
+        expect(wrapper.text()).toContain(stringSpacer)
+        expect(wrapper.text().split(stringSpacer)).toHaveLength(2)
+
+        const testSpacerCls = 'test-spacer-cls'
+        await wrapper.setProps({
+            spacer: <div class={testSpacerCls}></div>
+        })
+        expect(wrapper.findAll(`.${testSpacerCls}`)).toHaveLength(1)
+        expect(wrapper.element.children).toHaveLength(3)
+    })
 })

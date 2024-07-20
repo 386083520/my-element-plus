@@ -54,16 +54,17 @@ const Space = defineComponent({
         function extractChildren(children: VNodeArrayChildren) {
             let extractedChildren:VNode[] = []
             const { prefixCls } = props
-            children.forEach(child => {
+            children.forEach((child, loopKey) => {
                 if(isFragment(child)) {
                     if(isArray(child.children)) {
-                        child.children.forEach(nested => {
+                        child.children.forEach((nested, key) => {
                             extractedChildren.push(
                                 createVNode(
                                     Item,
                                     {
                                         style: itemStyle.value,
-                                        prefixCls
+                                        prefixCls,
+                                        key: `nested-${key}`
                                     },
                                     {default: () => [nested]},
                                     PatchFlags.PROPS | PatchFlags.STYLE,
@@ -78,7 +79,8 @@ const Space = defineComponent({
                             Item, 
                             {
                                 style: itemStyle.value,
-                                prefixCls
+                                prefixCls,
+                                key: `LoopKey${loopKey}`
                             }, 
                             {default: () => [child]},
                             PatchFlags.PROPS | PatchFlags.STYLE,
@@ -105,7 +107,8 @@ const Space = defineComponent({
                                     createVNode(
                                         'span',
                                         {
-                                            style: itemStyle.value
+                                            style: itemStyle.value,
+                                            key: idx
                                         },
                                         [
                                             isVNode(spacer) ? spacer: createTextVNode(spacer as string, PatchFlags.TEXT)

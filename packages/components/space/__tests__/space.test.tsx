@@ -70,4 +70,26 @@ describe('Space', () => {
         expect(wrapper.findAll(`.${testSpacerCls}`)).toHaveLength(1)
         expect(wrapper.element.children).toHaveLength(3)
     })
+
+    test('fill', async () => {
+        const wrapper = mount(
+            <Space fill>
+                {
+                    Array.from({length: 2}).map((_, idx) => {
+                        return `test${idx}`
+                    })
+                }
+            </Space>
+        )
+        await nextTick()
+        expect(wrapper.find('.ell-space').attributes('style')).toContain('flex-wrap: wrap')
+        expect(wrapper.find('.ell-space__item').attributes('style')).toContain('flex-grow: 1')
+        expect(wrapper.find('.ell-space__item').attributes('style')).toContain('min-width: 100%')
+
+
+        await wrapper.setProps({
+            fillRatio: 50
+        })
+        expect(wrapper.find('.ell-space__item').attributes('style')).toContain('min-width: 50%')
+    })
 })

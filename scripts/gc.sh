@@ -49,6 +49,6 @@ EOF
 cat <<EOF >"$DIRNAME/index.ts"
 import { withInstall } from "@my-element-plus/utils";
 import $NAME from "./src/$INPUT_NAME.vue";
-const Ell$NAME  = withInstall($NAME)
+export const Ell$NAME  = withInstall($NAME)
 export default Ell$NAME
 EOF

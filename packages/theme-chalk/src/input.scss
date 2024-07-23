@@ -8,7 +8,7 @@
             box-shadow: 0 0 0 1px #c0c4cc inset;
         }
         @include when(focus) {
-            // box-shadow: 0 0 0 1px #409eff inset;
+            box-shadow: 0 0 0 1px #409eff inset;
         }
         @include e(inner) {
             outline: none;

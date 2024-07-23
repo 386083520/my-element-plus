@@ -1,7 +1,10 @@
 <template>
     <div :class="[containerKls]">
         <div :class="wrapperKls">
-            <input :class="nsInput.e('inner')" @focus="handleFocus"/>
+            <input
+            :class="nsInput.e('inner')"
+            @blur="handleBlur"
+            @focus="handleFocus"/>
         </div>
     </div>
 </template>
@@ -15,7 +18,7 @@ const nsInput = useNamespace('input')
 defineOptions({
     name: 'EllInput'
 })
-const { isFocused, handleFocus } = useFocusController()
+const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
     nsInput.b()
 ])

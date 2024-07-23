@@ -6,8 +6,12 @@ export function useFocusController() {
         if (isFocused.value) return
         isFocused.value = true
     }
+    const handleBlur = (event: FocusEvent) => {
+        isFocused.value = false
+    }
     return {
         isFocused,
-        handleFocus
+        handleFocus,
+        handleBlur
     }
 }

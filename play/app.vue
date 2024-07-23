@@ -1,5 +1,5 @@
 <template>
-  <ell-input></ell-input>
+  <ell-input placeholder="Please input"></ell-input>
 </template>
 
 <script lang="ts" setup>

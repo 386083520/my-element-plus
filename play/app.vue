@@ -1,5 +1,5 @@
 <template>
-  <ell-input placeholder="Please input" v-model="input"></ell-input>
+  <ell-input placeholder="Please input" v-model="input" disabled></ell-input>
   <div>{{ input }}</div>
 </template>
 

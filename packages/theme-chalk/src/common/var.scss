@@ -111,6 +111,19 @@ $input-height: (
     'small': 24px
 );
 
+$input: (
+    'border-color': #dcdfe6,
+    'hover-border-color': #c0c4cc,
+    'focus-border-color': #409eff,
+);
+
+$input-disabled: (
+    'border': #e4e7ed,
+    'fill': #f5f7fa,
+    'text-color': #a8abb2,
+    'placeholder-color': #a8abb2
+);
+
 $link: (
     'font-size': 14px,
     'font-weight': 500,

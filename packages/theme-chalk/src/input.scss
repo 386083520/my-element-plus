@@ -1,4 +1,6 @@
 @use 'mixins/mixins.scss' as *;
+@use 'sass:map';
+@use 'common/var.scss' as *;
 
 @mixin mixed-input-border($color) {
     box-shadow: 0 0 0 1px $color inset;
@@ -6,14 +8,14 @@
 
 @include b(input) {
     @include e(wrapper) {
-        @include mixed-input-border(#dcdfe6);
+        @include mixed-input-border(map.get($input, 'border-color'));
         padding: 1px 11px;
         border-radius: 4px;
         &:hover {
-            @include mixed-input-border(#c0c4cc);
+            @include mixed-input-border(map.get($input, 'hover-border-color'));
         }
         @include when(focus) {
-            @include mixed-input-border(#409eff);
+            @include mixed-input-border(map.get($input, 'focus-border-color'));
         }
         @include e(inner) {
             outline: none;
@@ -29,14 +31,14 @@
     @include when(disabled) {
         cursor: not-allowed;
         .#{$namespace}-input__wrapper {
-            background-color: #f5f7fa;
-            @include mixed-input-border(#e4e7ed);
+            background-color: map.get($input-disabled, 'fill');
+            @include mixed-input-border(map.get($input-disabled, 'border'));
         }
         .#{$namespace}-input__inner {
             cursor: not-allowed;
-            color: #a8abb2;
+            color: map.get($input-disabled, 'text-color');
             &::placeholder {
-                color: #a8abb2;
+                color: map.get($input-disabled, 'placeholder-color');
             }
         }
     }

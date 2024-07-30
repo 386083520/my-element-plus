@@ -29,11 +29,15 @@ $border-radius: (
     'round': 20px
 );
 
+$border-width: 1px;
+
 $fill-color: (
     '': #f0f2f5,
     'light': #f5f7fa,
     'dark': #ebedf0
 );
+
+
 
 @mixin set-color-mix-level($type,$number,$mode,$mix-color) {
     $colors: map.deep-merge(
@@ -115,6 +119,7 @@ $input: (
     'border-color': #dcdfe6,
     'hover-border-color': #c0c4cc,
     'focus-border-color': #409eff,
+    'border-radius': 4px,
 );
 
 $input-disabled: (
@@ -122,6 +127,10 @@ $input-disabled: (
     'fill': #f5f7fa,
     'text-color': #a8abb2,
     'placeholder-color': #a8abb2
+);
+
+$input-padding-horizontal: (
+    'default': 11px
 );
 
 $link: (

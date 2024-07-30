@@ -21,4 +21,18 @@
             }
         }
     }
+    @include when(disabled) {
+        cursor: not-allowed;
+        .#{$namespace}-input__wrapper {
+            background-color: #f5f7fa;
+            box-shadow: 0 0 0 1px #e4e7ed inset;
+        }
+        .#{$namespace}-input__inner {
+            cursor: not-allowed;
+            color: #a8abb2;
+            &::placeholder {
+                color: #a8abb2;
+            }
+        }
+    }
 }

@@ -3,6 +3,7 @@
         <div :class="wrapperKls">
             <input
             v-bind="attrs"
+            :disabled="disabled"
             :class="nsInput.e('inner')"
             :value="modelValue"
             @input="handleInput"
@@ -26,7 +27,8 @@ const props = defineProps(inputProps)
 const attrs = useAttrs()
 const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
-    nsInput.b()
+    nsInput.b(),
+    nsInput.is('disabled', props.disabled)
 ])
 const wrapperKls = computed(() => [
     nsInput.e('wrapper'),

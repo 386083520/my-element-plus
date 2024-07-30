@@ -3,5 +3,6 @@ export const inputProps = buildProps({
     modelValue: {
         type: String,
         default: ''
-    }
+    },
+    disabled: Boolean
 })

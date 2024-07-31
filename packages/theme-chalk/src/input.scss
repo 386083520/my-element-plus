@@ -48,6 +48,7 @@
     }
     @include e(suffix) {
         display: inline-flex;
+        color: map.get($input, 'icon-color');
         @include e(suffix-inner) {
             display: inline-flex;
             align-items: center;

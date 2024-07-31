@@ -3,14 +3,14 @@
     v-model="input"
     style="width: 240px"
     placeholder="Please input password"
-    disabled
-    show-password
+    :suffix-icon="Calendar"
   />
   <div>{{ input }}</div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { Calendar, Search } from '@element-plus/icons-vue'
 const input = ref('123456')
 </script>
 

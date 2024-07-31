@@ -12,6 +12,9 @@
             @focus="handleFocus"/>
             <span :class="nsInput.e('suffix')">
                 <span :class="nsInput.e('suffix-inner')">
+                    <ell-icon v-if="suffixIcon">
+                        <component :is="suffixIcon"/>
+                    </ell-icon>
                     <ell-icon
                         v-if="showClear"
                         :class="[nsInput.e('icon'), nsInput.e('clear')]"

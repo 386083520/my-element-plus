@@ -18,5 +18,8 @@ export const inputProps = buildProps({
     showPassword: {
         type: Boolean,
         default: false
+    },
+    suffixIcon: {
+        type: Object
     }
 })

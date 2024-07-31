@@ -7,34 +7,34 @@
     @include set-component-css-var("badge", $badge);
     position: relative;
     display: inline-block;
-}
-@include e(content) {
-    background-color: getCssVar("badge", "bg-color");
-    padding: 0 getCssVar("badge", "padding");
-    height: 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: getCssVar("badge", "radius");
-    font-size: getCssVar("badge", "font-size");
-    color: #fff;
-    border: 1px solid #ffffff;
-
-    @include when(fixed) {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        transform: translateY(-50%) translateX(100%);
-    }
-    @include when(dot) {
-        width: 8px;
-        height: 8px;
-        padding: 0;
-        right: 5px;
-    }
-    @each $type in (primary,warning,info,success) {
-        @include m($type) {
-            background-color: getCssVar('color', $type);
+    @include e(content) {
+        background-color: getCssVar("badge", "bg-color");
+        padding: 0 getCssVar("badge", "padding");
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: getCssVar("badge", "radius");
+        font-size: getCssVar("badge", "font-size");
+        color: #fff;
+        border: 1px solid #ffffff;
+    
+        @include when(fixed) {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            transform: translateY(-50%) translateX(100%);
+        }
+        @include when(dot) {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            right: 5px;
+        }
+        @each $type in (primary,warning,info,success) {
+            @include m($type) {
+                background-color: getCssVar('color', $type);
+            }
         }
     }
 }

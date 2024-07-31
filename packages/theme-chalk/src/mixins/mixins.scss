@@ -1,6 +1,7 @@
 @forward "./config.scss";
 @use "./config.scss" as *;
 @use "../common/var.scss" as *;
+@use './function.scss' as *;
 @forward './function.scss';
 
 @mixin b($block) {
@@ -12,9 +13,22 @@
 
 @mixin e($element) {
     $currentSelector: $B + $element-separator + $element;
-    .#{$currentSelector} {
-        @content;
-    }
+    $selector: &;
+    @if hitAllSpecialNestRule($selector) {
+        @at-root {
+            #{$selector} {
+                .#{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+    } @else {
+        @at-root {
+            .#{$currentSelector} {
+                @content;
+            }
+        }
+    } 
 }
 @mixin when($state) {
     &.#{$state-perfix + $state} {

@@ -57,7 +57,8 @@
     & .#{$namespace}-input__icon {
         margin-left: 8px;
     }
-    & .#{$namespace}-input__clear {
+    & .#{$namespace}-input__clear,
+    & .#{$namespace}-input__password {
         cursor: pointer;
         color: getCssVar('input-icon-color');
         font-size: map.get($input-font-size, 'default');

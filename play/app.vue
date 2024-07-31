@@ -3,8 +3,11 @@
     v-model="input"
     style="width: 240px"
     placeholder="Please input password"
-    :suffix-icon="Calendar"
-  />
+  >
+  <template #suffix>
+        <ell-icon class="ell-input__icon"><calendar /></ell-icon>
+      </template>
+  </ell-input>
   <div>{{ input }}</div>
 </template>
 

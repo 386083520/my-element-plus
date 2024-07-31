@@ -8,5 +8,11 @@ export const inputProps = buildProps({
     clearable: {
         type: Boolean,
         default: false
+    },
+    formatter: {
+        type: Function
+    },
+    parser: {
+        type: Function
     }
 })

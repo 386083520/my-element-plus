@@ -1,11 +1,17 @@
 <template>
-  <ell-input placeholder="Please input" v-model="input" clearable></ell-input>
+  <ell-input
+    v-model="input"
+    style="width: 240px"
+    placeholder="Please input"
+    :formatter="(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+    :parser="(value) => value.replace(/\$\s?|(,*)/g, '')"
+  />
   <div>{{ input }}</div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-const input = ref('')
+const input = ref('123456')
 </script>
 
 <style>

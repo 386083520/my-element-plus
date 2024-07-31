@@ -63,11 +63,13 @@ const nativeInputValue = computed(() =>
 )
 const showClear = computed(() =>
     props.clearable &&
-    !!nativeInputValue.value
+    !!nativeInputValue.value &&
+    !props.disabled
 )
 const showPwdvisible = computed(() =>
     props.showPassword && 
-    !!nativeInputValue.value
+    !!nativeInputValue.value &&
+    !props.disabled
 )
 
 const passwordIcon = computed(() => 

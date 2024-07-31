@@ -14,5 +14,9 @@ export const inputProps = buildProps({
     },
     parser: {
         type: Function
+    },
+    showPassword: {
+        type: Boolean,
+        default: false
     }
 })

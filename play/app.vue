@@ -3,6 +3,7 @@
     v-model="input"
     style="width: 240px"
     placeholder="Please input password"
+    disabled
     show-password
   />
   <div>{{ input }}</div>

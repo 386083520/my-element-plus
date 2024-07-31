@@ -8,7 +8,15 @@
 }
 
 @include b(input) {
+    @include set-component-css-var('input', $input)
+}
+
+@include b(input) {
+    display: inline-flex;
+    width: getCssVar('input-width');
     @include e(wrapper) {
+        display: inline-flex;
+        flex-grow: 1;
         @include mixed-input-border(map.get($input, 'border-color'));
         padding: $border-width map.get($input-padding-horizontal, 'default');
         border-radius: map.get($input, 'border-radius');
@@ -18,24 +26,46 @@
         @include when(focus) {
             @include mixed-input-border(map.get($input, 'focus-border-color'));
         }
-        @include e(inner) {
-            @include set-css-var-value(
-                'input-inner-height',
-                calc(
-                    map.get($input-height, 'default') - $border-width * 2
-                )
-            );
-            outline: none;
-            border: none;
-            width: 100%;
-            height: getCssVar('input-inner-height');
-            line-height: getCssVar('input-inner-height');
-            padding: 0;
-            &::placeholder {
-                color: #a8abb2;
-            }
+        
+    }
+    @include e(inner) {
+        @include set-css-var-value(
+            'input-inner-height',
+            calc(
+                map.get($input-height, 'default') - $border-width * 2
+            )
+        );
+        flex-grow: 1;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: getCssVar('input-inner-height');
+        line-height: getCssVar('input-inner-height');
+        padding: 0;
+        &::placeholder {
+            color: #a8abb2;
         }
     }
+    @include e(suffix) {
+        display: inline-flex;
+        @include e(suffix-inner) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    & .#{$namespace}-input__icon {
+        margin-left: 8px;
+    }
+    & .#{$namespace}-input__clear {
+        cursor: pointer;
+        color: getCssVar('input-icon-color');
+        font-size: map.get($input-font-size, 'default');
+        &:hover {
+            color: getCssVar('input-clear-hover-color');
+        }
+    }
+
     @include when(disabled) {
         cursor: not-allowed;
         .#{$namespace}-input__wrapper {

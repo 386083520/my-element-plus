@@ -120,6 +120,9 @@ $input: (
     'hover-border-color': #c0c4cc,
     'focus-border-color': #409eff,
     'border-radius': 4px,
+    'icon-color': #a8abb2,
+    'clear-hover-color': #909399,
+    'width': 100%
 );
 
 $input-disabled: (
@@ -127,6 +130,10 @@ $input-disabled: (
     'fill': #f5f7fa,
     'text-color': #a8abb2,
     'placeholder-color': #a8abb2
+);
+
+$input-font-size: (
+    'default': 14px
 );
 
 $input-padding-horizontal: (

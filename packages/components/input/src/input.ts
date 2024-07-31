@@ -4,5 +4,9 @@ export const inputProps = buildProps({
         type: String,
         default: ''
     },
-    disabled: Boolean
+    disabled: Boolean,
+    clearable: {
+        type: Boolean,
+        default: false
+    }
 })

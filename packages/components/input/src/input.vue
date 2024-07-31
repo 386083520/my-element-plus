@@ -9,6 +9,13 @@
             @input="handleInput"
             @blur="handleBlur"
             @focus="handleFocus"/>
+            <span :class="nsInput.e('suffix')">
+                <span :class="nsInput.e('suffix-inner')">
+                    <ell-icon :class="[nsInput.e('icon'), nsInput.e('clear')]">
+                        <circle-close/>
+                    </ell-icon>
+                </span>
+            </span>
         </div>
     </div>
 </template>
@@ -18,6 +25,7 @@ import { computed, useAttrs } from 'vue';
 import { inputProps } from './input'
 import { useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
+import { CircleClose } from '@element-plus/icons-vue';
 const nsInput = useNamespace('input')
 const emit = defineEmits(['update:modelValue'])
 defineOptions({

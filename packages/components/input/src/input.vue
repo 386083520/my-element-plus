@@ -59,9 +59,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, useAttrs, useSlots, watch } from 'vue';
+import { computed, onMounted, ref, useSlots, watch } from 'vue';
 import { inputProps } from './input'
-import { useNamespace } from '@my-element-plus/hooks';
+import { useAttrs, useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
 import { CircleClose, Hide as IconHide, View as IconView } from '@element-plus/icons-vue';
 import { isNil } from 'lodash-unified';
@@ -97,12 +97,12 @@ const showClear = computed(() =>
     !props.disabled
 )
 const showPwdvisible = computed(() =>
-    props.showPassword && 
+    props.showPassword &&
     !!nativeInputValue.value &&
     !props.disabled
 )
 
-const passwordIcon = computed(() => 
+const passwordIcon = computed(() =>
     passwordVisible.value ? IconView: IconHide
 )
 const handleInput = (event: Event) => {

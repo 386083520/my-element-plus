@@ -12,6 +12,12 @@ export const useNamespace = (block:string) => {
     const em =(element:string, modifier:string) => {
         return _bem(defaultNamespace, block,'', element, modifier)
     }
+    const be = (blockSuffix: string, element: string) => {
+        return _bem(defaultNamespace, block,blockSuffix, element, '')
+    }
+    const bm = (blockSuffix: string, modifier: string) => {
+        return _bem(defaultNamespace, block,blockSuffix, '', modifier)
+    }
     const is = (name:string, ...args:[boolean|undefined]|[]) => {
         const isState = args.length >=1 ? args[0]:true
         return isState? `${statePrefix}${name}`:''
@@ -31,6 +37,8 @@ export const useNamespace = (block:string) => {
         e,
         m,
         em,
+        be,
+        bm,
         is,
         cssVarBlock,
         cssVarBlockName
@@ -38,11 +46,11 @@ export const useNamespace = (block:string) => {
 }
 const _bem = (namespace: string, block: string, blockSuffix:string, element:string, modifier:string) =>  {
     let cls = `${namespace}-${block}`
-    if(element) {
-        cls+=`__${element}`
-    }
     if(blockSuffix) {
         cls += `-${blockSuffix}`
+    }
+    if(element) {
+        cls+=`__${element}`
     }
     if(modifier) {
         cls += `--${modifier}`

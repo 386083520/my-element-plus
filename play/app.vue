@@ -5,9 +5,7 @@
     placeholder="Please input password"
     :suffixIcon="Calendar"
   >
-  <template #suffix>
-        <ell-icon><calendar /></ell-icon>
-      </template>
+  <template #prepend>Http://</template>
   </ell-input>
   <div>{{ input }}</div>
 </template>

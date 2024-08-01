@@ -1,5 +1,13 @@
 <template>
-    <div :class="[containerKls]">
+    <div :class="[
+        containerKls,
+        {
+            [nsInput.bm('group', 'prepend')] : $slots.prepend
+        }
+        ]">
+        <div v-if="$slots.prepend" :class="nsInput.be('group', 'prepend')">
+            <slot name="prepend"></slot>
+        </div>
         <div :class="wrapperKls">
             <span :class="nsInput.e('prefix')">
                 <span :class="nsInput.e('prefix-inner')">
@@ -47,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, useAttrs, watch } from 'vue';
+import { computed, onMounted, ref, useAttrs, useSlots, watch } from 'vue';
 import { inputProps } from './input'
 import { useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
@@ -57,6 +65,7 @@ import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 const nsInput = useNamespace('input')
 const input = ref<HTMLInputElement>()
 const emit = defineEmits([UPDATE_MODEL_EVENT])
+const slots = useSlots()
 const passwordVisible = ref(false)
 defineOptions({
     name: 'EllInput'
@@ -66,7 +75,10 @@ const attrs = useAttrs()
 const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
     nsInput.b(),
-    nsInput.is('disabled', props.disabled)
+    nsInput.is('disabled', props.disabled),
+    {
+        [nsInput.b('group')]: slots.prepend
+    }
 ])
 const wrapperKls = computed(() => [
     nsInput.e('wrapper'),

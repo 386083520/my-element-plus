@@ -11,6 +11,10 @@
     box-shadow: 1px 0 0 0 $color inset, 0 1px 0 0 $color inset, 0 -1px 0 0 $color inset;
 }
 
+@mixin inset-append-border($color) {
+    box-shadow: -1px 0 0 0 $color inset, 0 1px 0 0 $color inset, 0 -1px 0 0 $color inset;
+}
+
 @include b(input) {
     @include set-component-css-var('input', $input)
 }
@@ -18,6 +22,7 @@
 @include b(input) {
     display: inline-flex;
     width: getCssVar('input-width');
+    font-size: getCssVar('font-size', 'base');
     @include e(wrapper) {
         display: inline-flex;
         flex-grow: 1;
@@ -46,6 +51,7 @@
         height: getCssVar('input-inner-height');
         line-height: getCssVar('input-inner-height');
         padding: 0;
+        color: map.get($input, 'text-color');
         &::placeholder {
             color: #a8abb2;
         }
@@ -125,6 +131,25 @@
         > .#{$namespace}-input__wrapper {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+        }
+    }
+
+    @include e(append) {
+        background-color: getCssVar('fill-color', 'light');
+        color: getCssVar('color-info');
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: getCssVar('input-border-radius');
+        @include inset-append-border(#{getCssVar('input-border-color')});
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    @include m(append) {
+        > .#{$namespace}-input__wrapper {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
     }
 }

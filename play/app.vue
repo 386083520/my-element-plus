@@ -6,6 +6,7 @@
     :suffixIcon="Calendar"
   >
   <template #prepend>Http://</template>
+  <template #append>.com</template>
   </ell-input>
   <div>{{ input }}</div>
 </template>

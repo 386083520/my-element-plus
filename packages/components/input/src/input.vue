@@ -2,7 +2,8 @@
     <div :class="[
         containerKls,
         {
-            [nsInput.bm('group', 'prepend')] : $slots.prepend
+            [nsInput.bm('group', 'prepend')] : $slots.prepend,
+            [nsInput.bm('group', 'append')] : $slots.append
         }
         ]">
         <div v-if="$slots.prepend" :class="nsInput.be('group', 'prepend')">
@@ -51,6 +52,9 @@
                 </span>
             </span>
         </div>
+        <div v-if="$slots.append" :class="nsInput.be('group', 'append')">
+            <slot name="append"></slot>
+        </div>
     </div>
 </template>
 
@@ -77,7 +81,7 @@ const containerKls = computed(() => [
     nsInput.b(),
     nsInput.is('disabled', props.disabled),
     {
-        [nsInput.b('group')]: slots.prepend
+        [nsInput.b('group')]: slots.prepend || slots.append
     }
 ])
 const wrapperKls = computed(() => [

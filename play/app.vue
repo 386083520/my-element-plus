@@ -4,7 +4,7 @@
     style="width: 240px"
     placeholder="Please input password"
   >
-  <template #suffix>
+  <template #prefix>
         <ell-icon class="ell-input__icon"><calendar /></ell-icon>
       </template>
   </ell-input>

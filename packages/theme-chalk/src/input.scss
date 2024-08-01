@@ -55,6 +55,15 @@
             justify-content: center;
         }
     }
+    @include e(prefix) {
+        display: inline-flex;
+        color: map.get($input, 'icon-color');
+        @include e(prefix-inner) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
     & .#{$namespace}-input__icon {
         margin-left: 8px;
     }

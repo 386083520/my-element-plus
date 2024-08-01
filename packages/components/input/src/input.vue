@@ -1,6 +1,14 @@
 <template>
     <div :class="[containerKls]">
         <div :class="wrapperKls">
+            <span :class="nsInput.e('prefix')">
+                <span :class="nsInput.e('prefix-inner')">
+                    <slot name="prefix"/>
+                    <ell-icon v-if="prefixIcon" :class="nsInput.e('icon')">
+                        <component :is="prefixIcon"/>
+                    </ell-icon>
+                </span>
+            </span>
             <input
             ref="input"
             :type="showPassword? (passwordVisible ? 'text': 'password'): 'text'"

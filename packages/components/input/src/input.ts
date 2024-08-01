@@ -21,5 +21,8 @@ export const inputProps = buildProps({
     },
     suffixIcon: {
         type: Object
+    },
+    prefixIcon: {
+        type: Object
     }
 })

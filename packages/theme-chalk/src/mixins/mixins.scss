@@ -12,19 +12,24 @@
 }
 
 @mixin e($element) {
-    $currentSelector: $B + $element-separator + $element;
+    $currentSelector: '';
     $selector: &;
+    @each $unit in $element {
+        $currentSelector: #{
+            $currentSelector + '.' +  $B + $element-separator + $unit + ','
+        }
+    }
     @if hitAllSpecialNestRule($selector) {
         @at-root {
             #{$selector} {
-                .#{$currentSelector} {
+                #{$currentSelector} {
                     @content;
                 }
             }
         }
     } @else {
         @at-root {
-            .#{$currentSelector} {
+            #{$currentSelector} {
                 @content;
             }
         }

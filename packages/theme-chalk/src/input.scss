@@ -123,6 +123,14 @@
         justify-content: center;
         padding: 0 20px;
         border-radius: getCssVar('input-border-radius');
+        .#{$namespace}-button  {
+            display: inline-block;
+            margin: 0 -20px;
+            border-color: transparent;
+            background-color: transparent;
+            color: inherit;
+        }
+
     }
     @include e(prepend) {
         @include inset-prepend-border(#{getCssVar('input-border-color')});

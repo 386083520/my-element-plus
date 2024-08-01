@@ -53,6 +53,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            > :first-child {
+                margin-left: 8px;
+            }
         }
     }
     @include e(prefix) {
@@ -62,6 +65,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            > :last-child {
+                margin-right: 8px;
+            }
+            > :first-child {
+                &,
+                &.#{$namespace}-input__icon {
+                    margin-left: 0px;
+                }
+            }
         }
     }
     & .#{$namespace}-input__icon {

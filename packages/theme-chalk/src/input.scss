@@ -7,6 +7,10 @@
     box-shadow: 0 0 0 1px $color inset;
 }
 
+@mixin inset-prepend-border($color) {
+    box-shadow: 1px 0 0 0 $color inset, 0 1px 0 0 $color inset, 0 -1px 0 0 $color inset;
+}
+
 @include b(input) {
     @include set-component-css-var('input', $input)
 }
@@ -98,6 +102,29 @@
             &::placeholder {
                 color: map.get($input-disabled, 'placeholder-color');
             }
+        }
+    }
+}
+
+@include b(input-group) {
+    display: inline-flex;
+    width: 100%;
+    @include e(prepend) {
+        background-color: getCssVar('fill-color', 'light');
+        color: getCssVar('color-info');
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: getCssVar('input-border-radius');
+        @include inset-prepend-border(#{getCssVar('input-border-color')});
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    @include m(prepend) {
+        > .#{$namespace}-input__wrapper {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
     }
 }

@@ -46,33 +46,30 @@
             color: #a8abb2;
         }
     }
-    @include e(suffix) {
-        display: inline-flex;
-        color: map.get($input, 'icon-color');
-        @include e(suffix-inner) {
+    @each $slot in (suffix, prefix) {
+        @include e($slot) {
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            > :first-child {
-                margin-left: 8px;
-            }
-        }
-    }
-    @include e(prefix) {
-        display: inline-flex;
-        color: map.get($input, 'icon-color');
-        @include e(prefix-inner) {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            > :last-child {
-                margin-right: 8px;
-            }
-            > :first-child {
-                &,
-                &.#{$namespace}-input__icon {
-                    margin-left: 0px;
+            color: map.get($input, 'icon-color');
+            @include e(#{$slot}-inner) {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                @if $slot == suffix {
+                    > :first-child {
+                        margin-left: 8px;
+                    }
+                } @else {
+                    > :last-child {
+                        margin-right: 8px;
+                    }
+                    > :first-child {
+                        &,
+                        &.#{$namespace}-input__icon {
+                            margin-left: 0px;
+                        }
+                    }
                 }
+                
             }
         }
     }

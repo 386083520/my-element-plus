@@ -59,7 +59,9 @@
         </div>
         </template>
         <template v-else>
-            <textarea/>
+            <textarea
+            :class="[nsTextarea.e('inner')]"
+            />
         </template>
     </div>
 </template>
@@ -73,6 +75,7 @@ import { CircleClose, Hide as IconHide, View as IconView } from '@element-plus/i
 import { isNil } from 'lodash-unified';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 const nsInput = useNamespace('input')
+const nsTextarea = useNamespace('textarea')
 const input = ref<HTMLInputElement>()
 const emit = defineEmits(inputEmits)
 const slots = useSlots()
@@ -84,7 +87,7 @@ const props = defineProps(inputProps)
 const attrs = useAttrs()
 const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
-    nsInput.b(),
+    props.type === 'textarea'? nsTextarea.b() : nsInput.b(),
     nsInput.m(props.size),
     nsInput.is('disabled', props.disabled),
     {

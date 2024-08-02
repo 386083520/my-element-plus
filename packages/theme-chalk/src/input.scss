@@ -15,6 +15,34 @@
     box-shadow: -1px 0 0 0 $color inset, 0 1px 0 0 $color inset, 0 -1px 0 0 $color inset;
 }
 
+
+@include b(textarea) {
+    @include set-component-css-var('input', $input)
+}
+@include b(textarea) {
+    width: 100%;
+    font-size: getCssVar('font-size', 'base');
+    @include e(inner) {
+        width: 100%;
+        font-size: inherit;
+        line-height: 1.5;
+        color: map.get($input, 'text-color');
+        border-radius: map.get($input, 'border-radius');
+        @include mixed-input-border(map.get($input, 'border-color'));
+        border: none;
+        box-sizing: border-box;
+        resize: vertical;
+        padding: 5px map.get($input-padding-horizontal, 'default');
+        &:hover {
+            @include mixed-input-border(map.get($input, 'hover-border-color'));
+        }
+        &:focus {
+            outline: none;
+            @include mixed-input-border(map.get($input, 'focus-border-color'));
+        }
+    }
+}
+
 @include b(input) {
     @include set-component-css-var('input', $input)
 }

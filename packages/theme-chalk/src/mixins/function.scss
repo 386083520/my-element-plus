@@ -24,6 +24,21 @@
     @return $name;
 }
 
+@function selectorToString($selector) {
+    $selector: inspect($selector);
+    $selector: str-slice($selector, 2, -2);
+    @return $selector;
+}
+
+@function containsModifier($selector) {
+    $selector:selectorToString($selector);
+    @if str-index($selector, config.$modifier-separator) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
 @function hitAllSpecialNestRule($selector) {
-    @return false;
+    @return containsModifier($selector);
 }

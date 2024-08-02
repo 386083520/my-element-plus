@@ -79,6 +79,7 @@ const attrs = useAttrs()
 const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
     nsInput.b(),
+    nsInput.m(props.size),
     nsInput.is('disabled', props.disabled),
     {
         [nsInput.b('group')]: slots.prepend || slots.append

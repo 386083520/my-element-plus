@@ -1,26 +1,75 @@
 <template>
-  <ell-input
-    v-model="input"
-    style="width: 240px"
-    placeholder="Please input password"
-    :suffixIcon="Calendar"
-  >
-  <template #prepend>
-        <el-select v-model="select" placeholder="Select" style="width: 115px">
-          <el-option label="Restaurant" value="1" />
-          <el-option label="Order No." value="2" />
-          <el-option label="Tel" value="3" />
-        </el-select>
-      </template>
-  </ell-input>
-  <div>{{ input }}</div>
+  <div class="flex gap-4 mb-4 items-center">
+    <ell-input
+      v-model="input1"
+      style="width: 240px"
+      size="large"
+      placeholder="Please Input"
+    />
+    <ell-input
+      v-model="input2"
+      style="width: 240px"
+      placeholder="Please Input"
+    />
+    <ell-input
+      v-model="input3"
+      style="width: 240px"
+      size="small"
+      placeholder="Please Input"
+    />
+  </div>
+  <div class="flex gap-4 mb-4 items-center">
+    <ell-input
+      v-model="input1"
+      style="width: 240px"
+      size="large"
+      placeholder="Please Input"
+      :suffix-icon="Search"
+    />
+    <ell-input
+      v-model="input2"
+      style="width: 240px"
+      placeholder="Please Input"
+      :suffix-icon="Search"
+    />
+    <ell-input
+      v-model="input3"
+      style="width: 240px"
+      size="small"
+      placeholder="Please Input"
+      :suffix-icon="Search"
+    />
+  </div>
+  <div class="flex gap-4 items-center">
+    <ell-input
+      v-model="input1"
+      style="width: 240px"
+      size="large"
+      placeholder="Please Input"
+      :prefix-icon="Search"
+    />
+    <ell-input
+      v-model="input2"
+      style="width: 240px"
+      placeholder="Please Input"
+      :prefix-icon="Search"
+    />
+    <ell-input
+      v-model="input3"
+      style="width: 240px"
+      size="small"
+      placeholder="Please Input"
+      :prefix-icon="Search"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Calendar, Search } from '@element-plus/icons-vue'
-const input = ref('123456')
-const select = ref('')
+import { Search } from '@element-plus/icons-vue'
+const input1 = ref('')
+const input2 = ref('')
+const input3 = ref('')
 </script>
 
 <style>

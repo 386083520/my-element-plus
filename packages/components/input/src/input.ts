@@ -1,3 +1,4 @@
+import { componentSizes } from "@my-element-plus/constants"
 import { buildProps } from "@my-element-plus/utils"
 export const inputProps = buildProps({
     modelValue: {
@@ -24,5 +25,10 @@ export const inputProps = buildProps({
     },
     prefixIcon: {
         type: Object
+    },
+    size: {
+        type: String,
+        values: componentSizes,
+        required: false
     }
 })

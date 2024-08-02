@@ -138,11 +138,15 @@ $input-disabled: (
 );
 
 $input-font-size: (
-    'default': 14px
+    'large': 14px,
+    'default': 14px,
+    'small': 12px
 );
 
 $input-padding-horizontal: (
-    'default': 11px
+    'large': 15px,
+    'default': 11px,
+    'small': 7px
 );
 
 $link: (

@@ -64,13 +64,14 @@
             @input="handleInput"
             v-bind="attrs"
             :class="[nsTextarea.e('inner')]"
+            :style="textareaCalcStyle"
             />
         </template>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, useSlots, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, useSlots, watch } from 'vue';
 import { inputEmits, inputProps } from './input'
 import { useAttrs, useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
@@ -84,6 +85,7 @@ const textarea = ref<HTMLTextAreaElement>()
 const emit = defineEmits(inputEmits)
 const slots = useSlots()
 const passwordVisible = ref(false)
+const textareaCalcStyle = ref({})
 defineOptions({
     name: 'EllInput'
 })
@@ -151,7 +153,24 @@ const setNativeInputValue = () => {
     inputRef.value = formatterValue
 }
 
+const resizeTextarea = () => {
+    const { autosize } = props
+    if(autosize) {
+        textareaCalcStyle.value = {
+            overflowY: 'hidden',
+            height: '700px'
+        }
+    }
+}
+
 watch(nativeInputValue, () => setNativeInputValue())
+
+watch(
+    () => props.modelValue,
+    () => {
+        nextTick(() => resizeTextarea())
+    }
+)
 
 onMounted(() => {
     setNativeInputValue()

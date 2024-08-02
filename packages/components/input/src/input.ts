@@ -44,5 +44,9 @@ export const inputProps = buildProps({
     type: {
         type: String,
         default: 'text'
+    },
+    autosize: {
+        type: Boolean,
+        default: false
     }
 })

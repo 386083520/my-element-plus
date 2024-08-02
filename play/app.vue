@@ -1,19 +1,16 @@
 <template>
   <ell-input
-    v-model="textarea"
-    :rows="5"
+    v-model="textarea1"
+    style="width: 240px"
+    autosize
     type="textarea"
     placeholder="Please input"
   />
-  <span>{{ textarea }}</span>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-const textarea = ref('11')
-setTimeout(() => {
-  textarea.value = 'aaa'
-}, 2000);
+const textarea1 = ref('11')
 </script>
 
 <style>

@@ -60,6 +60,8 @@
         </template>
         <template v-else>
             <textarea
+            ref="textarea"
+            @input="handleInput"
             v-bind="attrs"
             :class="[nsTextarea.e('inner')]"
             />
@@ -78,6 +80,7 @@ import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 const nsInput = useNamespace('input')
 const nsTextarea = useNamespace('textarea')
 const input = ref<HTMLInputElement>()
+const textarea = ref<HTMLTextAreaElement>()
 const emit = defineEmits(inputEmits)
 const slots = useSlots()
 const passwordVisible = ref(false)
@@ -86,6 +89,7 @@ defineOptions({
 })
 const props = defineProps(inputProps)
 const attrs = useAttrs()
+const _ref = computed(() => input.value || textarea.value)
 const { isFocused, handleFocus, handleBlur } = useFocusController()
 const containerKls = computed(() => [
     props.type === 'textarea'? nsTextarea.b() : nsInput.b(),
@@ -142,7 +146,7 @@ const handlePasswordVisible = () => {
 }
 
 const setNativeInputValue = () => {
-    const inputRef = input.value
+    const inputRef = _ref.value
     const formatterValue = props.formatter ? props.formatter(nativeInputValue.value) : nativeInputValue.value
     inputRef.value = formatterValue
 }

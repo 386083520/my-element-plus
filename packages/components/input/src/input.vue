@@ -78,6 +78,7 @@ import { useFocusController } from '@my-element-plus/hooks';
 import { CircleClose, Hide as IconHide, View as IconView } from '@element-plus/icons-vue';
 import { isNil } from 'lodash-unified';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+import { calcTextareaHeight } from './utils';
 const nsInput = useNamespace('input')
 const nsTextarea = useNamespace('textarea')
 const input = ref<HTMLInputElement>()
@@ -156,9 +157,10 @@ const setNativeInputValue = () => {
 const resizeTextarea = () => {
     const { autosize } = props
     if(autosize) {
+        const textareaStyle = calcTextareaHeight(textarea.value)
         textareaCalcStyle.value = {
             overflowY: 'hidden',
-            height: '700px'
+            ...textareaStyle
         }
     }
 }

@@ -33,6 +33,9 @@
         box-sizing: border-box;
         resize: vertical;
         padding: 5px map.get($input-padding-horizontal, 'default');
+        &::placeholder {
+            color: map.get($input, 'placeholder-color');
+        }
         &:hover {
             @include mixed-input-border(map.get($input, 'hover-border-color'));
         }
@@ -82,7 +85,7 @@
         padding: 0;
         color: map.get($input, 'text-color');
         &::placeholder {
-            color: #a8abb2;
+            color: map.get($input, 'placeholder-color');
         }
     }
     @each $slot in (suffix, prefix) {

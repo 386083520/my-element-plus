@@ -60,6 +60,7 @@
         </template>
         <template v-else>
             <textarea
+            v-bind="attrs"
             :class="[nsTextarea.e('inner')]"
             />
         </template>

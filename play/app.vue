@@ -1,8 +1,7 @@
 <template>
   <ell-input
     v-model="textarea"
-    
-    :rows="2"
+    :rows="5"
     type="textarea"
     placeholder="Please input"
   />

@@ -40,5 +40,9 @@ export const inputProps = buildProps({
         type: String,
         values: componentSizes,
         required: false
+    },
+    type: {
+        type: String,
+        default: 'text'
     }
 })

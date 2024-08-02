@@ -6,7 +6,8 @@
             [nsInput.bm('group', 'append')] : $slots.append
         }
         ]">
-        <div v-if="$slots.prepend" :class="nsInput.be('group', 'prepend')">
+        <template v-if="type !== 'textarea'">
+            <div v-if="$slots.prepend" :class="nsInput.be('group', 'prepend')">
             <slot name="prepend"></slot>
         </div>
         <div :class="wrapperKls">
@@ -56,6 +57,10 @@
         <div v-if="$slots.append" :class="nsInput.be('group', 'append')">
             <slot name="append"></slot>
         </div>
+        </template>
+        <template v-else>
+            <textarea/>
+        </template>
     </div>
 </template>
 

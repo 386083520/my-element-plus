@@ -7,7 +7,7 @@ export function useFocusController() {
     const handleFocus = (event: FocusEvent) => {
         if (isFocused.value) return
         isFocused.value = true
-        emit('blur', event)
+        emit('focus', event)
     }
     const handleBlur = (event: FocusEvent) => {
         isFocused.value = false

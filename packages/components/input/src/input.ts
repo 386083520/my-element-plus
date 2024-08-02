@@ -1,5 +1,15 @@
-import { componentSizes } from "@my-element-plus/constants"
+import { componentSizes, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
 import { buildProps } from "@my-element-plus/utils"
+
+export const inputEmits = {
+    [UPDATE_MODEL_EVENT]: (value:string) => true,
+    input: (value:string) => true,
+    change: (value:string) => true,
+    focus: (value:string) => true,
+    blur: (value:string) => true,
+    clear: () => true
+}
+
 export const inputProps = buildProps({
     modelValue: {
         type: String,

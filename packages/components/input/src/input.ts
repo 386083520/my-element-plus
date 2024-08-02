@@ -1,5 +1,7 @@
 import { componentSizes, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
-import { buildProps } from "@my-element-plus/utils"
+import { buildProps, definePropType } from "@my-element-plus/utils"
+
+export type InputAutoSize = { minRows?:number, maxRows?:number } | boolean
 
 export const inputEmits = {
     [UPDATE_MODEL_EVENT]: (value:string) => true,
@@ -46,7 +48,7 @@ export const inputProps = buildProps({
         default: 'text'
     },
     autosize: {
-        type: Boolean,
+        type: definePropType<InputAutoSize>([Boolean,Object]),
         default: false
     }
 })

@@ -1,3 +1,5 @@
+import { isNumber } from "@my-element-plus/utils"
+
 let hiddenTextarea: HTMLTextAreaElement | undefined = undefined
 
 const CONTEXT_STYLE = [
@@ -15,7 +17,8 @@ const CONTEXT_STYLE = [
 ]
 
 type TextAreaHeight = {
-    height: string
+    height: string,
+    minHeight?: string
 }
 
 type NodeStyle = {
@@ -32,7 +35,11 @@ function calculateNodeStyling(targetElement: Element):NodeStyle {
     }
 }
 
-export function calcTextareaHeight(targetElement: HTMLTextAreaElement): TextAreaHeight{
+export function calcTextareaHeight(
+    targetElement: HTMLTextAreaElement,
+    minRows:number = 1,
+    maxRows?:number
+): TextAreaHeight{
     if(!hiddenTextarea) {
         hiddenTextarea = document.createElement('textarea')
         document.body.appendChild(hiddenTextarea)
@@ -42,6 +49,15 @@ export function calcTextareaHeight(targetElement: HTMLTextAreaElement): TextArea
     hiddenTextarea.setAttribute('style', `${contextStyle}`)
     let height = hiddenTextarea.scrollHeight
     const result = {} as TextAreaHeight
+    const singleRowHeight = 10
+    if(isNumber(minRows)) {
+        let minHeight = singleRowHeight * minRows
+        result.minHeight = `${minHeight}px`
+    }
+    if(isNumber(maxRows)) {
+        let maxHeight = singleRowHeight * maxRows
+        height = Math.min(maxHeight, height)
+    }
     result.height = `${height}px`
     return result
 }

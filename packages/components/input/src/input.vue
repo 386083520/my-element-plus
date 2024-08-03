@@ -23,6 +23,8 @@
             ref="input"
             :type="showPassword? (passwordVisible ? 'text': 'password'): 'text'"
             v-bind="attrs"
+            :maxlength="maxlength"
+            :minlength="minlength"
             :disabled="disabled"
             :class="nsInput.e('inner')"
             @input="handleInput"
@@ -51,6 +53,9 @@
                         >
                         <component :is="passwordIcon"/>
                     </ell-icon>
+                    <span v-if="isWordLimitVisible">
+                        {{ textLength }} / {{ maxlength }}
+                    </span>
                 </span>
             </span>
         </div>
@@ -63,9 +68,14 @@
             ref="textarea"
             @input="handleInput"
             v-bind="attrs"
+            :maxlength="maxlength"
+            :minlength="minlength"
             :class="[nsTextarea.e('inner')]"
             :style="textareaCalcStyle"
             />
+            <span v-if="isWordLimitVisible">
+                {{ textLength }} / {{ maxlength }}
+            </span>
         </template>
     </div>
 </template>
@@ -124,6 +134,15 @@ const showPwdvisible = computed(() =>
 const passwordIcon = computed(() =>
     passwordVisible.value ? IconView: IconHide
 )
+
+const isWordLimitVisible = computed(() => 
+    props.showWordLimit &&
+    !!props.maxlength &&
+    (props.type === 'text' || props.type === 'textarea') &&
+    !props.showPassword &&
+    !props.disabled    
+)
+const textLength = computed(() => nativeInputValue.value.length)
 const handleInput = (event: Event) => {
     let {value} = event.target as HTMLInputElement
     if(props.formatter) {

@@ -50,5 +50,15 @@ export const inputProps = buildProps({
     autosize: {
         type: definePropType<InputAutoSize>([Boolean,Object]),
         default: false
+    },
+    showWordLimit: {
+        type: Boolean,
+        default: false
+    },
+    maxlength: {
+        type: [String, Number]
+    },
+    minlength: {
+        type: [String, Number]
     }
 })

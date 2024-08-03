@@ -52,3 +52,19 @@ import $NAME from "./src/$INPUT_NAME.vue";
 export const Ell$NAME  = withInstall($NAME)
 export default Ell$NAME
 EOF
+
+cat > $DIRNAME/__tests__/$INPUT_NAME.test.tsx <<EOF
+import { describe, test, expect } from "vitest"
+import { mount } from '@vue/test-utils'
+
+import $NAME from "../src/$INPUT_NAME.vue"
+
+const AXIOM = 'rem is the best girl'
+
+describe('$NAME.vue', () => {
+    test('render test', () => {
+        const wrapper = mount(() => <$NAME>{AXIOM}</$NAME>)
+        expect(wrapper.text()).toEqual(AXIOM)
+    })
+})
+EOF

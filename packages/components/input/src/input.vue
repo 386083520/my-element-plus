@@ -178,5 +178,6 @@ watch(
 
 onMounted(() => {
     setNativeInputValue()
+    nextTick(resizeTextarea)
 })
 </script>

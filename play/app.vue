@@ -2,7 +2,7 @@
   <ell-input
     v-model="textarea1"
     style="width: 240px"
-    :autosize = "{ minRows: 2, maxRows: 6 }"
+    :autosize = "{ minRows: 3, maxRows: 6 }"
     type="textarea"
     placeholder="Please input"
   />

@@ -16,6 +16,15 @@ const CONTEXT_STYLE = [
     'box-shadow'
 ]
 
+const HIDDEN_STYLE = `
+    height:0;
+    visibility:hidden;
+    z-index:-1000;
+    position:absolute;
+    top:0;
+    right:0;
+`
+
 type TextAreaHeight = {
     height: string,
     minHeight?: string
@@ -58,7 +67,7 @@ export function calcTextareaHeight(
     hiddenTextarea.value = targetElement.value || targetElement.placeholder || ''
     const {contextStyle,boxSizing,paddingSize,borderSize}  = calculateNodeStyling(targetElement)
     console.log(boxSizing, paddingSize, borderSize)
-    hiddenTextarea.setAttribute('style', `${contextStyle};height:0px`)
+    hiddenTextarea.setAttribute('style', `${contextStyle};${HIDDEN_STYLE}`)
     let height = hiddenTextarea.scrollHeight
     const result = {} as TextAreaHeight
 
@@ -84,5 +93,7 @@ export function calcTextareaHeight(
         height = Math.min(maxHeight, height)
     }
     result.height = `${height}px`
+    hiddenTextarea.parentNode?.removeChild(hiddenTextarea)
+    hiddenTextarea = undefined
     return result
 }

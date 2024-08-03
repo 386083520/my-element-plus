@@ -155,12 +155,12 @@ const passwordIcon = computed(() =>
     passwordVisible.value ? IconView: IconHide
 )
 
-const isWordLimitVisible = computed(() => 
+const isWordLimitVisible = computed(() =>
     props.showWordLimit &&
     !!props.maxlength &&
     (props.type === 'text' || props.type === 'textarea') &&
     !props.showPassword &&
-    !props.disabled    
+    !props.disabled
 )
 const textLength = computed(() => nativeInputValue.value.length)
 const handleInput = (event: Event) => {
@@ -206,6 +206,10 @@ const resizeTextarea = () => {
     }
 }
 
+const select = () => {
+    _ref.value?.select()
+}
+
 watch(nativeInputValue, () => setNativeInputValue())
 
 watch(
@@ -218,5 +222,17 @@ watch(
 onMounted(() => {
     setNativeInputValue()
     nextTick(resizeTextarea)
+})
+
+defineExpose({
+    input,
+    textarea,
+    ref: _ref,
+    textareaStyle,
+    focus,
+    blur,
+    clear,
+    select,
+    resizeTextarea
 })
 </script>

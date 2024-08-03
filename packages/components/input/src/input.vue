@@ -73,7 +73,7 @@
             :class="[nsTextarea.e('inner')]"
             :style="textareaCalcStyle"
             />
-            <span v-if="isWordLimitVisible">
+            <span v-if="isWordLimitVisible" :class="nsTextarea.e('count')">
                 {{ textLength }} / {{ maxlength }}
             </span>
         </template>

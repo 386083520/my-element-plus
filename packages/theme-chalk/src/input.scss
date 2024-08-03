@@ -53,6 +53,14 @@
         font-size: 12px;
         line-height: 14px;
     }
+    @include when(exceed) {
+        .#{$namespace}-textarea__inner {
+            @include mixed-input-border(#{getCssVar('color-danger')});
+        }
+        .#{$namespace}-textarea__count {
+            color: getCssVar('color-danger');
+        }
+    }
 }
 
 @include b(input) {
@@ -157,6 +165,17 @@
             color: map.get($input-disabled, 'text-color');
             &::placeholder {
                 color: map.get($input-disabled, 'placeholder-color');
+            }
+        }
+    }
+
+    @include when(exceed) {
+        .#{$namespace}-input__wrapper {
+            @include mixed-input-border(#{getCssVar('color-danger')});
+        }
+        .#{$namespace}-input__suffix {
+            .#{$namespace}-input__count {
+                color: getCssVar('color-danger');
             }
         }
     }

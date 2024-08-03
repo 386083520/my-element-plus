@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-const text = ref('')
-const textarea = ref('')
+const text = ref('fdsagdsfdsafdasfdasfdasfdas')
+const textarea = ref('fdsagdsfdsafdasfdasfdasfdasfdsagdsfdsafdasfdasfdasfdas')
 </script>
 
 <style>

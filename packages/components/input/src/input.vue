@@ -117,10 +117,15 @@ useResizeObserver(textarea, (entries) => {
     }
 })
 
+const inputExceed = computed(() => 
+    !!isWordLimitVisible.value && textLength.value > Number(props.maxlength)
+)
+
 const containerKls = computed(() => [
     props.type === 'textarea'? nsTextarea.b() : nsInput.b(),
     nsInput.m(props.size),
     nsInput.is('disabled', props.disabled),
+    nsInput.is('exceed', inputExceed.value),
     {
         [nsInput.b('group')]: slots.prepend || slots.append
     }

@@ -22,16 +22,27 @@ type TextAreaHeight = {
 }
 
 type NodeStyle = {
-    contextStyle: string
+    contextStyle: string,
+    boxSizing: string,
+    paddingSize: number,
+    borderSize: number
 }
 
 function calculateNodeStyling(targetElement: Element):NodeStyle {
     const style = window.getComputedStyle(targetElement)
+    const boxSizing = style.getPropertyValue('box-sizing')
+    const paddingSize = Number.parseFloat(style.getPropertyValue('padding-bottom')) +
+                        Number.parseFloat(style.getPropertyValue('padding-top'))
+    const borderSize = Number.parseFloat(style.getPropertyValue('border-bottom-width')) +
+                        Number.parseFloat(style.getPropertyValue('border-top-width'))
     const contextStyle = CONTEXT_STYLE.map(
         (name) => `${name}: ${style.getPropertyValue(name)}`
     ).join(';')
     return {
-        contextStyle
+        contextStyle,
+        boxSizing,
+        paddingSize,
+        borderSize
     }
 }
 
@@ -45,19 +56,31 @@ export function calcTextareaHeight(
         document.body.appendChild(hiddenTextarea)
     }
     hiddenTextarea.value = targetElement.value || targetElement.placeholder || ''
-    const {contextStyle}  = calculateNodeStyling(targetElement)
+    const {contextStyle,boxSizing,paddingSize,borderSize}  = calculateNodeStyling(targetElement)
+    console.log(boxSizing, paddingSize, borderSize)
     hiddenTextarea.setAttribute('style', `${contextStyle};height:0px`)
     let height = hiddenTextarea.scrollHeight
     const result = {} as TextAreaHeight
-    const singleRowHeight = 21
+
+    if(boxSizing === 'border-box') {
+        height = height + borderSize
+    }else if(boxSizing === 'content-box') {
+        height = height - paddingSize
+    }
+    hiddenTextarea.value = ''
+    const singleRowHeight = hiddenTextarea.scrollHeight - paddingSize
     if(isNumber(minRows)) {
         let minHeight = singleRowHeight * minRows
-        minHeight = minHeight + 10
+        if(boxSizing === 'border-box') {
+            minHeight = minHeight + paddingSize + borderSize
+        }
         result.minHeight = `${minHeight}px`
     }
     if(isNumber(maxRows)) {
         let maxHeight = singleRowHeight * maxRows
-        maxHeight = maxHeight + 10
+        if(boxSizing === 'border-box') {
+            maxHeight = maxHeight + paddingSize + borderSize
+        }
         height = Math.min(maxHeight, height)
     }
     result.height = `${height}px`

@@ -53,7 +53,7 @@
                         >
                         <component :is="passwordIcon"/>
                     </ell-icon>
-                    <span v-if="isWordLimitVisible">
+                    <span v-if="isWordLimitVisible" :class="nsInput.e('count')">
                         {{ textLength }} / {{ maxlength }}
                     </span>
                 </span>

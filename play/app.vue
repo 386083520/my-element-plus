@@ -15,6 +15,7 @@
     placeholder="Please input"
     show-word-limit
     type="textarea"
+    resize="horizontal"
   />
 </template>
 

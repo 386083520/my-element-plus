@@ -71,7 +71,7 @@
             :maxlength="maxlength"
             :minlength="minlength"
             :class="[nsTextarea.e('inner')]"
-            :style="textareaCalcStyle"
+            :style="textareaStyle"
             />
             <span v-if="isWordLimitVisible" :class="nsTextarea.e('count')">
                 {{ textLength }} / {{ maxlength }}
@@ -81,7 +81,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, useSlots, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, StyleValue, useSlots, watch } from 'vue';
 import { inputEmits, inputProps } from './input'
 import { useAttrs, useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
@@ -113,6 +113,14 @@ const containerKls = computed(() => [
         [nsInput.b('group')]: slots.prepend || slots.append
     }
 ])
+const textareaStyle = computed<StyleValue>(() => {
+    return [
+        textareaCalcStyle.value,
+        {
+            resize: props.resize
+        }
+    ]
+})
 const wrapperKls = computed(() => [
     nsInput.e('wrapper'),
     nsInput.is('focus', isFocused.value)

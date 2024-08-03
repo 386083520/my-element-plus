@@ -60,5 +60,9 @@ export const inputProps = buildProps({
     },
     minlength: {
         type: [String, Number]
+    },
+    resize: {
+        type: String,
+        values: ['none', 'both', 'horizontal', 'vertical']
     }
 })

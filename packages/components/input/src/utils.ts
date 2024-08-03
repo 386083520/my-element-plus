@@ -46,16 +46,18 @@ export function calcTextareaHeight(
     }
     hiddenTextarea.value = targetElement.value || targetElement.placeholder || ''
     const {contextStyle}  = calculateNodeStyling(targetElement)
-    hiddenTextarea.setAttribute('style', `${contextStyle}`)
+    hiddenTextarea.setAttribute('style', `${contextStyle};height:0px`)
     let height = hiddenTextarea.scrollHeight
     const result = {} as TextAreaHeight
-    const singleRowHeight = 10
+    const singleRowHeight = 21
     if(isNumber(minRows)) {
         let minHeight = singleRowHeight * minRows
+        minHeight = minHeight + 10
         result.minHeight = `${minHeight}px`
     }
     if(isNumber(maxRows)) {
         let maxHeight = singleRowHeight * maxRows
+        maxHeight = maxHeight + 10
         height = Math.min(maxHeight, height)
     }
     result.height = `${height}px`

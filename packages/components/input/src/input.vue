@@ -73,7 +73,7 @@
             :class="[nsTextarea.e('inner')]"
             :style="textareaStyle"
             />
-            <span v-if="isWordLimitVisible" :class="nsTextarea.e('count')">
+            <span v-if="isWordLimitVisible" :class="nsTextarea.e('count')" :style="countStyle">
                 {{ textLength }} / {{ maxlength }}
             </span>
         </template>
@@ -90,6 +90,7 @@ import { isNil } from 'lodash-unified';
 import { isObject } from '@my-element-plus/utils';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { calcTextareaHeight } from './utils';
+import { useResizeObserver } from '@vueuse/core';
 const nsInput = useNamespace('input')
 const nsTextarea = useNamespace('textarea')
 const input = ref<HTMLInputElement>()
@@ -98,6 +99,7 @@ const emit = defineEmits(inputEmits)
 const slots = useSlots()
 const passwordVisible = ref(false)
 const textareaCalcStyle = ref({})
+const countStyle = ref<StyleValue>()
 defineOptions({
     name: 'EllInput'
 })
@@ -105,6 +107,16 @@ const props = defineProps(inputProps)
 const attrs = useAttrs()
 const _ref = computed(() => input.value || textarea.value)
 const { isFocused, handleFocus, handleBlur } = useFocusController()
+
+useResizeObserver(textarea, (entries) => {
+    const entry = entries[0]
+    const {width} = entry.contentRect
+    console.log(width)
+    countStyle.value = {
+        right: `calc(100% - ${width + 22 - 10}px)`
+    }
+})
+
 const containerKls = computed(() => [
     props.type === 'textarea'? nsTextarea.b() : nsInput.b(),
     nsInput.m(props.size),

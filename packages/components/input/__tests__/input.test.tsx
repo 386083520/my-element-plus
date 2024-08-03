@@ -31,4 +31,16 @@ describe('Input.vue', () => {
         await nextTick()
         expect(nativeInput.value).toMatchInlineSnapshot(`"text"`)
     })
+
+    test('default to empty', () => {
+        const wrapper = mount(() => <Input/>)
+        const inputElm = wrapper.find('input')
+        expect(inputElm.element.value).toBe('')
+    })
+
+    test('disabled', () => {
+        const wrapper = mount(() => <Input disabled/>)
+        const inputElm = wrapper.find('input')
+        expect(inputElm.element.disabled).not.toBeNull()
+    })
 })

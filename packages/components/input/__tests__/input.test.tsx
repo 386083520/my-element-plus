@@ -114,4 +114,31 @@ describe('Input.vue', () => {
             `)
         })
     })
+
+    test('prefixIcon', () => {
+        const wrapper = mount(() => <Input prefix-icon="time"/>)
+        const icon = wrapper.find('.ell-input__icon')
+        expect(icon.exists()).toBe(true)
+    })
+
+    test('suffixIcon', () => {
+        const wrapper = mount(() => <Input suffix-icon="time"/>)
+        const icon = wrapper.find('.ell-input__icon')
+        expect(icon.exists()).toBe(true)
+    })
+
+    test('size', () => {
+        const wrapper = mount(() => <Input size="large"/>)
+        expect(wrapper.classes('ell-input--large')).toBe(true)
+    })
+
+    test('type', () => {
+        const wrapper = mount(() => <Input type="textarea"/>)
+        expect(wrapper.classes('ell-textarea')).toBe(true)
+    })
+
+    test('rows', () => {
+        const wrapper = mount(() => <Input type="textarea" rows={3}/>)
+        expect(wrapper.find('textarea').element.rows).toEqual(3)
+    })
 })

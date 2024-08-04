@@ -33,10 +33,10 @@ export const inputProps = buildProps({
         default: false
     },
     suffixIcon: {
-        type: Object
+        type: [Object, String]
     },
     prefixIcon: {
-        type: Object
+        type: [Object, String]
     },
     size: {
         type: String,

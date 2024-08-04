@@ -141,4 +141,15 @@ describe('Input.vue', () => {
         const wrapper = mount(() => <Input type="textarea" rows={3}/>)
         expect(wrapper.find('textarea').element.rows).toEqual(3)
     })
+
+    test('resize', async () => {
+        const resize = ref('none')
+        const wrapper = mount(() => <Input type="textarea" resize={resize.value}/>)
+        const textarea = wrapper.find('textarea').element
+        await nextTick()
+        expect(textarea.style.resize).toEqual(resize.value)
+        resize.value = 'horizontal'
+        await nextTick()
+        expect(textarea.style.resize).toEqual(resize.value)
+    })
 })

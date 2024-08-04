@@ -27,6 +27,9 @@
             :minlength="minlength"
             :disabled="disabled"
             :class="nsInput.e('inner')"
+            @compositionstart="handleCompositionStart"
+            @compositionupdate="handleCompositionUpdate"
+            @compositionend="handleCompositionEnd"
             @input="handleInput"
             @blur="handleBlur"
             @change="handleChange"
@@ -100,6 +103,7 @@ const slots = useSlots()
 const passwordVisible = ref(false)
 const textareaCalcStyle = ref({})
 const countStyle = ref<StyleValue>()
+const isComposing = ref(false)
 defineOptions({
     name: 'EllInput'
 })
@@ -173,6 +177,7 @@ const handleInput = (event: Event) => {
     if(props.formatter) {
         value = props.parser ? props.parser(value) : value
     }
+    if(isComposing.value) return
     emit(UPDATE_MODEL_EVENT, value)
     emit('input', value)
 }
@@ -213,6 +218,23 @@ const resizeTextarea = () => {
 
 const select = () => {
     _ref.value?.select()
+}
+
+const handleCompositionStart = (event: CompositionEvent) => {
+    emit('compositionstart', event)
+    isComposing.value = true
+}
+
+const handleCompositionUpdate = (event: CompositionEvent) => {
+    emit('compositionupdate', event)
+}
+
+const handleCompositionEnd = (event: CompositionEvent) => {
+    emit('compositionend', event)
+    if(isComposing.value) {
+        isComposing.value = false
+        handleInput(event)
+    }
 }
 
 watch(nativeInputValue, () => setNativeInputValue())

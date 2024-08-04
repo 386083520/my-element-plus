@@ -7,6 +7,7 @@
     show-word-limit
     type="text"
   />
+
   <div style="margin: 20px 0" />
   <ell-input
     v-model="textarea"
@@ -17,6 +18,7 @@
     type="textarea"
     resize="horizontal"
   />
+  {{text}}
 </template>
 
 <script lang="ts" setup>

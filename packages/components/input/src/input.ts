@@ -7,9 +7,12 @@ export const inputEmits = {
     [UPDATE_MODEL_EVENT]: (value:string) => true,
     input: (value:string) => true,
     change: (value:string) => true,
-    focus: (value:string) => true,
-    blur: (value:string) => true,
-    clear: () => true
+    focus: (evt:FocusEvent) => true,
+    blur: (evt:FocusEvent) => true,
+    clear: () => true,
+    compositionstart: (evt: CompositionEvent) => true,
+    compositionupdate: (evt: CompositionEvent) => true,
+    compositionend: (evt: CompositionEvent) => true
 }
 
 export const inputProps = buildProps({

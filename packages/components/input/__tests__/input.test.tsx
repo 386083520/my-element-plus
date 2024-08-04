@@ -43,4 +43,40 @@ describe('Input.vue', () => {
         const inputElm = wrapper.find('input')
         expect(inputElm.element.disabled).not.toBeNull()
     })
+
+    describe('test emoji', () => {
+        test('ell-input', async () => {
+            const inputVal = ref('12📫')
+            const wrapper = mount(() => (
+                <Input
+                    v-model={inputVal.value}
+                    showWordLimit
+                    maxlength="4"
+                />
+            ))
+            const inputElm = wrapper.find('input')
+            const nativeInput = inputElm.element
+            expect(nativeInput.value).toMatchInlineSnapshot(`"12📫"`)
+            const ellCount = wrapper.find('.ell-input__count')
+            expect(ellCount.exists()).toBe(true)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"4 / 4"`)
+
+            inputVal.value = '1👀3😀'
+            await nextTick()
+            expect(nativeInput.value).toMatchInlineSnapshot(`"1👀3😀"`)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"6 / 4"`)
+
+            inputVal.value = '哈哈1😀3😘'
+            await nextTick()
+            expect(nativeInput.value).toMatchInlineSnapshot(`"哈哈1😀3😘"`)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"8 / 4"`)
+            const vm = wrapper.vm
+            expect(Array.from(vm.$el.classList)).toMatchInlineSnapshot(`
+              [
+                "ell-input",
+                "is-exceed",
+              ]
+            `)
+        })
+    })
 })

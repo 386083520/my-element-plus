@@ -152,4 +152,70 @@ describe('Input.vue', () => {
         await nextTick()
         expect(textarea.style.resize).toEqual(resize.value)
     })
+
+    test('limit input and show word count', async () => {
+        const input1 = ref('')
+        const input2 = ref('')
+        const input3 = ref('')
+        const input4 = ref('fdsafd')
+        const show = ref(false)
+        const wrapper = mount(() => (
+            <div>
+                <Input
+                    class="test-text"
+                    type="text"
+                    v-model={input1.value}
+                    showWordLimit={show.value}
+                    maxlength="10"
+                />
+                <Input
+                    class="test-textarea"
+                    type="textarea"
+                    v-model={input2.value}
+                    showWordLimit
+                    maxlength="10"
+                />
+                <Input
+                    class="test-password"
+                    type="password"
+                    v-model={input3.value}
+                    showWordLimit
+                    maxlength="10"
+                />
+                <Input
+                    class="test-exceed"
+                    type="text"
+                    v-model={input4.value}
+                    showWordLimit
+                    maxlength="2"
+                />
+            </div>
+        ))
+        const inputElm1 = wrapper.vm.$el.querySelector('.test-text')
+        const inputElm2 = wrapper.vm.$el.querySelector('.test-textarea')
+        const inputElm3 = wrapper.vm.$el.querySelector('.test-password')
+        const inputElm4 = wrapper.vm.$el.querySelector('.test-exceed')
+        expect(inputElm1.querySelectorAll('.ell-input__count').length).toEqual(0)
+        expect(inputElm2.querySelectorAll('.ell-textarea__count').length).toEqual(1)
+        expect(inputElm3.querySelectorAll('.ell-input__count').length).toEqual(0)
+        expect(Array.from(inputElm4.classList)).toMatchInlineSnapshot(`
+          [
+            "ell-input",
+            "is-exceed",
+            "test-exceed",
+          ]
+        `)
+
+        show.value = true
+        await nextTick()
+        expect(inputElm1.querySelectorAll('.ell-input__count').length).toEqual(1)
+        input4.value = 'a'
+        await nextTick()
+        expect(Array.from(inputElm4.classList)).toMatchInlineSnapshot(`
+          [
+            "ell-input",
+            "test-exceed",
+          ]
+        `)
+    })
 })

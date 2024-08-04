@@ -264,5 +264,24 @@ describe('Input.vue', () => {
             expect(originMinHeight).not.toEqual(nowMinHeight)
 
         })
+
+        test('focus & blur',  async () => {
+            const content = ref('')
+            const handleFocus = vi.fn()
+            const handleBlur = vi.fn()
+            const wrapper = mount(() => (
+                <Input
+                    placeholder="请输入内容"
+                    modelValue={content.value}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+            ))
+            const input = wrapper.find('input')
+            await input.trigger('focus')
+            expect(handleFocus).toBeCalled()
+            await input.trigger('blur')
+            expect(handleBlur).toBeCalled()
+        })
     })
 })

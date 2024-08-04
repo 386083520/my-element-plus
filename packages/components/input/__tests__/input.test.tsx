@@ -239,4 +239,30 @@ describe('Input.vue', () => {
         vm.$el.querySelector('input').dispatchEvent(event)
         expect(val.value).toEqual('1000000')
     })
+
+    describe('Input Events', () => {
+        test('resize', async () => {
+            const text = ref('resizeTextarea')
+            const wrapper = mount(
+                {
+                    setup: () => () => (
+                        <Input
+                            ref="textarea"
+                            type="textarea"
+                            v-model={text.value}
+                            autosize={{ minRows:1, maxRows: 1 }}
+                        />
+                    )
+                }
+            )
+            await nextTick()
+            const refTextArea = wrapper.vm.$refs.textarea
+            const originMinHeight = refTextArea.textareaStyle[0].minHeight
+            refTextArea.autosize.minRows = 4
+            refTextArea.resizeTextarea()
+            const nowMinHeight = refTextArea.textareaStyle[0].minHeight
+            expect(originMinHeight).not.toEqual(nowMinHeight)
+
+        })
+    })
 })

@@ -81,7 +81,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, StyleValue, useSlots, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, StyleValue, toRef, useSlots, watch } from 'vue';
 import { inputEmits, inputProps } from './input'
 import { useAttrs, useNamespace } from '@my-element-plus/hooks';
 import { useFocusController } from '@my-element-plus/hooks';
@@ -234,6 +234,7 @@ defineExpose({
     textarea,
     ref: _ref,
     textareaStyle,
+    autosize: toRef(props, 'autosize'),
     focus,
     blur,
     clear,

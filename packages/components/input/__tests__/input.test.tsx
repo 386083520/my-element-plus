@@ -78,5 +78,40 @@ describe('Input.vue', () => {
               ]
             `)
         })
+
+        test('ell-textarea', async () => {
+            const textareaVal = ref('12📫')
+            const wrapper = mount(() => (
+                <Input
+                    type="textarea"
+                    v-model={textareaVal.value}
+                    showWordLimit
+                    maxlength="4"
+                />
+            ))
+            const textareaElm = wrapper.find('textarea')
+            const nativeTextarea = textareaElm.element
+            expect(nativeTextarea.value).toMatchInlineSnapshot(`"12📫"`)
+            const ellCount = wrapper.find('.ell-textarea__count')
+            expect(ellCount.exists()).toBe(true)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"4 / 4"`)
+
+            textareaVal.value = '1👀3😀'
+            await nextTick()
+            expect(nativeTextarea.value).toMatchInlineSnapshot(`"1👀3😀"`)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"6 / 4"`)
+
+            textareaVal.value = '哈哈1😀3😘'
+            await nextTick()
+            expect(nativeTextarea.value).toMatchInlineSnapshot(`"哈哈1😀3😘"`)
+            expect(ellCount.text()).toMatchInlineSnapshot(`"8 / 4"`)
+            const vm = wrapper.vm
+            expect(Array.from(vm.$el.classList)).toMatchInlineSnapshot(`
+              [
+                "ell-textarea",
+                "is-exceed",
+              ]
+            `)
+        })
     })
 })

@@ -330,4 +330,17 @@ describe('Input.vue', () => {
             expect(handleClear).toBeCalled()
         })
     })
+
+    test('password icon', async () => {
+        const password = ref('123456')
+        const wrapper = mount(() => 
+            <Input type="password" modelValue={password.value} show-password/>
+        )
+        const icon = wrapper.find('.ell-input__icon.ell-input__password')
+        const d = icon.find('path').element.getAttribute('d')
+        await icon.trigger('click')
+        const d2 = icon.find('path').element.getAttribute('d')
+        expect(d !== d2).toBeTruthy()
+    })
+    
 })

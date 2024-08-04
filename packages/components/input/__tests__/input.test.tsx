@@ -283,5 +283,51 @@ describe('Input.vue', () => {
             await input.trigger('blur')
             expect(handleBlur).toBeCalled()
         })
+
+        test('change', async () => {
+            const content = ref('a')
+            const value = ref('')
+            const handleChange = (val:string) =>{
+                value.value=val
+            }
+            const wrapper = mount(() => (
+                <Input
+                    placeholder="请输入内容"
+                    modelValue={content.value}
+                    onChange={handleChange}
+                />
+            ))
+            const inputEL = wrapper.find('input').element
+            const simulateEvent = (event: string, text: string) =>  {
+                inputEL.value =text
+                inputEL.dispatchEvent(new Event(event))
+            }
+            simulateEvent('change','2')
+            await nextTick()
+            expect(value.value).toBe('2')
+            simulateEvent('input','1')
+            await nextTick()
+            expect(value.value).toBe('2')
+        })
+
+        test('clear', async ()  => {
+            const content = ref('a')
+            const handleClear = vi.fn()
+            const wrapper = mount(() => (
+                <Input
+                    clearable
+                    placeholder="请输入内容"
+                    v-model={content.value}
+                    onClear={handleClear}
+                />
+            ))
+            const input = wrapper.find('input')
+            await input.trigger('focus')
+            const vm = wrapper.vm
+            vm.$el.querySelector('.ell-input__clear').click()
+            await nextTick()
+            expect(content.value).toEqual('')
+            expect(handleClear).toBeCalled()
+        })
     })
 })

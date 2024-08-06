@@ -6,6 +6,17 @@
     position: relative;
     display: inline-flex;
 
+    .#{$namespace}-input {
+        &__wrapper {
+            padding-left: #{map.get($input-height, 'default') + 10};
+            padding-right: #{map.get($input-height, 'default') + 10};
+        }
+        &__inner {
+            text-align: center;
+        }
+    }
+
+
     @include e((increase, decrease)) {
         position: absolute;
         top: 1px;
@@ -21,8 +32,12 @@
     }
     @include e(increase) {
         right: 1px;
+        border-radius: 0 getCssVar('border-radius-base') getCssVar('border-radius-base') 0;
+        border-left: getCssVar('border');
     }
     @include e(decrease) {
         left: 1px;
+        border-radius: getCssVar('border-radius-base') 0 0 getCssVar('border-radius-base');
+        border-right: getCssVar('border');
     }
 }

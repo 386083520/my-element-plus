@@ -22,6 +22,7 @@
         top: 1px;
         bottom: 1px;
         width: map.get($input-height, 'default');
+        cursor: pointer;
 
         display: flex;
         align-items: center;
@@ -29,6 +30,12 @@
 
         background: getCssVar('fill-color', 'light');
         color: getCssVar('text-color', 'regular');
+        &:hover {
+            color: getCssVar('color-primary');
+            & ~ .#{$namespace}-input .#{$namespace}-input__wrapper {
+                box-shadow: 0 0 0 1px map.get($input, 'focus-border-color') inset;
+            }
+        }
     }
     @include e(increase) {
         right: 1px;

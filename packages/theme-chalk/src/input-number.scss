@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
+@include b(input-number) {
+    width: 140px;
+    position: relative;
+    display: inline-flex;
+
+    @include e((increase, decrease)) {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        width: map.get($input-height, 'default');
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: getCssVar('fill-color', 'light');
+        color: getCssVar('text-color', 'regular');
+    }
+    @include e(increase) {
+        right: 1px;
+    }
+    @include e(decrease) {
+        left: 1px;
+    }
+}

@@ -41,6 +41,10 @@ $fill-color: (
     'dark': #ebedf0
 );
 
+$text-color: (
+    'regular': #606266
+);
+
 
 
 @mixin set-color-mix-level($type,$number,$mode,$mix-color) {

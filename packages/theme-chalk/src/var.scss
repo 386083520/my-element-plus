@@ -8,4 +8,5 @@
     @include set-component-css-var('border-radius', $border-radius);
     @include set-component-css-var('fill-color', $fill-color);
     @include set-component-css-var('font-size', $font-size);
+    @include set-component-css-var('text-color', $text-color);
 }

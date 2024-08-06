@@ -27,6 +27,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 1;
 
         background: getCssVar('fill-color', 'light');
         color: getCssVar('text-color', 'regular');

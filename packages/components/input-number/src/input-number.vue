@@ -21,6 +21,7 @@
         <ell-input
             :model-value="displayValue"
             @input="handleInput"
+            @change="handleInputChange"
         />
     </div>
 </template>
@@ -31,6 +32,7 @@ import { Minus,Plus } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive } from 'vue';
+import { isNumber } from '@my-element-plus/utils';
 const ns = useNamespace('input-number')
 defineOptions({
     name: 'EllInputNumber'
@@ -38,18 +40,29 @@ defineOptions({
 const props = defineProps(inputNumberProps)
 const emit = defineEmits(inputNumberEmits)
 interface Data {
-    currentValue: number | null | undefined
+    currentValue: number | null | undefined,
+    userInput: null | number | string
 }
 const data = reactive<Data>({
-    currentValue: props.modelValue
+    currentValue: props.modelValue,
+    userInput: null
 })
 const setCurrentValue = (value: number | null | undefined) => {
     data.currentValue = value
     emit(UPDATE_MODEL_EVENT, data.currentValue)
 }
 const handleInput = (value:string) => {
+    data.userInput = value
     const newVal = value === '' ? null: Number(value)
-    emit(UPDATE_MODEL_EVENT, newVal)
+    // emit(UPDATE_MODEL_EVENT, newVal)
+}
+const handleInputChange = (value:string) => {
+    console.log('change', value)
+    const newVal = value === '' ? null: Number(value)
+    if(isNumber(newVal) && !Number.isNaN(newVal)) {
+        setCurrentValue(newVal)
+    }
+    data.userInput = null
 }
 const decrease = () => {
     const value = Number(props.modelValue) || 0
@@ -61,6 +74,9 @@ const increase = () => {
 }
 
 const displayValue = computed(() => {
+    if(data.userInput !== null) {
+        return data.userInput
+    }
     return data.currentValue
 })
 </script>

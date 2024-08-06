@@ -121,7 +121,7 @@ useResizeObserver(textarea, (entries) => {
     }
 })
 
-const inputExceed = computed(() => 
+const inputExceed = computed(() =>
     !!isWordLimitVisible.value && textLength.value > Number(props.maxlength)
 )
 

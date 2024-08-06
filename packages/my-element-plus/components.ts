@@ -10,6 +10,7 @@ import { EllScrollbar } from "@my-element-plus/components/scrollbar";
 import { EllText } from "@my-element-plus/components/text";
 import { EllSpace } from "@my-element-plus/components/space";
 import { EllInput } from "@my-element-plus/components/input";
+import { EllInputNumber } from "@my-element-plus/components/input-number";
 export default [
     EllBadge,
     EllButton,
@@ -23,5 +24,6 @@ export default [
     EllScrollbar,
     EllText,
     EllSpace,
-    EllInput
+    EllInput,
+    EllInputNumber
 ]

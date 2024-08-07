@@ -49,10 +49,24 @@ const data = reactive<Data>({
     userInput: null
 })
 
+const verifyValue = (value) => {
+    const { max, min } = props
+    let newVal = Number(value)
+    if(Number.isNaN(newVal)) {
+        return null
+    }
+    if(newVal > max || newVal < min) {
+        newVal = newVal > max? max : min
+        emit(UPDATE_MODEL_EVENT, newVal)
+    }
+    return newVal
+}
+
 watch(
     () => props.modelValue,
     (value, oldValue) => {
-        data.currentValue = value
+        const newVal = verifyValue(value)
+        data.currentValue = newVal
     },
     {
         immediate: true

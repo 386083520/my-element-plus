@@ -1,14 +1,14 @@
 <template>
-  <ell-input-number v-model="num">abc</ell-input-number>
+  <ell-input-number v-model="num" :min="5" :max="10">abc</ell-input-number>
   {{ num }}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref(1)
+const num = ref(6)
 setTimeout(() => {
-  num.value = 3
+  num.value = 'a'
 }, 2000);
 </script>
 

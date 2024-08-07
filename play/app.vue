@@ -1,12 +1,12 @@
 <template>
-  <ell-input-number v-model="num" :step="0.1">abc</ell-input-number>
+  <ell-input-number v-model="num" :step="0.1" :precision="2">abc</ell-input-number>
   {{ num }}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref(6.3345)
+const num = ref(6.3)
 </script>
 
 <style>

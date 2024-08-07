@@ -141,6 +141,15 @@ const maxDisabled = computed(
     () => isNumber(props.modelValue) && props.modelValue >= props.max
 )
 const numPrecision = computed(() => {
-    return getPrecision(props.modelValue)
+    const stepPrecision = getPrecision(props.step)
+    if(!isUndefined(props.precision)) {
+        if(stepPrecision > props.precision) {
+            console.warn(
+                'precision 不能小于 step 的小数位数'
+            )
+        }
+        return props.precision
+    }
+    return Math.max(getPrecision(props.modelValue), stepPrecision)
 })
 </script>

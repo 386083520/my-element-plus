@@ -14,7 +14,13 @@ export const inputNumberProps = buildProps({
     step: {
         type: Number,
         default: 1
+    },
+    precision: {
+        type: Number,
+        validator: (val: number) => 
+            val >= 0 && val === Number.parseInt(`${val}`, 10)
     }
+
 })
 
 export const inputNumberEmits = {

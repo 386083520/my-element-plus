@@ -37,7 +37,7 @@ import { Minus,Plus } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
-import { isNumber } from '@my-element-plus/utils';
+import { isNumber, isUndefined } from '@my-element-plus/utils';
 const ns = useNamespace('input-number')
 defineOptions({
     name: 'EllInputNumber'
@@ -109,7 +109,11 @@ const displayValue = computed(() => {
     if(data.userInput !== null) {
         return data.userInput
     }
-    return data.currentValue
+    let currentValue:number|string|undefined|null = data.currentValue
+    if(!isUndefined(props.precision)) {
+        currentValue = currentValue.toFixed(props.precision)
+    }
+    return currentValue
 })
 const minDisabled = computed(
     () => isNumber(props.modelValue) && props.modelValue <= props.min

@@ -7,6 +7,9 @@
 import { ref } from 'vue'
 
 const num = ref(1)
+setTimeout(() => {
+  num.value = 3
+}, 2000);
 </script>
 
 <style>

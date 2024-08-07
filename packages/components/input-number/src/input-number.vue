@@ -91,10 +91,12 @@ const handleInputChange = (value:string) => {
     data.userInput = null
 }
 const decrease = () => {
+    if(minDisabled.value) return 
     const value = Number(props.modelValue) || 0
     setCurrentValue(value - 1)
 }
 const increase = () => {
+    if(maxDisabled.value) return 
     const value = Number(props.modelValue) || 0
     setCurrentValue(value + 1)
 }

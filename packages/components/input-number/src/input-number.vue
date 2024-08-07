@@ -19,6 +19,7 @@
             </ell-icon>
         </span>
         <ell-input
+            type="number"
             :model-value="displayValue"
             @input="handleInput"
             @change="handleInputChange"
@@ -65,7 +66,7 @@ const setCurrentValue = (value: number | null | undefined) => {
 const handleInput = (value:string) => {
     data.userInput = value
     const newVal = value === '' ? null: Number(value)
-    // emit(UPDATE_MODEL_EVENT, newVal)
+    emit(UPDATE_MODEL_EVENT, newVal)
 }
 const handleInputChange = (value:string) => {
     console.log('change', value)

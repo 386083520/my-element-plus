@@ -21,7 +21,7 @@
             </span>
             <input
             ref="input"
-            :type="showPassword? (passwordVisible ? 'text': 'password'): 'text'"
+            :type="showPassword? (passwordVisible ? 'text': 'password'): type"
             v-bind="attrs"
             :maxlength="maxlength"
             :minlength="minlength"

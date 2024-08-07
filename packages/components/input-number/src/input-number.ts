@@ -9,7 +9,8 @@ export const inputNumberProps = buildProps({
     min: {
         type: Number,
         default: Number.NEGATIVE_INFINITY
-    }
+    },
+    disabled: Boolean
 })
 
 export const inputNumberEmits = {

@@ -37,7 +37,7 @@
         color: getCssVar('text-color', 'regular');
         &:hover {
             color: getCssVar('color-primary');
-            & ~ .#{$namespace}-input .#{$namespace}-input__wrapper {
+            & ~ .#{$namespace}-input:not(.is-disabled) .#{$namespace}-input__wrapper {
                 box-shadow: 0 0 0 1px map.get($input, 'focus-border-color') inset;
             }
         }
@@ -55,5 +55,16 @@
         left: 1px;
         border-radius: getCssVar('border-radius-base') 0 0 getCssVar('border-radius-base');
         border-right: getCssVar('border');
+    }
+
+    @include when(disabled) {
+        @include e((increase, decrease)) {
+            color: getCssVar('disabled-border-color');
+            border-color: getCssVar('disabled-border-color');
+            &:hover {
+                color: getCssVar('disabled-border-color');
+                cursor: not-allowed;
+            }
+        }
     }
 }

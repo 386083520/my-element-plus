@@ -1,6 +1,9 @@
 <template>
     <div :class="[
-        ns.b()
+        ns.b(),
+        {
+            'disabled': disabled
+        }
     ]">
         <span
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
@@ -20,6 +23,7 @@
         </span>
         <ell-input
             type="number"
+            :disabled="disabled"
             :model-value="displayValue"
             @input="handleInput"
             @change="handleInputChange"
@@ -91,12 +95,12 @@ const handleInputChange = (value:string) => {
     data.userInput = null
 }
 const decrease = () => {
-    if(minDisabled.value) return 
+    if(minDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
     setCurrentValue(value - 1)
 }
 const increase = () => {
-    if(maxDisabled.value) return 
+    if(maxDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
     setCurrentValue(value + 1)
 }

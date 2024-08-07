@@ -97,12 +97,12 @@ const handleInputChange = (value:string) => {
 const decrease = () => {
     if(minDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
-    setCurrentValue(value - 1)
+    setCurrentValue(value - props.step)
 }
 const increase = () => {
     if(maxDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
-    setCurrentValue(value + 1)
+    setCurrentValue(value + props.step)
 }
 
 const displayValue = computed(() => {

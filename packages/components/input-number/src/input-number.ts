@@ -10,7 +10,11 @@ export const inputNumberProps = buildProps({
         type: Number,
         default: Number.NEGATIVE_INFINITY
     },
-    disabled: Boolean
+    disabled: Boolean,
+    step: {
+        type: Number,
+        default: 1
+    }
 })
 
 export const inputNumberEmits = {

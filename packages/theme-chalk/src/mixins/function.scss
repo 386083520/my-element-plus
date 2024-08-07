@@ -39,6 +39,15 @@
     }
 }
 
+@function containsWhenFlag($selector) {
+    $selector:selectorToString($selector);
+    @if str-index($selector, '.' + config.$state-perfix) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
 @function hitAllSpecialNestRule($selector) {
-    @return containsModifier($selector);
+    @return containsModifier($selector) or containsWhenFlag($selector);
 }

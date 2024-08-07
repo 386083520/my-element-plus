@@ -94,15 +94,23 @@ const handleInputChange = (value:string) => {
     }
     data.userInput = null
 }
+const toPrecision = (num: number) => {
+    return num
+}
+const ensurePrecision = (val: number, coefficient: 1|-1 = 1) => {
+    return toPrecision(val + props.step * coefficient)
+}
 const decrease = () => {
     if(minDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
-    setCurrentValue(value - props.step)
+    const newVal = ensurePrecision(value, -1)
+    setCurrentValue(newVal)
 }
 const increase = () => {
     if(maxDisabled.value || props.disabled) return 
     const value = Number(props.modelValue) || 0
-    setCurrentValue(value + props.step)
+    const newVal = ensurePrecision(value)
+    setCurrentValue(newVal)
 }
 
 const displayValue = computed(() => {

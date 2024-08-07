@@ -31,7 +31,7 @@ import { useNamespace } from '@my-element-plus/hooks';
 import { Minus,Plus } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
-import { computed, reactive } from 'vue';
+import { computed, reactive, watch } from 'vue';
 import { isNumber } from '@my-element-plus/utils';
 const ns = useNamespace('input-number')
 defineOptions({
@@ -47,6 +47,17 @@ const data = reactive<Data>({
     currentValue: props.modelValue,
     userInput: null
 })
+
+watch(
+    () => props.modelValue,
+    (value, oldValue) => {
+        data.currentValue = value
+    },
+    {
+        immediate: true
+    }
+)
+
 const setCurrentValue = (value: number | null | undefined) => {
     data.currentValue = value
     emit(UPDATE_MODEL_EVENT, data.currentValue)

@@ -17,7 +17,9 @@ export const inputEmits = {
 
 export const inputProps = buildProps({
     modelValue: {
-        type: String,
+        type: definePropType<string | number | null | undefined>(
+            [String, Number, Object]
+        ),
         default: ''
     },
     disabled: Boolean,

@@ -95,22 +95,33 @@ const handleInputChange = (value:string) => {
     data.userInput = null
 }
 const toPrecision = (num: number) => {
-    return num
+    let pre = numPrecision.value
+    return Number.parseFloat(num.toFixed(pre))
 }
 const ensurePrecision = (val: number, coefficient: 1|-1 = 1) => {
     return toPrecision(val + props.step * coefficient)
 }
 const decrease = () => {
-    if(minDisabled.value || props.disabled) return 
+    if(minDisabled.value || props.disabled) return
     const value = Number(props.modelValue) || 0
     const newVal = ensurePrecision(value, -1)
     setCurrentValue(newVal)
 }
 const increase = () => {
-    if(maxDisabled.value || props.disabled) return 
+    if(maxDisabled.value || props.disabled) return
     const value = Number(props.modelValue) || 0
     const newVal = ensurePrecision(value)
     setCurrentValue(newVal)
+}
+
+const getPrecision = (val:number) => {
+    const valueString = val.toString()
+    const dotPosition = valueString.indexOf('.')
+    let precision = 0
+    if(dotPosition !== -1) {
+        precision = valueString.length - dotPosition - 1
+    }
+    return precision
 }
 
 const displayValue = computed(() => {
@@ -129,4 +140,7 @@ const minDisabled = computed(
 const maxDisabled = computed(
     () => isNumber(props.modelValue) && props.modelValue >= props.max
 )
+const numPrecision = computed(() => {
+    return getPrecision(props.modelValue)
+})
 </script>

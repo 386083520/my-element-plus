@@ -3,7 +3,7 @@
         ns.b()
     ]">
         <span
-            :class="[ns.e('decrease')]"
+            :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
             @click="decrease"
         >
             <ell-icon>
@@ -11,7 +11,7 @@
             </ell-icon>
         </span>
         <span
-            :class="[ns.e('increase')]"
+            :class="[ns.e('increase'), ns.is('disabled', maxDisabled)]"
             @click="increase"
         >
             <ell-icon>
@@ -105,4 +105,10 @@ const displayValue = computed(() => {
     }
     return data.currentValue
 })
+const minDisabled = computed(
+    () => isNumber(props.modelValue) && props.modelValue <= props.min
+)
+const maxDisabled = computed(
+    () => isNumber(props.modelValue) && props.modelValue >= props.max
+)
 </script>

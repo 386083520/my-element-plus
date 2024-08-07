@@ -10,6 +10,7 @@
     @include set-component-css-var('fill-color', $fill-color);
     @include set-component-css-var('font-size', $font-size);
     @include set-component-css-var('text-color', $text-color);
+    @include set-component-css-var('disabled', $disabled);
     @include set-css-var-value('border-width', $border-width);
     @include set-css-var-value('border-style', $border-style);
     @include set-css-var-value('border-color', $border-color);

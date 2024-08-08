@@ -3,6 +3,7 @@
 @use "../common/var.scss" as *;
 @use './function.scss' as *;
 @forward './function.scss';
+@forward './var';
 
 @mixin b($block) {
     $B: $namespace  + $common-separator + $block !global;

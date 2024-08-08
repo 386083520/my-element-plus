@@ -117,5 +117,15 @@
             border-left: getCssVar('border');
             border-radius: 0 0 getCssVar('border-radius-base') 0;
         }
+        @each $size in (large,small) {
+            &[class*='#{$size}'] {
+                [class*='increase'],[class*='decrease'] {
+                    @include set-css-var-value(
+                        ('input', 'number-controls-height'),
+                        math.div(map.get($input-height, $size) - 2, 2)
+                    );
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,7 @@
 <template>
     <div :class="[
         ns.b(),
-        {
-            'disabled': disabled
-        }
+        ns.is('disabled', disabled)
     ]">
         <span
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
@@ -95,12 +93,12 @@ const handleInputChange = (value:string) => {
     data.userInput = null
 }
 const decrease = () => {
-    if(minDisabled.value || props.disabled) return 
+    if(minDisabled.value || props.disabled) return
     const value = Number(props.modelValue) || 0
     setCurrentValue(value - props.step)
 }
 const increase = () => {
-    if(maxDisabled.value || props.disabled) return 
+    if(maxDisabled.value || props.disabled) return
     const value = Number(props.modelValue) || 0
     setCurrentValue(value + props.step)
 }

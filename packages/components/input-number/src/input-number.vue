@@ -61,7 +61,7 @@ const verifyValue = (value) => {
         return null
     }
     if(stepStrictly) {
-        newVal = Math.round(newVal/step) * step
+        newVal = toPrecision(Math.round(newVal/step) * step)
     }
     if(!isUndefined(precision)) {
         newVal = toPrecision(newVal)

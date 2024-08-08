@@ -92,6 +92,7 @@ const verifyValue = (value) => {
 const setCurrentValue = (value: number | string | null | undefined) => {
     const oldValue = data.currentValue
     let newValue = verifyValue(value)
+    data.userInput = null
     if(oldValue !== newValue) {
         emit(CHANGE_EVENT, newValue, oldValue)
     }

@@ -27,6 +27,10 @@ export const inputNumberProps = buildProps({
         type: String,
         default: '',
         values: ['', 'right']
+    },
+    controls: {
+        type: Boolean,
+        default: true
     }
 
 })

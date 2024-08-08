@@ -87,6 +87,13 @@
         }
     }
 
+    @include when(without-controls) {
+        .#{$namespace}-input__wrapper {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
     @include when(controls-right) {
         .#{$namespace}-input__wrapper {
             padding-left: 15px;

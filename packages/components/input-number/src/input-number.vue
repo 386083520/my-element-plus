@@ -3,9 +3,11 @@
         ns.b(),
         ns.m(size),
         ns.is('disabled', disabled),
-        ns.is('controls-right', controlsAtRight)
+        ns.is('controls-right', controlsAtRight),
+        ns.is('without-controls', !controls)
     ]">
         <span
+            v-if="controls"
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
             @click="decrease"
         >
@@ -17,6 +19,7 @@
             </slot>
         </span>
         <span
+            v-if="controls"
             :class="[ns.e('increase'), ns.is('disabled', maxDisabled)]"
             @click="increase"
         >
@@ -160,7 +163,7 @@ const numPrecision = computed(() => {
 
 
 const controlsAtRight = computed(() => {
-    return props.controlsPosition === 'right'
+    return props.controls && props.controlsPosition === 'right'
 })
 
 

@@ -1,15 +1,20 @@
 <template>
-<ell-input-number v-model="num1" size="large" />
-  <ell-input-number v-model="num2" class="mx-4" />
-  <ell-input-number v-model="num3" size="small" />
+<ell-input-number
+    v-model="num"
+    class="mx-4"
+    :min="1"
+    :max="10"
+    controls-position="right"
+  />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num1 = ref(1)
-const num2 = ref(2)
-const num3 = ref(3)
+const num = ref(1)
+const handleChange = (value: number) => {
+  console.log(value)
+}
 </script>
 
 <style>

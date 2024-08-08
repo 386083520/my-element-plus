@@ -22,7 +22,12 @@ export const inputNumberProps = buildProps({
             val >= 0 && val === Number.parseInt(`${val}`, 10)
     },
     stepStrictly: Boolean,
-    size: useSizeProp
+    size: useSizeProp,
+    controlsPosition: {
+        type: String,
+        default: '',
+        values: ['', 'right']
+    }
 
 })
 

@@ -2,14 +2,16 @@
     <div :class="[
         ns.b(),
         ns.m(size),
-        ns.is('disabled', disabled)
+        ns.is('disabled', disabled),
+        ns.is('controls-right', controlsAtRight)
     ]">
         <span
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
             @click="decrease"
         >
             <ell-icon>
-                <Minus/>
+                <ArrowDown v-if="controlsAtRight"/>
+                <Minus v-else/>
             </ell-icon>
         </span>
         <span
@@ -17,7 +19,8 @@
             @click="increase"
         >
             <ell-icon>
-                <Plus/>
+                <ArrowUp v-if="controlsAtRight"/>
+                <Plus v-else/>
             </ell-icon>
         </span>
         <ell-input
@@ -33,7 +36,7 @@
 
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
-import { Minus,Plus } from '@element-plus/icons-vue';
+import { Minus,Plus,ArrowDown,ArrowUp } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
@@ -149,6 +152,11 @@ const numPrecision = computed(() => {
         return props.precision
     }
     return Math.max(getPrecision(props.modelValue), stepPrecision)
+})
+
+
+const controlsAtRight = computed(() => {
+    return props.controlsPosition === 'right'
 })
 
 

@@ -55,10 +55,13 @@ const data = reactive<Data>({
 })
 
 const verifyValue = (value) => {
-    const { max, min } = props
+    const { max, min, precision } = props
     let newVal = Number(value)
     if(Number.isNaN(newVal)) {
         return null
+    }
+    if(!isUndefined(precision)) {
+        newVal = toPrecision(newVal)
     }
     if(newVal > max || newVal < min) {
         newVal = newVal > max? max : min
@@ -67,19 +70,9 @@ const verifyValue = (value) => {
     return newVal
 }
 
-watch(
-    () => props.modelValue,
-    (value, oldValue) => {
-        const newVal = verifyValue(value)
-        data.currentValue = newVal
-    },
-    {
-        immediate: true
-    }
-)
-
 const setCurrentValue = (value: number | null | undefined) => {
-    data.currentValue = value
+    let newValue = verifyValue(value)
+    data.currentValue = newValue
     emit(UPDATE_MODEL_EVENT, data.currentValue)
 }
 const handleInput = (value:string) => {
@@ -154,4 +147,16 @@ const numPrecision = computed(() => {
     }
     return Math.max(getPrecision(props.modelValue), stepPrecision)
 })
+
+
+watch(
+    () => props.modelValue,
+    (value, oldValue) => {
+        const newVal = verifyValue(value)
+        data.currentValue = newVal
+    },
+    {
+        immediate: true
+    }
+)
 </script>

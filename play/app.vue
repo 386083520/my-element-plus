@@ -1,11 +1,11 @@
 <template>
-<ell-input-number v-model="num" :min="1" :max="10" @change="handleChange" :controls="false"/>
+<ell-input-number v-model="num" @change="handleChange" :value-on-clear="8"/>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref(1)
+const num = ref('')
 const handleChange = (value: number) => {
   console.log(value)
 }

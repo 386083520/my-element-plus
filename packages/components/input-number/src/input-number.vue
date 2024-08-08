@@ -47,7 +47,7 @@ import { Minus,Plus,ArrowDown,ArrowUp } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
-import { isNumber, isUndefined } from '@my-element-plus/utils';
+import { isNumber, isString, isUndefined } from '@my-element-plus/utils';
 import { isNil } from 'lodash-unified';
 const ns = useNamespace('input-number')
 defineOptions({
@@ -65,10 +65,16 @@ const data = reactive<Data>({
 })
 
 const verifyValue = (value) => {
-    const { max, min, precision, stepStrictly, step } = props
+    const { max, min, precision, stepStrictly, step, valueOnClear } = props
     let newVal = Number(value)
-    if(Number.isNaN(newVal)) {
+    if(isNil(value) || Number.isNaN(newVal)) {
         return null
+    }
+    if(value === '') {
+        if(valueOnClear === null) {
+            return null
+        }
+        newVal = isString(valueOnClear) ? {min, max}[valueOnClear] : valueOnClear
     }
     if(stepStrictly) {
         newVal = toPrecision(Math.round(newVal/step) * step)
@@ -83,7 +89,7 @@ const verifyValue = (value) => {
     return newVal
 }
 
-const setCurrentValue = (value: number | null | undefined) => {
+const setCurrentValue = (value: number | string | null | undefined) => {
     let newValue = verifyValue(value)
     data.currentValue = newValue
     emit(UPDATE_MODEL_EVENT, data.currentValue)
@@ -95,8 +101,8 @@ const handleInput = (value:string) => {
 }
 const handleInputChange = (value:string) => {
     console.log('change', value)
-    const newVal = value === '' ? null: Number(value)
-    if(isNumber(newVal) && !Number.isNaN(newVal)) {
+    const newVal = value !== '' ?  Number(value): ''
+    if((isNumber(newVal) && !Number.isNaN(newVal)) || value === '') {
         setCurrentValue(newVal)
     }
     data.userInput = null

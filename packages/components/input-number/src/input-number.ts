@@ -1,6 +1,6 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
 import { useSizeProp } from "@my-element-plus/hooks"
-import { buildProps } from "@my-element-plus/utils"
+import { buildProps, isNumber } from "@my-element-plus/utils"
 export const inputNumberProps = buildProps({
     modelValue: Number,
     max: {
@@ -31,6 +31,12 @@ export const inputNumberProps = buildProps({
     controls: {
         type: Boolean,
         default: true
+    },
+    valueOnClear: {
+        type: [String, Number, null],
+        validator: (val: 'min' | 'max' | number | null) => 
+            val === null || isNumber(val) || ['min', 'max'].includes(val),
+        default: null
     }
 
 })

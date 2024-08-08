@@ -6,8 +6,8 @@
 import { ref } from 'vue'
 
 const num = ref('')
-const handleChange = (value: number) => {
-  console.log(value)
+const handleChange = (value: number, oldValue: number) => {
+  console.log('change111', value, oldValue)
 }
 </script>
 

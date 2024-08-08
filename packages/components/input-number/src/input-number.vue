@@ -45,7 +45,7 @@
 import { useNamespace } from '@my-element-plus/hooks';
 import { Minus,Plus,ArrowDown,ArrowUp } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
-import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
 import { isNumber, isString, isUndefined } from '@my-element-plus/utils';
 import { isNil } from 'lodash-unified';
@@ -90,7 +90,11 @@ const verifyValue = (value) => {
 }
 
 const setCurrentValue = (value: number | string | null | undefined) => {
+    const oldValue = data.currentValue
     let newValue = verifyValue(value)
+    if(oldValue !== newValue) {
+        emit(CHANGE_EVENT, newValue, oldValue)
+    }
     data.currentValue = newValue
     emit(UPDATE_MODEL_EVENT, data.currentValue)
 }
@@ -177,7 +181,9 @@ watch(
     () => props.modelValue,
     (value, oldValue) => {
         const newVal = verifyValue(value)
-        data.currentValue = newVal
+        if(data.userInput === null) {
+            data.currentValue = newVal
+        }
     },
     {
         immediate: true

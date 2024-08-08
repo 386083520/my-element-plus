@@ -1,4 +1,4 @@
-import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
 import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps, isNumber } from "@my-element-plus/utils"
 export const inputNumberProps = buildProps({
@@ -42,5 +42,6 @@ export const inputNumberProps = buildProps({
 })
 
 export const inputNumberEmits = {
-    [UPDATE_MODEL_EVENT]: (val: number|undefined) => true
+    [UPDATE_MODEL_EVENT]: (val: number|undefined) => true,
+    [CHANGE_EVENT]: (cur:number|undefined,prev:number|undefined) => true
 }

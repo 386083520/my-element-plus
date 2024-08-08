@@ -9,19 +9,23 @@
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
             @click="decrease"
         >
-            <ell-icon>
-                <ArrowDown v-if="controlsAtRight"/>
-                <Minus v-else/>
-            </ell-icon>
+            <slot name="decrease-icon">
+                <ell-icon>
+                    <ArrowDown v-if="controlsAtRight"/>
+                    <Minus v-else/>
+                </ell-icon>
+            </slot>
         </span>
         <span
             :class="[ns.e('increase'), ns.is('disabled', maxDisabled)]"
             @click="increase"
         >
-            <ell-icon>
-                <ArrowUp v-if="controlsAtRight"/>
-                <Plus v-else/>
-            </ell-icon>
+            <slot name="increase-icon">
+                <ell-icon>
+                    <ArrowUp v-if="controlsAtRight"/>
+                    <Plus v-else/>
+                </ell-icon>
+            </slot>
         </span>
         <ell-input
             type="number"

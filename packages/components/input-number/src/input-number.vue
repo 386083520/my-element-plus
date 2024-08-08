@@ -1,6 +1,7 @@
 <template>
     <div :class="[
         ns.b(),
+        ns.m(size),
         ns.is('disabled', disabled)
     ]">
         <span
@@ -21,6 +22,7 @@
         </span>
         <ell-input
             type="number"
+            :size="size"
             :disabled="disabled"
             :model-value="displayValue"
             @input="handleInput"

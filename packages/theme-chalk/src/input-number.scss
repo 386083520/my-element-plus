@@ -2,7 +2,7 @@
 @use 'mixins/mixins.scss' as *;
 @use 'common/var.scss' as *;
 @include b(input-number) {
-    width: 140px;
+    width: map.get($input-number-width, 'default');
     position: relative;
     display: inline-flex;
 
@@ -64,6 +64,22 @@
             &:hover {
                 color: getCssVar('disabled-border-color');
                 cursor: not-allowed;
+            }
+        }
+    }
+
+    @each $size in (large,small) {
+        @include m($size) {
+            width: map.get($input-number-width, $size);
+            @include e((increase, decrease)) {
+                width: map.get($input-height, $size);
+                font-size: map.get($input-font-size, $size);
+            }
+            .#{$namespace}-input--#{$size} {
+                .#{$namespace}-input__wrapper {
+                    padding-left: #{map.get($input-height, $size) + 10};
+                    padding-right: #{map.get($input-height, $size) + 10};
+                }
             }
         }
     }

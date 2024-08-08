@@ -1,4 +1,5 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps } from "@my-element-plus/utils"
 export const inputNumberProps = buildProps({
     modelValue: Number,
@@ -20,7 +21,8 @@ export const inputNumberProps = buildProps({
         validator: (val: number) => 
             val >= 0 && val === Number.parseInt(`${val}`, 10)
     },
-    stepStrictly: Boolean
+    stepStrictly: Boolean,
+    size: useSizeProp
 
 })
 

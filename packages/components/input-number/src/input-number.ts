@@ -19,7 +19,8 @@ export const inputNumberProps = buildProps({
         type: Number,
         validator: (val: number) => 
             val >= 0 && val === Number.parseInt(`${val}`, 10)
-    }
+    },
+    stepStrictly: Boolean
 
 })
 

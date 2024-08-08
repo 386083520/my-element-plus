@@ -1,5 +1,5 @@
 <template>
-  <ell-input-number v-model="num" :step="0.1" :precision="2">abc</ell-input-number>
+  <ell-input-number v-model="num" :step="3" step-strictly>abc</ell-input-number>
   {{ num }}
 </template>
 

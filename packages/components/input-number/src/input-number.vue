@@ -55,10 +55,13 @@ const data = reactive<Data>({
 })
 
 const verifyValue = (value) => {
-    const { max, min, precision } = props
+    const { max, min, precision, stepStrictly, step } = props
     let newVal = Number(value)
     if(Number.isNaN(newVal)) {
         return null
+    }
+    if(stepStrictly) {
+        newVal = Math.round(newVal/step) * step
     }
     if(!isUndefined(precision)) {
         newVal = toPrecision(newVal)

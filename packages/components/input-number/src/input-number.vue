@@ -38,6 +38,7 @@ import { inputNumberEmits, inputNumberProps } from './input-number'
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
 import { isNumber, isUndefined } from '@my-element-plus/utils';
+import { isNil } from 'lodash-unified';
 const ns = useNamespace('input-number')
 defineOptions({
     name: 'EllInputNumber'
@@ -129,6 +130,7 @@ const displayValue = computed(() => {
         return data.userInput
     }
     let currentValue:number|string|undefined|null = data.currentValue
+    if(isNil(currentValue)) return ''
     if(!isUndefined(props.precision)) {
         currentValue = currentValue.toFixed(props.precision)
     }

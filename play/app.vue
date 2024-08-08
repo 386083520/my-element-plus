@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref(6.3)
+const num = ref('a')
 </script>
 
 <style>

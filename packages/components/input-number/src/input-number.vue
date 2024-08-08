@@ -1,9 +1,7 @@
 <template>
     <div :class="[
         ns.b(),
-        {
-            'disabled': disabled
-        }
+        ns.is('disabled', disabled)
     ]">
         <span
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"

@@ -9,7 +9,7 @@
         <span
             v-if="controls"
             :class="[ns.e('decrease'), ns.is('disabled', minDisabled)]"
-            @click="decrease"
+            v-repeat-click="decrease"
         >
             <slot name="decrease-icon">
                 <ell-icon>

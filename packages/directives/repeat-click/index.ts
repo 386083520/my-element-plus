@@ -4,19 +4,26 @@ export const vRepeatClick:ObjectDirective<HTMLElement, Function> = {
     beforeMount(el,binding) {
         console.log(el, binding)
         const value = binding.value
-        let intervalId
+        let intervalId,delayId
         const clear = () => {
+            if(delayId) {
+                clearTimeout(delayId)
+                delayId = undefined
+            }
             if(intervalId) {
                 clearInterval(intervalId)
                 intervalId = undefined
             }
         }
         el.addEventListener('mousedown', () => {
+            clear()
             value()
             document.addEventListener('mouseup', () => clear())
-            intervalId = setInterval(() => {
-                value()
-            }, 1000)
+            delayId = setTimeout(() => {
+                intervalId = setInterval(() => {
+                    value()
+                }, 100)
+            }, 2000)
         })
     }
 }

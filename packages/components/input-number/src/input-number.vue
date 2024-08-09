@@ -203,4 +203,9 @@ watch(
         immediate: true
     }
 )
+
+defineExpose({
+    focus,
+    blur
+})
 </script>

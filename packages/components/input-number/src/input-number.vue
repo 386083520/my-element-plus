@@ -37,6 +37,8 @@
             :model-value="displayValue"
             @input="handleInput"
             @change="handleInputChange"
+            @blur="handleBlur"
+             @focus="handleFocus"
         />
     </div>
 </template>
@@ -45,7 +47,7 @@
 import { useNamespace } from '@my-element-plus/hooks';
 import { Minus,Plus,ArrowDown,ArrowUp } from '@element-plus/icons-vue';
 import { inputNumberEmits, inputNumberProps } from './input-number'
-import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+import { CHANGE_EVENT, INPUT_EVENT, UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed, reactive, watch } from 'vue';
 import { isNumber, isString, isUndefined } from '@my-element-plus/utils';
 import { isNil } from 'lodash-unified';
@@ -103,6 +105,7 @@ const handleInput = (value:string) => {
     data.userInput = value
     const newVal = value === '' ? null: Number(value)
     emit(UPDATE_MODEL_EVENT, newVal)
+    emit(INPUT_EVENT, newVal)
 }
 const handleInputChange = (value:string) => {
     console.log('change', value)
@@ -111,6 +114,14 @@ const handleInputChange = (value:string) => {
         setCurrentValue(newVal)
     }
     data.userInput = null
+}
+const handleBlur = (e:FocusEvent) => {
+    data.userInput = null
+    emit('blur', e)
+}
+const handleFocus = (e:FocusEvent) => {
+    data.userInput = null
+    emit('focus', e)
 }
 const toPrecision = (num: number) => {
     let pre = numPrecision.value
@@ -124,12 +135,14 @@ const decrease = () => {
     const value = Number(props.modelValue) || 0
     const newVal = ensurePrecision(value, -1)
     setCurrentValue(newVal)
+    emit(INPUT_EVENT, data.currentValue)
 }
 const increase = () => {
     if(maxDisabled.value || props.disabled) return
     const value = Number(props.modelValue) || 0
     const newVal = ensurePrecision(value)
     setCurrentValue(newVal)
+    emit(INPUT_EVENT, data.currentValue)
 }
 
 const getPrecision = (val:number) => {

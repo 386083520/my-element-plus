@@ -1,13 +1,19 @@
 <template>
-<ell-input-number v-model="num" @change="handleChange" :value-on-clear="8"/>
+<ell-input-number v-model="num" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
 const num = ref('')
-const handleChange = (value: number, oldValue: number) => {
-  console.log('change111', value, oldValue)
+const handleInput = (value: number) => {
+  console.log('input', value)
+}
+const handleBlur = (e) => {
+  console.log('handleBlur', e)
+}
+const handleFocus = (e) => {
+  console.log('handleFocus', e)
 }
 </script>
 

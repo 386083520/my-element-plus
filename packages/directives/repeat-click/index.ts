@@ -19,7 +19,7 @@ export const vRepeatClick:ObjectDirective<HTMLElement, Function> = {
             if(evt.button !== 0) return
             clear()
             value()
-            document.addEventListener('mouseup', () => clear())
+            document.addEventListener('mouseup', () => clear(), {once: true})
             delayId = setTimeout(() => {
                 intervalId = setInterval(() => {
                     value()

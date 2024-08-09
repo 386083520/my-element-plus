@@ -15,7 +15,8 @@ export const vRepeatClick:ObjectDirective<HTMLElement, Function> = {
                 intervalId = undefined
             }
         }
-        el.addEventListener('mousedown', () => {
+        el.addEventListener('mousedown', (evt: MouseEvent) => {
+            if(evt.button !== 0) return
             clear()
             value()
             document.addEventListener('mouseup', () => clear())

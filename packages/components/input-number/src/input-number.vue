@@ -21,7 +21,10 @@
         <span
             v-if="controls"
             :class="[ns.e('increase'), ns.is('disabled', maxDisabled)]"
-            v-repeat-click="increase"
+            v-repeat-click="{
+                handler: increase,
+                delay: 3000
+            }"
         >
             <slot name="increase-icon">
                 <ell-icon>

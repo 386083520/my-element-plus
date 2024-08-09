@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref('')
+const num = ref(1)
 const handleInput = (value: number) => {
   console.log('input', value)
 }

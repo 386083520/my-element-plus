@@ -21,7 +21,7 @@
         <span
             v-if="controls"
             :class="[ns.e('increase'), ns.is('disabled', maxDisabled)]"
-            @click="increase"
+            v-repeat-click="increase"
         >
             <slot name="increase-icon">
                 <ell-icon>
@@ -51,6 +51,7 @@ import { CHANGE_EVENT, INPUT_EVENT, UPDATE_MODEL_EVENT } from '@my-element-plus/
 import { computed, reactive, watch } from 'vue';
 import { isNumber, isString, isUndefined } from '@my-element-plus/utils';
 import { isNil } from 'lodash-unified';
+import { vRepeatClick } from '@my-element-plus/directives';
 const ns = useNamespace('input-number')
 defineOptions({
     name: 'EllInputNumber'

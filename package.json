@@ -22,6 +22,7 @@
     "@element-plus/icons-vue": "^2.3.1",
     "@my-element-plus/components": "workspace:^",
     "@my-element-plus/constants": "workspace:^",
+    "@my-element-plus/directives": "workspace:^",
     "@my-element-plus/hooks": "workspace:^",
     "@my-element-plus/test-utils": "workspace:^",
     "@my-element-plus/theme-chalk": "workspace:^",

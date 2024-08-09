@@ -17,6 +17,9 @@ importers:
       '@my-element-plus/constants':
         specifier: workspace:^
         version: link:packages/constants
+      '@my-element-plus/directives':
+        specifier: workspace:^
+        version: link:packages/directives
       '@my-element-plus/hooks':
         specifier: workspace:^
         version: link:packages/hooks
@@ -71,6 +74,8 @@ importers:
         version: 3.6.1
 
   packages/constants: {}
+
+  packages/directives: {}
 
   packages/hooks: {}
 

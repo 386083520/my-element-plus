@@ -94,6 +94,7 @@ import { isObject } from '@my-element-plus/utils';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { calcTextareaHeight } from './utils';
 import { useResizeObserver } from '@vueuse/core';
+import { EllIcon } from '@my-element-plus/components/icon'
 const nsInput = useNamespace('input')
 const nsTextarea = useNamespace('textarea')
 const input = ref<HTMLInputElement>()

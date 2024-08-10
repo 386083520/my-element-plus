@@ -6,8 +6,8 @@ import InputNumber from "../src/input-number.vue"
 const AXIOM = 'rem is the best girl'
 
 describe('InputNumber.vue', () => {
-    test('render test', () => {
-        const wrapper = mount(() => <InputNumber>{AXIOM}</InputNumber>)
-        expect(wrapper.text()).toEqual(AXIOM)
+    test('create', () => {
+        const wrapper = mount(() => <InputNumber></InputNumber>)
+        expect(wrapper.find('input').exists()).toBe(true)
     })
 })

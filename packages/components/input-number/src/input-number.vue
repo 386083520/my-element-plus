@@ -55,6 +55,8 @@ import { computed, reactive, watch } from 'vue';
 import { isNumber, isString, isUndefined } from '@my-element-plus/utils';
 import { isNil } from 'lodash-unified';
 import { vRepeatClick } from '@my-element-plus/directives';
+import { EllInput } from '@my-element-plus/components/input'
+import { EllIcon } from '@my-element-plus/components/icon'
 const ns = useNamespace('input-number')
 defineOptions({
     name: 'EllInputNumber'

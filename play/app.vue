@@ -1,5 +1,6 @@
 <template>
 <ell-input-number v-model="num" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
+{{ num }}
 </template>
 
 <script lang="ts" setup>

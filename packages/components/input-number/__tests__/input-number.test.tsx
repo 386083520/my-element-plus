@@ -44,7 +44,7 @@ describe('InputNumber.vue', () => {
 
     test('display value match actual value', async () => {
         const num = ref(1)
-        const wrapper = mount(() => <InputNumber modelValue={num.value}></InputNumber>)
+        const wrapper = mount(() => <InputNumber v-model={num.value}></InputNumber>)
         num.value = 222
         await nextTick()
         expect(wrapper.find('input').element.value).toEqual('222')
@@ -52,7 +52,7 @@ describe('InputNumber.vue', () => {
 
     test('min', async () => {
         const num = ref(1)
-        const wrapper = mount(() => <InputNumber modelValue={num.value} min={3}></InputNumber>)
+        const wrapper = mount(() => <InputNumber v-model={num.value} min={3}></InputNumber>)
         expect(wrapper.find('input').element.value).toEqual('3')
         wrapper.find('.ell-input-number__decrease').trigger('mousedown')
         document.dispatchEvent(mouseup)
@@ -62,11 +62,24 @@ describe('InputNumber.vue', () => {
 
     test('max', async () => {
         const num = ref(5)
-        const wrapper = mount(() => <InputNumber modelValue={num.value} max={3}></InputNumber>)
+        const wrapper = mount(() => <InputNumber v-model={num.value} max={3}></InputNumber>)
         expect(wrapper.find('input').element.value).toEqual('3')
         wrapper.find('.ell-input-number__increase').trigger('mousedown')
         document.dispatchEvent(mouseup)
         await nextTick()
         expect(wrapper.find('input').element.value).toEqual('3')
+    })
+
+    test('step,increase and decrease', async () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} step={2}></InputNumber>)
+        wrapper.find('.ell-input-number__decrease').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('-2')
+        wrapper.find('.ell-input-number__increase').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('0')
     })
 })

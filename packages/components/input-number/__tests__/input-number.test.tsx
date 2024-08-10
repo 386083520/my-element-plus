@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import InputNumber from "../src/input-number.vue"
 import { nextTick, ref } from "vue"
+import { ArrowDown, ArrowUp } from "@element-plus/icons-vue"
 
 const AXIOM = 'rem is the best girl'
 
@@ -136,5 +137,32 @@ describe('InputNumber.vue', () => {
                 expect(wrapper.find('input').element.value).toEqual(`${output}`)
             }
         )
+    })
+
+    test('disabled', async () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} disabled={true}></InputNumber>)
+        wrapper.find('.ell-input-number__decrease').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('0')
+        wrapper.find('.ell-input-number__increase').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('0')
+    })
+
+    test('controls', () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} controls={false}></InputNumber>)
+        expect(wrapper.find('.ell-input-number__decrease').exists()).toBe(false)
+        expect(wrapper.find('.ell-input-number__increase').exists()).toBe(false)
+    })
+
+    test('controls-position', () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} controls-position="right"></InputNumber>)
+        expect(wrapper.findComponent(ArrowDown).exists()).toBe(true)
+        expect(wrapper.findComponent(ArrowUp).exists()).toBe(true)
     })
 })

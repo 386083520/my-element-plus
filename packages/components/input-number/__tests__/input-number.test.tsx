@@ -181,4 +181,23 @@ describe('InputNumber.vue', () => {
         expect(handleInput).toBeCalledTimes(2)
         expect(handleInput).toHaveBeenCalledWith(2)
     })
+
+    test('change-event', async () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value}></InputNumber>)
+        wrapper.find('.ell-input-number__increase').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.getComponent(InputNumber).emitted('change')).toHaveLength(1)
+        expect(wrapper.getComponent(InputNumber).emitted().change[0]).toEqual([
+            1,0,
+        ])
+        wrapper.find('.ell-input-number__increase').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.getComponent(InputNumber).emitted('change')).toHaveLength(2)
+        expect(wrapper.getComponent(InputNumber).emitted().change[1]).toEqual([
+            2,1,
+        ])
+    })
 })

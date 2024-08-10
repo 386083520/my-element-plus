@@ -6,6 +6,8 @@ import { nextTick, ref } from "vue"
 
 const AXIOM = 'rem is the best girl'
 
+const mouseup = new Event('mouseup')
+
 describe('InputNumber.vue', () => {
     test('create', () => {
         const wrapper = mount(() => <InputNumber></InputNumber>)
@@ -38,5 +40,33 @@ describe('InputNumber.vue', () => {
         simulateEvent('3', 'input')
         await nextTick()
         expect(inputText.value).toEqual(3)
+    })
+
+    test('display value match actual value', async () => {
+        const num = ref(1)
+        const wrapper = mount(() => <InputNumber modelValue={num.value}></InputNumber>)
+        num.value = 222
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('222')
+    })
+
+    test('min', async () => {
+        const num = ref(1)
+        const wrapper = mount(() => <InputNumber modelValue={num.value} min={3}></InputNumber>)
+        expect(wrapper.find('input').element.value).toEqual('3')
+        wrapper.find('.ell-input-number__decrease').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('3')
+    })
+
+    test('max', async () => {
+        const num = ref(5)
+        const wrapper = mount(() => <InputNumber modelValue={num.value} max={3}></InputNumber>)
+        expect(wrapper.find('input').element.value).toEqual('3')
+        wrapper.find('.ell-input-number__increase').trigger('mousedown')
+        document.dispatchEvent(mouseup)
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('3')
     })
 })

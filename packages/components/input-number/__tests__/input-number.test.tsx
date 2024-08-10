@@ -1,4 +1,4 @@
-import { describe, test, expect } from "vitest"
+import { describe, test, expect, vi } from "vitest"
 import { mount } from '@vue/test-utils'
 
 import InputNumber from "../src/input-number.vue"
@@ -164,5 +164,21 @@ describe('InputNumber.vue', () => {
         const wrapper = mount(() => <InputNumber v-model={num.value} controls-position="right"></InputNumber>)
         expect(wrapper.findComponent(ArrowDown).exists()).toBe(true)
         expect(wrapper.findComponent(ArrowUp).exists()).toBe(true)
+    })
+
+    test('input-event', () => {
+        const num = ref(0)
+        const handleInput = vi.fn()
+        const wrapper = mount(() => <InputNumber v-model={num.value} onInput={handleInput}></InputNumber>)
+        const inputWrapper = wrapper.find('input')
+        const nativeInput = inputWrapper.element
+        nativeInput.value = '1'
+        inputWrapper.trigger('input')
+        expect(handleInput).toBeCalledTimes(1)
+        expect(handleInput).toHaveBeenCalledWith(1)
+        nativeInput.value = '2'
+        inputWrapper.trigger('input')
+        expect(handleInput).toBeCalledTimes(2)
+        expect(handleInput).toHaveBeenCalledWith(2)
     })
 })

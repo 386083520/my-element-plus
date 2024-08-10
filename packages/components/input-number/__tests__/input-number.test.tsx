@@ -82,4 +82,17 @@ describe('InputNumber.vue', () => {
         await nextTick()
         expect(wrapper.find('input').element.value).toEqual('0')
     })
+
+    test('value decimals miss precision', async () => {
+        const num = ref(0.2)
+        const wrapper = mount(() => <InputNumber v-model={num.value} step={0.1}></InputNumber>)
+        expect(wrapper.find('input').element.value).toEqual('0.2')
+        const ellInputNumber = wrapper.findComponent(InputNumber).vm.$.exposed
+        ellInputNumber.increase()
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('0.3')
+        ellInputNumber.decrease()
+        await nextTick()
+        expect(wrapper.find('input').element.value).toEqual('0.2')
+    })
 })

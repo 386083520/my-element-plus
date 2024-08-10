@@ -212,6 +212,8 @@ watch(
 
 defineExpose({
     focus,
-    blur
+    blur,
+    increase,
+    decrease
 })
 </script>

@@ -131,7 +131,18 @@ const handleFocus = (e:FocusEvent) => {
 }
 const toPrecision = (num: number) => {
     let pre = numPrecision.value
-    return Number.parseFloat(num.toFixed(pre))
+    if(pre === 0) return Math.round(num)
+    let snum = String(num)
+    const pointPos = snum.indexOf('.')
+    if(pointPos === -1) return num
+    const nums = snum.replace('.', '').split('')
+    const datum = nums[pointPos + pre]
+    if(!datum) return num
+    const length = snum.length
+    if(snum.charAt(length - 1) === '5') {
+        snum = `${snum.slice(0, Math.max(length - 1, 0))}6`
+    }
+    return Number.parseFloat(Number(snum).toFixed(pre))
 }
 const ensurePrecision = (val: number, coefficient: 1|-1 = 1) => {
     return toPrecision(val + props.step * coefficient)

@@ -1,5 +1,5 @@
 <template>
-<ell-input-number v-model="num" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
+<ell-input-number v-model="num" :precision="2" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
 {{ num }}
 </template>
 

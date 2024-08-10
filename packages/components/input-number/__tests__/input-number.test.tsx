@@ -95,4 +95,46 @@ describe('InputNumber.vue', () => {
         await nextTick()
         expect(wrapper.find('input').element.value).toEqual('0.2')
     })
+
+    describe('precision accuracy 2', () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} precision={2}></InputNumber>)
+        test.each([
+            [1.1111111111, '1.11'],
+            [17.275, '17.28'],
+            [17.2745, '17.27'],
+            [1.09, '1.09'],
+            [1.009, '1.01'],
+            [10.999, '11.00'],
+            [15, '15.00'],
+            [15.5, '15.50'],
+            [15.555, '15.56']
+        ])(
+            'each precision accuracy test',
+            async (input, output)  => {
+                await wrapper.find('input').setValue(input)
+                expect(wrapper.find('input').element.value).toEqual(`${output}`)
+            }
+        )
+    })
+
+    describe('precision accuracy 3', () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value} precision={3}></InputNumber>)
+        test.each([
+            [1.1111111111, '1.111'],
+            [17.275, '17.275'],
+            [1.09, '1.090'],
+            [10.999, '10.999'],
+            [10.9999, '11.000'],
+            [15.555, '15.555'],
+            [1.3335, '1.334'],
+        ])(
+            'each precision accuracy test',
+            async (input, output)  => {
+                await wrapper.find('input').setValue(input)
+                expect(wrapper.find('input').element.value).toEqual(`${output}`)
+            }
+        )
+    })
 })

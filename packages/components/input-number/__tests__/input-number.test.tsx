@@ -200,4 +200,18 @@ describe('InputNumber.vue', () => {
             2,1,
         ])
     })
+
+    test('blur-event', async () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value}></InputNumber>)
+        await wrapper.find('input').trigger('blur')
+        expect(wrapper.getComponent(InputNumber).emitted('blur')).toHaveLength(1)
+    })
+
+    test('focus-event', async () => {
+        const num = ref(0)
+        const wrapper = mount(() => <InputNumber v-model={num.value}></InputNumber>)
+        await wrapper.find('input').trigger('focus')
+        expect(wrapper.getComponent(InputNumber).emitted('focus')).toHaveLength(1)
+    })
 })

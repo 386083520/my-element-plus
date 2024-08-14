@@ -263,11 +263,15 @@ $radio-disabled: (
 );
 
 $checkbox-bordered-padding-left: (
-    'default': 10px
+    'large': 12px,
+    'default': 10px,
+    'small': 8px
 );
 
 $checkbox-bordered-padding-right: (
-    'default': 16px
+    'large': 20px,
+    'default': 16px,
+    'small': 12px
 );
 
 $radio-height: $common-component-size;

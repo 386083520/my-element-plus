@@ -1,4 +1,5 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps } from "@my-element-plus/utils"
 import { ExtractPropTypes } from "vue"
 export const radioProps = buildProps({
@@ -11,7 +12,8 @@ export const radioProps = buildProps({
         default: undefined
     },
     disabled: Boolean,
-    border: Boolean
+    border: Boolean,
+    size: useSizeProp
 })
 
 export const radioEmits = {

@@ -4,7 +4,8 @@
             ns.b(),
             ns.is('bordered', border),
             ns.is('checked', modelValue === value),
-            ns.is('disabled', disabled)
+            ns.is('disabled', disabled),
+            ns.m(size)
         ]"
     >
         <span

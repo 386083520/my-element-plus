@@ -1,4 +1,8 @@
-import { withInstall } from "@my-element-plus/utils";
+import { withInstall, withNoopInstall } from "@my-element-plus/utils";
 import Radio from "./src/radio.vue";
-export const EllRadio  = withInstall(Radio)
+import RadioGroup from "./src/radio-group.vue";
+export const EllRadio  = withInstall(Radio, {
+    RadioGroup
+})
+export const EllRadioGroup = withNoopInstall(RadioGroup)
 export default EllRadio

@@ -11,7 +11,7 @@ import { EllText } from "@my-element-plus/components/text";
 import { EllSpace } from "@my-element-plus/components/space";
 import { EllInput } from "@my-element-plus/components/input";
 import { EllInputNumber } from "@my-element-plus/components/input-number";
-import { EllRadio } from "@my-element-plus/components/radio";
+import { EllRadio, EllRadioGroup } from "@my-element-plus/components/radio";
 export default [
     EllBadge,
     EllButton,
@@ -27,5 +27,6 @@ export default [
     EllSpace,
     EllInput,
     EllInputNumber,
-    EllRadio
+    EllRadio,
+    EllRadioGroup
 ]

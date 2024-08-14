@@ -1,21 +1,15 @@
 <template>
-<ell-input-number v-model="num" :precision="2" @input="handleInput" @focus="handleFocus" @blur="handleBlur"/>
-{{ num }}
+<ell-radio v-model="radio" value="disabled">Option A</ell-radio>
+  <ell-radio v-model="radio" value="selected and disabled">
+    Option B
+  </ell-radio>
+  {{ radio }}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const num = ref(1)
-const handleInput = (value: number) => {
-  console.log('input', value)
-}
-const handleBlur = (e) => {
-  console.log('handleBlur', e)
-}
-const handleFocus = (e) => {
-  console.log('handleFocus', e)
-}
+const radio = ref('selected and disabled')
 </script>
 
 <style>

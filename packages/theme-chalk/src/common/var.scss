@@ -24,6 +24,12 @@ $colors: (
     )
 );
 
+$common-component-size: (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px
+);
+
 $disabled: (
     'text-color': #a8abb2,
     'border-color': #e4e7ed
@@ -224,4 +230,17 @@ $breakpoints: (
     'md': '(min-width: #{$md})',
     'lg': '(min-width: #{$lg})',
     'xl': '(min-width: #{$xl})'
-)
+);
+
+
+$radio: (
+    'input-width': 14px,
+    'input-height': 14px,
+    'input-border': 1px solid #dcdfe6,
+    'input-border-radius': 100%,
+    'font-weight': 500,
+    'input-bg-color': #ffffff,
+    'input-border-color-hover': #409eff
+);
+
+$radio-height: $common-component-size;

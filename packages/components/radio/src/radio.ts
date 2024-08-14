@@ -10,7 +10,8 @@ export const radioProps = buildProps({
         type: [String, Number, Boolean],
         default: undefined
     },
-    disabled: Boolean
+    disabled: Boolean,
+    border: Boolean
 })
 
 export const radioEmits = {

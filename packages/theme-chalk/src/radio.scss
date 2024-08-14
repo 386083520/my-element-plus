@@ -16,6 +16,20 @@
     height: map.get($radio-height, 'default');
     display: inline-flex;
     align-items: center;
+    @include when(bordered) {
+        padding: 0 map.get($checkbox-bordered-padding-right, 'default') 
+                 0 map.get($checkbox-bordered-padding-left, 'default');
+        border: getCssVar('border');
+        border-radius: getCssVar('border-radius-base');
+        &.is-checked {
+            border-color: getCssVar('color-primary');
+
+        }
+        &.is-disabled {
+            cursor: not-allowed;
+            border-color: getCssVar('border-color-lighter');
+        }
+    }
     @include e(input) {
         position: relative;
         vertical-align: middle;

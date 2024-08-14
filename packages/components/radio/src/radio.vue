@@ -1,7 +1,10 @@
 <template>
     <label
         :class="[
-            ns.b()
+            ns.b(),
+            ns.is('bordered', border),
+            ns.is('checked', modelValue === value),
+            ns.is('disabled', disabled)
         ]"
     >
         <span

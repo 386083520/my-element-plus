@@ -1,6 +1,6 @@
 <template>
-<ell-radio v-model="radio" disabled value="disabled">Option A</ell-radio>
-  <ell-radio v-model="radio" disabled value="selected and disabled">
+<ell-radio v-model="radio" border value="disabled">Option A</ell-radio>
+  <ell-radio v-model="radio" border value="selected and disabled">
     Option B
   </ell-radio>
   {{ radio }}

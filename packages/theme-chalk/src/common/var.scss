@@ -46,7 +46,10 @@ $border-radius: (
 
 $border-width: 1px;
 $border-style: solid;
-$border-color: #dcdfe6;
+$border-color: (
+    '': #dcdfe6,
+    'lighter': #ebeef5
+);
 
 $fill-color: (
     '': #f0f2f5,
@@ -257,6 +260,14 @@ $radio-disabled: (
     'checked-input-fill': #f5f7fa,
     'checked-input-border-color': #e4e7ed,
     'checked-icon-color': #a8abb2
+);
+
+$checkbox-bordered-padding-left: (
+    'default': 10px
+);
+
+$checkbox-bordered-padding-right: (
+    'default': 16px
 );
 
 $radio-height: $common-component-size;

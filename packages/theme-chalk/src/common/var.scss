@@ -240,7 +240,14 @@ $radio: (
     'input-border-radius': 100%,
     'font-weight': 500,
     'input-bg-color': #ffffff,
+    'input-border-color': #dcdfe6,
     'input-border-color-hover': #409eff
+);
+
+$radio-checked: (
+    'input-border-color': #409eff,
+    'icon-color': #409eff,
+    'text-color': #409eff
 );
 
 $radio-height: $common-component-size;

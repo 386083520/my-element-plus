@@ -6,7 +6,8 @@
     >
         <span
             :class="[
-                ns.e('input')
+                ns.e('input'),
+                ns.is('checked', modelValue === value)
             ]"
         >
             <input

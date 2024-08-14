@@ -20,6 +20,18 @@
         position: relative;
         vertical-align: middle;
         cursor: pointer;
+        @include when(checked) {
+            .#{$namespace}-radio__inner {
+                border-color: map.get($radio-checked, 'input-border-color');
+                background: map.get($radio-checked, 'icon-color');
+                &::after {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+            & + .#{$namespace}-radio__label {
+                color: map.get($radio-checked, 'text-color');
+            }
+        }
     }
     @include e(original) {
         opacity: 0;
@@ -37,8 +49,20 @@
         border: getCssVar('radio-input-border');
         border-radius: getCssVar('radio-input-border-radius');
         background-color: getCssVar('radio-input-bg-color');
+        position: relative;
         &:hover {
             border-color: getCssVar('radio-input-border-color-hover');
+        }
+        &::after {
+            width: 4px;
+            height: 4px;
+            border-radius: getCssVar('radio-input-border-radius');
+            background-color: getCssVar('color-white');
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(0);
         }
     }
 

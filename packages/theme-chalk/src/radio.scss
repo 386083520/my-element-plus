@@ -20,6 +20,26 @@
         position: relative;
         vertical-align: middle;
         cursor: pointer;
+        @include when(disabled) {
+            .#{$namespace}-radio__inner {
+                background-color: map.get($radio-disabled, 'input-fill');
+                border-color: map.get($radio-disabled, 'input-border-color');
+                cursor: not-allowed;
+            }
+            & + span.#{$namespace}-radio__label {
+                color: getCssVar('text-color', 'placeholder');
+                cursor: not-allowed;
+            }
+            &.is-checked {
+                .#{$namespace}-radio__inner {
+                    background-color: map.get($radio-disabled, 'checked-input-fill');
+                    border-color: map.get($radio-disabled, 'checked-input-border-color');
+                    &::after {
+                        background-color: map.get($radio-disabled, 'checked-icon-color');
+                    }
+                }
+            }
+        }
         @include when(checked) {
             .#{$namespace}-radio__inner {
                 border-color: map.get($radio-checked, 'input-border-color');

@@ -55,7 +55,8 @@ $fill-color: (
 );
 
 $text-color: (
-    'regular': #606266
+    'regular': #606266,
+    'placeholder': #a8abb2
 );
 
 
@@ -248,6 +249,14 @@ $radio-checked: (
     'input-border-color': #409eff,
     'icon-color': #409eff,
     'text-color': #409eff
+);
+
+$radio-disabled: (
+    'input-border-color': #e4e7ed,
+    'input-fill': #f5f7fa,
+    'checked-input-fill': #f5f7fa,
+    'checked-input-border-color': #e4e7ed,
+    'checked-icon-color': #a8abb2
 );
 
 $radio-height: $common-component-size;

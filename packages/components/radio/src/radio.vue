@@ -7,7 +7,8 @@
         <span
             :class="[
                 ns.e('input'),
-                ns.is('checked', modelValue === value)
+                ns.is('checked', modelValue === value),
+                ns.is('disabled', disabled)
             ]"
         >
             <input
@@ -15,6 +16,7 @@
                 :value="value"
                 v-model="modelValue"
                 :class="ns.e('original')"
+                :disabled="disabled"
             />
             <span :class="ns.e('inner')"></span>
         </span>

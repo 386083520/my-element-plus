@@ -9,7 +9,8 @@ export const radioProps = buildProps({
     modelValue: {
         type: [String, Number, Boolean],
         default: undefined
-    }
+    },
+    disabled: Boolean
 })
 
 export const radioEmits = {

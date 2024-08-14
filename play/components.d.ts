@@ -16,6 +16,7 @@ declare module 'vue' {
     EllContainer: typeof import('@my-element-plus/components')['EllContainer']
     EllFooter: typeof import('@my-element-plus/components')['EllFooter']
     EllHeader: typeof import('@my-element-plus/components')['EllHeader']
+    EllInputNumber: typeof import('@my-element-plus/components')['EllInputNumber']
     EllMain: typeof import('@my-element-plus/components')['EllMain']
     EllRadio: typeof import('@my-element-plus/components')['EllRadio']
     EllRadioGroup: typeof import('@my-element-plus/components')['EllRadioGroup']

@@ -1,5 +1,5 @@
 <template>
-<ell-radio-group v-model="radio">
+<ell-radio-group v-model="radio" disabled size="large">
     <ell-radio :value="3">Option A</ell-radio>
     <ell-radio :value="6">Option B</ell-radio>
     <ell-radio :value="9">Option C</ell-radio>

@@ -41,5 +41,5 @@ defineOptions({
     name: 'EllRadio'
 })
 const ns = useNamespace('radio')
-const {modelValue} = useRadio(props, emit)
+const {modelValue,size, disabled} = useRadio(props, emit)
 </script>

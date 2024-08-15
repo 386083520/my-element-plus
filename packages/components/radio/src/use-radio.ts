@@ -21,7 +21,11 @@ export const useRadio = (
             }
         }
     })
+    const size = computed(() => props.size || radioGroup.size)
+    const disabled = computed(() => props.disabled || radioGroup.disabled)
     return {
-        modelValue
+        modelValue,
+        disabled,
+        size
     }
 }

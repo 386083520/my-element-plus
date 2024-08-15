@@ -1,4 +1,4 @@
-import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
 import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps } from "@my-element-plus/utils"
 import { ExtractPropTypes } from "vue"
@@ -17,7 +17,8 @@ export const radioProps = buildProps({
 })
 
 export const radioEmits = {
-    [UPDATE_MODEL_EVENT]: (val: string | number | boolean) => true
+    [UPDATE_MODEL_EVENT]: (val: string | number | boolean) => true,
+    [CHANGE_EVENT]: (val: string | number | boolean) => true
 }
 
 export type RadioProps = ExtractPropTypes<typeof radioProps>

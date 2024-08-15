@@ -21,6 +21,7 @@
                 v-model="modelValue"
                 :class="ns.e('original')"
                 :disabled="disabled"
+                @change="handleChange"
             />
             <span :class="ns.e('inner')"></span>
         </span>
@@ -35,6 +36,7 @@ import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { radioEmits, radioProps } from './radio'
 import { useRadio } from './use-radio';
 import { useNamespace } from '@my-element-plus/hooks';
+import { nextTick } from 'vue';
 const props = defineProps(radioProps)
 const emit = defineEmits(radioEmits)
 defineOptions({
@@ -42,4 +44,7 @@ defineOptions({
 })
 const ns = useNamespace('radio')
 const {modelValue,size, disabled} = useRadio(props, emit)
+function handleChange() {
+    nextTick(() => emit('change', modelValue.value))
+}
 </script>

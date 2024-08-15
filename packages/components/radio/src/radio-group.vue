@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
 import { radioGroupEmits, RadioGroupProps, radioGroupProps } from './radio-group';
-import { provide, reactive, toRefs } from 'vue';
+import { nextTick, provide, reactive, toRefs } from 'vue';
 import { radioGroupKey } from './constants';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 
@@ -19,6 +19,7 @@ const ns = useNamespace('radio')
 
 const changeEvent = (value: RadioGroupProps['modelValue']) => {
     emit(UPDATE_MODEL_EVENT, value)
+    nextTick(() => emit('change', value))
 }
 
 provide(

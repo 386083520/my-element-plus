@@ -1,5 +1,4 @@
 <template>
-  <ell-input-number v-model="num"></ell-input-number>
 <ell-radio-group v-model="radio">
     <ell-radio :value="3">Option A</ell-radio>
     <ell-radio :value="6">Option B</ell-radio>
@@ -12,7 +11,6 @@
 import { ref } from 'vue'
 
 const radio = ref(3)
-const num = ref(1)
 </script>
 
 <style>

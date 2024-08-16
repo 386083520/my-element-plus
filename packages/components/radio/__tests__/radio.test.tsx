@@ -27,4 +27,15 @@ describe('Radio.vue', () => {
         expect(wrapper.classes()).toContain('is-bordered')
         
     })
+
+    test('change event', async () => {
+        const radio = ref('')
+        const changeData = ref('')
+        function handleChange(val) {
+            changeData.value = val
+        }
+        const wrapper = mount(() => <Radio label="a" v-model={radio.value} onChange={handleChange}></Radio>)
+        await wrapper.trigger('click')
+        expect(changeData.value).toEqual('a')
+    })
 })

@@ -94,6 +94,25 @@ describe('radio group', () => {
         expect(data.value).toEqual(6)
     })
 
+    
+})
+
+describe('radio button', () => {
+    test('create', async () => {
+        const radio = ref(3)
+        const wrapper = mount(() => (
+            <RadioGroup v-model={radio.value}>
+                <RadioButton value={3}></RadioButton>
+                <RadioButton value={6}></RadioButton>
+                <RadioButton value={9}></RadioButton>
+            </RadioGroup>
+        ))
+        const [radio1, radio2, radio3] = wrapper.findAll('.ell-radio-button')
+        expect(radio1.classes()).toContain('is-checked')
+        await radio2.trigger('click')
+        expect(radio2.classes()).toContain('is-checked')
+        expect(radio.value).toEqual(6)
+    })
     test('disabled radio-button', async () => {
         const radio = ref(3)
         const wrapper = mount(() => (
@@ -109,5 +128,35 @@ describe('radio group', () => {
         await radio2.trigger('click')
         expect(radio1.classes()).toContain('is-checked')
         expect(radio.value).toEqual(3)
+    })
+
+    test('change event', async () => {
+        const radio = ref(3)
+        const data = ref(0)
+        function onChange(val) {
+            data.value = val
+        }
+        const wrapper = mount(() => (
+            <RadioGroup v-model={radio.value} onChange={onChange}>
+                <RadioButton value={3}></RadioButton>
+                <RadioButton value={6}></RadioButton>
+                <RadioButton value={9}></RadioButton>
+            </RadioGroup>
+        ))
+        const [radio1, radio2, radio3] = wrapper.findAll('.ell-radio-button')
+        await radio2.trigger('click')
+        expect(data.value).toEqual(6)
+    })
+
+    test('size', async () => {
+        const radio = ref(3)
+        const wrapper = mount(() => (
+            <RadioGroup v-model={radio.value} size="large">
+                <RadioButton value={3}></RadioButton>
+                <RadioButton value={6}></RadioButton>
+                <RadioButton value={9}></RadioButton>
+            </RadioGroup>
+        ))
+        expect(wrapper.findAll('.ell-radio-button--large').length).toBe(3)
     })
 })

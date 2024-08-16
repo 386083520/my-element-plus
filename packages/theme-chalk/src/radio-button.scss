@@ -6,8 +6,10 @@
     @include set-component-css-var('radio-button', $radio-button)
 }
 @include b(radio-button) {
+    display: inline-block;
     position: relative;
     @include e(inner) {
+        display: inline-block;
         background: map.get($button, 'bg-color');
         border: getCssVar('border');
         color: map.get($button, 'text-color');
@@ -55,6 +57,18 @@
             }
             &:checked + .#{$namespace}-radio-button__inner {
                 background-color: getCssVar('radio-button-disabled-checked-fill');
+            }
+        }
+    }
+    @each $size in (large, small) {
+        @include m($size) {
+            & .#{$namespace}-radio-button__inner {
+                @include button-size(
+                    map.get($button-padding-vertical, $size),
+                    map.get($button-padding-horizontal, $size),
+                    map.get($button-font-size, $size),
+                    0
+                );
             }
         }
     }

@@ -4,6 +4,16 @@
     <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
     <ell-radio-button value="New York2">New York2</ell-radio-button>
   </ell-radio-group>
+  <ell-radio-group v-model="radio">
+    <ell-radio-button value="New York" disabled>New York</ell-radio-button>
+    <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
+    <ell-radio-button value="New York2">New York2</ell-radio-button>
+  </ell-radio-group>
+  <ell-radio-group v-model="radio" size="small">
+    <ell-radio-button value="New York" disabled>New York</ell-radio-button>
+    <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
+    <ell-radio-button value="New York2">New York2</ell-radio-button>
+  </ell-radio-group>
   {{ radio }}
 </template>
 

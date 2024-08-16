@@ -3,7 +3,8 @@
         :class="[
             ns.b('button'),
             ns.is('checked', modelValue === value),
-            ns.is('disabled', disabled)
+            ns.is('disabled', disabled),
+            ns.bm('button', size)
         ]"
     >
         <input

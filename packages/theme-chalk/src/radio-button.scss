@@ -46,5 +46,16 @@
 
             }
         }
+        &:disabled {
+            & + .#{$namespace}-radio-button__inner {
+                background-color: map.get($button, 'disabled-bg-color');
+                color: getCssVar('disabled-text-color');
+                border-color: map.get($button, 'disabled-border-color');
+                cursor: not-allowed;
+            }
+            &:checked + .#{$namespace}-radio-button__inner {
+                background-color: getCssVar('radio-button-disabled-checked-fill');
+            }
+        }
     }
 }

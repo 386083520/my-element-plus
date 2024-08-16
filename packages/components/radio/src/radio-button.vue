@@ -11,6 +11,7 @@
             :value="value"
             v-model="modelValue"
             :class="ns.be('button', 'original-radio')"
+            :disabled="disabled"
         />
         <span
             :class="ns.be('button', 'inner')"

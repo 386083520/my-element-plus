@@ -59,7 +59,8 @@ $fill-color: (
 
 $text-color: (
     'regular': #606266,
-    'placeholder': #a8abb2
+    'placeholder': #a8abb2,
+    'disabled': #c0c4cc
 );
 
 
@@ -251,7 +252,8 @@ $radio: (
 $radio-button: (
     'checked-bg-color': #409eff,
     'checked-text-color': #ffffff,
-    'checked-border-color': #409eff
+    'checked-border-color': #409eff,
+    'disabled-checked-fill': #f2f6fc
 );
 
 $radio-checked: (

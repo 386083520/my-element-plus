@@ -248,6 +248,12 @@ $radio: (
     'input-border-color-hover': #409eff
 );
 
+$radio-button: (
+    'checked-bg-color': #409eff,
+    'checked-text-color': #ffffff,
+    'checked-border-color': #409eff
+);
+
 $radio-checked: (
     'input-border-color': #409eff,
     'icon-color': #409eff,

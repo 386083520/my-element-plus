@@ -3,6 +3,9 @@
 @use 'common/var' as *;
 @use 'mixins/button' as *;
 @include b(radio-button) {
+    @include set-component-css-var('radio-button', $radio-button)
+}
+@include b(radio-button) {
     position: relative;
     @include e(inner) {
         background: map.get($button, 'bg-color');
@@ -35,5 +38,13 @@
     @include e(original-radio) {
         opacity: 0;
         position: absolute;
+        &:checked {
+            & + .#{$namespace}-radio-button__inner {
+                background-color: map.get($radio-button, 'checked-bg-color');
+                color: map.get($radio-button, 'checked-text-color');
+                border-color: map.get($radio-button, 'checked-border-color');
+
+            }
+        }
     }
 }

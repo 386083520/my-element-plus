@@ -4,6 +4,7 @@
     <ell-radio-button value="New York1">New York1</ell-radio-button>
     <ell-radio-button value="New York2">New York2</ell-radio-button>
   </ell-radio-group>
+  <ell-button>abc</ell-button>
   {{ radio }}
 </template>
 

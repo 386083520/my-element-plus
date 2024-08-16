@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use 'mixins/mixins.scss' as *;
+@use 'common/var' as *;
+@use 'mixins/button' as *;
+@include b(radio-button) {
+    position: relative;
+    @include e(inner) {
+        background: map.get($button, 'bg-color');
+        border: getCssVar('border');
+        color: map.get($button, 'text-color');
+        border-left: 0;
+        cursor: pointer;
+        user-select: none;
+        @include button-size(
+                map.get($button-padding-vertical, 'default'),
+                map.get($button-padding-horizontal, 'default'),
+                map.get($button-font-size, 'default'),
+                0
+            );
+        &:hover {
+            color: getCssVar('color-primary');
+        }    
+    }
+    &:first-child {
+        .#{$namespace}-radio-button__inner {
+            border-left: getCssVar('border');
+            border-radius: getCssVar('border-radius-base') 0 0 getCssVar('border-radius-base');
+        }
+    }
+    &:last-child {
+        .#{$namespace}-radio-button__inner {
+            border-radius:  0 getCssVar('border-radius-base') getCssVar('border-radius-base') 0;
+        }
+    }
+    @include e(original-radio) {
+        opacity: 0;
+        position: absolute;
+    }
+}

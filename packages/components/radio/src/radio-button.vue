@@ -10,8 +10,11 @@
             type="radio"
             :value="value"
             v-model="modelValue"
+            :class="ns.be('button', 'original-radio')"
         />
-        <span>
+        <span
+            :class="ns.be('button', 'inner')"
+        >
             <slot></slot>
         </span>
     </label>

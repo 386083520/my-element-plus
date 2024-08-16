@@ -3,6 +3,7 @@ import { RadioEmits, RadioProps } from "./radio";
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants";
 import { radioGroupKey } from "./constants";
 import { RadioButtonProps } from "./radio-button";
+import { isNil } from "lodash-unified";
 
 export const useRadio = (
     props: RadioProps | RadioButtonProps,
@@ -10,6 +11,12 @@ export const useRadio = (
 ) => {
     const radioGroup = inject(radioGroupKey, undefined)
     const isGroup = computed(() => !!radioGroup)
+    const actualValue = computed(() => {
+        if(!isNil(props.value)) {
+            return props.value
+        }
+        return props.label
+    })
     const modelValue = computed<RadioProps['modelValue']>({
         get() {
             return isGroup.value ? radioGroup.modelValue : props.modelValue
@@ -27,6 +34,7 @@ export const useRadio = (
     return {
         modelValue,
         disabled,
-        size
+        size,
+        actualValue
     }
 }

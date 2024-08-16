@@ -1,26 +1,23 @@
 <template>
 <ell-radio-group v-model="radio" size="large">
-    <ell-radio-button value="New York" disabled>New York</ell-radio-button>
-    <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
-    <ell-radio-button value="New York2">New York2</ell-radio-button>
-  </ell-radio-group>
-  <ell-radio-group v-model="radio">
-    <ell-radio-button value="New York" disabled>New York</ell-radio-button>
-    <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
-    <ell-radio-button value="New York2">New York2</ell-radio-button>
-  </ell-radio-group>
-  <ell-radio-group v-model="radio" size="small">
-    <ell-radio-button value="New York" disabled>New York</ell-radio-button>
-    <ell-radio-button value="New York1" disabled>New York1</ell-radio-button>
-    <ell-radio-button value="New York2">New York2</ell-radio-button>
+    <ell-radio-button label="New York"></ell-radio-button>
+    <ell-radio-button value="New York1" label="New York1"></ell-radio-button>
+    <ell-radio-button value="New York2" label="New York2"></ell-radio-button>
   </ell-radio-group>
   {{ radio }}
+  <ell-radio-group v-model="radio2" size="large">
+    <ell-radio label="New York"></ell-radio>
+    <ell-radio value="New York1" label="New York1"></ell-radio>
+    <ell-radio value="New York2" label="New York2"></ell-radio>
+  </ell-radio-group>
+  {{ radio2 }}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
 const radio = ref('New York')
+const radio2 = ref('New York')
 const handleChange = (val) => {
   console.log('change', val)
 }

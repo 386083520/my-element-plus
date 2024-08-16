@@ -3,7 +3,7 @@
         :class="[
             ns.b(),
             ns.is('bordered', border),
-            ns.is('checked', modelValue === value),
+            ns.is('checked', modelValue === actualValue),
             ns.is('disabled', disabled),
             ns.m(size)
         ]"
@@ -11,13 +11,13 @@
         <span
             :class="[
                 ns.e('input'),
-                ns.is('checked', modelValue === value),
+                ns.is('checked', modelValue === actualValue),
                 ns.is('disabled', disabled)
             ]"
         >
             <input
                 type="radio"
-                :value="value"
+                :value="actualValue"
                 v-model="modelValue"
                 :class="ns.e('original')"
                 :disabled="disabled"
@@ -26,7 +26,9 @@
             <span :class="ns.e('inner')"></span>
         </span>
         <span :class="ns.e('label')">
-            <slot></slot>
+            <slot>
+                {{ label }}
+            </slot>
         </span>
     </label>
 </template>
@@ -43,7 +45,7 @@ defineOptions({
     name: 'EllRadio'
 })
 const ns = useNamespace('radio')
-const {modelValue,size, disabled} = useRadio(props, emit)
+const {modelValue,size, disabled, actualValue} = useRadio(props, emit)
 function handleChange() {
     nextTick(() => emit('change', modelValue.value))
 }

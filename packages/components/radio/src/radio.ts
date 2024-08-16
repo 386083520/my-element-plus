@@ -7,6 +7,10 @@ export const radioPropsBase = buildProps({
         type: [String, Number, Boolean],
         default: undefined
     },
+    label: {
+        type: [String, Number, Boolean],
+        default: undefined
+    },
     modelValue: {
         type: [String, Number, Boolean],
         default: undefined

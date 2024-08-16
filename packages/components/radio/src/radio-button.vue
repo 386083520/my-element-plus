@@ -2,14 +2,14 @@
     <label
         :class="[
             ns.b('button'),
-            ns.is('checked', modelValue === value),
+            ns.is('checked', modelValue === actualValue),
             ns.is('disabled', disabled),
             ns.bm('button', size)
         ]"
     >
         <input
             type="radio"
-            :value="value"
+            :value="actualValue"
             v-model="modelValue"
             :class="ns.be('button', 'original-radio')"
             :disabled="disabled"
@@ -17,7 +17,9 @@
         <span
             :class="ns.be('button', 'inner')"
         >
-            <slot></slot>
+            <slot>
+                {{ label }}
+            </slot>
         </span>
     </label>
 </template>
@@ -30,5 +32,5 @@ defineOptions({
     name: 'EllRadioButton'
 })
 const ns= useNamespace('radio')
-const {modelValue,size, disabled} = useRadio(props)
+const {modelValue,size, disabled, actualValue} = useRadio(props)
 </script>

@@ -1,7 +1,7 @@
 <template>
 <ell-radio-group v-model="radio" size="large">
-    <ell-radio-button>New York</ell-radio-button>
-    <ell-radio-button>New York1</ell-radio-button>
+    <ell-radio-button value="New York">New York</ell-radio-button>
+    <ell-radio-button value="New York1">New York1</ell-radio-button>
   </ell-radio-group>
   {{ radio }}
 </template>

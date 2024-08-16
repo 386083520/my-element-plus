@@ -2,10 +2,11 @@ import { computed, inject, SetupContext } from "vue";
 import { RadioEmits, RadioProps } from "./radio";
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants";
 import { radioGroupKey } from "./constants";
+import { RadioButtonProps } from "./radio-button";
 
 export const useRadio = (
-    props: RadioProps,
-    emit: SetupContext<RadioEmits>['emit']
+    props: RadioProps | RadioButtonProps,
+    emit?: SetupContext<RadioEmits>['emit']
 ) => {
     const radioGroup = inject(radioGroupKey, undefined)
     const isGroup = computed(() => !!radioGroup)

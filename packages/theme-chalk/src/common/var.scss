@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
+@use '../mixins/function.scss' as *;
 $types: primary,success,warning,danger,error,info;
 $colors: (
     'white': #ffffff,
@@ -24,6 +25,8 @@ $colors: (
     )
 );
 
+$color-white: map.get($colors, 'white');
+
 $common-component-size: (
     'large': 40px,
     'default': 32px,
@@ -32,7 +35,8 @@ $common-component-size: (
 
 $disabled: (
     'text-color': #a8abb2,
-    'border-color': #e4e7ed
+    'border-color': #e4e7ed,
+    'bg-color': getCssVar('fill-color', 'light')
 );
 
 $font-size: (
@@ -41,20 +45,24 @@ $font-size: (
 
 $border-radius: (
     'base': 4px,
-    'round': 20px
+    'round': 20px,
+    'circle': 100%
 );
 
 $border-width: 1px;
 $border-style: solid;
 $border-color: (
     '': #dcdfe6,
-    'lighter': #ebeef5
+    'light': #e4e7ed,
+    'lighter': #ebeef5,
+    'extra-light': #f2f6fc
 );
 
 $fill-color: (
     '': #f0f2f5,
     'light': #f5f7fa,
-    'dark': #ebedf0
+    'dark': #ebedf0,
+    'blank': #ffffff
 );
 
 $text-color: (
@@ -90,7 +98,7 @@ $text-color: (
 }
 
 $badge: (
-    'bg-color': #f56c6c,
+    'bg-color': getCssVar('color-danger'),
     'radius': 10px,
     'font-size': 12px,
     'padding': 6px
@@ -98,19 +106,19 @@ $badge: (
 
 
 $button: (
-    'text-color': #606266,
-    'bg-color': #ffffff,
-    'border-color': #dcdfe6,
-    'hover-text-color': #409eff,
-    'hover-border-color': #c6e2ff,
-    'hover-bg-color': #ecf5ff,
-    'active-text-color': #409eff,
-    'active-border-color': #409eff,
-    'active-bg-color': #ecf5ff,
-    'disabled-text-color': #a8abb2,
-    'disabled-bg-color': #ffffff,
-    'disabled-border-color': #e4e7ed,
-    'hover-link-text-color': #909399
+    'text-color': getCssVar('text-color', 'regular'),
+    'bg-color': getCssVar('fill-color', 'blank'),
+    'border-color': getCssVar('border-color'),
+    'hover-text-color': getCssVar('color-primary'),
+    'hover-border-color': getCssVar('color-primary-light-7'),
+    'hover-bg-color': getCssVar('color-primary', 'light-9'),
+    'active-text-color': getCssVar('color-primary'),
+    'active-border-color': getCssVar('color-primary'),
+    'active-bg-color':  getCssVar('color-primary', 'light-9'),
+    'disabled-text-color': getCssVar('disabled-text-color'),
+    'disabled-bg-color': getCssVar('fill-color', 'blank'),
+    'disabled-border-color': getCssVar('border-color-light'),
+    'hover-link-text-color': getCssVar('color-info')
 );
 
 $button-padding-vertical: (
@@ -126,15 +134,15 @@ $button-padding-horizontal: (
 );
 
 $button-font-size: (
-    'large': 14px,
-    'default': 14px,
+    'large': getCssVar('font-size', 'base'),
+    'default': getCssVar('font-size', 'base'),
     'small': 12px
 );
 
 $button-border-radius: (
-    'large': 4px,
-    'default': 4px,
-    'small': 3px
+    'large': getCssVar('border-radius', 'base'),
+    'default': getCssVar('border-radius', 'base'),
+    'small': calc(#{getCssVar('border-radius', 'base')} - 1px)
 );
 
 $input-height: (
@@ -241,33 +249,33 @@ $breakpoints: (
 $radio: (
     'input-width': 14px,
     'input-height': 14px,
-    'input-border': 1px solid #dcdfe6,
-    'input-border-radius': 100%,
-    'font-weight': 500,
-    'input-bg-color': #ffffff,
-    'input-border-color': #dcdfe6,
-    'input-border-color-hover': #409eff
+    'input-border': getCssVar('border'),
+    'input-border-radius': getCssVar('border-radius-circle'),
+    'font-weight': getCssVar('font-weight-primary'),
+    'input-bg-color': getCssVar('fill-color', 'blank'),
+    'input-border-color': getCssVar('border-color'),
+    'input-border-color-hover': getCssVar('color-primary')
 );
 
 $radio-button: (
-    'checked-bg-color': #409eff,
-    'checked-text-color': #ffffff,
-    'checked-border-color': #409eff,
-    'disabled-checked-fill': #f2f6fc
+    'checked-bg-color': getCssVar('color-primary'),
+    'checked-text-color': getCssVar('color-white'),
+    'checked-border-color': getCssVar('color-primary'),
+    'disabled-checked-fill': getCssVar('border-color-extra-light')
 );
 
 $radio-checked: (
-    'input-border-color': #409eff,
-    'icon-color': #409eff,
-    'text-color': #409eff
+    'input-border-color': getCssVar('color-primary'),
+    'icon-color': getCssVar('color-primary'),
+    'text-color': getCssVar('color-primary')
 );
 
 $radio-disabled: (
-    'input-border-color': #e4e7ed,
-    'input-fill': #f5f7fa,
-    'checked-input-fill': #f5f7fa,
-    'checked-input-border-color': #e4e7ed,
-    'checked-icon-color': #a8abb2
+    'input-border-color': getCssVar('disabled-border-color'),
+    'input-fill':  getCssVar('disabled-bg-color'),
+    'checked-input-fill': getCssVar('disabled-bg-color'),
+    'checked-input-border-color': getCssVar('disabled-border-color'),
+    'checked-icon-color': getCssVar('text-color-placeholder')
 );
 
 $checkbox-bordered-padding-left: (

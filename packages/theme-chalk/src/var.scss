@@ -2,6 +2,8 @@
 @use  "./common/var.scss" as *;
 @use "mixins/mixins.scss" as *;
 :root {
+    @include set-css-var-value('color-white', $color-white);
+
     @each $type in (primary, warning, info, success, error, danger) {
         @include set-css-color-type($type, $colors)
     }
@@ -14,6 +16,7 @@
     @include set-component-css-var('border-color', $border-color);
     @include set-css-var-value('border-width', $border-width);
     @include set-css-var-value('border-style', $border-style);
+    @include set-css-var-value('font-weight-primary', 500);
   
 
     @include set-css-var-value('border',

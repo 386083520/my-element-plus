@@ -211,12 +211,12 @@ $text: (
 $text-font-size: (
     'large': getCssVar('font-size', 'medium'),
     'default': getCssVar('font-size', 'base'),
-    'small': getCssVar('font-size', 'extra-small')
+    'small': getCssVar('font-size', 'medium')
 );
 
 $scrollbar: (
-    'bg-color': #909399,
-    'hover-bg-color': #909399,
+    'bg-color': getCssVar('text-color-secondary'),
+    'hover-bg-color': getCssVar('text-color-secondary'),
     'opacity': 0.3,
     'hover-opacity': 0.5
 );
@@ -285,6 +285,8 @@ $radio-disabled: (
     'checked-icon-color': getCssVar('text-color-placeholder')
 );
 
+$radio-height: $common-component-size;
+
 $checkbox-bordered-padding-left: (
     'large': 12px,
     'default': 10px,
@@ -296,5 +298,3 @@ $checkbox-bordered-padding-right: (
     'default': 16px,
     'small': 12px
 );
-
-$radio-height: $common-component-size;

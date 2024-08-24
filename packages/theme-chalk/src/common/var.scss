@@ -57,6 +57,7 @@ $border-color: (
     'lighter': #ebeef5,
     'extra-light': #f2f6fc
 );
+$border-color-hover: getCssVar('text-color', 'disabled');
 
 $fill-color: (
     '': #f0f2f5,
@@ -68,7 +69,8 @@ $fill-color: (
 $text-color: (
     'regular': #606266,
     'placeholder': #a8abb2,
-    'disabled': #c0c4cc
+    'disabled': #c0c4cc,
+    'secondary': #909399
 );
 
 
@@ -152,27 +154,27 @@ $input-height: (
 );
 
 $input: (
-    'border-color': #dcdfe6,
-    'hover-border-color': #c0c4cc,
-    'focus-border-color': #409eff,
-    'border-radius': 4px,
-    'icon-color': #a8abb2,
-    'clear-hover-color': #909399,
+    'border-color': getCssVar('border-color'),
+    'hover-border-color': getCssVar('border-color-hover'),
+    'focus-border-color': getCssVar('color-primary'),
+    'border-radius':  getCssVar('border-radius-base'),
+    'icon-color': getCssVar('text-color-placeholder'),
+    'clear-hover-color': getCssVar('text-color-secondary'),
     'width': 100%,
-    'text-color': #606266,
-    'placeholder-color': #a8abb2
+    'text-color': getCssVar('text-color-regular'),
+    'placeholder-color': getCssVar('text-color-placeholder')
 );
 
 $input-disabled: (
-    'border': #e4e7ed,
-    'fill': #f5f7fa,
-    'text-color': #a8abb2,
-    'placeholder-color': #a8abb2
+    'border': getCssVar('disabled-border-color'),
+    'fill': getCssVar('disabled-bg-color'),
+    'text-color': getCssVar('disabled-text-color'),
+    'placeholder-color': getCssVar('text-color-placeholder')
 );
 
 $input-font-size: (
-    'large': 14px,
-    'default': 14px,
+    'large': getCssVar('font-size', 'base'),
+    'default': getCssVar('font-size', 'base'),
     'small': 12px
 );
 

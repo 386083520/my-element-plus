@@ -17,6 +17,7 @@
     @include set-css-var-value('border-width', $border-width);
     @include set-css-var-value('border-style', $border-style);
     @include set-css-var-value('font-weight-primary', 500);
+    @include set-css-var-value('border-color-hover', $border-color-hover);
   
 
     @include set-css-var-value('border',

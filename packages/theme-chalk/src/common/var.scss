@@ -40,7 +40,12 @@ $disabled: (
 );
 
 $font-size: (
-    'base': 14px
+    'extra-large': 20px,
+    'large': 18px,
+    'medium': 16px,
+    'base': 14px,
+    'small': 13px,
+    'extra-small': 12px
 );
 
 $border-radius: (
@@ -191,22 +196,22 @@ $input-number-width: (
 );
 
 $link: (
-    'font-size': 14px,
-    'font-weight': 500,
-    'text-color': #606266,
-    'hover-text-color': #409eff,
-    'disabled-text-color': #a8abb2
+    'font-size': getCssVar('font-size-base'),
+    'font-weight': getCssVar('font-weight-primary'),
+    'text-color': getCssVar('text-color-regular'),
+    'hover-text-color':  getCssVar('color-primary'),
+    'disabled-text-color': getCssVar('text-color-placeholder')
 );
 
 $text: (
-    'font-size': 14px,
-    'color': #606266
+    'font-size': getCssVar('font-size', 'base'),
+    'color': getCssVar('text-color-regular')
 );
 
 $text-font-size: (
-    'large': 16px,
-    'default': 14px,
-    'small': 12px
+    'large': getCssVar('font-size', 'medium'),
+    'default': getCssVar('font-size', 'base'),
+    'small': getCssVar('font-size', 'extra-small')
 );
 
 $scrollbar: (

@@ -20,6 +20,7 @@ import { useNamespace } from '@my-element-plus/hooks';
 import { checkboxEmits } from './checkbox';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { computed } from 'vue';
+import { useCheckbox } from './composables/use-checkbox';
 defineOptions({
     name: 'EllCheckbox'
 })
@@ -29,14 +30,8 @@ const emit = defineEmits(checkboxEmits)
 function handleChange(e) {
     emit(UPDATE_MODEL_EVENT, e.target.checked)
 }
-const model = computed({
-    get() {
-        return props.modelValue
-    },
-    set(val)  {
-        emit(UPDATE_MODEL_EVENT, val)
-    }
-})
+
+const { model } = useCheckbox(props)
 
 const spanKls = computed(() => {
     return [

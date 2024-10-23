@@ -14,6 +14,19 @@ $checkbox-height: $common-component-size;
     @include e(input) {
         position: relative;
         display: inline-flex;
+        @include when(checked) {
+            .#{$namespace}-checkbox__inner {
+                background-color: getCssVar('checkbox-checked-bg-color');
+                border-color: getCssVar('checkbox-checked-input-border-color');
+                &::after {
+                    transform: rotate(45deg) scale(1);
+                    border-color: getCssVar('checkbox-checked-icon-color');
+                }
+            }
+            & + .#{$namespace}-checkbox__label {
+                color: getCssVar('checkbox-checked-text-color')
+            }
+        }
     }
     @include e(original) {
         opacity: 0;
@@ -24,12 +37,27 @@ $checkbox-height: $common-component-size;
     }
     @include e(inner) {
         display: inline-block;
+        position: relative;
+        box-sizing: border-box;
         width: getCssVar('checkbox-input-width');
         height: getCssVar('checkbox-input-height');
         border: getCssVar('checkbox-input-border');
         border-radius: getCssVar('checkbox-border-radius');
         &:hover {
             border-color: getCssVar('checkbox-input-border-color-hover');
+        }
+        &::after  {
+            position: absolute;
+            content: '';
+            width: 3px;
+            height: 7px;
+            border: 1px solid transparent;
+            border-left: 0;
+            border-top: 0;
+            top: 1px;
+            left: 4px;
+            transform: rotate(45deg) scale(0);
+            transform-origin: center;
         }
     }
     @include e(label) {

@@ -1,6 +1,6 @@
 <template>
     <label  :class="ns.b()">
-        <span :class="ns.e('input')">
+        <span :class="spanKls">
             <input
                 type="checkbox"
                 :class="ns.e('original')"
@@ -36,5 +36,12 @@ const model = computed({
     set(val)  {
         emit(UPDATE_MODEL_EVENT, val)
     }
+})
+
+const spanKls = computed(() => {
+    return [
+        ns.e('input'),
+        ns.is('checked', model.value)
+    ]
 })
 </script>

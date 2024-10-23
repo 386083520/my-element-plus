@@ -306,5 +306,9 @@ $checkbox: (
     'input-height': 14px,
     'input-border': getCssVar('border'),
     'border-radius': getCssVar('border-radius-small'),
-    'input-border-color-hover': getCssVar('color-primary')
+    'input-border-color-hover': getCssVar('color-primary'),
+    'checked-bg-color': getCssVar('color-primary'),
+    'checked-input-border-color': getCssVar('color-primary'),
+    'checked-icon-color': getCssVar('color', 'white'),
+    'checked-text-color': getCssVar('color-primary')
 );

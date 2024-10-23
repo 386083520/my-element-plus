@@ -1,0 +1,39 @@
+@use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
+@use 'sass:map';
+
+$checkbox-height: $common-component-size;
+@include b(checkbox) {
+    @include set-component-css-var('checkbox', $checkbox)
+}
+@include b(checkbox) {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: map.get($checkbox-height, 'default');
+    @include e(input) {
+        position: relative;
+        display: inline-flex;
+    }
+    @include e(original) {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+    @include e(inner) {
+        display: inline-block;
+        width: getCssVar('checkbox-input-width');
+        height: getCssVar('checkbox-input-height');
+        border: getCssVar('checkbox-input-border');
+        border-radius: getCssVar('checkbox-border-radius');
+        &:hover {
+            border-color: getCssVar('checkbox-input-border-color-hover');
+        }
+    }
+    @include e(label) {
+        margin-left: 8px;
+        font-size: getCssVar('checkbox-font-size');
+    }
+}

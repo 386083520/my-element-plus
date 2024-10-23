@@ -50,6 +50,7 @@ $font-size: (
 
 $border-radius: (
     'base': 4px,
+    'small': 2px,
     'round': 20px,
     'circle': 100%
 );
@@ -297,4 +298,13 @@ $checkbox-bordered-padding-right: (
     'large': 20px,
     'default': 16px,
     'small': 12px
+);
+
+$checkbox: (
+    'font-size': 14px,
+    'input-width': 14px,
+    'input-height': 14px,
+    'input-border': getCssVar('border'),
+    'border-radius': getCssVar('border-radius-small'),
+    'input-border-color-hover': getCssVar('color-primary')
 );

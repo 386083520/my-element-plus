@@ -2,10 +2,19 @@
     <label  :class="ns.b()">
         <span :class="spanKls">
             <input
+                v-if="trueValue || falseValue"
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                :true-value="trueValue ?? true"
+                :false-value="falseValue ?? false"
                 />
+            <input
+                v-else
+                type="checkbox"
+                :class="ns.e('original')"
+                v-model="model"
+                />    
             <span :class="ns.e('inner')"></span>
         </span>
         <span :class="ns.e('label')">

@@ -5,6 +5,14 @@ export const checkboxProps = buildProps({
     modelValue:  {
         type: Boolean,
         default: undefined
+    },
+    trueValue: {
+        type: [String, Number],
+        default: undefined
+    },
+    falseValue: {
+        type: [String, Number],
+        default: undefined
     }
 })
 

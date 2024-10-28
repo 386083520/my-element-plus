@@ -1,5 +1,5 @@
 <template>
-<ell-checkbox v-model="checked1">Disabled</ell-checkbox>
+<ell-checkbox v-model="checked1" trueValue="1" falseValue="0">Disabled</ell-checkbox>
   {{ checked1 }}
 
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const checked1 = ref(true)
+const checked1 = ref('0')
 
 function handleChange(e) {
   console.log(e.target.checked)

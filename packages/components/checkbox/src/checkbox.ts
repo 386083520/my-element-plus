@@ -6,6 +6,10 @@ export const checkboxProps = buildProps({
         type: Boolean,
         default: undefined
     },
+    label: {
+        type: [String, Boolean, Number],
+        default: undefined
+    },
     disabled: Boolean,
     trueValue: {
         type: [String, Number],

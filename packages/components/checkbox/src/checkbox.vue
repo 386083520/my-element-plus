@@ -21,6 +21,7 @@
         </span>
         <span :class="ns.e('label')">
             <slot/>
+            <template v-if="!$slots.default">{{ label }}</template>
         </span>
     </label>
 </template>

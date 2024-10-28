@@ -4,5 +4,5 @@ import CheckboxGroup from "./src/checkbox-group.vue";
 export const EllCheckbox  = withInstall(Checkbox, {
     CheckboxGroup
 })
-export const EllCheckBoxGroup = withNoopInstall(CheckboxGroup)
+export const EllCheckboxGroup = withNoopInstall(CheckboxGroup)
 export default EllCheckbox

@@ -1,6 +1,6 @@
 <template>
 <ell-checkbox v-model="checked1" disabled>Disabled</ell-checkbox>
-<ell-checkbox v-model="checked2">Not disabled</ell-checkbox>
+<ell-checkbox v-model="checked2" disabled>Not disabled</ell-checkbox>
 
 </template>
 

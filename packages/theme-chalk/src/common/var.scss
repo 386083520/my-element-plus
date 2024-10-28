@@ -310,5 +310,10 @@ $checkbox: (
     'checked-bg-color': getCssVar('color-primary'),
     'checked-input-border-color': getCssVar('color-primary'),
     'checked-icon-color': getCssVar('color', 'white'),
-    'checked-text-color': getCssVar('color-primary')
+    'checked-text-color': getCssVar('color-primary'),
+    'disabled-border-color': getCssVar('border-color'),
+    'disabled-input-fill': getCssVar('fill-color', 'light'),
+    'disabled-checked-border-color': getCssVar('border-color'),
+    'disabled-checked-input-fill': getCssVar('border-color-extra-light'),
+    'disabled-checked-icon-color': getCssVar('text-color-placeholder')
 );

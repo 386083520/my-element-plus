@@ -47,7 +47,8 @@ const { model, isChecked, isDisabled } = useCheckbox(props)
 const spanKls = computed(() => {
     return [
         ns.e('input'),
-        ns.is('checked', isChecked.value)
+        ns.is('checked', isChecked.value),
+        ns.is('disabled', isDisabled.value)
     ]
 })
 </script>

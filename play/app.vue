@@ -1,19 +1,15 @@
 <template>
-<ell-checkbox v-model="checked1" disabled>Disabled</ell-checkbox>
-<ell-checkbox v-model="checked2" disabled>Not disabled</ell-checkbox>
-
+<ell-checkbox-group v-model="checkList">
+    <ell-checkbox label="Option 1" value="Value 1" />
+    <ell-checkbox label="Option 2 & Value 2"  value="Value 2"/>
+  </ell-checkbox-group>
+{{ checkList }}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const checked1 = ref(false)
-const checked2 = ref(true)
-
-function handleChange(e) {
-  console.log(e.target.checked)
-  checked1.value = e.target.checked
-}
+const checkList = ref([])
 </script>
 
 <style>

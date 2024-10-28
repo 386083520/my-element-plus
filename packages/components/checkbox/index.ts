@@ -1,4 +1,8 @@
-import { withInstall } from "@my-element-plus/utils";
+import { withInstall, withNoopInstall } from "@my-element-plus/utils";
 import Checkbox from "./src/checkbox.vue";
-export const EllCheckbox  = withInstall(Checkbox)
+import CheckboxGroup from "./src/checkbox-group.vue";
+export const EllCheckbox  = withInstall(Checkbox, {
+    CheckboxGroup
+})
+export const EllCheckBoxGroup = withNoopInstall(CheckboxGroup)
 export default EllCheckbox

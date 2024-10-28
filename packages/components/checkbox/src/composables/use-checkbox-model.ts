@@ -16,3 +16,5 @@ export const useCheckboxModel = (props: CheckboxProps) => {
         model
     }
 }
+
+export type CheckboxModel = ReturnType<typeof useCheckboxModel>

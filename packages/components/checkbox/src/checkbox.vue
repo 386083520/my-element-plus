@@ -31,12 +31,12 @@ function handleChange(e) {
     emit(UPDATE_MODEL_EVENT, e.target.checked)
 }
 
-const { model } = useCheckbox(props)
+const { model, isChecked } = useCheckbox(props)
 
 const spanKls = computed(() => {
     return [
         ns.e('input'),
-        ns.is('checked', model.value)
+        ns.is('checked', isChecked.value)
     ]
 })
 </script>

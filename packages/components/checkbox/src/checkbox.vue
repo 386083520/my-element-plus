@@ -6,6 +6,7 @@
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                :disabled="isDisabled"
                 :true-value="trueValue ?? true"
                 :false-value="falseValue ?? false"
                 />
@@ -14,6 +15,7 @@
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                :disabled="isDisabled"
                 />    
             <span :class="ns.e('inner')"></span>
         </span>
@@ -40,7 +42,7 @@ function handleChange(e) {
     emit(UPDATE_MODEL_EVENT, e.target.checked)
 }
 
-const { model, isChecked } = useCheckbox(props)
+const { model, isChecked, isDisabled } = useCheckbox(props)
 
 const spanKls = computed(() => {
     return [

@@ -3,7 +3,11 @@ import { buildProps } from "@my-element-plus/utils"
 import { ExtractPropTypes } from "vue"
 export const checkboxProps = buildProps({
     modelValue:  {
-        type: Boolean,
+        type: [String, Boolean, Number],
+        default: undefined
+    },
+    value: {
+        type: [String, Boolean, Number],
         default: undefined
     },
     label: {

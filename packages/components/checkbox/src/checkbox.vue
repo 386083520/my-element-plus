@@ -16,6 +16,7 @@
                 :class="ns.e('original')"
                 v-model="model"
                 :disabled="isDisabled"
+                :value="value"
                 />    
             <span :class="ns.e('inner')"></span>
         </span>

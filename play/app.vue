@@ -1,5 +1,5 @@
 <template>
-  <ell-checkbox-group v-model="checkedCities" :min="1" :max="2">
+  <ell-checkbox-group v-model="checkedCities">
     <ell-checkbox v-for="city in cities" :key="city" :label="city" :value="city">
       {{ city }}
     </ell-checkbox>

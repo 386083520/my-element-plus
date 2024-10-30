@@ -9,7 +9,8 @@ export const checkboxGroupProps = buildProps({
         default: () => []
     },
     min: Number,
-    max: Number
+    max: Number,
+    disabled: Boolean
 })
 
 export const checkboxGroupEmits = {

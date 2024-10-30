@@ -1,6 +1,7 @@
 <template>
   <ell-checkbox
     v-model="checkAll"
+    disabled
     :indeterminate="isIndeterminate"
     @change="handleCheckAllChange"
   >

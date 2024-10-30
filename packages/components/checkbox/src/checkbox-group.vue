@@ -7,15 +7,22 @@
 import { useNamespace } from '@my-element-plus/hooks';
 import { provide, reactive, toRefs } from 'vue';
 import { checkboxGroupContextKey } from './constants';
-import { checkboxGroupProps } from './checkbox-group';
+import { checkboxGroupEmits, checkboxGroupProps, CheckboxGroupValueType } from './checkbox-group';
+import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 
 defineOptions({
     name: 'EllCheckboxGroup'
 })
 const ns = useNamespace('checkbox')
 const props = defineProps(checkboxGroupProps)
+const emit = defineEmits(checkboxGroupEmits)
+
+const changeEvent = (value: CheckboxGroupValueType) => {
+    emit(UPDATE_MODEL_EVENT, value)
+}
 
 provide(checkboxGroupContextKey, {
-        ...toRefs(props)
+        ...toRefs(props),
+        changeEvent
     })
 </script>

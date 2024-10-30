@@ -1,6 +1,7 @@
-import { buildProps, definePropType } from "@my-element-plus/utils";
+import { buildProps, definePropType, isArray } from "@my-element-plus/utils";
 import { CheckboxValueType } from "./checkbox";
 import { ExtractPropTypes } from "vue";
+import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants";
 export type CheckboxGroupValueType = Exclude<CheckboxValueType, boolean>[]
 export const checkboxGroupProps = buildProps({
     modelValue: {
@@ -9,4 +10,10 @@ export const checkboxGroupProps = buildProps({
     }
 })
 
+export const checkboxGroupEmits = {
+    [UPDATE_MODEL_EVENT]: (val:CheckboxGroupValueType) => isArray(val)
+}
+
+
 export type CheckboxGroupProps = ExtractPropTypes<typeof checkboxGroupProps>
+export type CheckboxGroupEmits = typeof checkboxGroupEmits

@@ -2,7 +2,7 @@ import { computed, getCurrentInstance, inject } from "vue";
 import { CheckboxProps } from "../checkbox";
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants";
 import { checkboxGroupContextKey } from "../constants";
-import { isUndefined } from "@my-element-plus/utils";
+import { isArray, isUndefined } from "@my-element-plus/utils";
 
 export const useCheckboxModel = (props: CheckboxProps) => {
     const {  emit } = getCurrentInstance()
@@ -13,7 +13,12 @@ export const useCheckboxModel = (props: CheckboxProps) => {
             return isGroup.value ? checkboxGroup.modelValue.value : props.modelValue
         },
         set(val)  {
-            emit(UPDATE_MODEL_EVENT, val)
+            if(isGroup.value && isArray(val)) {
+                checkboxGroup.changeEvent(val)
+            }else {
+                emit(UPDATE_MODEL_EVENT, val)
+            }
+            
         }
     })
     return {

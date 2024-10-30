@@ -20,7 +20,7 @@
                 :disabled="isDisabled"
                 :value="value"
                 @change="handleChange"
-                />    
+                />
             <span :class="ns.e('inner')"></span>
         </span>
         <span :class="ns.e('label')">
@@ -44,11 +44,11 @@ const ns = useNamespace('checkbox')
 const props = defineProps(checkboxProps)
 const emit = defineEmits(checkboxEmits)
 
-const { 
+const {
     model,
     isChecked,
     isDisabled,
-    handleChange 
+    handleChange
 } = useCheckbox(props)
 
 const spanKls = computed(() => {

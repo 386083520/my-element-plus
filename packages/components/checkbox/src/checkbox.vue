@@ -6,6 +6,7 @@
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                @change="handleChange"
                 :indeterminate="indeterminate"
                 :disabled="isDisabled"
                 :true-value="trueValue ?? true"

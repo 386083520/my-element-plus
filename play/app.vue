@@ -1,11 +1,11 @@
 <template>
-<ell-checkbox
+<el-checkbox
     v-model="checkAll"
     :indeterminate="isIndeterminate"
     @change="handleChange"
   >
     Check all
-  </ell-checkbox>
+  </el-checkbox>
 </template>
 
 <script lang="ts" setup>
@@ -13,8 +13,8 @@ import { ref } from 'vue'
 
 const checkAll = ref(false)
 const isIndeterminate = ref(false)
-const handleChange = (e) => {
-  console.log('change', e)
+const handleChange = (val, e) => {
+  console.log('change', val, e)
 }
 </script>
 

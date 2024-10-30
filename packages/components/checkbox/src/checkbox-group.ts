@@ -11,7 +11,8 @@ export const checkboxGroupProps = buildProps({
 })
 
 export const checkboxGroupEmits = {
-    [UPDATE_MODEL_EVENT]: (val:CheckboxGroupValueType) => isArray(val)
+    [UPDATE_MODEL_EVENT]: (val:CheckboxGroupValueType) => isArray(val),
+    change: (val: CheckboxGroupValueType) => isArray(val)
 }
 
 

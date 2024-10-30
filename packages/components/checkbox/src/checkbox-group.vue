@@ -5,7 +5,7 @@
 </template>
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
-import { provide, reactive, toRefs } from 'vue';
+import { nextTick, provide, reactive, toRefs } from 'vue';
 import { checkboxGroupContextKey } from './constants';
 import { checkboxGroupEmits, checkboxGroupProps, CheckboxGroupValueType } from './checkbox-group';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
@@ -17,8 +17,10 @@ const ns = useNamespace('checkbox')
 const props = defineProps(checkboxGroupProps)
 const emit = defineEmits(checkboxGroupEmits)
 
-const changeEvent = (value: CheckboxGroupValueType) => {
+const changeEvent = async (value: CheckboxGroupValueType) => {
     emit(UPDATE_MODEL_EVENT, value)
+    await nextTick()
+    emit('change', value)
 }
 
 provide(checkboxGroupContextKey, {

@@ -19,6 +19,7 @@
                 :indeterminate="indeterminate"
                 :disabled="isDisabled"
                 :value="value"
+                @change="handleChange"
                 />    
             <span :class="ns.e('inner')"></span>
         </span>
@@ -42,11 +43,13 @@ defineOptions({
 const ns = useNamespace('checkbox')
 const props = defineProps(checkboxProps)
 const emit = defineEmits(checkboxEmits)
-function handleChange(e) {
-    emit(UPDATE_MODEL_EVENT, e.target.checked)
-}
 
-const { model, isChecked, isDisabled } = useCheckbox(props)
+const { 
+    model,
+    isChecked,
+    isDisabled,
+    handleChange 
+} = useCheckbox(props)
 
 const spanKls = computed(() => {
     return [

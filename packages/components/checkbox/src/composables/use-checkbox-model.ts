@@ -10,7 +10,7 @@ export const useCheckboxModel = (props: CheckboxProps) => {
     const isGroup = computed(() => isUndefined(checkboxGroup) === false)
     const model = computed({
         get() {
-            return isGroup.value ? checkboxGroup.modelValue : props.modelValue
+            return isGroup.value ? checkboxGroup.modelValue.value : props.modelValue
         },
         set(val)  {
             emit(UPDATE_MODEL_EVENT, val)

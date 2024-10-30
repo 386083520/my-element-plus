@@ -1,4 +1,6 @@
-import { InjectionKey } from "vue";
+import { InjectionKey, ToRefs } from "vue";
 import { CheckboxGroupProps } from "./checkbox-group";
 
-export const checkboxGroupContextKey: InjectionKey<CheckboxGroupProps> = Symbol('checkboxGroupContextKey')
+type CheckboxGroupContext = ToRefs<CheckboxGroupProps>
+
+export const checkboxGroupContextKey: InjectionKey<CheckboxGroupContext> = Symbol('checkboxGroupContextKey')

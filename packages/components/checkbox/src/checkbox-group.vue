@@ -15,7 +15,7 @@ defineOptions({
 const ns = useNamespace('checkbox')
 const props = defineProps(checkboxGroupProps)
 
-provide(checkboxGroupContextKey, reactive({
+provide(checkboxGroupContextKey, {
         ...toRefs(props)
-    }))
+    })
 </script>

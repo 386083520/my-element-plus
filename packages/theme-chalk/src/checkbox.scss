@@ -30,6 +30,16 @@ $checkbox-height: $common-component-size;
                     }
                 }
             }
+            &.is-indeterminate {
+                .#{$namespace}-checkbox__inner {
+                    background-color: getCssVar('checkbox-disabled-checked-input-fill');
+                    border-color: getCssVar('checkbox-disabled-checked-border-color');
+                    &::before {
+                        background-color: getCssVar('checkbox-disabled-checked-icon-color');
+                        border-color: getCssVar('checkbox-disabled-checked-icon-color');
+                    }
+                }
+            }
             & + span.#{$namespace}-checkbox__label {
                 color: getCssVar('disabled-text-color');
                 cursor: not-allowed;

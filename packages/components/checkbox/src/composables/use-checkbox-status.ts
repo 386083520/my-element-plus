@@ -21,3 +21,5 @@ export const useCheckboxStatus = (props: CheckboxProps, { model }: Pick<Checkbox
         isChecked
     }
 }
+
+export type CheckboxStatus = ReturnType<typeof useCheckboxStatus>

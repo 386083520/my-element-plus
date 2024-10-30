@@ -7,7 +7,9 @@ export const checkboxGroupProps = buildProps({
     modelValue: {
         type: definePropType<CheckboxGroupValueType>(Array),
         default: () => []
-    }
+    },
+    min: Number,
+    max: Number
 })
 
 export const checkboxGroupEmits = {

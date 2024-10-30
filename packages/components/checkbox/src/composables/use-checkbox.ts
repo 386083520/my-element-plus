@@ -6,7 +6,7 @@ import { useCheckboxModel } from "./use-checkbox-model";
 export const useCheckbox = (props: CheckboxProps) => {
     const { model }  = useCheckboxModel(props)
     const { isChecked } = useCheckboxStatus(props, { model })
-    const { isDisabled } = useCheckboxDisabled(props)
+    const { isDisabled } = useCheckboxDisabled(props, { model, isChecked })
     const {handleChange} = useCheckboxEvent(props)
     return {
         model,

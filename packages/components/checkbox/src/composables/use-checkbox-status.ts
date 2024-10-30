@@ -9,7 +9,7 @@ export const useCheckboxStatus = (props: CheckboxProps, { model }: Pick<Checkbox
         if(isBoolean(value)) {
             return value
         }else if(isArray(value)) {
-            return value.includes(props.value)
+            return (value as any).includes(props.value)
         }else if(value !== null && value !== undefined){
             return value === props.trueValue
         } else {

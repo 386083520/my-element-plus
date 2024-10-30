@@ -6,6 +6,7 @@
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                :indeterminate="indeterminate"
                 :disabled="isDisabled"
                 :true-value="trueValue ?? true"
                 :false-value="falseValue ?? false"
@@ -15,6 +16,7 @@
                 type="checkbox"
                 :class="ns.e('original')"
                 v-model="model"
+                :indeterminate="indeterminate"
                 :disabled="isDisabled"
                 :value="value"
                 />    
@@ -50,7 +52,8 @@ const spanKls = computed(() => {
     return [
         ns.e('input'),
         ns.is('checked', isChecked.value),
-        ns.is('disabled', isDisabled.value)
+        ns.is('disabled', isDisabled.value),
+        ns.is('indeterminate', props.indeterminate)
     ]
 })
 </script>

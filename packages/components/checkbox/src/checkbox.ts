@@ -23,7 +23,8 @@ export const checkboxProps = buildProps({
     falseValue: {
         type: [String, Number],
         default: undefined
-    }
+    },
+    indeterminate: Boolean
 })
 
 export  const checkboxEmits = {

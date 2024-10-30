@@ -48,6 +48,26 @@ $checkbox-height: $common-component-size;
                 color: getCssVar('checkbox-checked-text-color')
             }
         }
+        @include when(indeterminate) {
+            .#{$namespace}-checkbox__inner {
+                background-color: getCssVar('checkbox-checked-bg-color');
+                border-color: getCssVar('checkbox-checked-input-border-color');
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    height: 2px;
+                    left: 0;
+                    right: 0;
+                    background-color: getCssVar('checkbox-checked-icon-color');
+                    top: 5px;
+                    transform: scale(0.5);
+                }
+                &::after {
+                    display: none;
+                }
+            }
+        }
     }
     @include e(original) {
         opacity: 0;

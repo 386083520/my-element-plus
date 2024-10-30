@@ -1,10 +1,10 @@
 <template>
-<el-checkbox
+<ell-checkbox
     v-model="checkAll"
     :indeterminate="isIndeterminate"
   >
     Check all
-  </el-checkbox>
+  </ell-checkbox>
 </template>
 
 <script lang="ts" setup>

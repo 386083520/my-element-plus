@@ -20,7 +20,7 @@ export const useCheckboxDisabled = (props: CheckboxProps, {
         )
     })
     const isDisabled = computed(() => {
-        return props.disabled || isLimitDisabled.value
+        return props.disabled || checkboxGroup?.disabled.value || isLimitDisabled.value
     })
     return {
         isDisabled

@@ -1,24 +1,36 @@
 <template>
-<ell-checkbox-group v-model="checkList" @change="handleChange">
-    <ell-checkbox label="Option A" value="Value A" />
-    <ell-checkbox label="Option B" value="Value B" />
-    <ell-checkbox label="Option C" value="Value C" />
-    <ell-checkbox label="disabled" value="Value disabled" disabled />
-    <ell-checkbox
-      label="selected and disabled"
-      value="Value selected and disabled"
-      disabled
-    />
+  <ell-checkbox
+    v-model="checkAll"
+    :indeterminate="isIndeterminate"
+    @change="handleCheckAllChange"
+  >
+    Check all
+  </ell-checkbox>
+  <ell-checkbox-group
+    v-model="checkedCities"
+    @change="handleCheckedCitiesChange"
+  >
+    <ell-checkbox v-for="city in cities" :key="city" :label="city" :value="city">
+      {{ city }}
+    </ell-checkbox>
   </ell-checkbox-group>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const checkList = ref(['Value selected and disabled', 'Value A'])
+const checkAll = ref(false)
+const isIndeterminate = ref(true)
+const checkedCities = ref(['Shanghai', 'Beijing'])
+const cities = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
 
-const handleChange = (value) => {
-  console.log('change', value)
+const handleCheckAllChange = (val: boolean) => {
+  checkedCities.value = val ? cities : []
+  isIndeterminate.value = false
+}
+const handleCheckedCitiesChange = (value: string[]) => {
+  const checkedCount = value.length
+  checkAll.value = checkedCount === cities.length
+  isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length
 }
 </script>
-

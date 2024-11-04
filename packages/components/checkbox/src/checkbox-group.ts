@@ -2,6 +2,7 @@ import { buildProps, definePropType, isArray } from "@my-element-plus/utils";
 import { CheckboxValueType } from "./checkbox";
 import { ExtractPropTypes } from "vue";
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants";
+import { useSizeProp } from "@my-element-plus/hooks";
 export type CheckboxGroupValueType = Exclude<CheckboxValueType, boolean>[]
 export const checkboxGroupProps = buildProps({
     modelValue: {
@@ -10,7 +11,8 @@ export const checkboxGroupProps = buildProps({
     },
     min: Number,
     max: Number,
-    disabled: Boolean
+    disabled: Boolean,
+    size: useSizeProp
 })
 
 export const checkboxGroupEmits = {

@@ -48,6 +48,7 @@ const emit = defineEmits(checkboxEmits)
 const {
     model,
     isChecked,
+    checkboxSize,
     isDisabled,
     handleChange
 } = useCheckbox(props)
@@ -55,7 +56,7 @@ const {
 const compKls = computed(() => {
     return [
         ns.b(),
-        ns.m(props.size)
+        ns.m(checkboxSize.value)
     ]
 })
 

@@ -1,5 +1,5 @@
 <template>
-    <label  :class="ns.b()">
+    <label  :class="compKls">
         <span :class="spanKls">
             <input
                 v-if="trueValue || falseValue"
@@ -51,6 +51,13 @@ const {
     isDisabled,
     handleChange
 } = useCheckbox(props)
+
+const compKls = computed(() => {
+    return [
+        ns.b(),
+        ns.m(props.size)
+    ]
+})
 
 const spanKls = computed(() => {
     return [

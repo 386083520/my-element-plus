@@ -1,4 +1,5 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps } from "@my-element-plus/utils"
 import { ExtractPropTypes } from "vue"
 export type CheckboxValueType = string | number | boolean
@@ -24,7 +25,8 @@ export const checkboxProps = buildProps({
         type: [String, Number],
         default: undefined
     },
-    indeterminate: Boolean
+    indeterminate: Boolean,
+    size: useSizeProp
 })
 
 export  const checkboxEmits = {

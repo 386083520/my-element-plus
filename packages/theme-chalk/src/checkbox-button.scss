@@ -3,6 +3,9 @@
 @use 'common/var.scss' as *;
 @use 'mixins/button.scss' as *;
 @include b(checkbox-button) {
+    @include set-component-css-var('checkbox-button', $checkbox-button)
+}
+@include b(checkbox-button) {
     position: relative;
     display: inline-block;
     @include e(inner) {
@@ -13,6 +16,7 @@
         border-left-color: transparent;
         cursor: pointer;
         user-select: none;
+        color: map.get($button, 'text-color');
         &:hover {
             color: getCssVar('color-primary');
         }
@@ -22,6 +26,13 @@
             map.get($button-font-size, 'default'),
             0
         );
+    }
+    &.is-checked {
+        & .#{$namespace}-checkbox-button__inner {
+            color: getCssVar('checkbox-button-checked-text-color');
+            background-color: getCssVar('checkbox-button-checked-bg-color');
+            border-color: getCssVar('checkbox-button-checked-border-color');
+        }
     }
     @include e(original) {
         opacity: 0;

@@ -7,6 +7,11 @@ $checkbox-font-size: (
     'large': 14px,
     'small': 12px
 );
+$checkbox-bordered-input-height: (
+    'large': 14px,
+    'default': 12px,
+    'small': 12px
+);
 @include b(checkbox) {
     @include set-component-css-var('checkbox', $checkbox)
 }
@@ -27,6 +32,29 @@ $checkbox-font-size: (
         }
         &.is-disabled {
             border-color: getCssVar('border-color-lighter');
+        }
+        @each $size in (large,small) {
+            &.#{$namespace}-checkbox--#{$size} {
+                padding: 0 map.get($checkbox-bordered-padding-right, $size) - $border-width
+                  0 map.get($checkbox-bordered-padding-left, $size) - $border-width;
+                border-radius: map.get($button-border-radius, $size);
+                .#{$namespace}-checkbox__label {
+                    font-size: map.get($button-font-size, $size);
+                }
+                .#{$namespace}-checkbox__inner {
+                    width: map.get($checkbox-bordered-input-height, $size);
+                    height: map.get($checkbox-bordered-input-height, $size);
+                }
+            }
+            
+        }
+        &.#{$namespace}-checkbox--small {
+            .#{$namespace}-checkbox__inner {
+                &::after {
+                    width: 2px;
+                    height: 6px;
+                }
+            }
         }
     }
     @include e(input) {
@@ -142,6 +170,14 @@ $checkbox-font-size: (
             @include e(inner) {
                 width: map.get($checkbox-font-size, $size);
                 height: map.get($checkbox-font-size, $size);
+            }
+        }
+    }
+    &.#{$namespace}-checkbox--small {
+        .#{$namespace}-checkbox__inner {
+            &::after {
+                width: 2px;
+                height: 6px;
             }
         }
     }

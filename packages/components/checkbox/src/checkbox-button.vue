@@ -6,11 +6,13 @@
             :false-value="falseValue ?? false"
             v-model="model"
             type="checkbox"
+            :disabled="isDisabled"
             :class="ns.be('button', 'original')"
             />
         <input
             v-else
             v-model="model"
+            :disabled="isDisabled"
             type="checkbox"
             :class="ns.be('button', 'original')"
             :value="value"
@@ -33,13 +35,14 @@ const ns = useNamespace('checkbox')
 
 const props = defineProps(checkboxProps)
 
-const { model, isChecked } = 
+const { model, isChecked, isDisabled } = 
    useCheckbox(props)
 
 const labelKls = computed(() => {
     return [
         ns.b('button'),
-        ns.is('checked', isChecked.value)
+        ns.is('checked', isChecked.value),
+        ns.is('disabled', isDisabled.value),
     ]
 })
 </script>

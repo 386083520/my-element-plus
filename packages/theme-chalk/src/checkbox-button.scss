@@ -27,13 +27,6 @@
             0
         );
     }
-    &.is-checked {
-        & .#{$namespace}-checkbox-button__inner {
-            color: getCssVar('checkbox-button-checked-text-color');
-            background-color: getCssVar('checkbox-button-checked-bg-color');
-            border-color: getCssVar('checkbox-button-checked-border-color');
-        }
-    }
     @include e(original) {
         opacity: 0;
         position: absolute;
@@ -50,6 +43,21 @@
         .#{$namespace}-checkbox-button__inner {
             border-top-right-radius: getCssVar('border-radius-base');
             border-bottom-right-radius: getCssVar('border-radius-base');
+        }
+    }
+    &.is-checked {
+        & .#{$namespace}-checkbox-button__inner {
+            color: getCssVar('checkbox-button-checked-text-color');
+            background-color: getCssVar('checkbox-button-checked-bg-color');
+            border-color: getCssVar('checkbox-button-checked-border-color');
+        }
+    }
+    &.is-disabled {
+        & .#{$namespace}-checkbox-button__inner {
+            color: getCssVar('disabled-text-color');
+            cursor: not-allowed;
+            background-color: map.get($button, 'disabled-bg-color');
+            border-color: map.get($button, 'disabled-border-color');
         }
     }
 } 

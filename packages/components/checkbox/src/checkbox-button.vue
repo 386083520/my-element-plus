@@ -18,7 +18,7 @@
             :value="value"
         />    
         <span :class="ns.be('button', 'inner')">
-            <slot></slot>
+            <slot>{{ label }}</slot>
         </span>
     </label>
 </template>

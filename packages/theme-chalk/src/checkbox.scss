@@ -16,6 +16,16 @@ $checkbox-font-size: (
     cursor: pointer;
     height: map.get($checkbox-height, 'default');
     margin-right: 30px;
+    @include  when(bordered) {
+        padding: 0 map.get($checkbox-bordered-padding-right, 'default') - $border-width
+                  0 map.get($checkbox-bordered-padding-left, 'default') - $border-width;
+        border-radius: getCssVar('border-radius-base');
+        border: getCssVar('border');
+        box-sizing: border-box;
+        &.is-checked {
+            border-color: getCssVar('color-primary');
+        }
+    }
     @include e(input) {
         position: relative;
         display: inline-flex;

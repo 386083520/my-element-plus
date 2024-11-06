@@ -26,7 +26,8 @@ export const checkboxProps = buildProps({
         default: undefined
     },
     indeterminate: Boolean,
-    size: useSizeProp
+    size: useSizeProp,
+    border: Boolean
 })
 
 export  const checkboxEmits = {

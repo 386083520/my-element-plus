@@ -35,7 +35,7 @@ const ns = useNamespace('checkbox')
 
 const props = defineProps(checkboxProps)
 
-const { model, isChecked, isDisabled } = 
+const { model, isChecked, isDisabled, checkboxSize } = 
    useCheckbox(props)
 
 const labelKls = computed(() => {
@@ -43,6 +43,7 @@ const labelKls = computed(() => {
         ns.b('button'),
         ns.is('checked', isChecked.value),
         ns.is('disabled', isDisabled.value),
+        ns.bm('button', checkboxSize.value)
     ]
 })
 </script>

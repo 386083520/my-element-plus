@@ -60,4 +60,17 @@
             border-color: map.get($button, 'disabled-border-color');
         }
     }
+
+    @each $size in (large,small) {
+        @include m($size) {
+            .#{$namespace}-checkbox-button__inner {
+                @include button-size(
+                    map.get($button-padding-vertical, $size) - $button-border-width,
+                    map.get($button-padding-horizontal, $size) - $button-border-width,
+                    map.get($button-font-size, $size),
+                    0
+                );
+            }
+        }
+    }
 } 

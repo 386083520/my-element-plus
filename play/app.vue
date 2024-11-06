@@ -1,16 +1,9 @@
 <template>
-  <el-checkbox-group v-model="checkboxGroup1" size="large">
-      <el-checkbox label="Option1" value="Value1" border />
-      <el-checkbox label="Option2" value="Value2" border />
-</el-checkbox-group>
-<el-checkbox-group v-model="checkboxGroup1">
-      <el-checkbox label="Option1" value="Value1" />
-      <el-checkbox label="Option2" value="Value2" border />
-</el-checkbox-group>
-<el-checkbox-group v-model="checkboxGroup1" size="small">
-      <el-checkbox label="Option1" value="Value1" border />
-      <el-checkbox label="Option2" value="Value2" border />
-</el-checkbox-group>
+
+<ell-checkbox-group v-model="checkboxGroup1">
+      <ell-checkbox-button label="Option1" value="Value1">aaa</ell-checkbox-button>
+      <ell-checkbox-button label="Option2" value="Value2" border />
+</ell-checkbox-group>
 {{ checkboxGroup1 }}
 </template>
 

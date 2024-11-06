@@ -153,6 +153,8 @@ $button-border-radius: (
     'small': calc(#{getCssVar('border-radius', 'base')} - 1px)
 );
 
+$button-border-width: $border-width;
+
 $input-height: (
     'large': 40px,
     'default': 32px,

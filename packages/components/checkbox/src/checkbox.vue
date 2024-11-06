@@ -58,7 +58,8 @@ const compKls = computed(() => {
         ns.b(),
         ns.m(checkboxSize.value),
         ns.is('bordered', props.border),
-        ns.is('checked', isChecked.value)
+        ns.is('checked', isChecked.value),
+        ns.is('disabled', isDisabled.value)
     ]
 })
 

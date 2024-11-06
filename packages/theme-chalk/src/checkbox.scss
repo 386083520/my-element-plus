@@ -25,6 +25,9 @@ $checkbox-font-size: (
         &.is-checked {
             border-color: getCssVar('color-primary');
         }
+        &.is-disabled {
+            border-color: getCssVar('border-color-lighter');
+        }
     }
     @include e(input) {
         position: relative;

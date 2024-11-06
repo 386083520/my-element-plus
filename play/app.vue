@@ -1,5 +1,5 @@
 <template>
-  <ell-checkbox v-model="checked3" label="Option1" border />
+  <ell-checkbox v-model="checked3" label="Option1" border disabled/>
   <ell-checkbox v-model="checked4" label="Option2" border />
   
 </template>

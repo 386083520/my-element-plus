@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import Checkbox from "../src/checkbox.vue"
 import { ref } from "vue"
+import CheckboxGroup from "../src/checkbox-group.vue"
 
 const AXIOM = 'rem is the best girl'
 
@@ -40,5 +41,48 @@ describe('Checkbox.vue', () => {
         ))
         await wrapper.trigger('click')
         expect(data.value).toBe(true)
+    })
+
+    test('checkbox group', async () => {
+        const checkList = ref([])
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <CheckboxGroup v-model={checkList.value}>
+                        <Checkbox label="a" value="a" ref="a"></Checkbox>
+                        <Checkbox label="b" value="b" ref="b"></Checkbox>
+                        <Checkbox label="c" value="c" ref="c"></Checkbox>
+                        <Checkbox label="d" value="d" ref="d"></Checkbox>
+                    </CheckboxGroup>
+                )
+            }
+        })
+        expect(checkList.value.length).toBe(0)
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(checkList.value.length).toBe(1)
+        expect(checkList.value).toContain('a')
+        await wrapper.findComponent({ref: 'b'}).trigger('click')
+        expect(checkList.value.length).toBe(2)
+        expect(checkList.value).toContain('a')
+        expect(checkList.value).toContain('b')
+    })
+
+    test('checkbox group change', async () => {
+        const checkList = ref([])
+        const data = ref([])
+        const onChange = (val)  => (data.value = val)
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <CheckboxGroup v-model={checkList.value} onChange={onChange}>
+                        <Checkbox label="a" value="a" ref="a"></Checkbox>
+                        <Checkbox label="b" value="b" ref="b"></Checkbox>
+                    </CheckboxGroup>
+                )
+            }
+        })
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(data.value.length).toBe(1)
+        expect(data.value).toContain('a')
     })
 })

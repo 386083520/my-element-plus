@@ -129,4 +129,52 @@ describe('check-button', () => {
         await wrapper.trigger('click')
         expect(data.value).toBe(true)
     })
+
+    test('button group change', async () => {
+        const checkList = ref([])
+        const data = ref([])
+        const onChange = (val)  => (data.value = val)
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <CheckboxGroup v-model={checkList.value} onChange={onChange}>
+                        <CheckboxButton label="a" value="a" ref="a"></CheckboxButton>
+                        <CheckboxButton label="b" value="b" ref="b"></CheckboxButton>
+                    </CheckboxGroup>
+                )
+            }
+        })
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(data.value.length).toBe(1)
+        expect(data.value).toContain('a')
+    })
+
+    test('button group min and max', async () => {
+        const checkList = ref(['a', 'b'])
+        const wrapper = mount({
+            setup() {
+                return () => (
+                    <CheckboxGroup v-model={checkList.value} min={2} max={3}>
+                        <CheckboxButton label="a" value="a" ref="a"></CheckboxButton>
+                        <CheckboxButton label="b" value="b" ref="b"></CheckboxButton>
+                        <CheckboxButton label="c" value="c" ref="c"></CheckboxButton>
+                        <CheckboxButton label="d" value="d" ref="d"></CheckboxButton>
+                        <CheckboxButton label="e" value="e" ref="e"></CheckboxButton>
+                    </CheckboxGroup>
+                )
+            }
+        })
+        expect(checkList.value.length).toBe(2)
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(checkList.value.length).toBe(2)
+        await wrapper.findComponent({ref: 'c'}).trigger('click')
+        expect(checkList.value.length).toBe(3)
+        expect(checkList.value).toEqual(['a','b','c'])
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(checkList.value.length).toBe(2)
+        await wrapper.findComponent({ref: 'a'}).trigger('click')
+        expect(checkList.value.length).toBe(3)
+        expect(wrapper.findComponent({ref: 'd'}).vm.disabled).toBe(false)
+        expect(wrapper.findComponent({ref: 'e'}).vm.disabled).toBe(false)
+    })
 })

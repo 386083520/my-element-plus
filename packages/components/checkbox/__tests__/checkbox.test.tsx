@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils'
 import Checkbox from "../src/checkbox.vue"
 import { ref } from "vue"
 import CheckboxGroup from "../src/checkbox-group.vue"
+import CheckboxButton from "../src/checkbox-button.vue"
 
 const AXIOM = 'rem is the best girl'
 
@@ -84,5 +85,48 @@ describe('Checkbox.vue', () => {
         await wrapper.findComponent({ref: 'a'}).trigger('click')
         expect(data.value.length).toBe(1)
         expect(data.value).toContain('a')
+    })
+
+    test('true/false value', async () => {
+        const checked = ref('a')
+        const wrapper = mount(() => (
+            <Checkbox v-model={checked.value} label="label" true-value="a" false-value={0}></Checkbox>
+        ))
+        await wrapper.trigger('click')
+        expect(checked.value).toBe(0)
+        await wrapper.trigger('click')
+        expect(checked.value).toBe('a')
+    })
+})
+
+describe('check-button', () => {
+    test('create', async () => {
+        const checked = ref(false)
+        const wrapper = mount(() => <CheckboxButton v-model={checked.value} label="a"></CheckboxButton>)
+        expect(wrapper.classes()).toContain('ell-checkbox-button')
+        await wrapper.trigger('click')
+        expect(wrapper.classes()).toContain('is-checked')
+        await wrapper.trigger('click')
+        expect(wrapper.classes('is-checked')).toBe(false)
+    })
+
+    test('disabled', async () => {
+        const checked = ref(false)
+        const wrapper = mount(() => <CheckboxButton v-model={checked.value} label="a" disabled></CheckboxButton>)
+        expect(wrapper.classes()).toContain('is-disabled')
+        expect(checked.value).toBe(false)
+        await wrapper.trigger('click')
+        expect(checked.value).toBe(false)
+    })
+
+    test('change', async () => {
+        const checked = ref(false)
+        const data = ref()
+        const onChange = (val)  => (data.value = val)
+        const wrapper = mount(() => (
+            <CheckboxButton v-model={checked.value} label="a" onChange={onChange}></CheckboxButton>
+        ))
+        await wrapper.trigger('click')
+        expect(data.value).toBe(true)
     })
 })

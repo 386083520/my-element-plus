@@ -8,6 +8,7 @@
             type="checkbox"
             :disabled="isDisabled"
             :class="ns.be('button', 'original')"
+            @change="handleChange"
             />
         <input
             v-else
@@ -16,6 +17,7 @@
             type="checkbox"
             :class="ns.be('button', 'original')"
             :value="value"
+            @change="handleChange"
         />    
         <span :class="ns.be('button', 'inner')">
             <slot>{{ label }}</slot>
@@ -25,7 +27,7 @@
 <script lang="ts" setup>
 import { useNamespace } from '@my-element-plus/hooks';
 import { computed } from 'vue';
-import { checkboxProps } from './checkbox';
+import { checkboxEmits, checkboxProps } from './checkbox';
 import { useCheckbox } from './composables/use-checkbox';
 
 defineOptions({
@@ -35,7 +37,9 @@ const ns = useNamespace('checkbox')
 
 const props = defineProps(checkboxProps)
 
-const { model, isChecked, isDisabled, checkboxSize } = 
+defineEmits(checkboxEmits)
+
+const { model, isChecked, isDisabled, checkboxSize, handleChange } = 
    useCheckbox(props)
 
 const labelKls = computed(() => {

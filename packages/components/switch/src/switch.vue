@@ -8,10 +8,16 @@
         :true-value="activeValue"
         :false-value="inactiveValue"
         />
+        <span :class="labelLeftKls" v-if="inactiveText">
+            {{ inactiveText }}
+        </span>
         <span :class="ns.e('core')">
             <div :class="ns.e('action')">
 
             </div>
+        </span>
+        <span :class="labelRightKls" v-if="activeText">
+            {{ activeText }}
         </span>
     </div>
 </template>
@@ -43,6 +49,14 @@ const handleChange = () => {
 const switchValue = () => {
     handleChange()
 }
+const labelLeftKls = computed(() => {
+    ns.e('label'),
+    ns.em('label', 'left')
+})
+const labelRightKls = computed(() => {
+    ns.e('label'),
+    ns.em('label', 'right')
+})
 onMounted(() => {
     input.value!.checked = checked.value
 })

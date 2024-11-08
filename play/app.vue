@@ -1,6 +1,9 @@
 <template>
 
-<ell-switch v-model="value1" activeValue="1" inactiveValue="0"/>
+<ell-switch
+    v-model="value1"
+    active-text="Pay by month"
+    inactive-text="Pay by year"/>
 {{value1}}
 </template>
 

@@ -12,6 +12,14 @@ export const switchProps = buildProps({
     inactiveValue: {
         type: [Boolean, String, Number],
         default: false
+    },
+    activeText: {
+        type: String,
+        default: ''
+    },
+    inactiveText: {
+        type: String,
+        default: ''
     }
 })
 

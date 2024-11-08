@@ -1,6 +1,7 @@
 <template>
     <div  :class="switchKls" @click.prevent="switchValue">
         <input
+        ref="input"
         type="checkbox"
         :class="ns.e('input')"
         @change="handleChange"
@@ -16,10 +17,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+const input = ref<HTMLInputElement>()
 defineOptions({
     name: 'EllSwitch'
 })
@@ -31,6 +33,9 @@ const switchKls = computed(() => [
     ns.is('checked', checked.value)
 ])
 const checked = computed(() => props.modelValue === props.activeValue)
+watch(checked, (val) => {
+    input.value!.checked = val
+})
 const handleChange = () => {
     const val = checked.value ? props.inactiveValue : props.activeValue
     emit(UPDATE_MODEL_EVENT, val)
@@ -38,4 +43,7 @@ const handleChange = () => {
 const switchValue = () => {
     handleChange()
 }
+onMounted(() => {
+    input.value!.checked = checked.value
+})
 </script>

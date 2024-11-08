@@ -4,6 +4,8 @@
         type="checkbox"
         :class="ns.e('input')"
         @change="handleChange"
+        :true-value="activeValue"
+        :false-value="inactiveValue"
         />
         <span :class="ns.e('core')">
             <div :class="ns.e('action')">
@@ -28,9 +30,9 @@ const switchKls = computed(() => [
     ns.b(),
     ns.is('checked', checked.value)
 ])
-const checked = computed(() => props.modelValue === true)
+const checked = computed(() => props.modelValue === props.activeValue)
 const handleChange = () => {
-    const val = !checked.value
+    const val = checked.value ? props.inactiveValue : props.activeValue
     emit(UPDATE_MODEL_EVENT, val)
 }
 </script>

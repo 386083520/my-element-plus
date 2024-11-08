@@ -1,5 +1,5 @@
 <template>
-    <div  :class="switchKls">
+    <div  :class="switchKls" @click.prevent="switchValue">
         <input
         type="checkbox"
         :class="ns.e('input')"
@@ -34,5 +34,8 @@ const checked = computed(() => props.modelValue === props.activeValue)
 const handleChange = () => {
     const val = checked.value ? props.inactiveValue : props.activeValue
     emit(UPDATE_MODEL_EVENT, val)
+}
+const switchValue = () => {
+    handleChange()
 }
 </script>

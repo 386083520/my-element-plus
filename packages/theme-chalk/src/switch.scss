@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use 'mixins/mixins' as *;
+@use 'common/var.scss' as *;
+
+$switch-core-width: (
+    'default': 40px
+);
+$switch-core-height: (
+    'default': 20px
+);
+$switch-core-border-radius: (
+    'default': 10px
+);
+
+$switch-button-size: (
+    'default': 16px
+);
+
+@include b(switch) {
+    @include set-component-css-var('switch', $switch)
+}
+
+@include b(switch) {
+    position: relative;
+    @include e(input) {
+        opacity: 0;
+        position: absolute;
+    }
+    @include e(core) {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        width: map.get($switch-core-width, 'default');
+        height: map.get($switch-core-height, 'default');
+        display: inline-flex;
+        border: 1px solid getCssVar('switch-off-color');
+        border-radius: map.get($switch-core-border-radius, 'default');
+        background: getCssVar('switch-off-color');
+        box-sizing: border-box;
+        cursor: pointer;
+        .#{$namespace}-switch__action {
+            position: absolute;
+            left: 1px;
+            width: map.get($switch-button-size, 'default');
+            height: map.get($switch-button-size, 'default');
+            background-color: getCssVar('color-white');
+            border-radius: getCssVar('border-radius-circle');
+
+        }
+    }
+}

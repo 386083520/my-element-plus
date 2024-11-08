@@ -325,3 +325,7 @@ $checkbox-button: (
     'checked-text-color': getCssVar('color-white'),
     'checked-border-color': getCssVar('color-primary'),
 );
+
+$switch: (
+    'off-color': getCssVar('border-color')
+);

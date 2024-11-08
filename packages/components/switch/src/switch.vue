@@ -49,14 +49,16 @@ const handleChange = () => {
 const switchValue = () => {
     handleChange()
 }
-const labelLeftKls = computed(() => {
+const labelLeftKls = computed(() => [
     ns.e('label'),
-    ns.em('label', 'left')
-})
-const labelRightKls = computed(() => {
+    ns.em('label', 'left'),
+    ns.is('active', !checked.value)
+])
+const labelRightKls = computed(() => [
     ns.e('label'),
-    ns.em('label', 'right')
-})
+    ns.em('label', 'right'),
+    ns.is('active', checked.value)
+])
 onMounted(() => {
     input.value!.checked = checked.value
 })

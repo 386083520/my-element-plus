@@ -16,12 +16,35 @@ $switch-button-size: (
     'default': 16px
 );
 
+$switch-font-size: (
+    'default': 14px
+);
+
+
 @include b(switch) {
     @include set-component-css-var('switch', $switch)
 }
 
 @include b(switch) {
     position: relative;
+    display: flex;
+    align-items: center;
+    @include e(label) {
+        display: inline-block;
+        height: map.get($switch-core-height, 'default');
+        font-size: map.get($switch-font-size, 'default');
+        font-weight: 500;
+        cursor: pointer;
+        @include m(left) {
+            margin-right: 10px;
+        }
+        @include m(right) {
+            margin-left: 10px;
+        }
+        @include when(active) {
+            color: getCssVar('color-primary');
+        }
+    }
     @include e(input) {
         opacity: 0;
         position: absolute;

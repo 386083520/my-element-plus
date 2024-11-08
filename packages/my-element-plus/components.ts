@@ -13,6 +13,7 @@ import { EllInput } from "@my-element-plus/components/input";
 import { EllInputNumber } from "@my-element-plus/components/input-number";
 import { EllRadio, EllRadioGroup, EllRadioButton } from "@my-element-plus/components/radio";
 import { EllCheckbox, EllCheckboxGroup, EllCheckboxButton } from "@my-element-plus/components/checkbox";
+import { EllSwitch } from "@my-element-plus/components/switch";
 export default [
     EllBadge,
     EllButton,
@@ -33,5 +34,6 @@ export default [
     EllRadioButton,
     EllCheckbox,
     EllCheckboxGroup,
-    EllCheckboxButton
+    EllCheckboxButton,
+    EllSwitch
 ]

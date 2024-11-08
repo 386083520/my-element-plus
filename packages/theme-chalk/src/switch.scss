@@ -48,4 +48,14 @@ $switch-button-size: (
 
         }
     }
+
+    @include when(checked) {
+        .#{$namespace}-switch__core {
+            border-color: getCssVar('switch-on-color');
+            background-color: getCssVar('switch-on-color');
+            .#{$namespace}-switch__action {
+                left: calc(100% - #{map.get($switch-button-size, 'default') + 1px});
+            }
+        }
+    }
 }

@@ -21,6 +21,7 @@ defineOptions({
 })
 const ns = useNamespace('switch')
 const switchKls = computed(() => [
-    ns.b()
+    ns.b(),
+    ns.is('checked', true)
 ])
 </script>

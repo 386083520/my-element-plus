@@ -3,6 +3,7 @@
         <input
         type="checkbox"
         :class="ns.e('input')"
+        @change="handleChange"
         />
         <span :class="ns.e('core')">
             <div :class="ns.e('action')">
@@ -14,14 +15,22 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { switchProps } from './switch'
+import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
+import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 defineOptions({
     name: 'EllSwitch'
 })
+const emit = defineEmits(switchEmits)
+const props = defineProps(switchProps)
 const ns = useNamespace('switch')
 const switchKls = computed(() => [
     ns.b(),
-    ns.is('checked', true)
+    ns.is('checked', checked.value)
 ])
+const checked = computed(() => props.modelValue === true)
+const handleChange = () => {
+    const val = !checked.value
+    emit(UPDATE_MODEL_EVENT, val)
+}
 </script>

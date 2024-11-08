@@ -25,6 +25,7 @@ $switch-button-size: (
     @include e(input) {
         opacity: 0;
         position: absolute;
+        z-index: 100;
     }
     @include e(core) {
         position: relative;

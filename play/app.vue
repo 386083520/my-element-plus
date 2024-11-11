@@ -1,6 +1,7 @@
 <template>
 
 <ell-switch
+    loading
     v-model="value1"
     :active-action-icon="View"
     :inactive-action-icon="Hide"

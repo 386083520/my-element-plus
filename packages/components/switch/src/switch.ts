@@ -37,7 +37,8 @@ export const switchProps = buildProps({
     },
     inactiveActionIcon: {
         type: iconPropType
-    }
+    },
+    loading: Boolean
 })
 
 export const switchEmits = {

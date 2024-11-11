@@ -30,12 +30,15 @@
                 </template>
             </div>
             <div :class="ns.e('action')">
-                <slot name="active-action" v-if="checked">
+                <ell-icon v-if="loading" :class="ns.is('loading')">
+                    <loading/>
+                </ell-icon>
+                <slot name="active-action" v-else-if="checked">
                     <ell-icon v-if="activeActionIcon">
                         <component :is="activeActionIcon"/>
                     </ell-icon>
                 </slot>
-                <slot name="inactive-action" v-if="!checked">
+                <slot name="inactive-action" v-else-if="!checked">
                     <ell-icon v-if="inactiveActionIcon">
                         <component :is="inactiveActionIcon"/>
                     </ell-icon>
@@ -59,6 +62,7 @@ import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { addUnit } from '@my-element-plus/utils';
+import { Loading } from '@element-plus/icons-vue';
 const input = ref<HTMLInputElement>()
 defineOptions({
     name: 'EllSwitch'

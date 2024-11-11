@@ -4,8 +4,8 @@
     v-model="value1"
     :inlinePrompt="true"
     style="--ell-switch-on-color: #13ce66; --ell-switch-off-color: #ff4949"
-    active-text="是"
-    inactive-text="否"/>
+    active-text="是发大水发生大的书法大赛"
+    inactive-text="否范德萨发大水发"/>
 {{value1}}
 </template>
 

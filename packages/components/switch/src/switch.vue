@@ -8,15 +8,22 @@
         :true-value="activeValue"
         :false-value="inactiveValue"
         />
-        <span :class="labelLeftKls" v-if="inactiveText">
+        <span :class="labelLeftKls" v-if="!inlinePrompt && inactiveText">
             {{ inactiveText }}
         </span>
         <span :class="ns.e('core')">
+            <div v-if="inlinePrompt" :class="ns.e('inner')">
+                <template v-if="activeText || inactiveText">
+                    <span>
+                        {{ checked? activeText : inactiveText }}
+                    </span>
+                </template>
+            </div>
             <div :class="ns.e('action')">
 
             </div>
         </span>
-        <span :class="labelRightKls" v-if="activeText">
+        <span :class="labelRightKls" v-if="!inlinePrompt && activeText">
             {{ activeText }}
         </span>
     </div>

@@ -2,9 +2,10 @@
 
 <ell-switch
     v-model="value1"
+    :inlinePrompt="true"
     style="--ell-switch-on-color: #13ce66; --ell-switch-off-color: #ff4949"
-    active-text="Pay by month"
-    inactive-text="Pay by year"/>
+    active-text="是"
+    inactive-text="否"/>
 {{value1}}
 </template>
 

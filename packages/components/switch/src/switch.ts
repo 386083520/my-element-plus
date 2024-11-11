@@ -20,7 +20,8 @@ export const switchProps = buildProps({
     inactiveText: {
         type: String,
         default: ''
-    }
+    },
+    inlinePrompt: Boolean
 })
 
 export const switchEmits = {

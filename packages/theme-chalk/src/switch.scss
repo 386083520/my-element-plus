@@ -79,12 +79,13 @@ $switch-content-padding: (
             overflow: hidden;
             padding: 0 map.get($switch-content-padding, 'default') 
                      0 calc(#{map.get($switch-button-size,'default') + 2px});
-            .is-text {
+            .is-icon,.is-text {
                 font-size: 12px;
                 color: getCssVar('color-white');
                 user-select: none;
                 @include utils-ellipsis;
             }
+            
         }
 
         .#{$namespace}-switch__action {

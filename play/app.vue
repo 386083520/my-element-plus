@@ -2,6 +2,7 @@
 
 <ell-switch
     v-model="value1"
+    inline-prompt
     :active-icon="Check"
     :inactive-icon="Close"
     style="--ell-switch-on-color: #13ce66; --ell-switch-off-color: #ff4949"

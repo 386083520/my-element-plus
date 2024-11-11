@@ -18,6 +18,11 @@
         </span>
         <span :class="ns.e('core')" :style="coreStyle">
             <div v-if="inlinePrompt" :class="ns.e('inner')">
+                <template v-if="activeIcon || inactiveIcon">
+                    <ell-icon :class="ns.is('icon')">
+                        <component :is="checked? activeIcon : inactiveIcon"/>
+                    </ell-icon>
+                </template>
                 <template v-if="activeText || inactiveText">
                     <span :class="ns.is('text')">
                         {{ checked? activeText : inactiveText }}

@@ -1,5 +1,5 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
-import { buildProps, isBoolean, isString, isNumber } from "@my-element-plus/utils"
+import { buildProps, isBoolean, isString, isNumber, iconPropType } from "@my-element-plus/utils"
 export const switchProps = buildProps({
     modelValue: {
         type: [Boolean, String, Number],
@@ -25,6 +25,12 @@ export const switchProps = buildProps({
     width: {
         type: [String, Number],
         default: ''
+    },
+    activeIcon: {
+        type: iconPropType
+    },
+    inactiveIcon: {
+        type: iconPropType
     }
 })
 

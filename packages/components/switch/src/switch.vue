@@ -8,8 +8,13 @@
         :true-value="activeValue"
         :false-value="inactiveValue"
         />
-        <span :class="labelLeftKls" v-if="!inlinePrompt && inactiveText">
-            {{ inactiveText }}
+        <span :class="labelLeftKls" v-if="!inlinePrompt && (inactiveText || inactiveIcon)">
+            <ell-icon v-if="inactiveIcon">
+                <component :is="inactiveIcon"/>
+            </ell-icon>
+            <span v-if="!inactiveIcon && inactiveText">
+                {{ inactiveText }}
+            </span>
         </span>
         <span :class="ns.e('core')" :style="coreStyle">
             <div v-if="inlinePrompt" :class="ns.e('inner')">
@@ -23,8 +28,13 @@
 
             </div>
         </span>
-        <span :class="labelRightKls" v-if="!inlinePrompt && activeText">
-            {{ activeText }}
+        <span :class="labelRightKls" v-if="!inlinePrompt && (activeText || activeIcon)">
+            <ell-icon v-if="activeIcon">
+                <component :is="activeIcon"/>
+            </ell-icon>
+            <span v-if="!activeIcon && activeText">
+                {{ activeText }}
+            </span>
         </span>
     </div>
 </template>

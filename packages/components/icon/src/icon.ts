@@ -1,4 +1,6 @@
-import { buildProps } from "@my-element-plus/utils"
+import { buildProps, definePropType } from "@my-element-plus/utils"
+import { Component } from "vue"
+
 export const iconProps = buildProps({
     color: {
         type: String

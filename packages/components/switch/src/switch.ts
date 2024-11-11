@@ -21,7 +21,11 @@ export const switchProps = buildProps({
         type: String,
         default: ''
     },
-    inlinePrompt: Boolean
+    inlinePrompt: Boolean,
+    width: {
+        type: [String, Number],
+        default: ''
+    }
 })
 
 export const switchEmits = {

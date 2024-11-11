@@ -61,7 +61,7 @@ $switch-content-padding: (
         position: relative;
         display: inline-flex;
         align-items: center;
-        width: map.get($switch-core-width, 'default');
+        min-width: map.get($switch-core-width, 'default');
         height: map.get($switch-core-height, 'default');
         display: inline-flex;
         border: 1px solid getCssVar('switch-off-color');

@@ -11,7 +11,7 @@
         <span :class="labelLeftKls" v-if="!inlinePrompt && inactiveText">
             {{ inactiveText }}
         </span>
-        <span :class="ns.e('core')">
+        <span :class="ns.e('core')" :style="coreStyle">
             <div v-if="inlinePrompt" :class="ns.e('inner')">
                 <template v-if="activeText || inactiveText">
                     <span :class="ns.is('text')">
@@ -30,10 +30,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, CSSProperties, onMounted, ref, watch } from 'vue';
 import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+import { addUnit } from '@my-element-plus/utils';
 const input = ref<HTMLInputElement>()
 defineOptions({
     name: 'EllSwitch'
@@ -66,6 +67,9 @@ const labelRightKls = computed(() => [
     ns.em('label', 'right'),
     ns.is('active', checked.value)
 ])
+const coreStyle = computed<CSSProperties>(() => ({
+    width: addUnit(props.width)
+}))
 onMounted(() => {
     input.value!.checked = checked.value
 })

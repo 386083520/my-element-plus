@@ -14,7 +14,7 @@
         <span :class="ns.e('core')">
             <div v-if="inlinePrompt" :class="ns.e('inner')">
                 <template v-if="activeText || inactiveText">
-                    <span>
+                    <span :class="ns.is('text')">
                         {{ checked? activeText : inactiveText }}
                     </span>
                 </template>

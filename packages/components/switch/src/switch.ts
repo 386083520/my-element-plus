@@ -31,6 +31,12 @@ export const switchProps = buildProps({
     },
     inactiveIcon: {
         type: iconPropType
+    },
+    activeActionIcon: {
+        type: iconPropType
+    },
+    inactiveActionIcon: {
+        type: iconPropType
     }
 })
 

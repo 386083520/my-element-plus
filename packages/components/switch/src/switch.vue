@@ -30,7 +30,16 @@
                 </template>
             </div>
             <div :class="ns.e('action')">
-
+                <slot name="active-action" v-if="checked">
+                    <ell-icon v-if="activeActionIcon">
+                        <component :is="activeActionIcon"/>
+                    </ell-icon>
+                </slot>
+                <slot name="inactive-action" v-if="!checked">
+                    <ell-icon v-if="inactiveActionIcon">
+                        <component :is="inactiveActionIcon"/>
+                    </ell-icon>
+                </slot>
             </div>
         </span>
         <span :class="labelRightKls" v-if="!inlinePrompt && (activeText || activeIcon)">

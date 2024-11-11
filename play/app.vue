@@ -2,17 +2,15 @@
 
 <ell-switch
     v-model="value1"
-    inline-prompt
-    :active-icon="Check"
-    :inactive-icon="Close"
-    style="--ell-switch-on-color: #13ce66; --ell-switch-off-color: #ff4949"
+    :active-action-icon="View"
+    :inactive-action-icon="Hide"
    />
 {{value1}}
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Check, Close } from '@element-plus/icons-vue'
+import { View, Hide } from '@element-plus/icons-vue'
 
 const value1 = ref('1')
 </script>

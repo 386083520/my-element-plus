@@ -34,6 +34,7 @@ $switch-content-padding: (
     position: relative;
     display: flex;
     align-items: center;
+    font-size: map.get($switch-font-size, 'default');
     @include e(label) {
         display: inline-block;
         height: map.get($switch-core-height, 'default');
@@ -95,7 +96,10 @@ $switch-content-padding: (
             height: map.get($switch-button-size, 'default');
             background-color: getCssVar('color-white');
             border-radius: getCssVar('border-radius-circle');
-
+            color: getCssVar('switch-off-color');
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
@@ -105,6 +109,7 @@ $switch-content-padding: (
             background-color: getCssVar('switch-on-color');
             .#{$namespace}-switch__action {
                 left: calc(100% - #{map.get($switch-button-size, 'default') + 1px});
+                color: getCssVar('switch-on-color')
             }
             .#{$namespace}-switch__inner {
                 padding: 0 calc(#{map.get($switch-button-size,'default') + 2px}) 

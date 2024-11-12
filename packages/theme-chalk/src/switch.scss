@@ -117,4 +117,11 @@ $switch-content-padding: (
             }
         }
     }
+
+    @include when(disabled) {
+        opacity: 0.6;
+        & .#{$namespace}-switch__core,.#{$namespace}-switch__label {
+            cursor: not-allowed;
+        }
+    }
 }

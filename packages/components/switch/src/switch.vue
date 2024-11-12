@@ -73,8 +73,10 @@ const props = defineProps(switchProps)
 const ns = useNamespace('switch')
 const switchKls = computed(() => [
     ns.b(),
-    ns.is('checked', checked.value)
+    ns.is('checked', checked.value),
+    ns.is('disabled', switchDisabled.value)
 ])
+const switchDisabled = computed(() => props.disabled || props.loading)
 const checked = computed(() => props.modelValue === props.activeValue)
 watch(checked, (val) => {
     input.value!.checked = val
@@ -84,6 +86,7 @@ const handleChange = () => {
     emit(UPDATE_MODEL_EVENT, val)
 }
 const switchValue = () => {
+    if(switchDisabled.value) return
     const { beforeChange } = props
     if(!beforeChange) {
         handleChange()

@@ -5,6 +5,7 @@
       :before-change="beforeChange1"
     />
     <ell-switch
+      disabled
       v-model="value2"
       class="ml-2"
       :loading="loading2"
@@ -22,7 +23,13 @@
   
   const beforeChange1 = () => {
     loading1.value = true
-    return 1
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        loading1.value = false
+        ElMessage.success('Switch success')
+        return resolve(true)
+      }, 5000)
+    })
   }
   
   const beforeChange2 = () => {

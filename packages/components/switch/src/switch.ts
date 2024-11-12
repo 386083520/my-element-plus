@@ -41,7 +41,8 @@ export const switchProps = buildProps({
     loading: Boolean,
     beforeChange: {
         type: definePropType<() => boolean | Promise<boolean>>(Function)
-    }
+    },
+    disabled: Boolean
 })
 
 export const switchEmits = {

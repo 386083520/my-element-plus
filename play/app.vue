@@ -3,6 +3,7 @@
       v-model="value1"
       :loading="loading1"
       :before-change="beforeChange1"
+      @change="handleChange"
     />
     <ell-switch
       disabled
@@ -23,13 +24,7 @@
   
   const beforeChange1 = () => {
     loading1.value = true
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        loading1.value = false
-        ElMessage.success('Switch success')
-        return resolve(true)
-      }, 5000)
-    })
+    return true
   }
   
   const beforeChange2 = () => {
@@ -41,5 +36,9 @@
         return reject(new Error('Error'))
       }, 1000)
     })
+  }
+
+  const handleChange = (val) => {
+    console.log(val)
   }
   </script>

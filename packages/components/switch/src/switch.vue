@@ -60,7 +60,7 @@
 import { computed, CSSProperties, onMounted, ref, watch } from 'vue';
 import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
-import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
 import { addUnit, isPromise } from '@my-element-plus/utils';
 import { Loading } from '@element-plus/icons-vue';
 import { isBoolean } from 'lodash-unified';
@@ -84,6 +84,7 @@ watch(checked, (val) => {
 const handleChange = () => {
     const val = checked.value ? props.inactiveValue : props.activeValue
     emit(UPDATE_MODEL_EVENT, val)
+    emit(CHANGE_EVENT, val)
 }
 const switchValue = () => {
     if(switchDisabled.value) return

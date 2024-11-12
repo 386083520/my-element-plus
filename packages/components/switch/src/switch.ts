@@ -1,4 +1,4 @@
-import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
 import { buildProps, isBoolean, isString, isNumber, iconPropType, definePropType } from "@my-element-plus/utils"
 export const switchProps = buildProps({
     modelValue: {
@@ -47,5 +47,7 @@ export const switchProps = buildProps({
 
 export const switchEmits = {
     [UPDATE_MODEL_EVENT]: (val: boolean | string | number) => 
+        isBoolean(val) || isString(val) || isNumber(val),
+    [CHANGE_EVENT]: (val: boolean | string | number) => 
         isBoolean(val) || isString(val) || isNumber(val)
 }

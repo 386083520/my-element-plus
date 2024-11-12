@@ -1,11 +1,16 @@
 <template>
 
 <ell-switch
-    loading
     v-model="value1"
-    :active-action-icon="View"
-    :inactive-action-icon="Hide"
-   />
+    
+   >
+   <template #active-action>
+      <span class="custom-active-action">T</span>
+    </template>
+    <template #inactive-action>
+      <span class="custom-inactive-action">F</span>
+    </template>
+   </ell-switch>
 {{value1}}
 </template>
 

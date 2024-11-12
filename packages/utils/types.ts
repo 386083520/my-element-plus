@@ -3,7 +3,8 @@ export {
     isObject,
     isString,
     isArray,
-    isFunction
+    isFunction,
+    isPromise
 }  from "@vue/shared"
 
 export const isUndefined = (val:any):val is undefined => val === undefined

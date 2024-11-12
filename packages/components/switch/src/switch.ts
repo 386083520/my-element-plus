@@ -1,5 +1,5 @@
 import { UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
-import { buildProps, isBoolean, isString, isNumber, iconPropType } from "@my-element-plus/utils"
+import { buildProps, isBoolean, isString, isNumber, iconPropType, definePropType } from "@my-element-plus/utils"
 export const switchProps = buildProps({
     modelValue: {
         type: [Boolean, String, Number],
@@ -38,7 +38,10 @@ export const switchProps = buildProps({
     inactiveActionIcon: {
         type: iconPropType
     },
-    loading: Boolean
+    loading: Boolean,
+    beforeChange: {
+        type: definePropType<() => boolean | Promise<boolean>>(Function)
+    }
 })
 
 export const switchEmits = {

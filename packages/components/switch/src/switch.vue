@@ -61,8 +61,9 @@ import { computed, CSSProperties, onMounted, ref, watch } from 'vue';
 import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
 import { UPDATE_MODEL_EVENT } from '@my-element-plus/constants';
-import { addUnit } from '@my-element-plus/utils';
+import { addUnit, isPromise } from '@my-element-plus/utils';
 import { Loading } from '@element-plus/icons-vue';
+import { isBoolean } from 'lodash-unified';
 const input = ref<HTMLInputElement>()
 defineOptions({
     name: 'EllSwitch'
@@ -83,7 +84,30 @@ const handleChange = () => {
     emit(UPDATE_MODEL_EVENT, val)
 }
 const switchValue = () => {
-    handleChange()
+    const { beforeChange } = props
+    if(!beforeChange) {
+        handleChange()
+        return
+    }
+    const shouldChange = beforeChange()
+    const isPromiseOrBool = [
+        isPromise(shouldChange),
+        isBoolean(shouldChange)
+    ].includes(true)
+    if(!isPromiseOrBool) {
+        console.warn('beforeChange must return type `Promise<boolean>` or `boolean`')
+    }
+    if(isPromise(shouldChange)) {
+        shouldChange.then(result => {
+            if(result) {
+                handleChange()
+            }
+        }).catch(e => {
+            console.warn(`some error occurred: ${e}`)
+        })
+    } else if(shouldChange) {
+        handleChange()
+    }
 }
 const labelLeftKls = computed(() => [
     ns.e('label'),

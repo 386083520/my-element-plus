@@ -1,10 +1,10 @@
-import { describe, test, expect } from "vitest"
+import { describe, test, expect, vi } from "vitest"
 import { mount } from '@vue/test-utils'
 
 import Switch from "../src/switch.vue"
 
 import { Checked, CircleClose } from "@element-plus/icons-vue"
-import { ref } from "vue"
+import { nextTick, ref } from "vue"
 
 const AXIOM = 'rem is the best girl'
 
@@ -83,6 +83,69 @@ describe('Switch.vue', () => {
         const wrapper = mount(() => <Switch v-model={value.value} disabled/>)
         expect(value.value).toEqual(true)
         const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual(true)
+    })
+
+    test('expand switch value', async () => {
+        const value = ref('100')
+        const onValue = ref('100')
+        const offValue = ref('0')
+        const wrapper = mount(() => (
+            <Switch
+            v-model={value.value}
+            active-value={onValue.value}
+            inactive-value={offValue.value}
+            />
+        ))
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual('0')
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual('100')
+    })
+
+    test('brforeChange return  promise', async () => {
+        const value = ref(true)
+        const asyncResult = ref('error')
+        const beforeChange = () => {
+            return new Promise<boolean>((resolve, reject) => {
+                setTimeout(() => {
+                    return asyncResult.value == 'success'? resolve(true): reject(new Error('Error'))
+                }, 1000)
+            })
+        }
+        const wrapper = mount(() => <Switch v-model={value.value} beforeChange={beforeChange}/>)
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        vi.useFakeTimers()
+        await coreWrapper.trigger('click')
+        vi.runAllTimers()
+        await nextTick()
+        expect(value.value).toEqual(true)
+
+        asyncResult.value = 'success'
+        vi.useFakeTimers()
+        await coreWrapper.trigger('click')
+        vi.runAllTimers()
+        await nextTick()
+        expect(value.value).toEqual(false)
+    })
+
+    test('brforeChange return  boolean', async () => {
+        const value = ref(true)
+        const result = ref(false)
+        const beforeChange = () => {
+            return result.value
+        }
+        const wrapper = mount(() => <Switch v-model={value.value} beforeChange={beforeChange}/>)
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual(true)
+
+        result.value  = true
+
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual(false)
         await coreWrapper.trigger('click')
         expect(value.value).toEqual(true)
     })

@@ -1,4 +1,5 @@
 import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@my-element-plus/constants"
+import { useSizeProp } from "@my-element-plus/hooks"
 import { buildProps, isBoolean, isString, isNumber, iconPropType, definePropType } from "@my-element-plus/utils"
 export const switchProps = buildProps({
     modelValue: {
@@ -42,7 +43,8 @@ export const switchProps = buildProps({
     beforeChange: {
         type: definePropType<() => boolean | Promise<boolean>>(Function)
     },
-    disabled: Boolean
+    disabled: Boolean,
+    size: useSizeProp
 })
 
 export const switchEmits = {

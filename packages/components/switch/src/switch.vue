@@ -75,7 +75,8 @@ const ns = useNamespace('switch')
 const switchKls = computed(() => [
     ns.b(),
     ns.is('checked', checked.value),
-    ns.is('disabled', switchDisabled.value)
+    ns.is('disabled', switchDisabled.value),
+    ns.m(props.size)
 ])
 const switchDisabled = computed(() => props.disabled || props.loading)
 const checked = computed(() => props.modelValue === props.activeValue)

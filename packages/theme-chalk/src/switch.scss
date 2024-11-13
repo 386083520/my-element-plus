@@ -3,26 +3,44 @@
 @use 'common/var.scss' as *;
 @use 'mixins/utils.scss' as *;
 
+
+$switch-height: (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px
+);
 $switch-core-width: (
-    'default': 40px
+    'large': 50px,
+    'default': 40px,
+    'small': 30px
 );
 $switch-core-height: (
-    'default': 20px
+    'large': 24px,
+    'default': 20px,
+    'small': 16px
 );
 $switch-core-border-radius: (
-    'default': 10px
+    'large': 12px,
+    'default': 10px,
+    'small': 8px
 );
 
 $switch-button-size: (
-    'default': 16px
+    'large': 20px,
+    'default': 16px,
+    'small': 12px
 );
 
 $switch-font-size: (
-    'default': 14px
+    'large': 14px,
+    'default': 14px,
+    'small': 12px
 );
 
 $switch-content-padding: (
-    'default': 4px
+    'large': 6px,
+    'default': 4px,
+    'small': 2px
 );
 
 
@@ -35,6 +53,7 @@ $switch-content-padding: (
     display: flex;
     align-items: center;
     font-size: map.get($switch-font-size, 'default');
+    height: map.get($switch-height, 'default');
     @include e(label) {
         display: inline-block;
         height: map.get($switch-core-height, 'default');
@@ -122,6 +141,43 @@ $switch-content-padding: (
         opacity: 0.6;
         & .#{$namespace}-switch__core,.#{$namespace}-switch__label {
             cursor: not-allowed;
+        }
+    }
+
+    @each $size in (large,small) {
+        @include m($size) {
+            font-size: map.get($switch-font-size, $size);
+            height: map.get($switch-height, $size);
+            @include e(label) {
+                height: map.get($switch-core-height, $size);
+                font-size: map.get($switch-font-size, $size);
+            }
+            @include e(core) {
+                height: map.get($switch-core-height, $size);
+                min-width: map.get($switch-core-width, $size);
+                border-radius: map.get($switch-core-border-radius, $size);
+                .#{$namespace}-switch__inner {
+                    height: map.get($switch-button-size, $size);
+        
+                    padding: 0 map.get($switch-content-padding, $size) 
+                             0 calc(#{map.get($switch-button-size, $size) + 2px});
+                }
+                .#{$namespace}-switch__action {
+                    width: map.get($switch-button-size, $size);
+                    height: map.get($switch-button-size, $size);
+                }
+            }
+            @include when(checked) {
+                .#{$namespace}-switch__core {
+                    .#{$namespace}-switch__action {
+                        left: calc(100% - #{map.get($switch-button-size, $size) + 1px});
+                    }
+                    .#{$namespace}-switch__inner {
+                        padding: 0 calc(#{map.get($switch-button-size,$size) + 2px}) 
+                        0 map.get($switch-content-padding, $size);
+                    }
+                }
+            }
         }
     }
 }

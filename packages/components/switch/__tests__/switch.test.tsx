@@ -63,4 +63,28 @@ describe('Switch.vue', () => {
         expect(vm.$el.classList.contains('is-checked')).true
         expect(value.value).toEqual(true)
     })
+
+    test('change event', async ()  => {
+        const value = ref(true)
+        const target  = ref(1)
+        const handleChange = (val) => {
+            target.value = val
+        }
+        const wrapper = mount(() => <Switch v-model={value.value} onChange={handleChange}/>)
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        const switchWrapper = wrapper.findComponent(Switch)
+        expect(switchWrapper.emitted()['change']).toBeTruthy()
+        expect(target.value).toEqual(false)
+    })
+
+    test('disabled not click', async () => {
+        const value = ref(true)
+        const wrapper = mount(() => <Switch v-model={value.value} disabled/>)
+        expect(value.value).toEqual(true)
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(value.value).toEqual(true)
+    })
+
 })

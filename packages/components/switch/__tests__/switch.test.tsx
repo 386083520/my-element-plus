@@ -2,7 +2,9 @@ import { describe, test, expect } from "vitest"
 import { mount } from '@vue/test-utils'
 
 import Switch from "../src/switch.vue"
-import { wrap } from "lodash-unified"
+
+import { Checked, CircleClose } from "@element-plus/icons-vue"
+import { ref } from "vue"
 
 const AXIOM = 'rem is the best girl'
 
@@ -41,5 +43,24 @@ describe('Switch.vue', () => {
         expect(coreEl.style.width).toEqual('100px')
         const label = wrapper.find('.ell-switch__inner span')
         expect(label.text()).toEqual('off')
+    })
+
+    test('switch with icons', () => {
+        const wrapper = mount(() => <Switch activeIcon={Checked} inactiveIcon={CircleClose}/>)
+        expect(wrapper.findComponent(Checked).exists()).toBe(true)
+    })
+
+    test('value correctly update', async () => {
+        const value = ref(true)
+        const wrapper = mount(() => <Switch v-model={value.value}/>)
+        const vm = wrapper.vm
+        expect(vm.$el.classList.contains('is-checked')).true
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(vm.$el.classList.contains('is-checked')).false
+        expect(value.value).toEqual(false)
+        await coreWrapper.trigger('click')
+        expect(vm.$el.classList.contains('is-checked')).true
+        expect(value.value).toEqual(true)
     })
 })

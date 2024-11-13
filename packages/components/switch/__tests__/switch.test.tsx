@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import Switch from "../src/switch.vue"
 
-import { Checked, CircleClose } from "@element-plus/icons-vue"
+import { Checked, CircleClose, View, Hide } from "@element-plus/icons-vue"
 import { nextTick, ref } from "vue"
 
 const AXIOM = 'rem is the best girl'
@@ -148,6 +148,23 @@ describe('Switch.vue', () => {
         expect(value.value).toEqual(false)
         await coreWrapper.trigger('click')
         expect(value.value).toEqual(true)
+    })
+
+    test('custom action icon', async () => {
+        const value = ref(true)
+
+        const wrapper = mount(() => (
+            <Switch
+            v-model={value.value}
+            activeActionIcon={View}
+            inactiveActionIcon={Hide}
+        />))
+        expect(wrapper.findComponent(View).exists()).toBe(true)
+        expect(wrapper.findComponent(Hide).exists()).toBe(false)
+        const coreWrapper = wrapper.find('.ell-switch__core')
+        await coreWrapper.trigger('click')
+        expect(wrapper.findComponent(Hide).exists()).toBe(true)
+        expect(wrapper.findComponent(View).exists()).toBe(false)
     })
 
 })

@@ -57,6 +57,7 @@
 </template>
 
 <script lang="ts" setup>
+import EllIcon from '@my-element-plus/components/icon';
 import { computed, CSSProperties, onMounted, ref, watch } from 'vue';
 import { switchEmits, switchProps } from './switch'
 import { useNamespace } from '@my-element-plus/hooks';
